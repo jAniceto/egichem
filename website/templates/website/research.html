@@ -1,0 +1,21 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+
+
+
+  {%  for field in research_fields  %}
+    {% if forloop.counter0|divisibleby:3 %}<div class="row mb-3">{%  endif %}
+      <div class="col-md-4">
+        <div class="card">
+          <img class="card-img-top" src="https://via.placeholder.com/350x200" alt="">
+          <div class="card-body">
+            <h5 class="card-title">{{ field.title }}</h5>
+            <p class="card-text">{{ field.content }}</p>
+          </div>
+        </div>
+      </div>
+  {%  if forloop.counter|divisibleby:3 or forloop.last %}</div><!-- row closing -->{%  endif %}
+  {%  endfor %}
+
+{% endblock content %}
