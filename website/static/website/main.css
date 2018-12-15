@@ -1,7 +1,13 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
 body {
   /* background: #fafafa; */
   color: #333333;
   /* margin-top: 5rem; */
+  margin-bottom: 180px; /* Margin bottom by footer height */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -41,6 +47,15 @@ ul {
 
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.7rem;
+  /* height: 60px; Set the fixed height of the footer here */
+  background-color: #fafafa;
 }
 
 /* .content-section {

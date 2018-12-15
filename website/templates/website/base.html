@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'website/main.css' %}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 
     {% if title %}
         <title>EGICHEM | {{ title }}</title>
@@ -70,6 +72,37 @@
 
       {% block content %}{% endblock %}
     </main>
+
+    <footer class="footer border-top pt-3 pb-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <h5><i class="fas fa-map-marker"></i> Visit</h5>
+            <p>
+              Lab 29.1.5 and 29.1.15<br>
+              Departamento de Química<br>
+              Universidade de Aveiro<br>
+              Campus Universitário de Santiago<br>
+              3810-193 Aveiro - Portugal<br>
+            </p>
+          </div>
+          <div class="col-md-3">
+            <h5><i class="fas fa-phone"></i> Call</h5>
+            <p>
+              T: +351 234 401549<br>
+              F: +351 234 370084<br>
+            </p>
+          </div>
+          <div class="col-md-3">
+            <h5><i class="fas fa-envelope"></i> Contact</h5>
+            <p>dq-egichem[at]ua.pt</p>
+          </div>
+          <div class="col-md-3">
+            <p class="text-muted">Created by:<br>José Aniceto</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
