@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import ResearchField, LabUnit
+from .models import ResearchField, LabUnit, Partner, Collaborator
 
 
 def home(request):
@@ -33,3 +33,15 @@ def lab(request):
 		'lab_units': LabUnit.objects.all()
 	}
 	return render(request, 'website/lab.html', context)
+
+
+def partners(request):
+	context = {
+		'page_title': 'Collaborators',
+		'page_subtitle': 'People actively taking part in EGICHEM activities',
+		'page_title2': 'Partners',
+		'page_subtitle2': 'Companies and entities with which EGICHEM has or had some collaborations',
+		'partners': Partner.objects.all(),
+		'collaborators': Collaborator.objects.all()
+	}
+	return render(request, 'website/partners.html', context)
