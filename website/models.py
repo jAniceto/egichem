@@ -12,3 +12,14 @@ class ResearchField(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class LabUnit(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    equipment = models.TextField()
+    image = models.ImageField(upload_to='images/lab')
+    date_posted = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.title

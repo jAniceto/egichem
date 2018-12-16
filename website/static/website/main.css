@@ -68,6 +68,15 @@ ul {
   min-height: 100%;
 }
 
+.unit-img {
+  /* width: 100%;     */
+  /* overflow:hidden; */
+}
+
+.unit-img img {
+  /* min-width: 100%; */
+}
+
 /* .content-section {
   background: #ffffff;
   padding: 10px 20px;
