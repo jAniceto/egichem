@@ -45,3 +45,26 @@ class Partner(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Member(models.Model):
+    POSITIONS = (
+        ('Professor', 'Professor'),
+        ('PostDoc Researcher', 'PostDoc Researcher'),
+        ('PhD Student', 'PhD Student'),
+        ('Research Fellow', 'Research Fellow'),
+        ('MSc Student', 'MSc Student'),
+        ('Undergraduate Student', 'Undergraduate Student'),
+    )
+    name = models.CharField(max_length=100)
+    position = models.CharField(max_length=50, choices=POSITIONS)
+    research_area = models.CharField(max_length=200, blank=True)
+    thesis = models.TextField(blank=True)
+    photo = models.ImageField(upload_to='images/people', blank=True)
+    alumni = models.BooleanField(default=False)
+    highlighted = models.BooleanField(default=False)
+    date_added = models.DateTimeField(default=timezone.now)
+    # user = models.OneToOneField()
+
+    def __str__(self):
+        return self.name

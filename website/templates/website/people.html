@@ -1,0 +1,185 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+
+<!-- PostDoc Students -->
+{%  if postdocs %}
+<div class="row mt-4 mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h3 class="text-divider"><span>PostDoc Researchers</span></h3>
+  </div>
+</div>
+
+{%  for postdoc in postdocs  %}
+{% if forloop.counter0|divisibleby:2 %}
+<div class="row mb-3">
+  <div class="col-md-12">
+      <div class="card-deck">
+{%  endif %}
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="">
+              </div>
+              <div class="col-md-8">
+                <h5 class="card-title">{{ postdoc.name }}</h5>
+                <p class="card-text">Research area: {{ postdoc.research_area }}</p>
+                <p class="card-text"><small class="text-muted">With Egichem since {{ postdoc.date_added|date:"F Y" }}</small></p>
+              </div>
+            </div>
+          </div>
+        </div>
+{%  if forloop.counter|divisibleby:2 or forloop.last %}
+    </div><!-- row closing -->
+  </div><!-- col-md-12 closing -->
+</div><!-- row closing -->
+{%  endif %}
+{%  endfor %}
+{%  endif %}
+
+
+<!-- PhD Students -->
+{%  if phds %}
+<div class="row mt-4 mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h3 class="text-divider"><span>PhD Students</span></h3>
+  </div>
+</div>
+
+{%  for phd in phds  %}
+{% if forloop.counter0|divisibleby:2 %}
+<div class="row mb-3">
+  <div class="col-md-12">
+      <div class="card-deck">
+{%  endif %}
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="">
+              </div>
+              <div class="col-md-8">
+                <h5 class="card-title">{{ phd.name }}</h5>
+                <p class="card-text text-muted">Research area: {{ phd.research_area }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+{%  if forloop.counter|divisibleby:2 or forloop.last %}
+    </div><!-- row closing -->
+  </div><!-- col-md-12 closing -->
+</div><!-- row closing -->
+{%  endif %}
+{%  endfor %}
+{%  endif %}
+
+
+<!-- Research Fellows -->
+{%  if fellows %}
+<div class="row mt-4 mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h3 class="text-divider"><span>Research Fellows</span></h3>
+  </div>
+</div>
+
+{%  for fellow in fellows  %}
+{% if forloop.counter0|divisibleby:2 %}
+<div class="row mb-3">
+  <div class="col-md-12">
+      <div class="card-deck">
+{%  endif %}
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="">
+              </div>
+              <div class="col-md-8">
+                <h5 class="card-title">{{ fellow.name }}</h5>
+                <p class="card-text text-muted">Research area: {{ fellow.research_area }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+{%  if forloop.counter|divisibleby:2 or forloop.last %}
+    </div><!-- row closing -->
+  </div><!-- col-md-12 closing -->
+</div><!-- row closing -->
+{%  endif %}
+{%  endfor %}
+{%  endif %}
+
+
+<!-- MSc Students -->
+{% if masters %}
+<div class="row mt-4 mb-3">
+    <div class="col-md-8 offset-md-2">
+      <h3 class="text-divider"><span>MSc Students</span></h3>
+    </div>
+  </div>
+  
+{%  for master in masters  %}
+{% if forloop.counter0|divisibleby:2 %}
+<div class="row mb-3">
+  <div class="col-md-12">
+      <div class="card-deck">
+{%  endif %}
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="">
+              </div>
+              <div class="col-md-8">
+                <h5 class="card-title">{{ master.name }}</h5>
+                <p class="card-text text-muted">Thesis: {{ master.thesis }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+{%  if forloop.counter|divisibleby:2 or forloop.last %}
+    </div><!-- row closing -->
+  </div><!-- col-md-12 closing -->
+</div><!-- row closing -->
+{%  endif %}
+{%  endfor %}
+{%  endif %}
+
+
+<!-- Undergraduate Students -->
+{% if undergraduates %}
+<div class="row mt-4 mb-3">
+    <div class="col-md-8 offset-md-2">
+      <h3 class="text-divider"><span>Undergraduate Students</span></h3>
+    </div>
+  </div>
+  
+{%  for undergraduate in undergraduates  %}
+{% if forloop.counter0|divisibleby:2 %}
+<div class="row mb-3">
+  <div class="col-md-12">
+      <div class="card-deck">
+{%  endif %}
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-4">
+                <img src="https://via.placeholder.com/150" alt="">
+              </div>
+              <div class="col-md-8">
+                <h5 class="card-title">{{ undergraduate.name }}</h5>
+                <p class="card-text text-muted">Research area: {{ undergraduate.thesis }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+{%  if forloop.counter|divisibleby:2 or forloop.last %}
+    </div><!-- row closing -->
+  </div><!-- col-md-12 closing -->
+</div><!-- row closing -->
+{%  endif %}
+{%  endfor %}
+{%  endif %}
+
+{% endblock content %}

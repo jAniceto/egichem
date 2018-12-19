@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import ResearchField, LabUnit, Partner, Collaborator
+from .models import ResearchField, LabUnit, Partner, Collaborator, Member
 
 
 def home(request):
@@ -16,14 +16,6 @@ def research(request):
 		'research_fields': ResearchField.objects.all()
 	}
 	return render(request, 'website/research.html', context)
-
-
-def people(request):
-	context = {
-		'page_title': 'People',
-		'page_subtitle': 'PostDoc Fellows, PhD Students, Research Fellows, MSc Students and Undergradurate Students',
-	}
-	return render(request, 'website/people.html', context)
 
 
 def lab(request):
@@ -45,3 +37,27 @@ def partners(request):
 		'collaborators': Collaborator.objects.all()
 	}
 	return render(request, 'website/partners.html', context)
+	
+
+def people(request):
+	members = Member.objects.all()
+	professor = members.filter(highlighted=True).first()
+	postdocs = members.filter(position='PostDoc Researcher').exclude(highlighted=True).exclude(alumni=True)
+	phds = members.filter(position='PhD Student').exclude(highlighted=True).exclude(alumni=True)
+	fellows = members.filter(position='Research Fellow').exclude(highlighted=True).exclude(alumni=True)
+	masters = members.filter(position='MSc Student').exclude(highlighted=True).exclude(alumni=True)
+	undergraduates = members.filter(position='Undergraduate Students').exclude(highlighted=True).exclude(alumni=True)
+
+	print(fellows)
+	
+	context = {
+		'page_title': 'People',
+		'page_subtitle': 'PostDoc Fellows, PhD Students, Research Fellows, MSc Students and Undergradurate Students',
+		'professor': professor,
+		'postdocs': postdocs,
+		'phds': phds,
+		'fellows': fellows,
+		'masters': masters,
+		'undergraduates': undergraduates,
+	}
+	return render(request, 'website/people.html', context)
