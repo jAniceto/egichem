@@ -12,9 +12,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="{% static 'website/main.css' %}">
     <!-- Fonts -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet"> -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet"> -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Exo|Exo+2" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Alegreya+Sans|Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -113,10 +111,6 @@
     </header>
 
     <main role="main" class="container">
-      <div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3">
-        <span class="font-weight-bold">{{ page_title }}</span>{% if page_subtitle %} &nbsp;|&nbsp;  <span class="text-small">{{ page_subtitle }}</span>{% endif %}
-      </div>
-      
       {% block content %}{% endblock %}
     </main>
 
@@ -124,8 +118,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-3">
-            <h5><i class="fas fa-map-marker"></i> Visit</h5>
-            <p>
+            <h5 class="text-secondary"><i class="fas fa-map-marker"></i> Visit</h5>
+            <p class="text-secondary">
               Lab 29.1.5 and 29.1.15<br>
               Departamento de Química<br>
               Universidade de Aveiro<br>
@@ -134,18 +128,25 @@
             </p>
           </div>
           <div class="col-md-3">
-            <h5><i class="fas fa-phone"></i> Call</h5>
-            <p>
+            <h5 class="text-secondary"><i class="fas fa-phone"></i> Call</h5>
+            <p class="text-secondary">
               T: +351 234 401549<br>
               F: +351 234 370084<br>
             </p>
           </div>
           <div class="col-md-3">
-            <h5><i class="fas fa-envelope"></i> Contact</h5>
-            <p>dq-egichem[at]ua.pt</p>
+            <h5 class="text-secondary"><i class="fas fa-envelope"></i> Contact</h5>
+            <p class="text-secondary">dq-egichem[at]ua.pt</p>
           </div>
           <div class="col-md-3">
-            <p class="text-muted">Created by:<br>José Aniceto</p>
+            <p class="text-muted">
+              Created by:<br>
+              José Aniceto
+            </p>
+            <p class="text-muted">
+              Managed by:<br>
+              Marcelo Melo
+            </p>
           </div>
         </div>
       </div>

@@ -33,14 +33,14 @@ def partners(request):
 		'page_subtitle': 'People actively taking part in EGICHEM activities',
 		'page_title2': 'Partners',
 		'page_subtitle2': 'Companies and entities with which EGICHEM has or had some collaborations',
-		'partners': Partner.objects.all(),
-		'collaborators': Collaborator.objects.all()
+		'partners': Partner.objects.all().order_by('name'),
+		'collaborators': Collaborator.objects.all().order_by('name')
 	}
 	return render(request, 'website/partners.html', context)
 	
 
 def people(request):
-	members = Member.objects.all()
+	members = Member.objects.all().order_by('name')
 	professor = members.filter(highlighted=True).first()
 	postdocs = members.filter(position='PostDoc Researcher').exclude(highlighted=True).exclude(alumni=True)
 	phds = members.filter(position='PhD Student').exclude(highlighted=True).exclude(alumni=True)

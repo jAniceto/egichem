@@ -1,19 +1,22 @@
 {% extends "website/base.html" %}
 
 {% block content %}
+<div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3">
+  <span class="font-weight-bold">{{ page_title }}</span>{% if page_subtitle %} &nbsp;|&nbsp;  <span class="text-small">{{ page_subtitle }}</span>{% endif %}
+</div>
 
-  {%  for field in research_fields  %}
-    {% if forloop.counter0|divisibleby:3 %}<div class="row mb-3">{%  endif %}
-      <div class="col-md-4">
-        <div class="card">
-          <img class="card-img-top" src="{{ field.image.url }}" alt="">
-          <div class="card-body">
-            <h5 class="card-title">{{ field.title }}</h5>
-            <p class="card-text">{{ field.content }}</p>
-          </div>
+{%  for field in research_fields  %}
+  {% if forloop.counter0|divisibleby:3 %}<div class="row mb-3">{%  endif %}
+    <div class="col-md-4">
+      <div class="card bg-light">
+        <img class="card-img-top" src="{{ field.image.url }}" alt="">
+        <div class="card-body">
+          <h5 class="card-title">{{ field.title }}</h5>
+          <p class="card-text">{{ field.content }}</p>
         </div>
       </div>
-  {%  if forloop.counter|divisibleby:3 or forloop.last %}</div><!-- row closing -->{%  endif %}
-  {%  endfor %}
+    </div>
+{%  if forloop.counter|divisibleby:3 or forloop.last %}</div><!-- row closing -->{%  endif %}
+{%  endfor %}
 
 {% endblock content %}

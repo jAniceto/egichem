@@ -8,10 +8,7 @@ body {
   color: #333333;
   /* margin-top: 5rem; */
   margin-bottom: 200px; /* Margin bottom by footer height */
-  /* font-family: 'Muli', sans-serif; */
-  /* font-family: 'Titillium Web', sans-serif; */
-  /* font-family: 'Exo 2', sans-serif; */
-    /* font-family: 'Open Sans', sans-serif; */
+  font-family: 'Roboto', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -22,6 +19,7 @@ ul {
   margin: 0;
 }
 
+/* EGICHEM COLORS */
 .bg-egichem-green {
   background-color: #62AA23;
 }
@@ -47,6 +45,18 @@ ul {
 
 .site-header .navbar-nav .nav-link.active {
   font-weight: 500;
+}
+
+/* LINKS STYLES */
+main a.link {
+  color: #333333;
+  background: linear-gradient(transparent 66%, rgba(98, 170, 35, 0.3) 33%);
+}
+
+main a.link:hover {
+  color: #333333;
+  background: linear-gradient(transparent 66%, rgba(98, 170, 35, 0.7) 33%);
+  text-decoration: none;
 }
 
 /* FOOTER */
