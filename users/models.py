@@ -20,8 +20,16 @@ class Profile(models.Model):
         super().save(*args, **kwargs)
 
         img = Image.open(self.photo.path)
-
+        
+        # Crop image to square
+        w, h = img.size  
         if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
-            img.save(self.photo.path)
+            if img.width != img.height:
+                cropped = img.crop((w//2 - 300//2, h//2 - 300//2, w//2 + 300//2, h//2 + 300//2))
+                cropped.save(self.photo.path)
+
+            # Reduce size of image
+            else:
+                output_size = (300, 300)
+                img.thumbnail(output_size)
+                img.save(self.photo.path)
