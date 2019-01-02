@@ -1,0 +1,39 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3">
+        <span class="font-weight-bold">{{ user.username }}</span>  &nbsp;|&nbsp;  <span class="text-small">Profile page</span>
+</div>
+
+
+<div class="row mb-3">
+    <div class="col-md-12">
+        <div class="card bg-light">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="img-fluid img-thumbnail" src="{{ user.profile.photo.url }}" alt="">
+                    </div>
+                    <div class="col-md-9">
+                        <h2 class="account-heading">{{ user.username }}</h2>
+                        <p class="text-secondary">{{ user.email }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- col-md-12 closing -->
+</div><!-- row closing -->
+
+<div class="content-section">
+    <div class="media">
+        <img class="img-fluid account-img" src="{{ user.profile.photo.url }}">
+        <div class="media-body">
+        <h2 class="account-heading">{{ user.username }}</h2>
+        <p class="text-secondary">{{ user.email }}</p>
+        </div>
+    </div>
+    <!-- FORM HERE -->
+</div>
+
+{% endblock content %}
