@@ -1,0 +1,30 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3">
+    <span class="font-weight-bold">Log In</span>
+</div>
+
+<div class="content-section">
+    <div class="row">
+        <div class="col-md-6">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-egichem" type="submit">Login</button>
+                </div>
+            </form>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    Need An Account? <a class="ml-2 link" href="{% url 'register' %}">Register</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

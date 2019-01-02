@@ -1,0 +1,27 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3">
+    <span class="font-weight-bold">Register</span>  &nbsp;|&nbsp;  <span class="text-small">Create an EGICHEM member account</span>
+</div>
+
+<div class="content-section">
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+            <!-- <legend class="border-bottom mb-4">Join Today</legend> -->
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-outline-egichem" type="submit">Sign Up</button>
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            Already Have An Account? <a class="ml-2 link" href="{% url 'login' %}">Log In</a>
+        </small>
+    </div>
+</div>
+
+{% endblock content %}

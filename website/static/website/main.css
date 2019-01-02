@@ -28,6 +28,19 @@ ul {
   color: #62AA23;
 }
 
+.btn-outline-egichem {
+  color: #62AA23;
+  background-color: transparent;
+  background-image: none;
+  border-color: #62AA23;
+}
+
+.btn-outline-egichem:hover {
+  color: #fff;
+  background-color: #62AA23;
+  border-color: #62AA23;
+}
+
 .text-small {
   font-size: small;
 }
