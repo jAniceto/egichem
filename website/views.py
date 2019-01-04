@@ -41,7 +41,7 @@ def partners(request):
 
 def people(request):
 	members = Member.objects.all().order_by('name')
-	professor = members.filter(highlighted=True).first()
+	professors = members.filter(highlighted=True)
 	postdocs = members.filter(position='PostDoc Researcher').exclude(highlighted=True).exclude(alumni=True)
 	phds = members.filter(position='PhD Student').exclude(highlighted=True).exclude(alumni=True)
 	fellows = members.filter(position='Research Fellow').exclude(highlighted=True).exclude(alumni=True)
@@ -53,7 +53,7 @@ def people(request):
 	context = {
 		'page_title': 'People',
 		'page_subtitle': 'PostDoc Fellows, PhD Students, Research Fellows, MSc Students and Undergradurate Students',
-		'professor': professor,
+		'professors': professors,
 		'postdocs': postdocs,
 		'phds': phds,
 		'fellows': fellows,

@@ -6,6 +6,45 @@
   <span class="font-weight-bold">{{ page_title }}</span>{% if page_subtitle %} &nbsp;|&nbsp;  <span class="text-small">{{ page_subtitle }}</span>{% endif %}
 </div>
 
+
+<!-- Highlighted - Professors -->
+{%  if professors %}
+{%  for professor in professors  %}
+<div class="row mt-4 mb-3">
+  <div class="col-md-12">
+      <div class="card bg-light">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-3">
+              <img class="img-fluid" src="{% if professor.user.profile.photo.url %}{{ professor.user.profile.photo.url }}{% else %}{{ professor.photo.url }}{% endif %}" alt="">
+              <div class="mt-3">
+                {% if professor.user.profile.scopus_url %}
+                <a class="btn btn-outline-egichem btn-block" href="{{ professor.user.profile.scopus_url }}" role="button"><i class="fas fa-globe-europe"></i> Scopus</a>
+                {% endif %}
+                {% if professor.user.profile.scholar_url %}
+                <a class="btn btn-outline-egichem btn-block" href="{{ professor.user.profile.scholar_url }}" role="button"><i class="ai ai-google-scholar"></i> Google Scholar</a>
+                {% endif %}
+                {% if professor.user.profile.linkedin_url %}
+                <a class="btn btn-outline-egichem btn-block" href="{{ professor.user.profile.scholar_url }}" role="button"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                {% endif %}
+                {% if professor.user.profile.personal_url %}
+                <a class="btn btn-outline-egichem btn-block" href="{{ professor.user.profile.scholar_url }}" role="button"><i class="fas fa-link"></i> Personal Page</a>
+                {% endif %}
+              </div>
+            </div>
+            <div class="col-md-9">
+              <h4 class="card-title">{{ professor.name }}</h4>
+              <p class="card-text">{{ professor.user.profile.bio|safe }}</p>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div><!-- col-md-12 closing -->
+</div><!-- row closing -->
+{%  endfor %}
+{%  endif %}
+
+
 <!-- PostDoc Students -->
 {%  if postdocs %}
 <div class="row mt-4 mb-3">
@@ -20,16 +59,32 @@
   <div class="col-md-12">
       <div class="card-deck">
 {%  endif %}
-        <div class="card bg-light">
+        <div class="card">
           <div class="card-body">
             <div class="row">
               <div class="col-md-4">
-                <img src="https://via.placeholder.com/150" alt="">
+                <img class="img-fluid" src="{% if postdoc.user.profile.photo.url %}{{ postdoc.user.profile.photo.url }}{% else %}{{ postdoc.photo.url }}{% endif %}" alt="">
               </div>
               <div class="col-md-8">
-                <h5 class="card-title">{{ postdoc.name }}</h5>
-                <p class="card-text">Research area: {{ postdoc.research_area }}</p>
-                <p class="card-text"><small class="text-muted">With Egichem since {{ postdoc.date_added|date:"F Y" }}</small></p>
+                <h4 class="card-title">{{ postdoc.name }}</h4>
+                <p class="card-text mb-2">{{ postdoc.research_area }}</p>
+                <p class="card-text mb-2">
+                  <small>
+                    {% if postdoc.user.profile.scopus_url %}
+                    <a class="link" href="{{ postdoc.user.profile.scopus_url }}" target="_blank">Scopus</a> &nbsp;
+                    {% endif %}
+                    {% if postdoc.user.profile.scholar_url %}
+                    <a class="link" href="{{ postdoc.user.profile.scholar_url }}" target="_blank">Scholar</a> &nbsp; 
+                    {% endif %}
+                    {% if postdoc.user.profile.linkedin_url %}
+                    <a class="link" href="{{ postdoc.user.profile.scholar_url }}" target="_blank">LinkedIn</a> &nbsp; 
+                    {% endif %}
+                    {% if postdoc.user.profile.personal_url %}
+                    <a class="link" href="{{ postdoc.user.profile.scholar_url }}" target="_blank">Personal Page</a> &nbsp; 
+                    {% endif %}
+                  </small>
+                </p>
+                <p class="card-text mb-2"><small class="text-muted">With Egichem since {{ postdoc.date_added|date:"F Y" }}</small></p>
               </div>
             </div>
           </div>
@@ -61,11 +116,27 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-4">
-                <img src="https://via.placeholder.com/150" alt="">
+                <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h5 class="card-title">{{ phd.name }}</h5>
-                <p class="card-text text-muted">Research area: {{ phd.research_area }}</p>
+                <h4 class="card-title">{{ phd.name }}</h4>
+                <p class="card-text mb-2">{{ phd.research_area }}</p>
+                <p class="card-text mb-2">
+                  <small>
+                    {% if phd.user.profile.scopus_url %}
+                    <a class="link" href="{{ phd.user.profile.scopus_url }}" target="_blank">Scopus</a> &nbsp;
+                    {% endif %}
+                    {% if phd.user.profile.scholar_url %}
+                    <a class="link" href="{{ phd.user.profile.scholar_url }}" target="_blank">Scholar</a> &nbsp; 
+                    {% endif %}
+                    {% if phd.user.profile.linkedin_url %}
+                    <a class="link" href="{{ phd.user.profile.scholar_url }}" target="_blank">LinkedIn</a> &nbsp; 
+                    {% endif %}
+                    {% if phd.user.profile.personal_url %}
+                    <a class="link" href="{{ phd.user.profile.scholar_url }}" target="_blank">Personal Page</a> &nbsp; 
+                    {% endif %}
+                  </small>
+                </p>
               </div>
             </div>
           </div>
@@ -97,11 +168,27 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-4">
-                <img src="https://via.placeholder.com/150" alt="">
+                <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h5 class="card-title">{{ fellow.name }}</h5>
-                <p class="card-text text-muted">Research area: {{ fellow.research_area }}</p>
+                <h4 class="card-title">{{ fellow.name }}</h4>
+                <p class="card-text mb-2">{{ fellow.research_area }}</p>
+                <p class="card-text mb-2">
+                  <small>
+                    {% if fellow.user.profile.scopus_url %}
+                    <a class="link" href="{{ fellow.user.profile.scopus_url }}" target="_blank">Scopus</a> &nbsp;
+                    {% endif %}
+                    {% if fellow.user.profile.scholar_url %}
+                    <a class="link" href="{{ fellow.user.profile.scholar_url }}" target="_blank">Scholar</a> &nbsp; 
+                    {% endif %}
+                    {% if fellow.user.profile.linkedin_url %}
+                    <a class="link" href="{{ fellow.user.profile.scholar_url }}" target="_blank">LinkedIn</a> &nbsp; 
+                    {% endif %}
+                    {% if fellow.user.profile.personal_url %}
+                    <a class="link" href="{{ fellow.user.profile.scholar_url }}" target="_blank">Personal Page</a> &nbsp; 
+                    {% endif %}
+                  </small>
+                </p>
               </div>
             </div>
           </div>
@@ -133,11 +220,27 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-4">
-                <img src="https://via.placeholder.com/150" alt="">
+                <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h5 class="card-title">{{ master.name }}</h5>
-                <p class="card-text text-muted">Thesis: {{ master.thesis }}</p>
+                <h4 class="card-title">{{ master.name }}</h4>
+                <p class="card-text mb-2">Thesis: {{ master.thesis }}</p>
+                <p class="card-text mb-2">
+                  <small>
+                    {% if fellow.user.profile.scopus_url %}
+                    <a class="link" href="{{ fellow.user.profile.scopus_url }}" target="_blank">Scopus</a> &nbsp;
+                    {% endif %}
+                    {% if fellow.user.profile.scholar_url %}
+                    <a class="link" href="{{ fellow.user.profile.scholar_url }}" target="_blank">Scholar</a> &nbsp; 
+                    {% endif %}
+                    {% if fellow.user.profile.linkedin_url %}
+                    <a class="link" href="{{ fellow.user.profile.scholar_url }}" target="_blank">LinkedIn</a> &nbsp; 
+                    {% endif %}
+                    {% if fellow.user.profile.personal_url %}
+                    <a class="link" href="{{ fellow.user.profile.scholar_url }}" target="_blank">Personal Page</a> &nbsp; 
+                    {% endif %}
+                  </small>
+                </p>
               </div>
             </div>
           </div>
@@ -169,11 +272,27 @@
           <div class="card-body">
             <div class="row">
               <div class="col-md-4">
-                <img src="https://via.placeholder.com/150" alt="">
+                <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h5 class="card-title">{{ undergraduate.name }}</h5>
-                <p class="card-text text-muted">Research area: {{ undergraduate.thesis }}</p>
+                <h4 class="card-title">{{ undergraduate.name }}</h4>
+                <p class="card-text mb-2">Research area: {{ undergraduate.thesis }}</p>
+                <p class="card-text mb-2">
+                  <small>
+                    {% if fellow.user.profile.scopus_url %}
+                    <a class="link" href="{{ fellow.user.profile.scopus_url }}" target="_blank">Scopus</a> &nbsp;
+                    {% endif %}
+                    {% if fellow.user.profile.scholar_url %}
+                    <a class="link" href="{{ fellow.user.profile.scholar_url }}" target="_blank">Scholar</a> &nbsp; 
+                    {% endif %}
+                    {% if fellow.user.profile.linkedin_url %}
+                    <a class="link" href="{{ fellow.user.profile.scholar_url }}" target="_blank">LinkedIn</a> &nbsp; 
+                    {% endif %}
+                    {% if fellow.user.profile.personal_url %}
+                    <a class="link" href="{{ fellow.user.profile.scholar_url }}" target="_blank">Personal Page</a> &nbsp; 
+                    {% endif %}
+                  </small>
+                </p>
               </div>
             </div>
           </div>

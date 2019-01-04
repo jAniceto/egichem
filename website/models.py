@@ -1,6 +1,6 @@
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils import timezone
-# from django.contrib.auth.models import User
 
 
 class ResearchField(models.Model):
@@ -56,15 +56,15 @@ class Member(models.Model):
         ('MSc Student', 'MSc Student'),
         ('Undergraduate Student', 'Undergraduate Student'),
     )
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=50, choices=POSITIONS)
     research_area = models.CharField(max_length=200, blank=True)
     thesis = models.TextField(blank=True)
-    photo = models.ImageField(upload_to='images/people', blank=True)
+    photo = models.ImageField(default='images/profile_photos/default.jpg', upload_to='images/people')
     alumni = models.BooleanField(default=False)
     highlighted = models.BooleanField(default=False)
     date_added = models.DateTimeField(default=timezone.now)
-    # user = models.OneToOneField()
 
     def __str__(self):
         return self.name
