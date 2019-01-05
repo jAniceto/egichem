@@ -118,6 +118,24 @@ main a.link:hover {
   border-bottom: 1px solid #f7f7f7;
 }
 
+/* NAV STYLES */
+/* .nav-tabs > a, .tab-links {
+  color: #62AA23;
+} */
+
+/* .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff;
+  background-color: #62AA23;
+} */
+
+a.tab-link {
+  color: #62AA23;
+}
+
+a.tab-link.active {
+  color: #495057;
+}
+
 /* .content-section {
   background: #ffffff;
   padding: 10px 20px;

@@ -1,0 +1,52 @@
+{% extends "website/base.html" %}
+
+{% block content %}
+
+<div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3">
+  <span class="font-weight-bold">Publications </span>{% if page_subtitle %} &nbsp;|&nbsp;  <span class="text-small">{{ page_subtitle }}</span>{% endif %}
+</div>
+
+<!-- <nav class="nav nav-pills nav-fill">
+	<a class="nav-item nav-link p-1 {% if pub_type == 'articles' %}active{% endif %}" href="{% url 'publications' 'articles' %}">Articles</a>
+	<a class="nav-item nav-link p-1 {% if pub_type == 'book-chapters' %}active{% endif %}" href="{% url 'publications' 'book-chapters' %}">Book Chapters</a>
+	<a class="nav-item nav-link p-1 {% if pub_type == 'patents' %}active{% endif %}" href="{% url 'publications' 'patents' %}">Patents</a>
+	<a class="nav-item nav-link p-1 {% if pub_type == 'posters' %}active{% endif %}" href="{% url 'publications' 'posters' %}">Posters</a>
+	<a class="nav-item nav-link p-1 {% if pub_type == 'presentations' %}active{% endif %}" href="{% url 'publications' 'presentations' %}">Presentations</a>
+	<a class="nav-item nav-link p-1 {% if pub_type == 'thesis' %}active{% endif %}" href="{% url 'publications' 'thesis' %}">Thesis</a>
+</nav>
+
+<br><br> -->
+<div class="row">
+	<div class="col-md-12">
+		<ul class="nav nav-tabs nav-justified">
+			<li class="nav-item">
+				<a class="nav-link tab-link {% if pub_type == 'articles' %}active{% endif %}" href="{% url 'publications' 'articles' %}">Articles</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link tab-link {% if pub_type == 'book-chapters' %}active{% endif %}" href="{% url 'publications' 'book-chapters' %}">Book Chapters</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link tab-link {% if pub_type == 'patents' %}active{% endif %}" href="{% url 'publications' 'patents' %}">Patents</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link tab-link {% if pub_type == 'posters' %}active{% endif %}" href="{% url 'publications' 'posters' %}">Posters</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link tab-link {% if pub_type == 'presentations' %}active{% endif %}" href="{% url 'publications' 'presentations' %}">Presentations</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link tab-link {% if pub_type == 'thesis' %}active{% endif %}" href="{% url 'publications' 'thesis' %}">Thesis</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="row mt-4">
+	<div class="col-md-12">
+		<h3>{{ page_title }}</h3>
+	</div>
+</div>
+
+
+
+{% endblock content %}

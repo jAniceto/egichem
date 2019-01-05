@@ -61,3 +61,13 @@ def people(request):
 		'undergraduates': undergraduates,
 	}
 	return render(request, 'website/people.html', context)
+
+
+def publications(request, pub_type):
+
+	context = {
+		'page_title': pub_type,
+		'page_subtitle': 'Our publications are divided in the following categories',
+		'pub_type': pub_type
+	}
+	return render(request, 'website/publications.html', context)
