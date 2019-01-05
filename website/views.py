@@ -63,13 +63,24 @@ def people(request):
 	return render(request, 'website/people.html', context)
 
 
-def publications(request, pub_type):
-	publications = Publication.objects.all().filter(pub_type=pub_type[:-1])
+def publications(request):
+	publications = Publication.objects.all().order_by('-pk')
+
+	articles = publications.filter(pub_type='article')
+	book_chapters = publications.filter(pub_type='book-chapter')
+	patents = publications.filter(pub_type='patent')
+	posters = publications.filter(pub_type='poster')
+	presentations = publications.filter(pub_type='presentation')
+	theses = publications.filter(pub_type='thesis')
 
 	context = {
-		'page_title': pub_type,
+		'page_title': 'Publications',
 		'page_subtitle': 'Our publications are divided in the following categories',
-		'pub_type': pub_type,
-		'pubs': publications
+		'articles': articles,
+		'book_chapters': book_chapters,
+		'patents': patents,
+		'posters': posters,
+		'presentations': presentations,
+		'theses': theses,
 	}
 	return render(request, 'website/publications.html', context)

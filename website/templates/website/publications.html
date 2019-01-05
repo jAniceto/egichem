@@ -6,54 +6,82 @@
   <span class="font-weight-bold">Publications </span>{% if page_subtitle %} &nbsp;|&nbsp;  <span class="text-small">{{ page_subtitle }}</span>{% endif %}
 </div>
 
-<!-- <nav class="nav nav-pills nav-fill">
-	<a class="nav-item nav-link p-1 {% if pub_type == 'articles' %}active{% endif %}" href="{% url 'publications' 'articles' %}">Articles</a>
-	<a class="nav-item nav-link p-1 {% if pub_type == 'book-chapters' %}active{% endif %}" href="{% url 'publications' 'book-chapters' %}">Book Chapters</a>
-	<a class="nav-item nav-link p-1 {% if pub_type == 'patents' %}active{% endif %}" href="{% url 'publications' 'patents' %}">Patents</a>
-	<a class="nav-item nav-link p-1 {% if pub_type == 'posters' %}active{% endif %}" href="{% url 'publications' 'posters' %}">Posters</a>
-	<a class="nav-item nav-link p-1 {% if pub_type == 'presentations' %}active{% endif %}" href="{% url 'publications' 'presentations' %}">Presentations</a>
-	<a class="nav-item nav-link p-1 {% if pub_type == 'thesis' %}active{% endif %}" href="{% url 'publications' 'thesis' %}">Thesis</a>
-</nav>
 
-<br><br> -->
 <div class="row">
 	<div class="col-md-12">
-		<ul class="nav nav-tabs nav-justified">
+		<ul class="nav nav-tabs nav-justified" id="publicationsTab" role="tablist">
 			<li class="nav-item">
-				<a class="nav-link tab-link {% if pub_type == 'articles' %}active{% endif %}" href="{% url 'publications' 'articles' %}">Articles</a>
+				<a class="nav-link tab-link active" id="articles-tab" data-toggle="tab" href="#articles" role="tab" aria-controls="articles" aria-selected="true">Articles</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link tab-link {% if pub_type == 'book-chapters' %}active{% endif %}" href="{% url 'publications' 'book-chapters' %}">Book Chapters</a>
+				<a class="nav-link tab-link" id="book-chapters-tab" data-toggle="tab" href="#book-chapters" role="tab" aria-controls="profile" aria-selected="false">Book Chapters</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link tab-link {% if pub_type == 'patents' %}active{% endif %}" href="{% url 'publications' 'patents' %}">Patents</a>
+				<a class="nav-link tab-link" id="patents-tab" data-toggle="tab" href="#patents" role="tab" aria-controls="patents" aria-selected="false">Patents</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link tab-link {% if pub_type == 'posters' %}active{% endif %}" href="{% url 'publications' 'posters' %}">Posters</a>
+				<a class="nav-link tab-link" id="posters-tab" data-toggle="tab" href="#posters" role="tab" aria-controls="posters" aria-selected="false">Posters</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link tab-link {% if pub_type == 'presentations' %}active{% endif %}" href="{% url 'publications' 'presentations' %}">Presentations</a>
+				<a class="nav-link tab-link" id="presentations-tab" data-toggle="tab" href="#presentations" role="tab" aria-controls="presentations" aria-selected="false">Presentations</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link tab-link {% if pub_type == 'thesis' %}active{% endif %}" href="{% url 'publications' 'thesis' %}">Thesis</a>
+				<a class="nav-link tab-link" id="theses-tab" data-toggle="tab" href="#theses" role="tab" aria-controls="theses" aria-selected="false">Theses</a>
 			</li>
 		</ul>
-	</div>
-</div>
 
-<div class="row mt-4">
-	<div class="col-md-12">
-		<h3>{{ page_title }}</h3>
-	</div>
-</div>
+		<div class="tab-content mt-4" id="myTabContent">
 
-<div class="row mt-4">
-		<div class="col-md-12">
-			{% for pub in pubs %}
-			{{ pub.title }}
-			{% endfor %}
+			<!-- Articles List -->
+			<div class="tab-pane fade show active" id="articles" role="tabpanel" aria-labelledby="articles-tab">
+				{% for article in articles %}
+				<p>{{ article.pk }}. {{ article.authors }}. {{ article.title }}, <em>{{ article.journal }}</em> {{ article.volume }} ({{ article.year }}) {{ article.pages }}.</p>
+				{% endfor %}
+			</div>
+
+			<!-- Book Chapters List -->
+			<div class="tab-pane fade" id="book-chapters" role="tabpanel" aria-labelledby="book-chapters-tab">
+				{% for book_chapter in book_chapters %}
+				{{ book_chapter.title }}
+				{% endfor %}
+			</div>
+
+
+			<!-- Patents List -->
+			<div class="tab-pane fade" id="patents" role="tabpanel" aria-labelledby="patents-tab">
+				{% for patent in patents %}
+				{{ patent.title }}
+				{% endfor %}
+			</div>
+			
+			<!-- Posters List -->
+			<div class="tab-pane fade" id="posters" role="tabpanel" aria-labelledby="posters-tab">
+				{% for poster in posters %}
+				{{ poster.title }}
+				{% endfor %}
+			</div>
+
+			<!-- Presentations List -->
+			<div class="tab-pane fade" id="presentations" role="tabpanel" aria-labelledby="presentations-tab">
+				{% for presentation in presentations %}
+				{{ presentation.title }}
+				{% endfor %}
+			</div>
+			
+			<!-- Thesis List -->
+			<div class="tab-pane fade" id="theses" role="tabpanel" aria-labelledby="theses-tab">
+				{% for thesis in theses %}
+				{{ thesis.title }}
+				{% endfor %}
+			</div>
+
 		</div>
 	</div>
+</div>
+
+
+
+
 
 
 {% endblock content %}
