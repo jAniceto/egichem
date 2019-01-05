@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import ResearchField, LabUnit, Partner, Collaborator, Member
+from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication
 
 
 def home(request):
@@ -64,10 +64,12 @@ def people(request):
 
 
 def publications(request, pub_type):
+	publications = Publication.objects.all().filter(pub_type=pub_type[:-1])
 
 	context = {
 		'page_title': pub_type,
 		'page_subtitle': 'Our publications are divided in the following categories',
-		'pub_type': pub_type
+		'pub_type': pub_type,
+		'pubs': publications
 	}
 	return render(request, 'website/publications.html', context)

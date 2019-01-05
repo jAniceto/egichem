@@ -101,3 +101,7 @@ class Publication(models.Model):
     conference_city = models.CharField(max_length=100, blank=True)
     conference_date = models.CharField(max_length=100, blank=True)
     thesis_type = models.CharField(max_length=15, choices=THESIS_TYPES, blank=True)
+    date_added = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'{self.pk}-{self.pub_type}-{self.journal}'
