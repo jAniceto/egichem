@@ -35,14 +35,33 @@
 			<!-- Articles List -->
 			<div class="tab-pane fade show active" id="articles" role="tabpanel" aria-labelledby="articles-tab">
 				{% for article in articles %}
-				<p>{{ article.pk }}. {{ article.authors }}. {{ article.title }}, <em>{{ article.journal }}</em> {{ article.volume }} ({{ article.year }}) {{ article.pages }}.</p>
+				{% ifchanged article.year %}
+				<div class="row mt-4 mb-3">
+					<div class="col-md-8 offset-md-2">
+						<h3 class="text-divider"><span>{{ article.year }}</span></h3>
+					</div>
+				</div>
+				{% endifchanged %}
+				<p><a class="text-dark" href="{{ article.link }}" target="_blank">{{ forloop.revcounter }}. {{ article.authors }}. {{ article.title|safe }}, <em>{{ article.journal }}</em> {{ article.volume }} ({{ article.year }}) {{ article.pages }}.</a></p>
 				{% endfor %}
 			</div>
 
 			<!-- Book Chapters List -->
 			<div class="tab-pane fade" id="book-chapters" role="tabpanel" aria-labelledby="book-chapters-tab">
 				{% for book_chapter in book_chapters %}
-				{{ book_chapter.title }}
+				<div class="row mt-5 mb-3">
+					<div class="col-md-4">
+							<img class="img-fluid" src="{% if book_chapter.photo %}{{ book_chapter.photo.url }}{% endif %}" alt="">
+					</div>
+					<div class="col-md-8 small">
+						<p><strong>Book Title:</strong> {{ book_chapter.book_title }}</p>
+						<p><strong>Publisher:</strong> {{ book_chapter.publisher }}</p>
+						<p><strong>Year:</strong> {{ book_chapter.year }}</p>
+						<p><strong>Chapter Title:</strong> {{ book_chapter.title }}</p>
+						<p><strong>Authors:</strong> {{ book_chapter.authors }}</p>
+						<p><strong>Abstract:</strong> {{ book_chapter.abstract }}</p>
+					</div>
+				</div>
 				{% endfor %}
 			</div>
 
@@ -50,28 +69,56 @@
 			<!-- Patents List -->
 			<div class="tab-pane fade" id="patents" role="tabpanel" aria-labelledby="patents-tab">
 				{% for patent in patents %}
-				{{ patent.title }}
+				{% ifchanged patent.year %}
+				<div class="row mt-4 mb-3">
+					<div class="col-md-8 offset-md-2">
+						<h3 class="text-divider"><span>{{ patent.year }}</span></h3>
+					</div>
+				</div>
+				{% endifchanged %}
+				<p>{{ patent.authors }}. {{ patent.title }}, {{ patent.patent_number }}, {{ patent.year }}.</p>
 				{% endfor %}
 			</div>
 			
 			<!-- Posters List -->
 			<div class="tab-pane fade" id="posters" role="tabpanel" aria-labelledby="posters-tab">
 				{% for poster in posters %}
-				{{ poster.title }}
+				{% ifchanged poster.year %}
+				<div class="row mt-4 mb-3">
+					<div class="col-md-8 offset-md-2">
+						<h3 class="text-divider"><span>{{ poster.year }}</span></h3>
+					</div>
+				</div>
+				{% endifchanged %}
+				<p>{{ poster.authors }}. {{ poster.title }}, {{ poster.conference }}, {{ poster.conference_city }}, {{ poster.conference_date }}, {{ poster.year }}.</p>
 				{% endfor %}
 			</div>
 
 			<!-- Presentations List -->
 			<div class="tab-pane fade" id="presentations" role="tabpanel" aria-labelledby="presentations-tab">
 				{% for presentation in presentations %}
-				{{ presentation.title }}
+				{% ifchanged presentation.year %}
+				<div class="row mt-4 mb-3">
+					<div class="col-md-8 offset-md-2">
+						<h3 class="text-divider"><span>{{ presentation.year }}</span></h3>
+					</div>
+				</div>
+				{% endifchanged %}
+				<p>{{ presentation.authors }}. {{ presentation.title }}, {{ presentation.conference }}, {{ presentation.conference_city }}, {{ presentation.conference_date }}, {{ presentation.year }}.</p>
 				{% endfor %}
 			</div>
 			
 			<!-- Thesis List -->
 			<div class="tab-pane fade" id="theses" role="tabpanel" aria-labelledby="theses-tab">
 				{% for thesis in theses %}
-				{{ thesis.title }}
+				{% ifchanged thesis.year %}
+				<div class="row mt-4 mb-3">
+					<div class="col-md-8 offset-md-2">
+						<h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
+					</div>
+				</div>
+				{% endifchanged %}
+				<p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
 				{% endfor %}
 			</div>
 

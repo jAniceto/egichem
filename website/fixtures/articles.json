@@ -4,7 +4,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Abdelhameed, R.M.\", \"Gawad, H.\", \"Silva, C.M.\", \"Rocha, J.\", \"Hegazi, B.\", \"Silva, A.M.S.\"]",
+            "authors": "R.M. Abdelhameed, H. Gawad, C.M. Silva, J. Rocha, B. Hegazi, A.M.S. Silva",
             "title": "Kinetic and equilibrium studies on the removal of14C-ethion residues from wastewater by copper-based metal–organic framework",
             "year": "2018",
             "journal": "International Journal of Environmental Science and Technology",
@@ -19,7 +19,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Figueiredo, B.R.\", \"Cardoso, S.P.\", \"Portugal, I.\", \"Rocha, J.\", \"Silva, C.M.\"]",
+            "authors": "B.R. Figueiredo, S.P. Cardoso, I. Portugal, J. Rocha, C.M. Silva",
             "title": "Inorganic Ion Exchangers for Cesium Removal from Radioactive Wastewater",
             "year": "2018",
             "journal": "Separation and Purification Reviews",
@@ -34,7 +34,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, A.F.\", \"Fernandes, A.\", \"Neves, P.\", \"Antunes, M.M.\", \"Rocha, S.M.\", \"Ribeiro, M.F.\", \"Silva, C.M.\", \"Valente, A.A.\"]",
+            "authors": "A.F. Silva, A. Fernandes, P. Neves, M.M. Antunes, S.M. Rocha, M.F. Ribeiro, C.M. Silva, A.A. Valente",
             "title": "Mesostructured Catalysts Based on the BEA Topology for Olefin Oligomerisation",
             "year": "2018",
             "journal": "ChemCatChem",
@@ -49,7 +49,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Cardoso, S.P.\", \"Azenha, I.S.\", \"Lin, Z.\", \"Portugal, I.\", \"Rodrigues, A.E.\", \"Silva, C.M.\"]",
+            "authors": "S.P. Cardoso, I.S. Azenha, Z. Lin, I. Portugal, A.E. Rodrigues, C.M. Silva",
             "title": "Inorganic Membranes for Hydrogen Separation",
             "year": "2018",
             "journal": "Separation and Purification Reviews",
@@ -64,7 +64,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Pinheiro, J.M.\", \"Salústio, S.\", \"Valente, A.A.\", \"Silva, C.M.\"]",
+            "authors": "J.M. Pinheiro, S. Salústio, A.A. Valente, C.M. Silva",
             "title": "Adsorption heat pump optimization by experimental design and response surface methodology",
             "year": "2018",
             "journal": "Applied Thermal Engineering",
@@ -79,7 +79,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Rodrigues, V.H.\", \"Melo, M.M.R.\", \"Portugal, I.\", \"Silva, C.M.\"]",
+            "authors": "V.H. Rodrigues, M.M.R. Melo, I. Portugal, C.M. Silva",
             "title": "Extraction of Eucalyptus leaves using solvents of distinct polarity. Cluster analysis and extracts characterization",
             "year": "2018",
             "journal": "Journal of Supercritical Fluids",
@@ -94,7 +94,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Cardoso, S.P.\", \"Lin, Z.\", \"Portugal, I.\", \"Rodrigues, A.E.\", \"Silva, C.M.\"]",
+            "authors": "S.P. Cardoso, Z. Lin, I. Portugal, A.E. Rodrigues, C.M. Silva",
             "title": "Synthesis, dynamic characterization, and modeling studies of an AM-3 membrane for light gases separation",
             "year": "2018",
             "journal": "Microporous and Mesoporous Materials",
@@ -109,7 +109,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Relvas, F.\", \"Whitley, R.D.\", \"Silva, C.\", \"Mendes, A.\"]",
+            "authors": "F. Relvas, R.D. Whitley, C. Silva, A. Mendes",
             "title": "Single-Stage Pressure Swing Adsorption for Producing Fuel Cell Grade Hydrogen",
             "year": "2018",
             "journal": "Industrial and Engineering Chemistry Research",
@@ -124,7 +124,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Zêzere, B.\", \"Magalhães, A.L.\", \"Portugal, I.\", \"Silva, C.M.\"]",
+            "authors": "B. Zêzere, A.L. Magalhães, I. Portugal, C.M. Silva",
             "title": "Diffusion coefficients of eucalyptol at infinite dilution in compressed liquid ethanol and in supercritical CO<inf>2</inf>/ethanol mixtures",
             "year": "2018",
             "journal": "Journal of Supercritical Fluids",
@@ -139,7 +139,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Aniceto, J.P.S.\", \"Azenha, I.S.\", \"Domingues, F.M.J.\", \"Mendes, A.\", \"Silva, C.M.\"]",
+            "authors": "J.P.S. Aniceto, I.S. Azenha, F.M.J. Domingues, A. Mendes, C.M. Silva",
             "title": "Design and optimization of a simulated moving bed unit for the separation of betulinic, oleanolic and ursolic acids mixtures: Experimental and modeling studies",
             "year": "2018",
             "journal": "Separation and Purification Technology",
@@ -154,7 +154,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Rodrigues, V.H.\", \"Melo, M.M.R.\", \"Portugal, I.\", \"Silva, C.M.\"]",
+            "authors": "V.H. Rodrigues, M.M.R. Melo, I. Portugal, C.M. Silva",
             "title": "Supercritical fluid extraction of Eucalyptus globulus leaves. Experimental and modelling studies of the influence of operating conditions and biomass pretreatment upon yields and kinetics",
             "year": "2018",
             "journal": "Separation and Purification Technology",
@@ -169,7 +169,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Leite, J.\", \"Magalhães, A.L.\", \"Valente, A.A.\", \"Silva, C.M.\"]",
+            "authors": "J. Leite, A.L. Magalhães, A.A. Valente, C.M. Silva",
             "title": "Measurement and modelling of tracer diffusivities of gallic acid in liquid ethanol and in supercritical CO<inf>2</inf> modified with ethanol",
             "year": "2018",
             "journal": "Journal of Supercritical Fluids",
@@ -184,7 +184,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Varanda, C.\", \"Portugal, I.\", \"Ribeiro, J.\", \"Silva, A.M.S.\", \"Silva, C.M.\"]",
+            "authors": "C. Varanda, I. Portugal, J. Ribeiro, A.M.S. Silva, C.M. Silva",
             "title": "Optimization of bitumen formulations using mixture design of experiments (MDOE)",
             "year": "2017",
             "journal": "Construction and Building Materials",
@@ -199,7 +199,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Antunes, M.M.\", \"Lima, S.\", \"Fernandes, A.\", \"Magalhães, A.L.\", \"Neves, P.\", \"Silva, C.M.\", \"Ribeiro, M.F.\", \"Chadwick, D.\", \"Hellgardt, K.\", \"Pillinger, M.\", \"Valente, A.A.\"]",
+            "authors": "M.M. Antunes, S. Lima, A. Fernandes, A.L. Magalhães, P. Neves, C.M. Silva, M.F. Ribeiro, D. Chadwick, K. Hellgardt, M. Pillinger, A.A. Valente",
             "title": "MFI Acid Catalysts with Different Crystal Sizes and Porosity for the Conversion of Furanic Compounds in Alcohol Media",
             "year": "2017",
             "journal": "ChemCatChem",
@@ -214,7 +214,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Toledo, P.R.A.B.\", \"Melo, M.M.R.\", \"Pezza, H.R.\", \"Pezza, L.\", \"Toci, A.T.\", \"Silva, C.M.\"]",
+            "authors": "P.R.A.B. Toledo, M.M.R. Melo, H.R. Pezza, L. Pezza, A.T. Toci, C.M. Silva",
             "title": "Reliable discriminant analysis tool for controlling the roast degree of coffee samples through chemical markers approach",
             "year": "2017",
             "journal": "European Food Research and Technology",
@@ -229,7 +229,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Toledo, P.R.A.B.\", \"Melo, M.M.R.\", \"Pezza, H.R.\", \"Pezza, L.\", \"Toci, A.T.\", \"Silva, C.M.\"]",
+            "authors": "P.R.A.B. Toledo, M.M.R. Melo, H.R. Pezza, L. Pezza, A.T. Toci, C.M. Silva",
             "title": "Reliable discriminant analysis tool for controlling the roast degree of coffee samples through chemical markers approach",
             "year": "2017",
             "journal": "European Food Research and Technology",
@@ -244,7 +244,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Toledo, P.R.A.B.\", \"Melo, M.M.R.\", \"Pezza, H.R.\", \"Toci, A.T.\", \"Pezza, L.\", \"Silva, C.M.\"]",
+            "authors": "P.R.A.B. Toledo, M.M.R. Melo, H.R. Pezza, A.T. Toci, L. Pezza, C.M. Silva",
             "title": "Discriminant analysis for unveiling the origin of roasted coffee samples: A tool for quality control of coffee related products",
             "year": "2017",
             "journal": "Food Control",
@@ -259,7 +259,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Melo, M.M.R.\", \"en, A.\", \"Silvestre, A.J.D.\", \"Pereira, H.\", \"Silva, C.M.\"]",
+            "authors": "M.M.R. Melo, A. en, A.J.D. Silvestre, H. Pereira, C.M. Silva",
             "title": "Experimental and modeling study of supercritical CO<inf>2</inf>extraction of Quercus cerris cork: Influence of ethanol and particle size on extraction kinetics and selectivity to friedelin",
             "year": "2017",
             "journal": "Separation and Purification Technology",
@@ -274,7 +274,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Cardoso, S.P.\", \"Azenha, I.S.\", \"Portugal, I.\", \"Lin, Z.\", \"Rodrigues, A.E.\", \"Silva, C.M.\"]",
+            "authors": "S.P. Cardoso, I.S. Azenha, I. Portugal, Z. Lin, A.E. Rodrigues, C.M. Silva",
             "title": "Single and binary surface diffusion permeation through zeolite membranes using new Maxwell-Stefan factors for Dubinin-type isotherms and occupancy-dependent kinetics",
             "year": "2017",
             "journal": "Separation and Purification Technology",
@@ -289,7 +289,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, A.F.\", \"Fernandes, A.\", \"Antunes, M.M.\", \"Neves, P.\", \"Rocha, S.M.\", \"Ribeiro, M.F.\", \"Pillinger, M.\", \"Ribeiro, J.\", \"Silva, C.M.\", \"Valente, A.A.\"]",
+            "authors": "A.F. Silva, A. Fernandes, M.M. Antunes, P. Neves, S.M. Rocha, M.F. Ribeiro, M. Pillinger, J. Ribeiro, C.M. Silva, A.A. Valente",
             "title": "TUD-1 type aluminosilicate acid catalysts for 1-butene oligomerisation",
             "year": "2017",
             "journal": "Fuel",
@@ -304,7 +304,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Rodrigues, A.E.\", \"Silva, C.M.\"]",
+            "authors": "A.E. Rodrigues, C.M. Silva",
             "title": "What's wrong with Lagergreen pseudo first order model for adsorption kinetics?",
             "year": "2016",
             "journal": "Chemical Engineering Journal",
@@ -319,7 +319,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Cordeiro, J.\", \"Magalhães, A.L.\", \"Valente, A.A.\", \"Silva, C.M.\"]",
+            "authors": "J. Cordeiro, A.L. Magalhães, A.A. Valente, C.M. Silva",
             "title": "Experimental and theoretical analysis of the diffusion behavior of chromium(III) acetylacetonate in supercritical CO<inf>2</inf>",
             "year": "2016",
             "journal": "Journal of Supercritical Fluids",
@@ -334,7 +334,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Figueiredo, B.R.\", \"Valente, A.A.\", \"Lin, Z.\", \"Silva, C.M.\"]",
+            "authors": "B.R. Figueiredo, A.A. Valente, Z. Lin, C.M. Silva",
             "title": "Photoluminescent porous and layered lanthanide silicates: A review",
             "year": "2016",
             "journal": "Microporous and Mesoporous Materials",
@@ -349,7 +349,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Rocha, L.S.\", \"Almeida, Â.\", \"Nunes, C.\", \"Henriques, B.\", \"Coimbra, M.A.\", \"Lopes, C.B.\", \"Silva, C.M.\", \"Duarte, A.C.\", \"Pereira, E.\"]",
+            "authors": "L.S. Rocha, Â. Almeida, C. Nunes, B. Henriques, M.A. Coimbra, C.B. Lopes, C.M. Silva, A.C. Duarte, E. Pereira",
             "title": "Simple and effective chitosan based films for the removal of Hg from waters: Equilibrium, kinetic and ionic competition",
             "year": "2016",
             "journal": "Chemical Engineering Journal",
@@ -364,7 +364,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Aniceto, J.P.S.\", \"Cardoso, S.P.\", \"Silva, C.M.\"]",
+            "authors": "J.P.S. Aniceto, S.P. Cardoso, C.M. Silva",
             "title": "General optimization strategy of simulated moving bed units through design of experiments and response surface methodologies",
             "year": "2016",
             "journal": "Computers and Chemical Engineering",
@@ -379,7 +379,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Cardoso, S.P.\", \"Azenha, I.S.\", \"Lin, Z.\", \"Portugal, I.\", \"Rodrigues, A.E.\", \"Silva, C.M.\"]",
+            "authors": "S.P. Cardoso, I.S. Azenha, Z. Lin, I. Portugal, A.E. Rodrigues, C.M. Silva",
             "title": "Experimental measurement and modeling of ion exchange equilibrium and kinetics of cadmium(II) solutions over microporous stannosilicate AV-6",
             "year": "2016",
             "journal": "Chemical Engineering Journal",
@@ -394,7 +394,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Melo, M.M.R.\", \"Martins, P.F.\", \"Silvestre, A.J.D.\", \"Sarmento, P.\", \"Silva, C.M.\"]",
+            "authors": "M.M.R. Melo, P.F. Martins, A.J.D. Silvestre, P. Sarmento, C.M. Silva",
             "title": "Measurement and modeling of supercritical fluid extraction curves of Eichhornia crassipes for enhanced stigmasterol production: Mechanistic insights of the process",
             "year": "2016",
             "journal": "Separation and Purification Technology",
@@ -409,7 +409,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Pinheiro, J.M.\", \"Salústio, S.\", \"Rocha, J.\", \"Valente, A.A.\", \"Silva, C.M.\"]",
+            "authors": "J.M. Pinheiro, S. Salústio, J. Rocha, A.A. Valente, C.M. Silva",
             "title": "Analysis of equilibrium and kinetic parameters of water adsorption heating systems for different porous metal/metalloid oxide adsorbents",
             "year": "2016",
             "journal": "Applied Thermal Engineering",
@@ -424,7 +424,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Antunes, M.M.\", \"Lima, S.\", \"Neves, P.\", \"Magalhães, A.L.\", \"Fazio, E.\", \"Neri, F.\", \"Pereira, M.T.\", \"Silva, A.F.\", \"Silva, C.M.\", \"Rocha, S.M.\", \"Pillinger, M.\", \"Urakawa, A.\", \"Valente, A.A.\"]",
+            "authors": "M.M. Antunes, S. Lima, P. Neves, A.L. Magalhães, E. Fazio, F. Neri, M.T. Pereira, A.F. Silva, C.M. Silva, S.M. Rocha, M. Pillinger, A. Urakawa, A.A. Valente",
             "title": "Integrated reduction and acid-catalysed conversion of furfural in alcohol medium using Zr,Al-containing ordered micro/mesoporous silicates",
             "year": "2016",
             "journal": "Applied Catalysis B: Environmental",
@@ -439,7 +439,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Figueiredo, B.R.\", \"Ananias, D.\", \"Portugal, I.\", \"Rocha, J.\", \"Silva, C.M.\"]",
+            "authors": "B.R. Figueiredo, D. Ananias, I. Portugal, J. Rocha, C.M. Silva",
             "title": "Tb/Eu-AV-9: A lanthanide silicate for the sensing and removal of cesium ions from aqueous solutions",
             "year": "2016",
             "journal": "Chemical Engineering Journal",
@@ -454,7 +454,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Figueiredo, B.R.\", \"Melo, M.M.R.\", \"Portugal, I.\", \"Ananias, D.\", \"Rocha, J.\", \"Silva, C.M.\"]",
+            "authors": "B.R. Figueiredo, M.M.R. Melo, I. Portugal, D. Ananias, J. Rocha, C.M. Silva",
             "title": "Cs+ removal and optical detection by microporous lanthanide silicate Eu-AV-20 in a fixed-bed column",
             "year": "2016",
             "journal": "Chemical Engineering Journal",
@@ -469,7 +469,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Melo, M.M.R.\", \"Silva, R.P.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "M.M.R. Melo, R.P. Silva, A.J.D. Silvestre, C.M. Silva",
             "title": "Valorization of water hyacinth through supercritical CO<inf>2</inf> extraction of stigmasterol",
             "year": "2016",
             "journal": "Industrial Crops and Products",
@@ -484,7 +484,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Figueiredo, B.R.\", \"Portugal, I.\", \"Rocha, J.\", \"Silva, C.M.\"]",
+            "authors": "B.R. Figueiredo, I. Portugal, J. Rocha, C.M. Silva",
             "title": "Fixed-bed removal of Cs+ from aqueous solutions by microporous silicate ETS-4: Measurement and modeling of loading-regeneration cycles",
             "year": "2016",
             "journal": "Chemical Engineering Journal",
@@ -499,7 +499,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Vaz, R.V.\", \"Gomes, J.R.B.\", \"Silva, C.M.\"]",
+            "authors": "R.V. Vaz, J.R.B. Gomes, C.M. Silva",
             "title": "Molecular dynamics simulation of diffusion coefficients and structural properties of ketones in supercritical CO<inf>2</inf> at infinite dilution",
             "year": "2016",
             "journal": "Journal of Supercritical Fluids",
@@ -514,7 +514,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Martins, P.F.\", \"Melo, M.M.R.\", \"Sarmento, P.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Martins, M.M.R. Melo, P. Sarmento, C.M. Silva",
             "title": "Supercritical fluid extraction of sterols from Eichhornia crassipes biomass using pure and modified carbon dioxide. Enhancement of stigmasterol yield and extract concentration",
             "year": "2016",
             "journal": "Journal of Supercritical Fluids",
@@ -529,7 +529,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Vaz, R.V.\", \"Magalhães, A.L.\", \"Valente, A.A.\", \"Silva, C.M.\"]",
+            "authors": "R.V. Vaz, A.L. Magalhães, A.A. Valente, C.M. Silva",
             "title": "Measurement and modeling of tracer diffusivities of α-pinene in supercritical CO<inf>2</inf>, and analysis of their hydrodynamic and free-volume behaviors",
             "year": "2016",
             "journal": "Journal of Supercritical Fluids",
@@ -544,7 +544,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Martins, P.F.\", \"Melo, M.M.R.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Martins, M.M.R. Melo, C.M. Silva",
             "title": "Techno-economic optimization of the subcritical fluid extraction of oil from Moringa oleifera seeds and subsequent production of a purified sterols fraction",
             "year": "2016",
             "journal": "Journal of Supercritical Fluids",
@@ -559,7 +559,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Varanda, C.\", \"Portugal, I.\", \"Ribeiro, J.\", \"Silva, A.M.S.\", \"Silva, C.M.\"]",
+            "authors": "C. Varanda, I. Portugal, J. Ribeiro, A.M.S. Silva, C.M. Silva",
             "title": "Influence of Polyphosphoric Acid on the Consistency and Composition of Formulated Bitumen: Standard Characterization and NMR Insights",
             "year": "2016",
             "journal": "Journal of Analytical Methods in Chemistry",
@@ -574,7 +574,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Antunes, M.M.\", \"Neves, P.\", \"Fernandes, A.\", \"Lima, S.\", \"Silva, A.F.\", \"Ribeiro, M.F.\", \"Silva, C.M.\", \"Pillinger, M.\", \"Valente, A.A.\"]",
+            "authors": "M.M. Antunes, P. Neves, A. Fernandes, S. Lima, A.F. Silva, M.F. Ribeiro, C.M. Silva, M. Pillinger, A.A. Valente",
             "title": "Bulk and composite catalysts combining BEA topology and mesoporosity for the valorisation of furfural",
             "year": "2016",
             "journal": "Catalysis Science and Technology",
@@ -589,7 +589,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, R.P.\", \"Melo, M.M.R.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "R.P. Silva, M.M.R. Melo, A.J.D. Silvestre, C.M. Silva",
             "title": "Polar and lipophilic extracts characterization of roots, stalks, leaves and flowers of water hyacinth (Eichhornia crassipes), and insights for its future valorization",
             "year": "2015",
             "journal": "Industrial Crops and Products",
@@ -604,7 +604,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lito, P.F.\", \"Cardoso, S.P.\", \"Rodrigues, A.E.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Lito, S.P. Cardoso, A.E. Rodrigues, C.M. Silva",
             "title": "Kinetic modeling of pure and multicomponent gas permeation through microporous membranes: Diffusion mechanisms and influence of isotherm type",
             "year": "2015",
             "journal": "Separation and Purification Reviews",
@@ -619,7 +619,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Antunes, M.M.\", \"Lima, S.\", \"Neves, P.\", \"Magalhães, A.L.\", \"Fazio, E.\", \"Fernandes, A.\", \"Neri, F.\", \"Silva, C.M.\", \"Rocha, S.M.\", \"Ribeiro, M.F.\", \"Pillinger, M.\", \"Urakawa, A.\", \"Valente, A.A.\"]",
+            "authors": "M.M. Antunes, S. Lima, P. Neves, A.L. Magalhães, E. Fazio, A. Fernandes, F. Neri, C.M. Silva, S.M. Rocha, M.F. Ribeiro, M. Pillinger, A. Urakawa, A.A. Valente",
             "title": "One-pot conversion of furfural to useful bio-products in the presence of a Sn,Al-containing zeolite beta catalyst prepared via post-synthesis routes",
             "year": "2015",
             "journal": "Journal of Catalysis",
@@ -634,7 +634,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Pinheiro, J.M.\", \"Valente, A.A.\", \"Salústio, S.\", \"Ferreira, N.\", \"Rocha, J.\", \"Silva, C.M.\"]",
+            "authors": "J.M. Pinheiro, A.A. Valente, S. Salústio, N. Ferreira, J. Rocha, C.M. Silva",
             "title": "Application of the novel ETS-10/water pair in cyclic adsorption heating processes: Measurement of equilibrium and kinetics properties and simulation studies",
             "year": "2015",
             "journal": "Applied Thermal Engineering",
@@ -649,7 +649,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Antunes, B.M.\", \"Rodrigues, A.E.\", \"Lin, Z.\", \"Portugal, I.\", \"Silva, C.M.\"]",
+            "authors": "B.M. Antunes, A.E. Rodrigues, Z. Lin, I. Portugal, C.M. Silva",
             "title": "Alkenes oligomerization with resin catalysts",
             "year": "2015",
             "journal": "Fuel Processing Technology",
@@ -664,7 +664,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lito, P.F.\", \"Aniceto, J.P.S.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Lito, J.P.S. Aniceto, C.M. Silva",
             "title": "Maxwell–Stefan based modelling of ion exchange systems containing common species (Cd2+, Na+) and distinct sorbents (ETS-4, ETS-10)",
             "year": "2015",
             "journal": "International Journal of Environmental Science and Technology",
@@ -679,7 +679,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Figueiredo, B.R.\", \"Ananias, D.\", \"Rocha, J.\", \"Silva, C.M.\"]",
+            "authors": "B.R. Figueiredo, D. Ananias, J. Rocha, C.M. Silva",
             "title": "Cs+ ion exchange over lanthanide silicate Eu-AV-20: Experimental measurement and modelling",
             "year": "2015",
             "journal": "Chemical Engineering Journal",
@@ -694,7 +694,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Martins, P.F.\", \"Melo, M.M.R.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Martins, M.M.R. Melo, C.M. Silva",
             "title": "Gac oil and carotenes production using supercritical CO<inf>2</inf>: Sensitivity analysis and process optimization through a RSM-COM hybrid approach",
             "year": "2015",
             "journal": "Journal of Supercritical Fluids",
@@ -709,7 +709,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"en, A.\", \"Melo, M.M.R.\", \"Silvestre, A.J.D.\", \"Pereira, H.\", \"Silva, C.M.\"]",
+            "authors": "A. en, M.M.R. Melo, A.J.D. Silvestre, H. Pereira, C.M. Silva",
             "title": "Prospective pathway for a green and enhanced friedelin production through supercritical fluid extraction of Quercus cerris cork",
             "year": "2015",
             "journal": "Journal of Supercritical Fluids",
@@ -724,7 +724,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Domingues, R.M.A.\", \"Guerra, A.R.\", \"Duarte, M.\", \"Freire, C.S.R.\", \"Neto, C.P.\", \"Silva, C.M.S.\", \"Silvestre, A.J.D.\"]",
+            "authors": "R.M.A. Domingues, A.R. Guerra, M. Duarte, C.S.R. Freire, C.P. Neto, C.M.S. Silva, A.J.D. Silvestre",
             "title": "Bioactive triterpenic acids: From agroforestry biomass residues to promising therapeutic tools",
             "year": "2014",
             "journal": "Mini-Reviews in Organic Chemistry",
@@ -739,7 +739,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Melo, M.M.R.\", \"Barbosa, H.M.A.\", \"Passos, C.P.\", \"Silva, C.M.\"]",
+            "authors": "M.M.R. Melo, H.M.A. Barbosa, C.P. Passos, C.M. Silva",
             "title": "Supercritical fluid extraction of spent coffee grounds: Measurement of extraction curves, oil characterization and economic analysis",
             "year": "2014",
             "journal": "Journal of Supercritical Fluids",
@@ -754,7 +754,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lopes, C.B.\", \"Oliveira, J.R.\", \"Rocha, L.S.\", \"Tavares, D.S.\", \"Silva, C.M.\", \"Silva, S.P.\", \"Hartog, N.\", \"Duarte, A.C.\", \"Pereira, E.\"]",
+            "authors": "C.B. Lopes, J.R. Oliveira, L.S. Rocha, D.S. Tavares, C.M. Silva, S.P. Silva, N. Hartog, A.C. Duarte, E. Pereira",
             "title": "Cork stoppers as an effective sorbent for water treatment: The removal of mercury at environmentally relevant concentrations and conditions",
             "year": "2014",
             "journal": "Environmental Science and Pollution Research",
@@ -769,7 +769,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Aniceto, J.P.S.\", \"Silva, C.M.\"]",
+            "authors": "J.P.S. Aniceto, C.M. Silva",
             "title": "Simulated moving bed strategies and designs: From established systems to the latest developments",
             "year": "2014",
             "journal": "Separation and Purification Reviews",
@@ -784,7 +784,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Vaz, R.V.\", \"Magalhães, A.L.\", \"Silva, C.M.\"]",
+            "authors": "R.V. Vaz, A.L. Magalhães, C.M. Silva",
             "title": "Improved Stokes-Einstein based models for diffusivities in supercritical CO<inf>2</inf>",
             "year": "2014",
             "journal": "Journal of the Taiwan Institute of Chemical Engineers",
@@ -799,7 +799,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Melo, M.M.R.\", \"Domingues, R.M.A.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "M.M.R. Melo, R.M.A. Domingues, A.J.D. Silvestre, C.M. Silva",
             "title": "Extraction and purification of triterpenoids using supercritical fluids: From lab to exploitation",
             "year": "2014",
             "journal": "Mini-Reviews in Organic Chemistry",
@@ -814,7 +814,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Melo, M.M.R.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "M.M.R. Melo, A.J.D. Silvestre, C.M. Silva",
             "title": "Supercritical fluid extraction of vegetable matrices: Applications, trends and future perspectives of a convincing green technology",
             "year": "2014",
             "journal": "Journal of Supercritical Fluids",
@@ -829,7 +829,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, A.F.\", \"Melo, M.M.R.\", \"Silva, C.M.\"]",
+            "authors": "A.F. Silva, M.M.R. Melo, C.M. Silva",
             "title": "Supercritical solvent selection (CO<inf>2</inf>versus ethane) and optimization of operating conditions of the extraction of lycopene from tomato residues: Innovative analysis of extraction curves by a response surface methodology and cost of manufacturing hybrid approach",
             "year": "2014",
             "journal": "Journal of Supercritical Fluids",
@@ -844,7 +844,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Vaz, R.V.\", \"Magalhães, A.L.\", \"Silva, C.M.\"]",
+            "authors": "R.V. Vaz, A.L. Magalhães, C.M. Silva",
             "title": "Prediction of binary diffusion coefficients in supercritical CO<inf>2</inf> with improved behavior near the critical point",
             "year": "2014",
             "journal": "Journal of Supercritical Fluids",
@@ -859,7 +859,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lito, P.F.\", \"Aniceto, J.P.S.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Lito, J.P.S. Aniceto, C.M. Silva",
             "title": "Modelling ion exchange kinetics in zeolyte-type materials using Maxwell-Stefan approach",
             "year": "2014",
             "journal": "Desalination and Water Treatment",
@@ -874,7 +874,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Barbosa, H.M.A.\", \"Melo, M.M.R.\", \"Coimbra, M.A.\", \"Passos, C.P.\", \"Silva, C.M.\"]",
+            "authors": "H.M.A. Barbosa, M.M.R. Melo, M.A. Coimbra, C.P. Passos, C.M. Silva",
             "title": "Optimization of the supercritical fluid coextraction of oil and diterpenes from spent coffee grounds using experimental design and response surface methodology",
             "year": "2014",
             "journal": "Journal of Supercritical Fluids",
@@ -889,7 +889,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Melo, M.M.R.\", \"Domingues, R.M.A.\", \"Sova, M.\", \"Lack, E.\", \"Seidlitz, H.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "M.M.R. Melo, R.M.A. Domingues, M. Sova, E. Lack, H. Seidlitz, A.J.D. Silvestre, C.M. Silva",
             "title": "Scale-up studies of the supercritical fluid extraction of triterpenic acids from Eucalyptus globulus bark",
             "year": "2014",
             "journal": "Journal of Supercritical Fluids",
@@ -904,7 +904,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Vaz, R.V.\", \"Magalhães, A.L.\", \"Silva, C.M.\"]",
+            "authors": "R.V. Vaz, A.L. Magalhães, C.M. Silva",
             "title": "Improved hydrodynamic equations for the accurate prediction of diffusivities in supercritical carbon dioxide",
             "year": "2013",
             "journal": "Fluid Phase Equilibria",
@@ -919,7 +919,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Figueiredo, B.R.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "B.R. Figueiredo, F.A. Silva, C.M. Silva",
             "title": "Non-ideality and solubility modeling of amino acids and peptides in aqueous solutions: New physical and chemical approach",
             "year": "2013",
             "journal": "Industrial and Engineering Chemistry Research",
@@ -934,7 +934,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Afonso, J.\", \"Passos, C.P.\", \"Coimbra, M.A.\", \"Silva, C.M.\", \"Silva, P.\"]",
+            "authors": "J. Afonso, C.P. Passos, M.A. Coimbra, C.M. Silva, P. Silva",
             "title": "Inhibitory effect of phenolic compounds from grape seeds (Vitis vinifera L.) on the activity of angiotensin I converting enzyme",
             "year": "2013",
             "journal": "LWT - Food Science and Technology",
@@ -949,7 +949,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Magalhães, A.L.\", \"Vaz, R.V.\", \"Gonçalves, R.M.G.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "A.L. Magalhães, R.V. Vaz, R.M.G. Gonçalves, F.A. Silva, C.M. Silva",
             "title": "Accurate hydrodynamic models for the prediction of tracer diffusivities in supercritical carbon dioxide",
             "year": "2013",
             "journal": "Journal of Supercritical Fluids",
@@ -964,7 +964,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lito, P.F.\", \"Magalhães, A.L.\", \"Gomes, J.R.B.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Lito, A.L. Magalhães, J.R.B. Gomes, C.M. Silva",
             "title": "Universal model for accurate calculation of tracer diffusion coefficients in gas, liquid and supercritical systems",
             "year": "2013",
             "journal": "Journal of Chromatography A",
@@ -979,7 +979,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Patinha, D.J.S.\", \"Domingues, R.M.A.\", \"Villaverde, J.J.\", \"Silva, A.M.S.\", \"Silva, C.M.\", \"Freire, C.S.R.\", \"Neto, C.P.\", \"Silvestre, A.J.D.\"]",
+            "authors": "D.J.S. Patinha, R.M.A. Domingues, J.J. Villaverde, A.M.S. Silva, C.M. Silva, C.S.R. Freire, C.P. Neto, A.J.D. Silvestre",
             "title": "Lipophilic extractives from the bark of Eucalyptus grandis x globulus, a rich source of methyl morolate: Selective extraction with supercritical CO <inf>2</inf>",
             "year": "2013",
             "journal": "Industrial Crops and Products",
@@ -994,7 +994,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Cardoso, S.P.\", \"Lopes, C.B.\", \"Pereira, E.\", \"Duarte, A.C.\", \"Silva, C.M.\"]",
+            "authors": "S.P. Cardoso, C.B. Lopes, E. Pereira, A.C. Duarte, C.M. Silva",
             "title": "Competitive removal of Cd2+ and Hg2+ ions from water using titanosilicate ETS-4: Kinetic behaviour and selectivity",
             "year": "2013",
             "journal": "Water, Air, and Soil Pollution",
@@ -1009,7 +1009,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Magalhães, A.L.\", \"Lito, P.F.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "A.L. Magalhães, P.F. Lito, F.A. Silva, C.M. Silva",
             "title": "Simple and accurate correlations for diffusion coefficients of solutes in liquids and supercritical fluids over wide ranges of temperature and density",
             "year": "2013",
             "journal": "Journal of Supercritical Fluids",
@@ -1024,7 +1024,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Magalhães, A.L.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "A.L. Magalhães, F.A. Silva, C.M. Silva",
             "title": "Free-volume model for the diffusion coefficients of solutes at infinite dilution in supercritical CO<inf>2</inf>and liquid H<inf>2</inf>O",
             "year": "2013",
             "journal": "Journal of Supercritical Fluids",
@@ -1039,7 +1039,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Domingues, R.M.A.\", \"Melo, M.M.R.\", \"Oliveira, E.L.G.\", \"Neto, C.P.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "R.M.A. Domingues, M.M.R. Melo, E.L.G. Oliveira, C.P. Neto, A.J.D. Silvestre, C.M. Silva",
             "title": "Optimization of the supercritical fluid extraction of triterpenic acids from Eucalyptus globulus bark using experimental design",
             "year": "2013",
             "journal": "Journal of Supercritical Fluids",
@@ -1054,7 +1054,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Aniceto, J.P.S.\", \"Fernandes, D.L.A.\", \"Silva, C.M.\"]",
+            "authors": "J.P.S. Aniceto, D.L.A. Fernandes, C.M. Silva",
             "title": "Modeling ion exchange equilibrium of ternary systems using neural networks",
             "year": "2013",
             "journal": "Desalination",
@@ -1069,7 +1069,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lima, J.F.B.\", \"Costa, A.G.\", \"Silva, C.M.\", \"Silva, F.A.\", \"Mendes, A.\"]",
+            "authors": "J.F.B. Lima, A.G. Costa, C.M. Silva, F.A. Silva, A. Mendes",
             "title": "Solid phase microextraction method for characterizing the organic fraction of an industrial brine stream",
             "year": "2013",
             "journal": "Desalination and Water Treatment",
@@ -1084,7 +1084,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Fernandes, D.L.A.\", \"Silva, C.M.\", \"Xavier, A.M.R.B.\", \"Evtuguin, D.V.\"]",
+            "authors": "D.L.A. Fernandes, C.M. Silva, A.M.R.B. Xavier, D.V. Evtuguin",
             "title": "Fractionation of sulphite spent liquor for biochemical processing using ion exchange resins",
             "year": "2012",
             "journal": "Journal of Biotechnology",
@@ -1099,7 +1099,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Domingues, R.M.A.\", \"Melo, M.M.R.\", \"Neto, C.P.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "R.M.A. Domingues, M.M.R. Melo, C.P. Neto, A.J.D. Silvestre, C.M. Silva",
             "title": "Measurement and modeling of supercritical fluid extraction curves of Eucalyptus globulus bark: Influence of the operating conditions upon yields and extract composition",
             "year": "2012",
             "journal": "Journal of Supercritical Fluids",
@@ -1114,7 +1114,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lito, P.F.\", \"Aniceto, J.P.S.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Lito, J.P.S. Aniceto, C.M. Silva",
             "title": "Removal of anionic pollutants from waters and wastewaters and materials perspective for their selective sorption",
             "year": "2012",
             "journal": "Water, Air, and Soil Pollution",
@@ -1129,7 +1129,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Santos, S.A.O.\", \"Villaverde, J.J.\", \"Silva, C.M.\", \"Neto, C.P.\", \"Silvestre, A.J.D.\"]",
+            "authors": "S.A.O. Santos, J.J. Villaverde, C.M. Silva, C.P. Neto, A.J.D. Silvestre",
             "title": "Supercritical fluid extraction of phenolic compounds from Eucalyptus globulus Labill bark",
             "year": "2012",
             "journal": "Journal of Supercritical Fluids",
@@ -1144,7 +1144,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Melo, M.M.R.\", \"Oliveira, E.L.G.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "M.M.R. Melo, E.L.G. Oliveira, A.J.D. Silvestre, C.M. Silva",
             "title": "Supercritical fluid extraction of triterpenic acids from Eucalyptus globulus bark",
             "year": "2012",
             "journal": "Journal of Supercritical Fluids",
@@ -1159,7 +1159,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Vaz, R.V.\", \"Magalhães, A.L.\", \"Fernandes, D.L.A.\", \"Silva, C.M.\"]",
+            "authors": "R.V. Vaz, A.L. Magalhães, D.L.A. Fernandes, C.M. Silva",
             "title": "Universal correlation of self-diffusion coefficients of model and real fluids based on residual entropy scaling law",
             "year": "2012",
             "journal": "Chemical Engineering Science",
@@ -1174,7 +1174,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Aniceto, J.P.S.\", \"Lito, P.F.\", \"Silva, C.M.\"]",
+            "authors": "J.P.S. Aniceto, P.F. Lito, C.M. Silva",
             "title": "Modeling sorbent phase nonideality for the accurate prediction of multicomponent ion exchange equilibrium with the homogeneous mass action law",
             "year": "2012",
             "journal": "Journal of Chemical and Engineering Data",
@@ -1189,7 +1189,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Domingues, R.M.A.\", \"Oliveira, E.L.G.\", \"Freire, C.S.R.\", \"Couto, R.M.\", \"Simões, P.C.\", \"Neto, C.P.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "R.M.A. Domingues, E.L.G. Oliveira, C.S.R. Freire, R.M. Couto, P.C. Simões, C.P. Neto, A.J.D. Silvestre, C.M. Silva",
             "title": "Supercritical fluid extraction of Eucalyptus globulus bark-A promising approach for triterpenoid production",
             "year": "2012",
             "journal": "International Journal of Molecular Sciences",
@@ -1204,7 +1204,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Magalhães, A.L.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "A.L. Magalhães, F.A. Silva, C.M. Silva",
             "title": "Tracer diffusion coefficients of polar systems",
             "year": "2012",
             "journal": "Chemical Engineering Science",
@@ -1219,7 +1219,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Aniceto, J.P.S.\", \"Cardoso, S.P.\", \"Faria, T.L.\", \"Lito, P.F.\", \"Silva, C.M.\"]",
+            "authors": "J.P.S. Aniceto, S.P. Cardoso, T.L. Faria, P.F. Lito, C.M. Silva",
             "title": "Modeling ion exchange equilibrium: Analysis of exchanger phase non-ideality",
             "year": "2012",
             "journal": "Desalination",
@@ -1234,7 +1234,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Aniceto, J.P.S.\", \"Portugal, I.\", \"Silva, C.M.\"]",
+            "authors": "J.P.S. Aniceto, I. Portugal, C.M. Silva",
             "title": "Biomass-based polyols through oxypropylation reaction",
             "year": "2012",
             "journal": "ChemSusChem",
@@ -1249,7 +1249,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Cardoso, S.P.\", \"Lito, P.F.\", \"Rocha, J.\", \"Lin, Z.\", \"Silva, C.M.\"]",
+            "authors": "S.P. Cardoso, P.F. Lito, J. Rocha, Z. Lin, C.M. Silva",
             "title": "Synthesis and permeation properties of small-pore titanosilicate AM-3 membranes",
             "year": "2012",
             "journal": "Procedia Engineering",
@@ -1264,7 +1264,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lopes, C.B.\", \"Pereira, E.\", \"Lin, Z.\", \"Pato, P.\", \"Otero, M.\", \"Silva, C.M.\", \"Rocha, J.\", \"Duarte, A.C.\"]",
+            "authors": "C.B. Lopes, E. Pereira, Z. Lin, P. Pato, M. Otero, C.M. Silva, J. Rocha, A.C. Duarte",
             "title": "Fixed-bed removal of Hg2+from contaminated water by microporous titanosilicate ETS-4: Experimental and theoretical breakthrough curves",
             "year": "2011",
             "journal": "Microporous and Mesoporous Materials",
@@ -1279,7 +1279,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Domingues, R.M.A.\", \"Patinha, D.J.S.\", \"Sousa, G.D.A.\", \"Villaverde, J.J.\", \"Silva, C.M.\", \"Freire, C.S.R.\", \"Silvestre, A.J.D.\", \"Neto, C.\"]",
+            "authors": "R.M.A. Domingues, D.J.S. Patinha, G.D.A. Sousa, J.J. Villaverde, C.M. Silva, C.S.R. Freire, A.J.D. Silvestre, C. Neto",
             "title": "Eucalyptus biomass residues from agro-forest and pulping industries as sources of high-value triterpenic compounds",
             "year": "2011",
             "journal": "Cellulose Chemistry and Technology",
@@ -1294,7 +1294,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Antunes, B.M.\", \"Cardoso, S.P.\", \"Silva, C.M.\", \"Portugal, I.\"]",
+            "authors": "B.M. Antunes, S.P. Cardoso, C.M. Silva, I. Portugal",
             "title": "Kinetics of ethyl acetate synthesis catalyzed by acidic resins",
             "year": "2011",
             "journal": "Journal of Chemical Education",
@@ -1309,7 +1309,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Passos, C.P.\", \"Coimbra, M.A.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "C.P. Passos, M.A. Coimbra, F.A. Silva, C.M. Silva",
             "title": "Modelling the supercritical fluid extraction of edible oils and analysis of the effect of enzymatic pre-treatments of seed upon model parameters",
             "year": "2011",
             "journal": "Chemical Engineering Research and Design",
@@ -1324,7 +1324,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Oliveira, E.L.G.\", \"Silvestre, A.J.D.\", \"Silva, C.M.\"]",
+            "authors": "E.L.G. Oliveira, A.J.D. Silvestre, C.M. Silva",
             "title": "Review of kinetic models for supercritical fluid extraction",
             "year": "2011",
             "journal": "Chemical Engineering Research and Design",
@@ -1339,7 +1339,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Neves, P.\", \"Gago, S.\", \"Balula, S.S.\", \"Lopes, A.D.\", \"Valente, A.A.\", \"Silva, L.\", \"Paz, F.A.A.\", \"Pillinger, M.\", \"Rocha, J.\", \"Silva, C.M.\", \"Alves, I.S.\"]",
+            "authors": "P. Neves, S. Gago, S.S. Balula, A.D. Lopes, A.A. Valente, L. Silva, F.A.A. Paz, M. Pillinger, J. Rocha, C.M. Silva, I.S. Alves",
             "title": "Synthesis and catalytic properties of molybdenum(VI) complexes with tris(3,5-dimethyl-1-pyrazolyl)methane",
             "year": "2011",
             "journal": "Inorganic Chemistry",
@@ -1354,7 +1354,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Neves, P.\", \"Amarante, T.R.\", \"Gomes, A.C.\", \"Coelho, A.C.\", \"Gago, S.\", \"Pillinger, M.\", \"Gonalves, I.S.\", \"Silva, C.M.\", \"Valente, A.A.\"]",
+            "authors": "P. Neves, T.R. Amarante, A.C. Gomes, A.C. Coelho, S. Gago, M. Pillinger, I.S. Gonalves, C.M. Silva, A.A. Valente",
             "title": "Heterogeneous oxidation catalysts formed in situ from molybdenum tetracarbonyl complexes and tert-butyl hydroperoxide",
             "year": "2011",
             "journal": "Applied Catalysis A: General",
@@ -1369,7 +1369,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Vaz, R.V.\", \"Santiago, A.S.\", \"Lito, P.F.\"]",
+            "authors": "C.M. Silva, R.V. Vaz, A.S. Santiago, P.F. Lito",
             "title": "Continuous and batch distillation in an oldershaw tray column",
             "year": "2011",
             "journal": "Chemical Engineering Education",
@@ -1384,7 +1384,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lito, P.F.\", \"Santiago, A.S.\", \"Cardoso, S.P.\", \"Figueiredo, B.R.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Lito, A.S. Santiago, S.P. Cardoso, B.R. Figueiredo, C.M. Silva",
             "title": "New expressions for single and binary permeation through zeolite membranes for different isotherm models",
             "year": "2011",
             "journal": "Journal of Membrane Science",
@@ -1399,7 +1399,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Magalhães, A.L.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "A.L. Magalhães, F.A. Silva, C.M. Silva",
             "title": "New tracer diffusion correlation for real systems over wide ranges of temperature and density",
             "year": "2011",
             "journal": "Chemical Engineering Journal",
@@ -1414,7 +1414,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Magalhães, A.L.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "A.L. Magalhães, F.A. Silva, C.M. Silva",
             "title": "New models for tracer diffusion coefficients of hard sphere and real systems: Application to gases, liquids and supercritical fluids",
             "year": "2011",
             "journal": "Journal of Supercritical Fluids",
@@ -1429,7 +1429,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Domingues, R.M.A.\", \"Sousa, G.D.A.\", \"Silva, C.M.\", \"Freire, C.S.R.\", \"Silvestre, A.J.D.\", \"Neto, C.P.\"]",
+            "authors": "R.M.A. Domingues, G.D.A. Sousa, C.M. Silva, C.S.R. Freire, A.J.D. Silvestre, C.P. Neto",
             "title": "High value triterpenic compounds from the outer barks of several Eucalyptus species cultivated in Brazil and in Portugal",
             "year": "2011",
             "journal": "Industrial Crops and Products",
@@ -1444,7 +1444,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Li, X.\", \"Zhou, C.\", \"Lin, Z.\", \"Rocha, J.\", \"Lito, P.F.\", \"Santiago, A.S.\", \"Silva, C.M.\"]",
+            "authors": "X. Li, C. Zhou, Z. Lin, J. Rocha, P.F. Lito, A.S. Santiago, C.M. Silva",
             "title": "Titanosilicate AM-3 membrane: A new potential candidate for H<inf>2</inf> separation",
             "year": "2011",
             "journal": "Microporous and Mesoporous Materials",
@@ -1459,7 +1459,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lito, P.F.\", \"Zhou, C.F.\", \"Santiago, A.S.\", \"Rodrigues, A.E.\", \"Rocha, J.\", \"Lin, Z.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Lito, C.F. Zhou, A.S. Santiago, A.E. Rodrigues, J. Rocha, Z. Lin, C.M. Silva",
             "title": "Modelling gas permeation through new microporous titanosilicate AM-3 membranes",
             "year": "2010",
             "journal": "Chemical Engineering Journal",
@@ -1474,7 +1474,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Neves, P.\", \"Pereira, C.C.L.\", \"Paz, F.A.\", \"Gago, S.\", \"Pillinger, M.\", \"Silva, C.M.\", \"Valente, A.A.\", \"Romão, C.C.\", \"Gonalves, I.S.\"]",
+            "authors": "P. Neves, C.C.L. Pereira, F.A. Paz, S. Gago, M. Pillinger, C.M. Silva, A.A. Valente, C.C. Romão, I.S. Gonalves",
             "title": "Cyclopentadienyl molybdenum dicarbonyl η3-allyl complexes as catalyst precursors for olefin epoxidation. Crystal structures of Cp′Mo(CO)<inf>2</inf>(η3-C<inf>3</inf>H<inf>5</inf>) (Cp′ = η5-C<inf>5</inf>H<inf>4</inf>Me, η5-C<inf>5</inf>Me<inf>5</inf>)",
             "year": "2010",
             "journal": "Journal of Organometallic Chemistry",
@@ -1489,7 +1489,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Magalhães, A.L.\", \"Cardoso, S.P.\", \"Figueiredo, B.R.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "A.L. Magalhães, S.P. Cardoso, B.R. Figueiredo, F.A. Silva, C.M. Silva",
             "title": "Revisiting the liu-silva-macedo model for tracer diffusion coefficients of supercritical, liquid, and gaseous systems",
             "year": "2010",
             "journal": "Industrial and Engineering Chemistry Research",
@@ -1504,7 +1504,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Passos, C.P.\", \"Silva, R.M.\", \"Silva, F.A.\", \"Coimbra, M.A.\", \"Silva, C.M.\"]",
+            "authors": "C.P. Passos, R.M. Silva, F.A. Silva, M.A. Coimbra, C.M. Silva",
             "title": "Supercritical fluid extraction of grape seed (Vitis vinifera L.) oil. Effect of the operating conditions upon oil composition and antioxidant capacity",
             "year": "2010",
             "journal": "Chemical Engineering Journal",
@@ -1519,7 +1519,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Abrantes, M.\", \"Neves, P.\", \"Antunes, M.M.\", \"Gago, S.\", \"Paz, F.A.\", \"Rodrigues, A.E.\", \"Pillinger, M.\", \"Gonçalves, I.S.\", \"Silva, C.M.\", \"Valente, A.A.\"]",
+            "authors": "M. Abrantes, P. Neves, M.M. Antunes, S. Gago, F.A. Paz, A.E. Rodrigues, M. Pillinger, I.S. Gonçalves, C.M. Silva, A.A. Valente",
             "title": "Microwave-assisted molybdenum-catalysed epoxidation of olefins",
             "year": "2010",
             "journal": "Journal of Molecular Catalysis A: Chemical",
@@ -1534,7 +1534,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lopes, C.B.\", \"Otero, M.\", \"Lin, Z.\", \"Silva, C.M.\", \"Pereira, E.\", \"Rocha, J.\", \"Duarte, A.C.\"]",
+            "authors": "C.B. Lopes, M. Otero, Z. Lin, C.M. Silva, E. Pereira, J. Rocha, A.C. Duarte",
             "title": "Effect of pH and temperature on Hg2+water decontamination using ETS-4 titanosilicate",
             "year": "2010",
             "journal": "Journal of Hazardous Materials",
@@ -1549,7 +1549,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Passos, C.P.\", \"Cardoso, S.M.\", \"Barros, A.S.\", \"Silva, C.M.\", \"Coimbra, M.A.\"]",
+            "authors": "C.P. Passos, S.M. Cardoso, A.S. Barros, C.M. Silva, M.A. Coimbra",
             "title": "Application of Fourier transform infrared spectroscopy and orthogonal projections to latent structures/partial least squares regression for estimation of procyanidins average degree of polymerisation",
             "year": "2010",
             "journal": "Analytica Chimica Acta",
@@ -1564,7 +1564,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Barreira, L.D.\", \"Lito, P.F.\", \"Antunes, B.M.\", \"Otero, M.\", \"Lin, Z.\", \"Rocha, J.\", \"Pereira, E.\", \"Duarte, A.C.\", \"Silva, C.M.\"]",
+            "authors": "L.D. Barreira, P.F. Lito, B.M. Antunes, M. Otero, Z. Lin, J. Rocha, E. Pereira, A.C. Duarte, C.M. Silva",
             "title": "Effect of pH on cadmium (II) removal from aqueous solution using titanosilicate ETS-4",
             "year": "2009",
             "journal": "Chemical Engineering Journal",
@@ -1579,7 +1579,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Otero, M.\", \"Lopes, C.B.\", \"Coimbra, J.\", \"Ferreira, T.R.\", \"Silva, C.M.\", \"Lin, Z.\", \"Rocha, J.\", \"Pereira, E.\", \"Duarte, A.C.\"]",
+            "authors": "M. Otero, C.B. Lopes, J. Coimbra, T.R. Ferreira, C.M. Silva, Z. Lin, J. Rocha, E. Pereira, A.C. Duarte",
             "title": "Priority pollutants (Hg2+and Cd2+) removal from water by ETS-4 titanosilicate",
             "year": "2009",
             "journal": "Desalination",
@@ -1594,7 +1594,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lopes, C.B.\", \"Otero, M.\", \"Lin, Z.\", \"Pereira, E.\", \"Silva, C.M.\", \"Rocha, J.\", \"Duarte, A.C.\"]",
+            "authors": "C.B. Lopes, M. Otero, Z. Lin, E. Pereira, C.M. Silva, J. Rocha, A.C. Duarte",
             "title": "Removal of mercury from aqueous solutions by ETS-4 microporous titanosilicate: Effect of contact time, titanosilicate mass and initial metal concentration",
             "year": "2009",
             "journal": "Proceedings of the ICEM2007 - 11th International Conference on Environmental Remediation and Radioactive Waste Management",
@@ -1609,7 +1609,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Camarinha, E.D.\", \"Lito, P.F.\", \"Antunes, B.M.\", \"Otero, M.\", \"Lin, Z.\", \"Rocha, J.\", \"Pereira, E.\", \"Duarte, A.C.\", \"Silva, C.M.\"]",
+            "authors": "E.D. Camarinha, P.F. Lito, B.M. Antunes, M. Otero, Z. Lin, J. Rocha, E. Pereira, A.C. Duarte, C.M. Silva",
             "title": "Cadmium(II) removal from aqueous solution using microporous titanosilicate ETS-10",
             "year": "2009",
             "journal": "Chemical Engineering Journal",
@@ -1624,7 +1624,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Gago, S.\", \"Neves, P.\", \"Monteiro, B.\", \"Pessêgo, M.\", \"Lopes, A.D.\", \"Valente, A.A.\", \"Paz, F.A.\", \"Pillinger, M.\", \"Moreira, J.\", \"Silva, C.M.\", \"Gonçalves, I.S.\"]",
+            "authors": "S. Gago, P. Neves, B. Monteiro, M. Pessêgo, A.D. Lopes, A.A. Valente, F.A. Paz, M. Pillinger, J. Moreira, C.M. Silva, I.S. Gonçalves",
             "title": "Synthesis and catalytic properties in olefin epoxidation of octahedral dichloridodioxidomolybdenum(VI) complexes bearing N,N-dialkylamide ligands: Crystal structure of [Mo<inf>2</inf>o<inf>4</inf>(μ2-o)CI<inf>2</inf>(dmf) <inf>4</inf>]",
             "year": "2009",
             "journal": "European Journal of Inorganic Chemistry",
@@ -1639,7 +1639,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Neves, P.\", \"Gago, S.\", \"Pereira, C.C.L.\", \"Figueiredo, S.\", \"Lemos, A.\", \"Lopes, A.D.\", \"Gonçalves, I.S.\", \"Pillinger, M.\", \"Silva, C.M.\", \"Valente, A.A.\"]",
+            "authors": "P. Neves, S. Gago, C.C.L. Pereira, S. Figueiredo, A. Lemos, A.D. Lopes, I.S. Gonçalves, M. Pillinger, C.M. Silva, A.A. Valente",
             "title": "Catalytic epoxidation and sulfoxidation activity of a dioxomolybdenum(VI) complex bearing a chiral tetradentate oxazoline ligand",
             "year": "2009",
             "journal": "Catalysis Letters",
@@ -1654,7 +1654,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lopes, C.B.\", \"Otero, M.\", \"Lin, Z.\", \"Silva, C.M.\", \"Rocha, J.\", \"Pereira, E.\", \"Duarte, A.C.\"]",
+            "authors": "C.B. Lopes, M. Otero, Z. Lin, C.M. Silva, J. Rocha, E. Pereira, A.C. Duarte",
             "title": "Removal of Hg2+ ions from aqueous solution by ETS-4 microporous titanosilicate-Kinetic and equilibrium studies",
             "year": "2009",
             "journal": "Chemical Engineering Journal",
@@ -1669,7 +1669,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lito, P.F.\", \"Magalhães, A.L.\", \"Silva, C.M.\", \"Fernandes, D.L.A.\"]",
+            "authors": "P.F. Lito, A.L. Magalhães, C.M. Silva, D.L.A. Fernandes",
             "title": "Permeation of adsorbable and non-adsorbable gases in microporous zeolite membranes",
             "year": "2009",
             "journal": "Journal of Chemical Education",
@@ -1684,7 +1684,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Passos, C.P.\", \"Yilmaz, S.\", \"Silva, C.M.\", \"Coimbra, M.A.\"]",
+            "authors": "C.P. Passos, S. Yilmaz, C.M. Silva, M.A. Coimbra",
             "title": "Enhancement of grape seed oil extraction using a cell wall degrading enzyme cocktail",
             "year": "2009",
             "journal": "Food Chemistry",
@@ -1699,7 +1699,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Passos, C.P.\", \"Coimbra, M.A.\"]",
+            "authors": "C.M. Silva, C.P. Passos, M.A. Coimbra",
             "title": "Numerical simulation of supercritical extraction processes",
             "year": "2009",
             "journal": "Chemical Product and Process Modeling",
@@ -1714,7 +1714,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Monteiro, B.\", \"Gago, S.\", \"Neves, P.\", \"Valente, A.A.\", \"Gonçalves, I.S.\", \"Pereira, C.C.L.\", \"Silva, C.M.\", \"Pillinger, M.\"]",
+            "authors": "B. Monteiro, S. Gago, P. Neves, A.A. Valente, I.S. Gonçalves, C.C.L. Pereira, C.M. Silva, M. Pillinger",
             "title": "Effect of an ionic liquid on the catalytic performance of thiocyanatodioxomolybdenum(VI) complexes for the oxidation of cyclooctene and benzyl alcohol",
             "year": "2009",
             "journal": "Catalysis Letters",
@@ -1729,7 +1729,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Ferreira, T.R.\", \"Lopes, C.B.\", \"Lito, P.F.\", \"Otero, M.\", \"Lin, Z.\", \"Rocha, J.\", \"Pereira, E.\", \"Silva, C.M.\", \"Duarte, A.\"]",
+            "authors": "T.R. Ferreira, C.B. Lopes, P.F. Lito, M. Otero, Z. Lin, J. Rocha, E. Pereira, C.M. Silva, A. Duarte",
             "title": "Cadmium(II) removal from aqueous solution using microporous titanosilicate ETS-4",
             "year": "2009",
             "journal": "Chemical Engineering Journal",
@@ -1744,7 +1744,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Passos, C.P.\", \"Silva, R.M.\", \"Silva, F.A.\", \"Coimbra, M.A.\", \"Silva, C.M.\"]",
+            "authors": "C.P. Passos, R.M. Silva, F.A. Silva, M.A. Coimbra, C.M. Silva",
             "title": "Enhancement of the supercritical fluid extraction of grape seed oil by using enzymatically pre-treated seed",
             "year": "2009",
             "journal": "Journal of Supercritical Fluids",
@@ -1759,7 +1759,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lopes, C.B.\", \"Lito, P.F.\", \"Otero, M.\", \"Lin, Z.\", \"Rocha, J.\", \"Silva, C.M.\", \"Pereira, E.\", \"Duarte, A.C.\"]",
+            "authors": "C.B. Lopes, P.F. Lito, M. Otero, Z. Lin, J. Rocha, C.M. Silva, E. Pereira, A.C. Duarte",
             "title": "Mercury removal with titanosilicate ETS-4: Batch experiments and modelling",
             "year": "2008",
             "journal": "Microporous and Mesoporous Materials",
@@ -1774,7 +1774,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Liu, H.\"]",
+            "authors": "C.M. Silva, H. Liu",
             "title": "Modelling of transport properties of hard sphere fluids and related systems, and its applications",
             "year": "2008",
             "journal": "Lecture Notes in Physics",
@@ -1789,7 +1789,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Lito, P.F.\", \"Neves, P.S.\", \"Silva, F.A.\"]",
+            "authors": "C.M. Silva, P.F. Lito, P.S. Neves, F.A. Silva",
             "title": "PID controller settings: Based on a transient response experiment",
             "year": "2008",
             "journal": "Chemical Engineering Education",
@@ -1804,7 +1804,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Alonso, J.C.\", \"Neves, P.\", \"Silva, C.\", \"Valente, A.A.\", \"Brandão, P.\", \"Quintal, S.\", \"Brito, M.J.\", \"Pinto, P.\", \"Félix, V.\", \"Drew, M.G.B.\", \"Pires, J.\", \"Carvalho, A.P.\", \"Calhorda, M.J.\", \"Ferreira, P.\"]",
+            "authors": "J.C. Alonso, P. Neves, C. Silva, A.A. Valente, P. Brandão, S. Quintal, M.J. Brito, P. Pinto, V. Félix, M.G.B. Drew, J. Pires, A.P. Carvalho, M.J. Calhorda, P. Ferreira",
             "title": "Immobilisation of η3-allyldicarbonyl complexes of Mo II with bidentate nitrogen ligands within aluminium-pillared clays",
             "year": "2008",
             "journal": "European Journal of Inorganic Chemistry",
@@ -1819,7 +1819,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Lito, P.F.\", \"Silva, C.M.\"]",
+            "authors": "P.F. Lito, C.M. Silva",
             "title": "Comparison between Maxwell-Stefan and Nernst-Planck equations to describe ion exchange in microporous materials",
             "year": "2008",
             "journal": "Defect and Diffusion Forum",
@@ -1834,7 +1834,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Neves, P.S.\", \"Silva, F.A.\", \"Xavier, A.M.R.B.\", \"Eusébio, M.F.J.\"]",
+            "authors": "C.M. Silva, P.S. Neves, F.A. Silva, A.M.R.B. Xavier, M.F.J. Eusébio",
             "title": "Tangential ultrafiltration of aqueous Saccharomyces cerevisiae suspensions",
             "year": "2008",
             "journal": "Journal of Chemical Education",
@@ -1849,7 +1849,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Lito, P.F.\"]",
+            "authors": "C.M. Silva, P.F. Lito",
             "title": "Application of the Maxwell-Stefan approach to ion exchange in microporous materials. Batch process modelling",
             "year": "2007",
             "journal": "Chemical Engineering Science",
@@ -1864,7 +1864,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Alonso, J.C.\", \"Neves, P.\", \"Silva, M.J.P.\", \"Quintal, S.\", \"Vaz, P.D.\", \"Silva, C.\", \"Valente, A.A.\", \"Ferreira, P.\", \"Calhorda, M.J.\", \"Félix, V.\", \"Drew, M.G.B.\"]",
+            "authors": "J.C. Alonso, P. Neves, M.J.P. Silva, S. Quintal, P.D. Vaz, C. Silva, A.A. Valente, P. Ferreira, M.J. Calhorda, V. Félix, M.G.B. Drew",
             "title": "Molybdenum η3-allyl dicarbonyl complexes as a new class of precursors for highly reactive epoxidation catalysts with tert-Butyl hydroperoxide",
             "year": "2007",
             "journal": "Organometallics",
@@ -1879,7 +1879,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Passos, C.P.\", \"Cardoso, S.M.\", \"Domingues, M.R.M.\", \"Domingues, P.\", \"Silva, C.M.\", \"Coimbra, M.A.\"]",
+            "authors": "C.P. Passos, S.M. Cardoso, M.R.M. Domingues, P. Domingues, C.M. Silva, M.A. Coimbra",
             "title": "Evidence for galloylated type-A procyanidins in grape seeds",
             "year": "2007",
             "journal": "Food Chemistry",
@@ -1894,7 +1894,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Fernandes, D.L.A.\", \"Xavier, A.M.R.B.\", \"Portugal, I.\", \"Silva, F.A.\", \"Silva, C.M.\"]",
+            "authors": "D.L.A. Fernandes, A.M.R.B. Xavier, I. Portugal, F.A. Silva, C.M. Silva",
             "title": "Dynamic and equilibrium adsorption experiments",
             "year": "2005",
             "journal": "Journal of Chemical Education",
@@ -1909,7 +1909,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Filho, C.A.\", \"Quadri, M.B.\", \"Macedo, E.A.\"]",
+            "authors": "C.M. Silva, C.A. Filho, M.B. Quadri, E.A. Macedo",
             "title": "Binary diffusion coefficients of α-pinene and β-pinene in supercritical carbon dioxide",
             "year": "2004",
             "journal": "Journal of Supercritical Fluids",
@@ -1924,7 +1924,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Filho, C.A.\", \"Silva, C.M.\", \"Quadri, M.B.\", \"Macedo, E.A.\"]",
+            "authors": "C.A. Filho, C.M. Silva, M.B. Quadri, E.A. Macedo",
             "title": "Tracer diffusion coefficients of citral and D-limonene in supercritical carbon dioxide",
             "year": "2003",
             "journal": "Fluid Phase Equilibria",
@@ -1939,7 +1939,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Filho, C.A.\", \"Silva, C.M.\", \"Quadri, M.B.\", \"Macedo, E.A.\"]",
+            "authors": "C.A. Filho, C.M. Silva, M.B. Quadri, E.A. Macedo",
             "title": "Infinite dilution diffusion coefficients of linalool and benzene in supercritical carbon dioxide",
             "year": "2002",
             "journal": "Journal of Chemical and Engineering Data",
@@ -1954,7 +1954,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Liu, H.\", \"Silva, C.M.\", \"Macedo, E.A.\"]",
+            "authors": "H. Liu, C.M. Silva, E.A. Macedo",
             "title": "Generalised free-volume theory for transport properties and new trends about the relationship between free volume and equations of state",
             "year": "2002",
             "journal": "Fluid Phase Equilibria",
@@ -1969,7 +1969,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Liu, H.\", \"Macedo, E.A.\"]",
+            "authors": "C.M. Silva, H. Liu, E.A. Macedo",
             "title": "Models for self-diffusion coefficients of dense fluids, including hydrogen-bonding substances",
             "year": "1998",
             "journal": "Chemical Engineering Science",
@@ -1984,7 +1984,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Liu, H.\", \"Silva, C.M.\", \"Macedo, E.A.\"]",
+            "authors": "H. Liu, C.M. Silva, E.A. Macedo",
             "title": "Unified approach to the self-diffusion coefficients of dense fluids over wide ranges of temperature and pressure - Hard-sphere, square-well, Lennard-Jones and real substances",
             "year": "1998",
             "journal": "Chemical Engineering Science",
@@ -1999,7 +1999,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Macedo, E.A.\"]",
+            "authors": "C.M. Silva, E.A. Macedo",
             "title": "Diffusion Coefficients of Ethers in Supercritical Carbon Dioxide",
             "year": "1998",
             "journal": "Industrial and Engineering Chemistry Research",
@@ -2014,7 +2014,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Silva, C.M.\", \"Liu, H.\", \"Macedo, E.A.\"]",
+            "authors": "C.M. Silva, H. Liu, E.A. Macedo",
             "title": "Comparison between Different Explicit Expressions of the Effective Hard Sphere Diameter of Lennard-Jones Fluid: Application to Self-Diffusion Coefficients",
             "year": "1998",
             "journal": "Industrial and Engineering Chemistry Research",
@@ -2029,7 +2029,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Liu, H.\", \"Silva, C.M.\", \"Macedo, E.A.\"]",
+            "authors": "H. Liu, C.M. Silva, E.A. Macedo",
             "title": "New Equations for Tracer Diffusion Coefficients of Solutes in Supercritical and Liquid Solvents Based on the Lennard-Jones Fluid Model",
             "year": "1997",
             "journal": "Industrial and Engineering Chemistry Research",
@@ -2044,7 +2044,7 @@
         "model": "website.publication",
         "fields": {
             "pub_type": "article",
-            "authors": "[\"Pinho, S.P.\", \"Silva, C.M.\", \"Macedo, E.A.\"]",
+            "authors": "S.P. Pinho, C.M. Silva, E.A. Macedo",
             "title": "Solubility of Amino Acids: A Group-Contribution Model Involving Phase and Chemical Equilibria",
             "year": "1994",
             "journal": "Industrial and Engineering Chemistry Research",

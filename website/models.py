@@ -93,7 +93,6 @@ class Publication(models.Model):
     pages = models.CharField(max_length=20, blank=True)
     link = models.URLField(blank=True)
     book_title = models.CharField(max_length=500, blank=True)
-    # chapter_title = models.CharField(max_length=500, blank=True)
     publisher = models.CharField(max_length=100, blank=True)
     abstract = models.TextField(blank=True)
     patent_number = models.CharField(max_length=100, blank=True)
@@ -101,7 +100,10 @@ class Publication(models.Model):
     conference_city = models.CharField(max_length=100, blank=True)
     conference_date = models.CharField(max_length=100, blank=True)
     thesis_type = models.CharField(max_length=15, choices=THESIS_TYPES, blank=True)
+    thesis_coordinators = models.CharField(max_length=500, blank=True)
+    thesis_institution = models.CharField(max_length=200, blank=True)
     date_added = models.DateTimeField(default=timezone.now)
+    photo = models.ImageField(default='images/publications/book_placeholder.jpg', upload_to='images/publications')
 
     def __str__(self):
-        return f'{self.pk}-{self.pub_type}-{self.journal}'
+        return f'{self.pub_type} - {self.title}'

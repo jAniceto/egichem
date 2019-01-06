@@ -1,3 +1,4 @@
+import datetime
 from django.shortcuts import render
 from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication
 
@@ -47,8 +48,6 @@ def people(request):
 	fellows = members.filter(position='Research Fellow').exclude(highlighted=True).exclude(alumni=True)
 	masters = members.filter(position='MSc Student').exclude(highlighted=True).exclude(alumni=True)
 	undergraduates = members.filter(position='Undergraduate Students').exclude(highlighted=True).exclude(alumni=True)
-
-	print(fellows)
 	
 	context = {
 		'page_title': 'People',
@@ -64,8 +63,7 @@ def people(request):
 
 
 def publications(request):
-	publications = Publication.objects.all().order_by('-pk')
-
+	publications = Publication.objects.all().order_by('-year', 'title')
 	articles = publications.filter(pub_type='article')
 	book_chapters = publications.filter(pub_type='book-chapter')
 	patents = publications.filter(pub_type='patent')
@@ -82,5 +80,8 @@ def publications(request):
 		'posters': posters,
 		'presentations': presentations,
 		'theses': theses,
+		'current_year': datetime.datetime.today().year,
 	}
+	
+	print('2018' != articles[0].year)
 	return render(request, 'website/publications.html', context)
