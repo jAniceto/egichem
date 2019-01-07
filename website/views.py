@@ -86,13 +86,11 @@ def publications(request):
 	return render(request, 'website/publications.html', context)
 
 
-def member_page(request, member_id):
+def member_page(request, name_slug):
 
 	try:
-		member = Member.objects.get(pk=member_id)
+		member = Member.objects.get(slug=name_slug)
 		last_name = member.name.split(' ')[-1]
-		first_initial = member.name[0] + '.'
-		print(first_initial)
 		member_articles = Publication.objects.filter(pub_type='article', authors__contains=last_name).order_by('-year', 'title')
 		member_book_chapters = Publication.objects.filter(pub_type='book-chapter', authors__contains=last_name).order_by('-year', 'title')
 		member_patents = Publication.objects.filter(pub_type='patent', authors__contains=last_name).order_by('-year', 'title')
