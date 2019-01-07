@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="col-md-9">
-              <h4 class="card-title">{{ professor.name }}</h4>
+              <a href="{% url 'member_page' professor.pk %}"><h4 class="card-title">{{ professor.name }}</h4></a>
               <p class="card-text">{{ professor.user.profile.bio|safe }}</p>
             </div>
           </div>
@@ -66,7 +66,7 @@
                 <img class="img-fluid" src="{% if postdoc.user.profile.photo.url %}{{ postdoc.user.profile.photo.url }}{% else %}{{ postdoc.photo.url }}{% endif %}" alt="">
               </div>
               <div class="col-md-8">
-                <h4 class="card-title">{{ postdoc.name }}</h4>
+                <a href="{% url 'member_page' postdoc.pk %}"><h4 class="card-title">{{ postdoc.name }}</h4></a>
                 <p class="card-text mb-2">{{ postdoc.research_area }}</p>
                 <p class="card-text mb-2">
                   <small>
@@ -119,7 +119,7 @@
                 <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h4 class="card-title">{{ phd.name }}</h4>
+                <a href="{% url 'member_page' phd.pk %}"><h4 class="card-title">{{ phd.name }}</h4></a>
                 <p class="card-text mb-2">{{ phd.research_area }}</p>
                 <p class="card-text mb-2">
                   <small>
@@ -171,7 +171,7 @@
                 <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h4 class="card-title">{{ fellow.name }}</h4>
+                <a href=""><h4 class="card-title">{{ fellow.name }}</h4></a>
                 <p class="card-text mb-2">{{ fellow.research_area }}</p>
                 <p class="card-text mb-2">
                   <small>
@@ -223,7 +223,7 @@
                 <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h4 class="card-title">{{ master.name }}</h4>
+                <a href=""><h4 class="card-title">{{ master.name }}</h4></a>
                 <p class="card-text mb-2">Thesis: {{ master.thesis }}</p>
                 <p class="card-text mb-2">
                   <small>
@@ -275,7 +275,7 @@
                 <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h4 class="card-title">{{ undergraduate.name }}</h4>
+                <a href=""><h4 class="card-title">{{ undergraduate.name }}</h4></a>
                 <p class="card-text mb-2">Research area: {{ undergraduate.thesis }}</p>
                 <p class="card-text mb-2">
                   <small>

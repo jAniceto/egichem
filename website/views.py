@@ -1,5 +1,6 @@
 import datetime
 from django.shortcuts import render
+from django.http import Http404
 from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication
 
 
@@ -82,6 +83,36 @@ def publications(request):
 		'theses': theses,
 		'current_year': datetime.datetime.today().year,
 	}
-	
-	print('2018' != articles[0].year)
 	return render(request, 'website/publications.html', context)
+
+
+def member_page(request, member_id):
+
+	try:
+		member = Member.objects.get(pk=member_id)
+		last_name = member.name.split(' ')[-1]
+		first_initial = member.name[0] + '.'
+		print(first_initial)
+		member_articles = Publication.objects.filter(pub_type='article', authors__contains=last_name).order_by('-year', 'title')
+		member_book_chapters = Publication.objects.filter(pub_type='book-chapter', authors__contains=last_name).order_by('-year', 'title')
+		member_patents = Publication.objects.filter(pub_type='patent', authors__contains=last_name).order_by('-year', 'title')
+		member_posters = Publication.objects.filter(pub_type='poster', authors__contains=last_name).order_by('-year', 'title')
+		member_presentations = Publication.objects.filter(pub_type='presentation', authors__contains=last_name).order_by('-year', 'title')
+		member_theses = Publication.objects.filter(pub_type='thesis', authors__contains=last_name).order_by('-year', 'title')
+
+		context = {
+			'page_title': member.name,
+			'page_subtitle': 'Personal Page',
+			'member': member,
+			'member_articles': member_articles,
+			'member_book_chapters': member_book_chapters,
+			'member_patents': member_patents,
+			'member_posters': member_posters,
+			'member_presentations': member_presentations,
+			'member_theses': member_theses,
+		}
+
+	except Member.DoesNotExist:
+		raise Http404("Member page does not exist.")
+	
+	return render(request, 'website/member.html', context)

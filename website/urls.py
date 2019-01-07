@@ -12,4 +12,5 @@ urlpatterns = [
     # path('news/', views.news, name='news'),
     # path('tools/', views.tools, name='tools'),
     # path('contact/', views.contact, name='contact'),
+    path('people/<int:member_id>/', views.member_page, name='member_page'),
 ]
