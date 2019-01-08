@@ -6,8 +6,6 @@ html {
 body {
   /* background: #fafafa; */
   color: #333333;
-  /* margin-top: 5rem; */
-  margin-bottom: 200px; /* Margin bottom by footer height */
   font-family: 'Roboto', sans-serif;
 }
 
@@ -61,7 +59,17 @@ ul {
 }
 
 /* LINKS STYLES */
-main a.link {
+a {
+  color: #333333;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(97, 169, 34, 0.8);
+  text-decoration: none;
+} 
+
+/* main a.link {
   color: #333333;
   background: linear-gradient(transparent 66%, rgba(98, 170, 35, 0.3) 33%);
 }
@@ -70,7 +78,7 @@ main a.link:hover {
   color: #333333;
   background: linear-gradient(transparent 66%, rgba(98, 170, 35, 0.7) 33%);
   text-decoration: none;
-}
+} */
 
 a.tab-link {
   color: #62AA23;
@@ -80,16 +88,12 @@ a.tab-link.active {
   color: #495057;
 }
 
-/* FOOTER */
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  font-size: 0.7rem;
-  /* height: 60px; Set the fixed height of the footer here */
-  background-color: #fafafa;
+a.link {
+  border-bottom: 1px dotted #222222;
 }
 
+
+/* BANNER CAROUSEL */
 .carousel-item {
   height:220px;    
   overflow:hidden;
