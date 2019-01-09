@@ -36,18 +36,19 @@
     {% endif %}
 </head>
 <body>
+
   <!-- Header -->
   <header class="site-header">
     <div class="banner mt-1 mb-3">
       <div class="container">
         <div class="row align-items-end">
-          <div class="col-md-5">
-            <img src="https://static.wixstatic.com/media/486317_11c7a3b38ee25248300e8c68f91a9f0a.jpg/v1/fill/w_220,h_238,al_c,q_80,usm_0.66_1.00_0.01/486317_11c7a3b38ee25248300e8c68f91a9f0a.webp" alt="">
+          <div class="col-md-4">
+            <a href="{% url 'home' %}"><img class="d-block d-md-inline mx-auto" src="{% static 'website/images/logo_egichem.png' %}" style="max-height: 240px;" alt="EGICHEM Logo"></a>
           </div>
-          <div class="col-md-2 d-none d-lg-block">
-            <img src="https://static.wixstatic.com/media/486317_e2dfe3df832e2d4bdc6e139716e8daba.png/v1/fill/w_170,h_34,al_c,q_80,usm_0.66_1.00_0.01/486317_e2dfe3df832e2d4bdc6e139716e8daba.webp" alt=""> 
+          <div class="col-md-3 d-none d-lg-block">
+            <img class="float-right img-fluid" src="{% static 'website/images/logo_CICECO.png' %}" alt="Logo UA"> 
           </div>
-          <div class="col-md-5 d-none d-md-block">
+          <div class="col-md-5 d-none d-lg-block">
             <div id="photoSlides" class="carousel slide" data-ride="carousel">
               <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -97,28 +98,30 @@
 
     <nav class="navbar navbar-expand-md bg-white border-top">
       <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler text-body w-100" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="float-left"><strong>{{ page_title|upper }}</strong></span>
+          <span class="navbar-toggler-icon float-right"><i class="fas fa-bars"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link mr-3" href="{% url 'home' %}">HOME {{ MEDIA_URL }}</a>
-            <a class="nav-item nav-link mr-3" href="{% url 'research' %}">RESEARCH</a>
-            <a class="nav-item nav-link mr-3" href="{% url 'people' %}">PEOPLE</a>
-            <a class="nav-item nav-link mr-3" href="{% url 'lab' %}">LAB</a>
-            <a class="nav-item nav-link mr-3" href="{% url 'publications' %}">PUBLICATIONS</a>
-            <a class="nav-item nav-link mr-3" href="{% url 'partners' %}">PARTNERS & COLLABORATORS</a>
-            <a class="nav-item nav-link mr-3" href="#">NEWS</a>
-            <a class="nav-item nav-link mr-3" href="#">TOOLS</a>
-            <a class="nav-item nav-link mr-3" href="#">CONTACT</a>
+            <a class="nav-item nav-link mx-2" href="{% url 'home' %}">HOME {{ MEDIA_URL }}</a>
+            <a class="nav-item nav-link mx-2" href="{% url 'research' %}">RESEARCH</a>
+            <a class="nav-item nav-link mx-2" href="{% url 'people' %}">PEOPLE</a>
+            <a class="nav-item nav-link mx-2" href="{% url 'lab' %}">LAB</a>
+            <a class="nav-item nav-link mx-2" href="{% url 'publications' %}">PUBLICATIONS</a>
+            <a class="nav-item nav-link mx-2" href="{% url 'partners' %}">PARTNERS & COLLABORATORS</a>
+            <a class="nav-item nav-link mx-2" href="#">NEWS</a>
+            <a class="nav-item nav-link mx-2" href="#">TOOLS</a>
+            <a class="nav-item nav-link mx-2" href="#">CONTACT</a>
           </div>
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-              <a class="nav-item nav-link" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i></a>
-              <a class="nav-item nav-link" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i></a>
+              <a class="nav-item nav-link fix-margin" href="{% url 'profile' %}"><i class="fas fa-flask"></i><span class="d-md-none">&nbsp; OUR LAB</span></a>
+              <a class="nav-item nav-link fix-margin" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i><span class="d-md-none">&nbsp; PROFILE</span></a>
+              <a class="nav-item nav-link fix-margin" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i><span class="d-md-none">&nbsp; LOGOUT</span></a>
             {% else %}
-              <a class="nav-item nav-link" href="{% url 'login' %}"><i class="fas fa-lock"></i></a>
+              <a class="nav-item nav-link fix-margin" href="{% url 'login' %}"><i class="fas fa-lock"></i><span class="d-md-none">&nbsp; LOGIN</span></a>
             {% endif %}
           </div>
         </div>
@@ -186,14 +189,17 @@
     </div>
   </footer>
 
-  <script>
-    $('.carousel').carousel()
-  </script>
+  
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <script>
+    $('.carousel').carousel()
+  </script>
+
 </body>
 </html>

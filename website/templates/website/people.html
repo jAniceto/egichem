@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3">
+<div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3 d-none d-md-block">
   <span class="font-weight-bold">{{ page_title }}</span>{% if page_subtitle %} &nbsp;|&nbsp;  <span class="text-small">{{ page_subtitle }}</span>{% endif %}
 </div>
 
@@ -171,7 +171,7 @@
                 <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h4 class="card-title"><a href="{% url 'member_page' fellow.slug %}">{{ fellow.name }}</a></h4>
+                <h4 class="card-title"><a class="link" href="{% url 'member_page' fellow.slug %}">{{ fellow.name }}</a></h4>
                 <p class="card-text mb-2">{{ fellow.research_area }}</p>
                 <p class="card-text mb-2">
                   <small>
@@ -223,7 +223,7 @@
                 <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h4 class="card-title"><a href="">{{ master.name }}</a></h4>
+                <h4 class="card-title">{{ master.name }}</h4>
                 <p class="card-text mb-2">Thesis: {{ master.thesis }}</p>
                 <p class="card-text mb-2">
                   <small>
@@ -275,7 +275,7 @@
                 <img class="img-fluid" src="https://via.placeholder.com/150" alt="">
               </div>
               <div class="col-md-8">
-                <h4 class="card-title"><a href="">{{ undergraduate.name }}</a></h4>
+                <h4 class="card-title">{{ undergraduate.name }}</h4>
                 <p class="card-text mb-2">Research area: {{ undergraduate.thesis }}</p>
                 <p class="card-text mb-2">
                   <small>

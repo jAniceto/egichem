@@ -1,3 +1,16 @@
+/* 
+CSS SECTIONS:
+- GENERAL
+- EGICHEM COLORS
+- LINKS STYLES
+- MOBILE NAV
+- CARD DECK
+- HORIZONTAL DIVIDER
+- Unorganized 
+*/
+
+
+/* GENERAL */
 html {
   position: relative;
   min-height: 100%;
@@ -16,6 +29,7 @@ h1, h2, h3, h4, h5, h6 {
 ul {
   margin: 0;
 }
+
 
 /* EGICHEM COLORS */
 .bg-egichem-green {
@@ -58,6 +72,7 @@ ul {
   font-weight: 500;
 }
 
+
 /* LINKS STYLES */
 a {
   color: #333333;
@@ -90,6 +105,33 @@ a.tab-link.active {
 
 a.link {
   border-bottom: 1px dotted #222222;
+  /* Below is an alternative trick that allows to change spacing between dots */
+  /* background-image: linear-gradient(to right, #222222 33%, rgba(255,255,255,0) 0%);
+  background-position: bottom;
+  background-size: 4px 1px;
+  background-repeat: repeat-x; */
+}
+
+a.link:hover {
+  border-bottom: 1px dotted rgba(97, 169, 34, 0.8);
+}
+
+
+/* MOBILE NAV */
+@media (max-width: 768px) { 
+  /* Fix the margin of the right hand icon buttons */
+  .fix-margin {
+    margin-left: .5rem;
+    margin-right: .5rem;
+  }
+
+  .navbar {
+    background-color: #f8f9fa!important;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6;
+  }
+
+  .navbar-toggler {line-height: inherit;}
 }
 
 
