@@ -66,7 +66,7 @@ class Member(models.Model):
     alumni = models.BooleanField(default=False)
     highlighted = models.BooleanField(default=False)
     date_added = models.DateTimeField(default=timezone.now)
-    slug = models.SlugField()
+    slug = models.SlugField(blank=True, editable=False)
 
     def __str__(self):
         return self.name

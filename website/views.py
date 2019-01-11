@@ -49,6 +49,11 @@ def people(request):
 	fellows = members.filter(position='Research Fellow').exclude(highlighted=True).exclude(alumni=True)
 	masters = members.filter(position='MSc Student').exclude(highlighted=True).exclude(alumni=True)
 	undergraduates = members.filter(position='Undergraduate Students').exclude(highlighted=True).exclude(alumni=True)
+	alumni_postdocs = members.filter(alumni=True, position='PostDoc Researcher')
+	alumni_phds = members.filter(alumni=True, position='PhD Student')
+	alumni_fellows = members.filter(alumni=True, position='Research Fellow')
+	alumni_masters = members.filter(alumni=True, position='MSc Student')
+	alumni_undergraduates = members.filter(alumni=True, position='Undergraduate Students')
 	
 	context = {
 		'page_title': 'People',
@@ -59,6 +64,11 @@ def people(request):
 		'fellows': fellows,
 		'masters': masters,
 		'undergraduates': undergraduates,
+		'alumni_postdocs': alumni_postdocs,
+		'alumni_phds': alumni_phds,
+		'alumni_fellows': alumni_fellows,
+		'alumni_masters': alumni_masters,
+		'alumni_undergraduates': alumni_undergraduates,
 	}
 	return render(request, 'website/people.html', context)
 
