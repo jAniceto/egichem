@@ -124,3 +124,10 @@ def member_page(request, name_slug):
 		raise Http404("Member page does not exist.")
 	
 	return render(request, 'website/member.html', context)
+
+
+def contact(request):
+	context = {
+		'page_title': 'Contact',
+	}
+	return render(request, 'website/contact.html', context)

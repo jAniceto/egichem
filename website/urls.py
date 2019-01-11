@@ -9,9 +9,8 @@ urlpatterns = [
     path('lab/', views.lab, name='lab'),
     path('publications/', views.publications, name='publications'),
     path('partners/', views.partners, name='partners'),
-    # path('news/', views.news, name='news'),
+    # path('news/', views.news, name='news'),  # handled via blog app
     # path('tools/', views.tools, name='tools'),
-    # path('contact/', views.contact, name='contact'),
-    # path('people/<int:member_id>/', views.member_page, name='member_page'),
+    path('contact/', views.contact, name='contact'),
     path('people/<slug:name_slug>/', views.member_page, name='member_page'),
 ]
