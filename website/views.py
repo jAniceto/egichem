@@ -2,11 +2,31 @@ import datetime
 from django.shortcuts import render
 from django.http import Http404
 from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication
+from blog.models import Post
 
 
 def home(request):
+	latest_posts = Post.objects.all().order_by('-date_posted')[:5]
+	
+	publications = Publication.objects.all()
+	members = Member.objects.all()
+	
 	context = {
 		'page_title': 'Home',
+		'latest_posts': latest_posts,
+		'articles': publications.filter(pub_type='article').count(),
+		'book_chapters': publications.filter(pub_type='book-chapter').count(),
+		'patents': publications.filter(pub_type='patent').count(),
+		'awards': '3',
+		'projects': '9',
+		'MSc_completed': publications.filter(pub_type='thesis', thesis_type='MSc').count(),
+		'MSc_oncourse': members.filter(position='PhD Student').exclude(alumni=True).count(),
+		'fellows_completed': members.filter(position='Research Fellow').exclude(alumni=False).count(),
+		'fellows_oncourse': members.filter(position='Research Fellow').exclude(alumni=True).count(),
+		'PhD_completed': publications.filter(pub_type='thesis', thesis_type='PhD').count(),
+		'PhD_oncourse': members.filter(position='MSc Student').exclude(alumni=True).count(),
+		'postdocs_completed': members.filter(position='PostDoc Researcher').exclude(alumni=False).count(),
+		'postdocs_oncourse': members.filter(position='PostDoc Researcher').exclude(alumni=True).count(),
 	}
 	return render(request, 'website/home.html', context)
 

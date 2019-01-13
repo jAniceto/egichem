@@ -200,6 +200,11 @@
 
   <script>
     $('.carousel').carousel()
+
+    $('#collapse-button a').on('click', function(){
+      $('#collapse-button').collapse('hide');
+      $('#MSc_oncourse').css({'border-bottom-color': '#C3C49E', 'border-bottom-right-radius': '.25rem', 'border-bottom-left-radius': '.25rem'})
+    });
   </script>
 
   {% block scripts %}{% endblock %}

@@ -7,33 +7,78 @@
 </div>
 
 <div class="row">
-  <div class="col-md-8">
-    {% for post in posts %}
-      <article class="media content-section">
-        <div class="media-body">
-          <div class="article-metadata">
-            <a class="mr-2" href="#">{{ post.author }}</a>
-            <small class="text-muted">{{ post.date_posted }}</small>
-          </div>
-          <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
-          <p class="article-content">{{ post.content }}</p>
-        </div>
-      </article>
-    {% endfor %}
-  </div>
+
+  <div class="col-md-8 mb-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">About EgiChem</h5>
+        <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
+        <p class="card-text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a class="link mr-3" href="{% url 'research' %}" class="card-link">Research</a>
+        <a class="link mr-3" href="{% url 'people' %}" class="card-link">People</a>
+        <a class="link mr-3" href="{% url 'publications' %}" class="card-link">Publications</a>
+      </div>
+    </div>
+
+    <div class="card mt-3">
+      <div class="card-body p-2 pl-3 pr-3">
+        <h5 class="card-title mb-0">Latest News</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        {% for post in latest_posts %}
+          <li class="list-group-item p-2 pl-3 pr-3">
+              {% if post.image %}<div class="float-md-left mr-2 mt-1"><img class="" src="{{ post.image.url }}" style="max-height: 120px; max-width: 200px;" alt="Post Image"></div>{% endif %}
+            <p class="text-muted small mb-1">{{ post.date_posted|date:"F d, Y" }}</p>
+            <p>{{ post.summary }}</p>
+          </li>
+        {% endfor %}
+        <li class="list-group-item p-2 pl-3 pr-3"><a class="float-right text-muted" href="{% url 'blog:news' %}">More...</a></li>
+      </ul>
+    </div>
+
+  </div> <!-- col-md-8 -->
 
   <div class="col-md-4">
-    <div class="content-section">
-      <h3>Our Sidebar</h3>
-      <p class='text-muted'>You can put any information here you'd like.
-        <ul class="list-group">
-          <li class="list-group-item list-group-item-light">Latest Posts</li>
-          <li class="list-group-item list-group-item-light">Announcements</li>
-          <li class="list-group-item list-group-item-light">Calendars</li>
-          <li class="list-group-item list-group-item-light">etc</li>
-        </ul>
-      </p>
+
+    <div class="card bg-egichem-2" id="facts-numbers">
+      <div class="card-body p-2 pl-3 pr-3">
+        <h5 class="card-title mb-0">Facts and Numbers</h5>
+      </div>
+      <ul class="list-group list-group-flush ">
+          <li class="list-group-item p-2 pl-3 pr-3">{{ articles }} papers</li>
+          <li class="list-group-item p-2 pl-3 pr-3">{{ book_chapters }} book chapters</li>
+          <li class="list-group-item p-2 pl-3 pr-3">{{ patents }} patents</li>
+          <li class="list-group-item p-2 pl-3 pr-3">{{ awards }} awards</li>
+          <li class="list-group-item p-2 pl-3 pr-3">{{ projects }} R&D projects</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="postdocs_completed">{{ postdocs_completed }} PostDocs completed</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="postdocs_oncourse">{{ postdocs_oncourse }} PostDocs on course</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="PhD_completed">{{ PhD_completed }} PhDs completed</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="PhD_oncourse">{{ PhD_oncourse }} PhDs on course</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="fellows_completed">{{ fellows_completed }} research fellowships completed</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="fellows_oncourse">{{ fellows_oncourse }} research fellowships on course</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="MSc_completed">{{ MSc_completed }} MSc theses completed</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="MSc_oncourse">{{ MSc_oncourse }} MSc theses on course</li>
+          <li class="list-group-item collapse show p-2 pl-3 pr-3" id="collapse-button"><a class="link text-muted float-right" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="postdocs_completed postdocs_oncourse PhD_completed PhD_oncourse fellows_completed fellows_oncourse MSc_completed MSc_oncourse">More...</a></li>
+      </ul>
     </div>
-  </div>
-</div>
+
+    <div class="card bg-light mt-3">
+      <div class="card-body p-2 pl-3 pr-3">
+        <h5 class="card-title mb-0">Visit also</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+          <li class="list-group-item p-2 pl-3 pr-3"><a class="link" target="_blank" href="http://www.ua.pt/">Universidade de Aveiro (UA)</a></li>
+          <li class="list-group-item p-2 pl-3 pr-3"><a class="link" target="_blank" href="http://www.ua.pt/dqua/">Department of Chemistry UA</a></li>
+          <li class="list-group-item p-2 pl-3 pr-3"><a class="link" target="_blank" href="http://www.ciceco.ua.pt/index.php?language=pt">CICECO - Aveiro Institute of Materials</a></li>
+          <li class="list-group-item p-2 pl-3 pr-3"><a class="link" target="_blank" href="http://www.ua.pt/dqua/PageCourse.aspx?id=31&b=1">Mestrado Integrado Engenharia Química</a></li>
+          <li class="list-group-item p-2 pl-3 pr-3"><a class="link" target="_blank" href="http://www.aipqr.pt/">APQuímica</a></li>
+      </ul>
+    </div>
+
+  </div> <!-- col-md-4 -->
+
+</div> <!-- row -->
 {% endblock content %}
+
