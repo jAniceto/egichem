@@ -138,6 +138,7 @@
         </div>
       {% endfor %}
     {% endif %}
+
     {% block content %}{% endblock %}
   </main>
 
@@ -200,6 +201,8 @@
   <script>
     $('.carousel').carousel()
   </script>
+
+  {% block scripts %}{% endblock %}
 
 </body>
 </html>

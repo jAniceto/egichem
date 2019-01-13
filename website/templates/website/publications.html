@@ -1,15 +1,16 @@
 {% extends "website/base.html" %}
-
+{% load static %}
 {% block content %}
 
 <div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3 d-none d-md-block">
   <span class="font-weight-bold">Publications </span>{% if page_subtitle %} &nbsp;|&nbsp;  <span class="text-small">{{ page_subtitle }}</span>{% endif %}
 </div>
 
-
+{% comment %}
+<!-- Old version of tab navigation - works worse on mobile -->
 <div class="row">
 	<div class="col-md-12">
-		<ul class="nav nav-tabs nav-justified" id="publicationsTab" role="tablist">
+		<ul class="nav nav-tabs nav-justified responsive" id="publicationsTab" role="tablist">
 			<li class="nav-item">
 				<a class="nav-link tab-link active" id="articles-tab" data-toggle="tab" href="#articles" role="tab" aria-controls="articles" aria-selected="true">Articles</a>
 			</li>
@@ -30,7 +31,7 @@
 			</li>
 		</ul>
 
-		<div class="tab-content mt-4" id="myTabContent">
+		<div class="tab-content responsive mt-4" id="myTabContent">
 
 			<!-- Articles List -->
 			<div class="tab-pane fade show active" id="articles" role="tabpanel" aria-labelledby="articles-tab">
@@ -64,7 +65,6 @@
 				</div>
 				{% endfor %}
 			</div>
-
 
 			<!-- Patents List -->
 			<div class="tab-pane fade" id="patents" role="tabpanel" aria-labelledby="patents-tab">
@@ -125,10 +125,142 @@
 		</div>
 	</div>
 </div>
+{% endcomment %}
 
 
+<!-- New tab navigation - changes to accordion on mobile -->
+<ul class="nav nav-tabs nav-justified responsive" role="tablist">
+	<li class="nav-item">
+		<a class="nav-link active" data-toggle="tab" href="#articles" role="tab">Articles</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#book-chapters" role="tab">Book Chapters</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#patents" role="tab">Patents</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#posters" role="tab">Posters</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#presentations" role="tab">Presentations</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#theses" role="tab">Theses</a>
+	</li>
+</ul>
 
+<!-- Articles List -->
+<div class="tab-content responsive">
+	<div class="tab-pane active" id="articles" role="tabpanel">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					{% for article in articles %}
+					{% ifchanged article.year %}
+					<div class="row mt-4 mb-3">
+						<div class="col-md-8 offset-md-2">
+							<h3 class="text-divider"><span>{{ article.year }}</span></h3>
+						</div>
+					</div>
+					{% endifchanged %}
+					<p><a class="text-dark" href="{{ article.link }}" target="_blank">{{ forloop.revcounter }}. {{ article.authors }}. {{ article.title|safe }}, <em>{{ article.journal }}</em> {{ article.volume }} ({{ article.year }}) {{ article.pages }}.</a></p>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Book Chapters List -->
+	<div class="tab-pane" id="book-chapters" role="tabpanel">
+		<div class="container-fluid">
+			{% for book_chapter in book_chapters %}
+			<div class="row mt-5 mb-3">
+				<div class="col-md-4">
+						<img class="img-fluid" src="{% if book_chapter.photo %}{{ book_chapter.photo.url }}{% endif %}" alt="">
+				</div>
+				<div class="col-md-8 small">
+					<p><strong>Book Title:</strong> {{ book_chapter.book_title }}</p>
+					<p><strong>Publisher:</strong> {{ book_chapter.publisher }}</p>
+					<p><strong>Year:</strong> {{ book_chapter.year }}</p>
+					<p><strong>Chapter Title:</strong> {{ book_chapter.title }}</p>
+					<p><strong>Authors:</strong> {{ book_chapter.authors }}</p>
+					<p><strong>Abstract:</strong> {{ book_chapter.abstract }}</p>
+				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	
+	<!-- Patents List -->
+	<div class="tab-pane" id="patents" role="tabpanel">
+		<div class="container-fluid">
+				{% for patent in patents %}
+				{% ifchanged patent.year %}
+				<div class="row mt-4 mb-3">
+					<div class="col-md-8 offset-md-2">
+						<h3 class="text-divider"><span>{{ patent.year }}</span></h3>
+					</div>
+				</div>
+				{% endifchanged %}
+				<p>{{ patent.authors }}. {{ patent.title }}, {{ patent.patent_number }}, {{ patent.year }}.</p>
+				{% endfor %}
+		</div>
+	</div>
+	
+	<!-- Posters List -->
+	<div class="tab-pane" id="posters" role="tabpanel">
+		<div class="container-fluid">
+			{% for poster in posters %}
+			{% ifchanged poster.year %}
+			<div class="row mt-4 mb-3">
+				<div class="col-md-8 offset-md-2">
+					<h3 class="text-divider"><span>{{ poster.year }}</span></h3>
+				</div>
+			</div>
+			{% endifchanged %}
+			<p>{{ poster.authors }}. {{ poster.title }}, {{ poster.conference }}, {{ poster.conference_city }}, {{ poster.conference_date }}, {{ poster.year }}.</p>
+			{% endfor %}
+		</div>
+	</div>
 
+	<!-- Presentations List -->
+	<div class="tab-pane" id="presentations" role="tabpanel">
+		<div class="container-fluid">
+			{% for presentation in presentations %}
+			{% ifchanged presentation.year %}
+			<div class="row mt-4 mb-3">
+				<div class="col-md-8 offset-md-2">
+					<h3 class="text-divider"><span>{{ presentation.year }}</span></h3>
+				</div>
+			</div>
+			{% endifchanged %}
+			<p>{{ presentation.authors }}. {{ presentation.title }}, {{ presentation.conference }}, {{ presentation.conference_city }}, {{ presentation.conference_date }}, {{ presentation.year }}.</p>
+			{% endfor %}
+		</div>
+	</div>
 
+	<!-- Theses List -->
+	<div class="tab-pane" id="theses" role="tabpanel">
+		<div class="container-fluid">
+			{% for thesis in theses %}
+			{% ifchanged thesis.year %}
+			<div class="row mt-4 mb-3">
+				<div class="col-md-8 offset-md-2">
+					<h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
+				</div>
+			</div>
+			{% endifchanged %}
+			<p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
+			{% endfor %}
+		</div>
+	</div>
+
+</div>
 
 {% endblock content %}
+
+
+{% block scripts %}
+<script src="{% static 'website/tabs_accordion.js' %}"></script>
+{% endblock scripts %}
