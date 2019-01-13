@@ -33,6 +33,7 @@ urlpatterns = [
     path('profile/', user_views.profile, name='profile'),
     path('', include('website.urls')),
     path('news/', include('blog.urls')),
+    path('contact/', include('sendemail.urls')),
 ]
 
 # Used to serve media files locally

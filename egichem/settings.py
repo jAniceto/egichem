@@ -35,6 +35,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'sendemail.apps.SendemailConfig',
     'blog.apps.BlogConfig',
     'users.apps.UsersConfig',
     'website.apps.WebsiteConfig',
