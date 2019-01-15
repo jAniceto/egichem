@@ -116,3 +116,16 @@ class Publication(models.Model):
 
     def __str__(self):
         return f'{self.pub_type} - {self.title}'
+
+
+class Award(models.Model):
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=500, blank=True)
+    awarded_to = models.CharField(max_length=500, blank=True)
+    awarded_for = models.CharField(max_length=500, blank=True)
+    link = models.URLField(blank=True)
+    image = models.ImageField(default='images/awards/award-placeholder.png', upload_to='images/awards')
+    date_posted = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'{self.title}'

@@ -7,8 +7,9 @@
 </div>
 
 <div class="row">
-
   <div class="col-md-8 mb-3">
+
+    <!-- About EgiChem Section -->
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">About EgiChem</h5>
@@ -19,9 +20,11 @@
         <a class="link mr-3" href="{% url 'research' %}" class="card-link">Research</a>
         <a class="link mr-3" href="{% url 'people' %}" class="card-link">People</a>
         <a class="link mr-3" href="{% url 'publications' %}" class="card-link">Publications</a>
+        <a class="link mr-3" href="{% url 'awards' %}" class="card-link">Awards</a>
       </div>
     </div>
 
+    <!-- News Section -->
     <div class="card mt-3">
       <div class="card-body p-2 pl-3 pr-3">
         <h5 class="card-title mb-0">Latest News</h5>
@@ -29,41 +32,44 @@
       <ul class="list-group list-group-flush">
         {% for post in latest_posts %}
           <li class="list-group-item p-2 pl-3 pr-3">
-              {% if post.image %}<div class="float-md-left mr-2 mt-1"><img class="" src="{{ post.image.url }}" style="max-height: 120px; max-width: 200px;" alt="Post Image"></div>{% endif %}
+              {% if post.image %}<div class="float-md-left mr-3 mt-1"><img class="" src="{{ post.image.url }}" style="max-height: 120px; max-width: 200px;" alt="Post Image"></div>{% endif %}
             <p class="text-muted small mb-1">{{ post.date_posted|date:"F d, Y" }}</p>
             <p>{{ post.summary }}</p>
           </li>
         {% endfor %}
-        <li class="list-group-item p-2 pl-3 pr-3"><a class="float-right text-muted" href="{% url 'blog:news' %}">More...</a></li>
+        <li class="list-group-item p-2 pl-3 pr-3"><a class="float-right text-muted link" href="{% url 'blog:news' %}">Read all news...</a></li>
       </ul>
     </div>
 
   </div> <!-- col-md-8 -->
 
+
   <div class="col-md-4">
 
+    <!-- Facts and Numbers Section -->
     <div class="card bg-egichem-2" id="facts-numbers">
       <div class="card-body p-2 pl-3 pr-3">
         <h5 class="card-title mb-0">Facts and Numbers</h5>
       </div>
       <ul class="list-group list-group-flush ">
-          <li class="list-group-item p-2 pl-3 pr-3">{{ articles }} papers</li>
-          <li class="list-group-item p-2 pl-3 pr-3">{{ book_chapters }} book chapters</li>
-          <li class="list-group-item p-2 pl-3 pr-3">{{ patents }} patents</li>
-          <li class="list-group-item p-2 pl-3 pr-3">{{ awards }} awards</li>
-          <li class="list-group-item p-2 pl-3 pr-3">{{ projects }} R&D projects</li>
-          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="postdocs_completed">{{ postdocs_completed }} PostDocs completed</li>
-          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="postdocs_oncourse">{{ postdocs_oncourse }} PostDocs on course</li>
-          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="PhD_completed">{{ PhD_completed }} PhDs completed</li>
-          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="PhD_oncourse">{{ PhD_oncourse }} PhDs on course</li>
-          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="fellows_completed">{{ fellows_completed }} research fellowships completed</li>
-          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="fellows_oncourse">{{ fellows_oncourse }} research fellowships on course</li>
-          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="MSc_completed">{{ MSc_completed }} MSc theses completed</li>
-          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="MSc_oncourse">{{ MSc_oncourse }} MSc theses on course</li>
-          <li class="list-group-item collapse show p-2 pl-3 pr-3" id="collapse-button"><a class="link text-muted float-right" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="postdocs_completed postdocs_oncourse PhD_completed PhD_oncourse fellows_completed fellows_oncourse MSc_completed MSc_oncourse">More...</a></li>
+          <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ articles }}</strong> papers</li>
+          <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ book_chapters }}</strong> book chapters</li>
+          <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ patents }}</strong> patents</li>
+          <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ awards }}</strong> awards</li>
+          <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ projects }}</strong> R&D projects</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="postdocs_completed"><strong>{{ postdocs_completed }}</strong> PostDocs completed</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="postdocs_oncourse"><strong>{{ postdocs_oncourse }}</strong> PostDocs on course</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="PhD_completed"><strong>{{ PhD_completed }}</strong> PhDs completed</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="PhD_oncourse"><strong>{{ PhD_oncourse }}</strong> PhDs on course</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="fellows_completed"><strong>{{ fellows_completed }}</strong> research fellowships completed</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="fellows_oncourse"><strong>{{ fellows_oncourse }}</strong> research fellowships on course</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="MSc_completed"><strong>{{ MSc_completed }}</strong> MSc theses completed</li>
+          <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="MSc_oncourse"><strong>{{ MSc_oncourse }}</strong> MSc theses on course</li>
+          <li class="list-group-item collapse show p-2 pl-3 pr-3" id="collapse-button"><a class="link text-muted float-right" style="cursor: pointer;" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="postdocs_completed postdocs_oncourse PhD_completed PhD_oncourse fellows_completed fellows_oncourse MSc_completed MSc_oncourse">More...</a></li>
       </ul>
     </div>
 
+    <!-- Visit Also Section -->
     <div class="card bg-light mt-3">
       <div class="card-body p-2 pl-3 pr-3">
         <h5 class="card-title mb-0">Visit also</h5>
@@ -75,6 +81,11 @@
           <li class="list-group-item p-2 pl-3 pr-3"><a class="link" target="_blank" href="http://www.ua.pt/dqua/PageCourse.aspx?id=31&b=1">Mestrado Integrado Engenharia Química</a></li>
           <li class="list-group-item p-2 pl-3 pr-3"><a class="link" target="_blank" href="http://www.aipqr.pt/">APQuímica</a></li>
       </ul>
+    </div>
+
+    <!-- Calendar Section -->
+    <div class="embed-responsive embed-responsive-4by3 mt-3">
+      <iframe class="embed-responsive-item"  src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;height=600&amp;wkst=1&amp;bgcolor=%23FFFFFF&amp;src=kvtkthdoj8408hc10aja8s1gvg%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=Europe%2FLisbon" style="border-width:0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
 
   </div> <!-- col-md-4 -->

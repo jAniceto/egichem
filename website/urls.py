@@ -12,5 +12,6 @@ urlpatterns = [
     # path('news/', views.news, name='news'),  # handled via blog app
     # path('tools/', views.tools, name='tools'),
     # path('contact/', views.contact, name='contact'),  # handled via sendemail app
+    path('awards/', views.awards, name='awards'),
     path('people/<slug:name_slug>/', views.member_page, name='member_page'),
 ]

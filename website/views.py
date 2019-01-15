@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render
 from django.http import Http404
-from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication
+from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication, Award
 from blog.models import Post
 
 
@@ -144,3 +144,14 @@ def member_page(request, name_slug):
 		raise Http404("Member page does not exist.")
 	
 	return render(request, 'website/member.html', context)
+
+
+def awards(request):
+	awards = Award.objects.all().order_by('-date_posted')
+
+	context = {
+		'page_title': 'Awards',
+		'page_subtitle': 'Research awards granted to members of the EgiChem group',
+		'awards': awards,
+	}	
+	return render(request, 'website/awards.html', context)
