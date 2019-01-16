@@ -44,6 +44,18 @@ ul {
   color: #62AA23;
 }
 
+.btn-egichem {
+  color: #fff;
+  background-color: #62AA23;
+  border-color: #62AA23;
+}
+
+.btn-egichem:hover {
+  color: #fff;
+  background-color: #589920;
+  border-color: #589920;
+}
+
 .btn-outline-egichem {
   color: #62AA23;
   background-color: transparent;

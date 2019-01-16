@@ -1,7 +1,7 @@
 import datetime
 from django.shortcuts import render
 from django.http import Http404
-from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication, Award
+from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication, Tool, Award
 from blog.models import Post
 
 
@@ -144,6 +144,17 @@ def member_page(request, name_slug):
 		raise Http404("Member page does not exist.")
 	
 	return render(request, 'website/member.html', context)
+
+
+def tools(request):
+	tools = Tool.objects.all().order_by('-date_added')
+	
+	context = {
+		'page_title': 'Tools',
+		'page_subtitle': 'Programs developed by the EgiChem group',
+		'tools': tools,
+	}	
+	return render(request, 'website/tools.html', context)
 
 
 def awards(request):

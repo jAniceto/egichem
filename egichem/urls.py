@@ -21,6 +21,10 @@ from django.conf.urls.static import static
 from users import views as user_views
 
 
+admin.site.site_header = "EgiChem Admin"
+admin.site.site_title = "EgiChem Admin Portal"
+# admin.site.index_title = "Welcome to EgiChem Portal"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('register/', user_views.register, name='register'),

@@ -140,6 +140,7 @@ MEDIA_URL = '/media/'
 # Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'home'
 LOGIN_URL = 'login'
 

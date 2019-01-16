@@ -118,6 +118,20 @@ class Publication(models.Model):
         return f'{self.pub_type} - {self.title}'
 
 
+class Tool(models.Model):
+    title = models.CharField(max_length=250)
+    filetype = models.CharField(max_length=250, blank=True)
+    description = models.TextField(blank=True)
+    link = models.URLField(blank=True)
+    image = models.ImageField(default='tools/tools-placeholder.png', upload_to='tools/')
+    program_file = models.FileField(upload_to='tools/', blank=True)
+    help_file = models.FileField(upload_to='tools/', blank=True)
+    date_added = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f'{self.title}'
+
+
 class Award(models.Model):
     title = models.CharField(max_length=200)
     subtitle = models.CharField(max_length=500, blank=True)
