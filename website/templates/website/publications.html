@@ -219,7 +219,7 @@
 				</div>
 			</div>
 			{% endifchanged %}
-			<p>{{ poster.authors }}. {{ poster.title }}, {{ poster.conference }}, {{ poster.conference_city }}, {{ poster.conference_date }}, {{ poster.year }}.</p>
+			<p>{{ poster.authors }}. {{ poster.title }}, {{ poster.conference }}, {{ poster.conference_city }}, {% if presentation.conference_date %}{{ poster.conference_date }}, {% endif %}{{ poster.year }}.</p>
 			{% endfor %}
 		</div>
 	</div>
@@ -235,7 +235,7 @@
 				</div>
 			</div>
 			{% endifchanged %}
-			<p>{{ presentation.authors }}. {{ presentation.title }}, {{ presentation.conference }}, {{ presentation.conference_city }}, {{ presentation.conference_date }}, {{ presentation.year }}.</p>
+			<p>{{ presentation.authors }}. {{ presentation.title }}, {{ presentation.conference }}, {{ presentation.conference_city }}, {% if presentation.conference_date %}{{ presentation.conference_date }}, {% endif %}{{ presentation.year }}.</p>
 			{% endfor %}
 		</div>
 	</div>

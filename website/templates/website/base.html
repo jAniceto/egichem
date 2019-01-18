@@ -104,24 +104,24 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarToggle">
           <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link mx-2" href="{% url 'home' %}">HOME {{ MEDIA_URL }}</a>
-            <a class="nav-item nav-link mx-2" href="{% url 'research' %}">RESEARCH</a>
-            <a class="nav-item nav-link mx-2" href="{% url 'people' %}">PEOPLE</a>
-            <a class="nav-item nav-link mx-2" href="{% url 'lab' %}">LAB</a>
-            <a class="nav-item nav-link mx-2" href="{% url 'publications' %}">PUBLICATIONS</a>
-            <a class="nav-item nav-link mx-2" href="{% url 'partners' %}">PARTNERS & COLLABORATORS</a>
-            <a class="nav-item nav-link mx-2" href="{% url 'blog:news' %}">NEWS</a>
-            <a class="nav-item nav-link mx-2" href="{% url 'tools' %}">TOOLS</a>
-            <a class="nav-item nav-link mx-2" href="{% url 'contact' %}">CONTACT</a>
+            <a class="nav-item nav-link mx-2 hvr-fade" href="{% url 'home' %}">HOME {{ MEDIA_URL }}</a>
+            <a class="nav-item nav-link mx-2 hvr-fade" href="{% url 'research' %}">RESEARCH</a>
+            <a class="nav-item nav-link mx-2 hvr-fade" href="{% url 'people' %}">PEOPLE</a>
+            <a class="nav-item nav-link mx-2 hvr-fade" href="{% url 'lab' %}">LAB</a>
+            <a class="nav-item nav-link mx-2 hvr-fade" href="{% url 'publications' %}">PUBLICATIONS</a>
+            <a class="nav-item nav-link mx-2 hvr-fade" href="{% url 'partners' %}">PARTNERS & COLLABORATORS</a>
+            <a class="nav-item nav-link mx-2 hvr-fade" href="{% url 'blog:news' %}">NEWS</a>
+            <a class="nav-item nav-link mx-2 hvr-fade" href="{% url 'tools' %}">TOOLS</a>
+            <a class="nav-item nav-link mx-2 hvr-fade" href="{% url 'contact' %}">CONTACT</a>
           </div>
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-              <a class="nav-item nav-link fix-margin" href="#"><i class="fas fa-flask"></i><span class="d-md-none">&nbsp; OUR LAB</span></a>
-              <a class="nav-item nav-link fix-margin" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i><span class="d-md-none">&nbsp; PROFILE</span></a>
-              <a class="nav-item nav-link fix-margin" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i><span class="d-md-none">&nbsp; LOGOUT</span></a>
+              <a class="nav-item nav-link fix-margin hvr-fade" href="#"><i class="fas fa-flask"></i><span class="d-md-none">&nbsp; OUR LAB</span></a>
+              <a class="nav-item nav-link fix-margin hvr-fade" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i><span class="d-md-none">&nbsp; PROFILE</span></a>
+              <a class="nav-item nav-link fix-margin hvr-fade" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i><span class="d-md-none">&nbsp; LOGOUT</span></a>
             {% else %}
-              <a class="nav-item nav-link fix-margin" href="{% url 'login' %}"><i class="fas fa-lock"></i><span class="d-md-none">&nbsp; LOGIN</span></a>
+              <a class="nav-item nav-link fix-margin hvr-fade" href="{% url 'login' %}"><i class="fas fa-lock"></i><span class="d-md-none">&nbsp; LOGIN</span></a>
             {% endif %}
           </div>
         </div>

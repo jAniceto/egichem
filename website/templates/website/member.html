@@ -84,7 +84,7 @@
 
 						<!-- Theses -->
 						{% if member_theses %}
-						<h4 class="mt-4">Theses</h4>
+						<h4 class="mt-4">Thesis</h4>
 						{% for pub in member_theses %}
 						<p>{{ pub.authors }}. {{ pub.title }}, {{ pub.get_thesis_type_display }}, Coordinator(s): {{ pub.thesis_coordinators }}, {{ pub.thesis_institution }}, {{ pub.year }}.</p>
 						{% endfor %}
