@@ -7,6 +7,8 @@
   Below is a list of all reagents, compounds, and solvents currently available at Lab 29.1.5. Please try to keep this list updated.
 </p>
 
+<a class="btn btn-primary" href="{% url 'material-create' %}" role="button"><i class="fas fa-plus"></i> Add Item to Inventory</a>
+
 <div id="inventory" class="mt-4">
   <table class="table table-hover">
     <thead>
@@ -28,8 +30,8 @@
         <td class="fit">
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-{{ material.pk }}"><i class="fas fa-info"></i></button>
-            <button type="button" class="btn btn-secondary"><i class="fas fa-edit"></i></button>
-            <button type="button" class="btn btn-secondary"><i class="fas fa-trash"></i></button>
+            <a class="btn btn-secondary" href="{% url 'material-update' material.id %}" role="button"><i class="fas fa-edit"></i></a>
+            <a class="btn btn-secondary" href="{% url 'material-delete' material.id %}" role="button"><i class="fas fa-trash"></i></a>
           </div>
 
         </td>
@@ -83,8 +85,9 @@
         <p class="text-muted small">Last updated by <u>{{ material.user }}</u> on <u>{{ material.modified|date:"Y/n/j G:i" }}</u>. Originally created on <u>{{ material.created|date:"Y/n/j G:i" }}</u>.</p>
       </div>
       <div class="modal-footer">
+        <a class="btn btn-primary" href="{% url 'material-update' material.id %}" role="button">Update</a>
+        <a class="btn btn-danger" href="{% url 'material-delete' material.id %}" role="button">Delete</a>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Update</button>
       </div>
     </div>
   </div>

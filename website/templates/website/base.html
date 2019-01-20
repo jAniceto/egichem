@@ -117,7 +117,9 @@
           <!-- Navbar Right Side -->
           <div class="navbar-nav">
             {% if user.is_authenticated %}
-              <a class="nav-item nav-link fix-margin hvr-fade" href="#"><i class="fas fa-flask"></i><span class="d-md-none">&nbsp; OUR LAB</span></a>
+              {% if perms.lab.manage_inventory %}
+              <a class="nav-item nav-link fix-margin hvr-fade" href="{% url 'inventory' %}"><i class="fas fa-flask"></i><span class="d-md-none">&nbsp; OUR LAB</span></a>
+              {% endif %} 
               <a class="nav-item nav-link fix-margin hvr-fade" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i><span class="d-md-none">&nbsp; PROFILE</span></a>
               <a class="nav-item nav-link fix-margin hvr-fade" href="{% url 'logout' %}"><i class="fas fa-sign-in-alt"></i><span class="d-md-none">&nbsp; LOGOUT</span></a>
             {% else %}
