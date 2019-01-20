@@ -1,0 +1,94 @@
+{% extends "lab/base.html" %}
+
+{% block content %}
+
+<h1 class="display-4 mt-4">Materials Inventory</h1>
+<p class="lead">
+  Below is a list of all reagents, compounds, and solvents currently available at Lab 29.1.5. Please try to keep this list updated.
+</p>
+
+<div id="inventory" class="mt-4">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Specifications</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Location</th>
+        <th class="fit" scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for material in materials %}
+      <tr>
+        <td>{{ material.name }}</td>
+        <td>{{ material.specifications }}</td>
+        <td>{{ material.amount }}</td>
+        <td>{{ material.location }}</td>
+        <td class="fit">
+          <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-{{ material.pk }}"><i class="fas fa-info"></i></button>
+            <button type="button" class="btn btn-secondary"><i class="fas fa-edit"></i></button>
+            <button type="button" class="btn btn-secondary"><i class="fas fa-trash"></i></button>
+          </div>
+
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if is_paginated %}
+
+<!-- Bootstrap Pagination -->
+<nav aria-label="Inventory Navigation">
+  <ul class="pagination">		
+		{% if page_obj.has_previous %}
+		<li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+		<li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+		{% endif %}
+
+		{% for num in page_obj.paginator.page_range %}
+		{% if page_obj.number == num %}
+			<li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+		{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+			<li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+		{% endif %}
+		{% endfor %}
+
+		{% if page_obj.has_next %}
+		<li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+		<li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+		{% endif %}
+  </ul>
+</nav>
+
+{% endif %}
+
+{% for material in materials %}
+<div id="modal-{{ material.pk }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ material.name }}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Specifications: {{ material.specifications }}</p>
+        <p>Quantity available: {{ material.amount }}</p>
+        <p>Storage location: {{ material.location }}</p>
+        <p class="text-muted small">Last updated by <u>{{ material.user }}</u> on <u>{{ material.modified|date:"Y/n/j G:i" }}</u>. Originally created on <u>{{ material.created|date:"Y/n/j G:i" }}</u>.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+{% endblock content %}
