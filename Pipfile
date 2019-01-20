@@ -10,6 +10,8 @@ django = "*"
 pillow = "*"
 django-crispy-forms = "*"
 cirpy = "*"
+gunicorn = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.7"
