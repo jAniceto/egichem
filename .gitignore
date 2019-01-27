@@ -1,5 +1,6 @@
 scripts/
 config.json
+db_dump.json
 
 
 # Created by https://www.gitignore.io/api/python,django,visualstudiocode
