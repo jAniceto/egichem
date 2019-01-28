@@ -94,7 +94,7 @@ class Publication(models.Model):
     pub_type = models.CharField(max_length=50, choices=PUB_TYPES)
     authors = models.CharField(max_length=500)
     title = models.CharField(max_length=500)
-    year = models.CharField(max_length=4)
+    year = models.CharField(max_length=10)
     journal = models.CharField(max_length=500, blank=True)
     volume = models.CharField(max_length=10, blank=True)
     issue = models.CharField(max_length=10, blank=True)
