@@ -158,7 +158,7 @@ def tools(request):
 
 
 def awards(request):
-	awards = Award.objects.all().order_by('-date_posted')
+	awards = Award.objects.all().order_by('-date_added')
 
 	context = {
 		'page_title': 'Awards',
