@@ -149,8 +149,12 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Media root required to upload images
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+# MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join('https://s3.us-east-2.amazonaws.com/egichem/', 'media/')
 MEDIA_URL = '/media/'
+
+
 
 # Crispy Forms
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
