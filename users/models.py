@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.core.files.storage import default_storage as storage
 from PIL import Image
 
 
@@ -22,7 +23,7 @@ class Profile(models.Model):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-        img = Image.open(self.photo.path)
+        img = Image.open(storage.open(self.photo.name))
         
         # Reduce size of image
         if img.height > 300 or img.width > 300:
