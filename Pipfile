@@ -12,6 +12,8 @@ django-crispy-forms = "*"
 cirpy = "*"
 gunicorn = "*"
 django-heroku = "*"
+django-storages = "*"
+boto3 = "*"
 
 [requires]
 python_version = "3.7"
