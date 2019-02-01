@@ -10,6 +10,7 @@ def home(request):
 	
 	publications = Publication.objects.all()
 	members = Member.objects.all()
+	awards = Award.objects.all()
 	
 	context = {
 		'page_title': 'Home',
@@ -17,14 +18,15 @@ def home(request):
 		'articles': publications.filter(pub_type='article').count(),
 		'book_chapters': publications.filter(pub_type='book-chapter').count(),
 		'patents': publications.filter(pub_type='patent').count(),
-		'awards': '3',
-		'projects': '9',
+		'awards': awards.count(),
+		'communications': publications.filter(pub_type='presentation').count(),
+		# 'projects': '9',
 		'MSc_completed': publications.filter(pub_type='thesis', thesis_type='MSc').count(),
 		'MSc_oncourse': members.filter(position='PhD Student').exclude(alumni=True).count(),
 		'fellows_completed': members.filter(position='Research Fellow').exclude(alumni=False).count(),
 		'fellows_oncourse': members.filter(position='Research Fellow').exclude(alumni=True).count(),
 		'PhD_completed': publications.filter(pub_type='thesis', thesis_type='PhD').count(),
-		'PhD_oncourse': members.filter(position='MSc Student').exclude(alumni=True).count(),
+		'PhD_oncourse': members.filter(position='PhD Student').exclude(alumni=True).count(),
 		'postdocs_completed': members.filter(position='PostDoc Researcher').exclude(alumni=False).count(),
 		'postdocs_oncourse': members.filter(position='PostDoc Researcher').exclude(alumni=True).count(),
 	}
