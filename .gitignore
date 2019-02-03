@@ -2,7 +2,7 @@ scripts/
 config.json
 db_dump.json
 pg_db_dump.sql
-settings2.py
+settings_local.py
 
 
 # Created by https://www.gitignore.io/api/python,django,visualstudiocode
