@@ -218,7 +218,8 @@ h4.card-title {
   padding: 5px;
 }
 
-/* Calendar */
+
+/* CALENDAR */
 #calendar {
   max-width: 900px;
   margin: 40px auto;
@@ -231,4 +232,20 @@ button.fc-prev-button, button.fc-today-button, button.fc-next-button {
 
 span.fc-event-dot {
   background-color: #57961f;
+}
+
+
+/* PARTNERS & COLLABORATORS */
+@media (max-width: 768px) { 
+  div.partners img {
+    max-width: 80%;
+    display : block;
+    margin: 10px auto;
+  }
+}
+
+.table td.fit, 
+.table th.fit {
+    white-space: nowrap;
+    width: 1%;
 }
