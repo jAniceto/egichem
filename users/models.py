@@ -34,7 +34,7 @@ class Profile(models.Model):
             if img.width != img.height:
                 w, h = img.size
                 cropped = img.crop((w//2 - 300//2, h//2 - 300//2, w//2 + 300//2, h//2 + 300//2))
-                cropped.save(self.photo.path)
+                cropped.save(storage.open(self.photo.name))
 
             else:
-                img.save(self.photo.path)
+                img.save(storage.open(self.photo.name))
