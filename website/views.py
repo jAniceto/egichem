@@ -122,13 +122,15 @@ def member_page(request, name_slug):
 
 	try:
 		member = Member.objects.get(slug=name_slug)
-		last_name = member.name.split(' ')[-1]
-		member_articles = Publication.objects.filter(pub_type='article', authors__contains=last_name).order_by('-year', 'title')
-		member_book_chapters = Publication.objects.filter(pub_type='book-chapter', authors__contains=last_name).order_by('-year', 'title')
-		member_patents = Publication.objects.filter(pub_type='patent', authors__contains=last_name).order_by('-year', 'title')
-		member_posters = Publication.objects.filter(pub_type='poster', authors__contains=last_name).order_by('-year', 'title')
-		member_presentations = Publication.objects.filter(pub_type='presentation', authors__contains=last_name).order_by('-year', 'title')
-		member_theses = Publication.objects.filter(pub_type='thesis', authors__contains=last_name).order_by('-year', 'title')
+		names = member.name.split(' ')
+		last_name = names[-1]
+		initial = names[0][0] + '.'
+		member_articles = Publication.objects.filter(pub_type='article', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
+		member_book_chapters = Publication.objects.filter(pub_type='book-chapter', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
+		member_patents = Publication.objects.filter(pub_type='patent', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
+		member_posters = Publication.objects.filter(pub_type='poster', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
+		member_presentations = Publication.objects.filter(pub_type='presentation', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
+		member_theses = Publication.objects.filter(pub_type='thesis', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
 
 		context = {
 			'page_title': member.name,
