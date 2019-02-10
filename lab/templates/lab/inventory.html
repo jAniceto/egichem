@@ -7,7 +7,24 @@
   Below is a list of all reagents, compounds, and solvents currently available at Lab 29.1.5. Please try to keep this list updated.
 </p>
 
-<a class="btn btn-primary" href="{% url 'material-create' %}" role="button"><i class="fas fa-plus"></i> Add Item to Inventory</a>
+<div class="row">
+  <div class="col-md-3">
+    <a class="btn btn-primary" href="{% url 'material-create' %}" role="button">
+      <i class="fas fa-plus"></i> Add Item to Inventory
+    </a>
+  </div>
+
+  <div class="col-md-9">
+    <form class="form-inline float-md-right" method="GET" action="">
+      <label class="sr-only" for="inlineFormInputName2">Search Field</label>
+      <input type="text" name="q" class="form-control mb-2 mr-sm-2" placeholder="E.g. metanol" value="{{ request.GET.q }}">
+      <button type="submit" class="btn btn-primary mb-2">Search</button>
+    </form>
+  </div>
+</div>
+
+
+
 
 <div id="inventory" class="mt-4">
   <table class="table table-hover">
@@ -47,27 +64,28 @@
 <nav aria-label="Inventory Navigation">
   <ul class="pagination">		
 		{% if page_obj.has_previous %}
-		<li class="page-item"><a class="page-link" href="?page=1">First</a></li>
-		<li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+		<li class="page-item"><a class="page-link" href="?page=1{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">First</a></li>
+		<li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Previous</a></li>
 		{% endif %}
 
 		{% for num in page_obj.paginator.page_range %}
 		{% if page_obj.number == num %}
-			<li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+			<li class="page-item active"><a class="page-link" href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a></li>
 		{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-			<li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+			<li class="page-item"><a class="page-link" href="?page={{ num }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">{{ num }}</a></li>
 		{% endif %}
 		{% endfor %}
 
 		{% if page_obj.has_next %}
-		<li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-		<li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
+		<li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Next</a></li>
+		<li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}">Last</a></li>
 		{% endif %}
   </ul>
 </nav>
 
 {% endif %}
 
+<!-- Modals for item details -->
 {% for material in materials %}
 <div id="modal-{{ material.pk }}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
