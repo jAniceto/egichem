@@ -134,7 +134,6 @@ def member_page(request, name_slug):
 
 		context = {
 			'page_title': member.name,
-			'page_subtitle': 'Personal Page',
 			'member': member,
 			'member_articles': member_articles,
 			'member_book_chapters': member_book_chapters,

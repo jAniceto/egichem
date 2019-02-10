@@ -249,3 +249,12 @@ span.fc-event-dot {
     white-space: nowrap;
     width: 1%;
 }
+
+
+/* MEMBER PAGE */
+h4.title {
+  border-left: 6px solid #62AA23;
+  padding-left: 6px;
+  position: relative;
+  left: -12px;
+}

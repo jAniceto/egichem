@@ -13,7 +13,7 @@
 			<div class="card-body">
 				<div class="row">
 					<div class="col-md-3">
-						<img class="img-fluid" src="{% if member.user.profile.photo.url %}{{ member.user.profile.photo.url }}{% else %}{{ member.photo.url }}{% endif %}" alt="">
+						<img class="img-fluid img-thumbnail" src="{% if member.user.profile.photo.url %}{{ member.user.profile.photo.url }}{% else %}{{ member.photo.url }}{% endif %}" alt="">
 						<div class="mt-3">
 							{% if member.user.profile.scopus_url %}
 							<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.scopus_url }}" role="button"><i class="fas fa-globe-europe"></i> Scopus</a>
@@ -22,29 +22,26 @@
 							<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.scholar_url }}" role="button"><i class="ai ai-google-scholar"></i> Google Scholar</a>
 							{% endif %}
 							{% if member.user.profile.linkedin_url %}
-							<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.scholar_url }}" role="button"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+							<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.linkedin_url }}" role="button"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
 							{% endif %}
 							{% if member.user.profile.personal_url %}
-							<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.scholar_url }}" role="button"><i class="fas fa-link"></i> Personal Page</a>
+							<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.personal_url }}" role="button"><i class="fas fa-link"></i> Personal Page</a>
 							{% endif %}
 						</div>
 					</div>
 					<div class="col-md-9">
 
-						<!-- Research fields -->
-						{% if member.research_area %}
-						<h4 class="card- mb-4">Research Fields: <small class="text-muted">{{ member.research_area }}</small> </h4>
-						{% endif %}
-
 						<!-- Bio -->
+						<h4 class="card-title title mb-2">Bio</h4>
 						{% if member.user.profile.bio %}
-						<h4 class="card-title">About {{ member.name }}</h4>
 						<p class="card-text">{{ member.user.profile.bio|safe }}</p>
+						{% else %}
+						<p class="card-text">{{ member.name }} is a {{ member.position}} at EgiChem focusing on {{ member.research_area }}.</p>
 						{% endif %}
 
 						<!-- Articles -->
 						{% if member_articles %}
-						<h4 class="mt-4">Articles</h4>
+						<h4 class="mt-4 card-title title mb-2">Articles</h4>
 						{% for pub in member_articles %}
 						<p><a class="text-dark" href="{{ pub.link }}" target="_blank">{{ pub.authors }}. {{ pub.title|safe }}, <em>{{ pub.journal }}</em> {{ pub.volume }} ({{ pub.year }}) {{ pub.pages }}.</a></p>
 						{% endfor %}
@@ -52,7 +49,7 @@
 
 						<!-- Book Chapters -->
 						{% if member_book_chapters %}
-						<h4 class="mt-4">Book Chapters</h4>
+						<h4 class="mt-4 card-title title mb-2">Book Chapters</h4>
 						{% for pub in member_book_chapters %}
 						<p><a class="text-dark" href="{{ pub.link }}" target="_blank">{{ pub.authors }}. {{ pub.title|safe }}, in <em>{{ pub.book_title }}</em>, {{ pub.publisher }}, ({{ pub.year }}).</a></p>
 						{% endfor %}
@@ -60,7 +57,7 @@
 
 						<!-- Patents -->
 						{% if member_patents %}
-						<h4 class="mt-4">Patents</h4>
+						<h4 class="mt-4 card-title title mb-2">Patents</h4>
 						{% for pub in member_patents %}
 						<p>{{ pub.authors }}. {{ pub.title }}, {{ pub.pub_number }}, {{ pub.year }}.</p>
 						{% endfor %}
@@ -68,7 +65,7 @@
 
 						<!-- Posters -->
 						{% if member_posters %}
-						<h4 class="mt-4">Posters</h4>
+						<h4 class="mt-4 card-title title mb-2">Posters</h4>
 						{% for pub in member_posters %}
 						<p>{{ pub.authors }}. {{ pub.title }}, {{ pub.conference }}, {{ pub.conference_city }}, {{ pub.conference_date }}, {{ pub.year }}.</p>
 						{% endfor %}
@@ -76,7 +73,7 @@
 
 						<!-- Presentations -->
 						{% if member_presentations %}
-						<h4 class="mt-4">Presentations</h4>
+						<h4 class="mt-4 card-title title mb-2">Presentations</h4>
 						{% for pub in member_presentations %}
 						<p>{{ pub.authors }}. {{ pub.title }}, {{ pub.conference }}, {{ pub.conference_city }}, {{ pub.conference_date }}, {{ pub.year }}.</p>
 						{% endfor %}
@@ -84,7 +81,7 @@
 
 						<!-- Theses -->
 						{% if member_theses %}
-						<h4 class="mt-4">Thesis</h4>
+						<h4 class="mt-4 card-title title mb-2">Thesis</h4>
 						{% for pub in member_theses %}
 						<p>{{ pub.authors }}. {{ pub.title }}, {{ pub.get_thesis_type_display }}, Coordinator(s): {{ pub.thesis_coordinators }}, {{ pub.thesis_institution }}, {{ pub.year }}.</p>
 						{% endfor %}
