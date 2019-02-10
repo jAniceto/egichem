@@ -103,6 +103,8 @@ def publications(request):
 	posters = publications.filter(pub_type='poster')
 	presentations = publications.filter(pub_type='presentation')
 	theses = publications.filter(pub_type='thesis')
+	phd_theses = theses.filter(thesis_type='PhD')
+	msc_theses = theses.filter(thesis_type='MSc')
 
 	context = {
 		'page_title': 'Publications',
@@ -113,6 +115,8 @@ def publications(request):
 		'posters': posters,
 		'presentations': presentations,
 		'theses': theses,
+		'phd_theses': phd_theses,
+		'msc_theses': msc_theses,
 		'current_year': datetime.datetime.today().year,
 	}
 	return render(request, 'website/publications.html', context)

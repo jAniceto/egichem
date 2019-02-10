@@ -243,16 +243,61 @@
 	<!-- Theses List -->
 	<div class="tab-pane" id="theses" role="tabpanel">
 		<div class="container-fluid">
-			{% for thesis in theses %}
-			{% ifchanged thesis.year %}
-			<div class="row mt-4 mb-3">
-				<div class="col-md-8 offset-md-2">
-					<h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
+
+			<!-- Theses type toggle -->
+			<!-- <div class="row mt-4">
+				<div class="btn-group mx-auto" role="group">
+					<a class="btn btn-secondary active" data-toggle="collapse" href="#phd-theses" role="button" aria-expanded="false" aria-controls="phd-theses">PhD Theses</a>
+					<a class="btn btn-secondary" data-toggle="collapse" href="#msc-theses" role="button" aria-expanded="false" aria-controls="msc-theses">MSc Theses</a>		
+				</div>
+			</div> -->
+
+			<div class="row mt-4">
+				<div class="btn-group mx-auto" role="group">
+					<button class="btn btn-secondary active" type="button" id="phd-btn" onclick="phdShow();" data-toggle="button" aria-pressed="true">PhD Theses</button >
+					<button class="btn btn-secondary" type="button" id="msc-btn" onclick="mscShow();" data-toggle="button">MSc Theses</button >		
 				</div>
 			</div>
-			{% endifchanged %}
-			<p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
-			{% endfor %}
+
+			<!-- <div class="row mt-4">
+				<div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
+					<label class="btn btn-secondary active">
+						<input type="radio" name="options" id="option1" onclick="phdShow();" autocomplete="off" checked> PhD Theses
+					</label>
+					<label class="btn btn-secondary">
+						<input type="radio" name="options" id="option2" onclick="mscShow();" autocomplete="off"> MSc Theses
+					</label>
+				</div>
+			</div> -->
+			
+			<!-- PhD Theses -->
+			<div class="collapse show" id="phd-theses">
+				{% for thesis in phd_theses %}
+				{% ifchanged thesis.year %}
+				<div class="row mt-4 mb-3">
+					<div class="col-md-8 offset-md-2">
+						<h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
+					</div>
+				</div>
+				{% endifchanged %}
+				<p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
+				{% endfor %}
+			</div>
+
+			<!-- MSc Theses -->
+			<div class="collapse" id="msc-theses">
+				{% for thesis in msc_theses %}
+				{% ifchanged thesis.year %}
+				<div class="row mt-4 mb-3">
+					<div class="col-md-8 offset-md-2">
+						<h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
+					</div>
+				</div>
+				{% endifchanged %}
+				<p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
+				{% endfor %}
+			</div>
+
 		</div>
 	</div>
 
