@@ -1,5 +1,5 @@
-initial-data/egichem-backups
-initial-data/csv-data
+initial_data/egichem-backups
+initial_data/csv-data
 config.json
 db_dump.json
 pg_db_dump.sql
