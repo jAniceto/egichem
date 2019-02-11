@@ -10,7 +10,7 @@ class Material(models.Model):
     name = models.CharField(max_length=200)
     specifications = models.CharField(max_length=500, blank=True)
     cas = models.CharField(max_length=50, blank=True, verbose_name='CAS')
-    amount = models.IntegerField(default=1, validators=[MaxValueValidator(1000), MinValueValidator(1)])
+    amount = models.IntegerField(default=1, validators=[MaxValueValidator(1000), MinValueValidator(0)])
     location = models.CharField(max_length=500, blank=True)
     msds_url = models.URLField(blank=True, verbose_name='MSDS URL')
     comments = models.TextField(blank=True)
@@ -51,6 +51,11 @@ class Announcement(models.Model):
     content = models.TextField()
     date_added = models.DateTimeField(default=timezone.now)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    class Meta:
+        permissions = (
+            ('manage_inventory', 'Can manage inventory'),
+        )
 
     def __str__(self):
         return f'{self.title}'
