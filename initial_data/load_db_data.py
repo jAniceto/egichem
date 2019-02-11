@@ -214,37 +214,37 @@ def load_inventory_reagents(filename):
 
 def main():
     if request_confirm('Load research fields?'):
-        load_research('scripts/db_data_research_fields')
+        load_research('initial_data/db_data_research_fields')
 
     if request_confirm('Load lab units?'):
-        load_lab('scripts/db_data_lab_units')
+        load_lab('initial_data/db_data_lab_units')
 
     if request_confirm('Load members?'):
-        load_members('scripts/db_data_members')
+        load_members('initial_data/db_data_members')
 
     if request_confirm('Load alumni?'):
-        load_alumni('scripts/db_data_alumni')
+        load_alumni('initial_data/db_data_alumni')
 
     if request_confirm('Load collaborations?'):
-        load_collaborations('scripts/db_data_colab')
+        load_collaborations('initial_data/db_data_colab')
 
     if request_confirm('Load partners?'):
-        load_partners('scripts/db_data_partners')
+        load_partners('initial_data/db_data_partners')
 
     if request_confirm('Load articles?'):
-        load_articles('scripts/db_data_articles')
+        load_articles('initial_data/db_data_articles')
     
     if request_confirm('Load posters?'):
-        load_posters('scripts/db_data_posters')
+        load_posters('initial_data/db_data_posters')
     
     if request_confirm('Load presentations?'):
-        load_presentations('scripts/db_data_presentations')
+        load_presentations('initial_data/db_data_presentations')
 
     if request_confirm('Load theses?'):
-        load_theses('scripts/db_data_thesis')
+        load_theses('initial_data/db_data_thesis')
 
     if request_confirm('Load reagents?'):
-        load_inventory_reagents('scripts/db_data_materials')
+        load_inventory_reagents('initial_data/db_data_materials')
 
 if __name__ == '__main__':
     main()
