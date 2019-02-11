@@ -1,0 +1,68 @@
+[
+    {
+        "name": "Adélio Mendes",
+        "affiliation": "LEPAE - University of Porto",
+        "scope": "Research at Dow Chemical",
+        "link": "http://www.lepabe.fe.up.pt/"
+    },{
+        "name": "Alírio E. Rodrigues",
+        "affiliation": "LSRE-LCM - University of Porto",
+        "scope": "Membrane separation and catalysis",
+        "link": "https://lsre-lcm.fe.up.pt/"
+    },{
+        "name": "Anabela Valente",
+        "affiliation": "CICECO - University of Aveiro",
+        "scope": "Catalysis",
+        "link": "http://www.ciceco.ua.pt/"
+    },{
+        "name": "Armando Silvestre",
+        "affiliation": "LignoMacro - University of Aveiro",
+        "scope": "Research on biorefinery",
+        "link": "http://lignomacro.dq.ua.pt/"
+    },{
+        "name": "Artur M. S. Silva",
+        "affiliation": "QOPNA - University of Aveiro",
+        "scope": "NMR of petroleum fraction and bitumens",
+        "link": "http://www.ua.pt/qopna/"
+    },{
+        "name": "Cláudia Lopes",
+        "affiliation": "CESAM - University of Aveiro",
+        "scope": "Water pollutants removal",
+        "link": "http://www.cesam.ua.pt/"
+    },{
+        "name": "Cláudia Passos",
+        "affiliation": "QOPNA - University of Aveiro",
+        "scope": "Valorization of food residues",
+        "link": "http://www.ua.pt/qopna/"
+    },{
+        "name": "Duarte Ananias",
+        "affiliation": "CICECO - University of Aveiro",
+        "scope": "Photoluminescence materials",
+        "link": "http://www.ciceco.ua.pt/"
+    },{
+        "name": "Eduarda Pereira",
+        "affiliation": "CESAM - University of Aveiro",
+        "scope": "Water pollutants removal",
+        "link": "http://www.cesam.ua.pt/"
+    },{
+        "name": "João Rocha",
+        "affiliation": "CICECO - University of Aveiro",
+        "scope": "Materials science research and applications",
+        "link": "http://www.ciceco.ua.pt/"
+    },{
+        "name": "Francisco Avelino",
+        "affiliation": "CICECO - University of Aveiro",
+        "scope": "Parallel Computing",
+        "link": "http://www.ciceco.ua.pt/"
+    },{
+        "name": "Mário Simões",
+        "affiliation": "QOPNA - University of Aveiro",
+        "scope": "Catalytic dessulfurization",
+        "link": "http://www.ua.pt/qopna/"
+    },{
+        "name": "Zhi Lin",
+        "affiliation": "CICECO - University of Aveiro",
+        "scope": "Materials science research (membranes and catalysts)",
+        "link": "http://www.ciceco.ua.pt/"
+    }
+]

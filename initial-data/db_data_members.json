@@ -1,0 +1,43 @@
+[
+    {
+        "name": "José Pedro Aniceto",
+        "position": "PostDoc Researcher",
+        "research_area": "Ion exchange and SMB"
+    },{
+        "name": "Marcelo Melo",
+        "position": "PostDoc Researcher",
+        "research_area": "Supercritical fluid extraction"
+    },{
+        "name": "Simão Cardoso",
+        "position": "PostDoc Researcher",
+        "research_area": "Ion exchange and membranes"
+    },{
+        "name": "Andreia Silva",
+        "position": "PhD Student",
+        "research_area": "Oligomerization"
+    },{
+        "name": "Elaine Fabre",
+        "position": "PhD Student",
+        "research_area": "Ion exchange"
+    },{
+        "name": "Ivo Azenha",
+        "position": "PhD Student",
+        "research_area": "Simulated moving bed"
+    },{
+        "name": "Joana Pinheiro",
+        "position": "PhD Student",
+        "research_area": "Adsorption-desorption cycles"
+    },{
+        "name": "Vitor Rodrigues",
+        "position": "PhD Student",
+        "research_area": "Supercritical fluid extraction"
+    },{
+        "name": "Bruno Zêzere",
+        "position": "PhD Student",
+        "research_area": "Transport properties"
+    },{
+        "name": "Martinique Nunes",
+        "position": "Research Fellow",
+        "research_area": "Gas adsorption"
+    }
+]

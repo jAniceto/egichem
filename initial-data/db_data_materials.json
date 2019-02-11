@@ -1,0 +1,602 @@
+[
+    {
+        "name": "Zeolyst NH4-ZSM-5 CBV 3024 E",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Zeolyst - 1000 G"
+    },
+    {
+        "name": "Zeólito Z3",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "ZeoChem"
+    },
+    {
+        "name": "Tolueno 2 L",
+        "amount": "1",
+        "location": "H4",
+        "comments": ""
+    },
+    {
+        "name": "Tolueno 1 L",
+        "amount": "1",
+        "location": "H4",
+        "comments": "Sigma-Aldrich"
+    },
+    {
+        "name": "tolueno",
+        "amount": "1",
+        "location": "H5",
+        "comments": "2.5 L Riedel"
+    },
+    {
+        "name": "TEOS",
+        "amount": "0",
+        "location": "H5",
+        "comments": "Sigma cod:131903-1L - Bruno F."
+    },
+    {
+        "name": "Sulfato de Sódio Anidro 1 kg",
+        "amount": "1",
+        "location": "",
+        "comments": "JMGS"
+    },
+    {
+        "name": "Sulfato de Alumínio 18-H2O",
+        "amount": "0",
+        "location": "",
+        "comments": "500 G"
+    },
+    {
+        "name": "Sulfato de Alumínio",
+        "amount": "1",
+        "location": "",
+        "comments": "Panreac cod:141101-500G - Bruno F."
+    },
+    {
+        "name": "Solução de Silicato de Sódio",
+        "amount": "1",
+        "location": "H5",
+        "comments": "Sigma cod:338443-1L - Bruno F."
+    },
+    {
+        "name": "Solução de HTPA",
+        "amount": "3",
+        "location": "H5",
+        "comments": "100 g Sigma"
+    },
+    {
+        "name": "Solução de Hidróxido de Césio",
+        "amount": "1",
+        "location": "H5",
+        "comments": "Sigma cod:232041-10G - Bruno F."
+    },
+    {
+        "name": "Solução de Hidróxido de Amónio",
+        "amount": "1",
+        "location": "H5",
+        "comments": "Sigma cod:320145-500ML - Bruno F."
+    },
+    {
+        "name": "Solução de cetiltrimetil amóni",
+        "amount": "1",
+        "location": "H5",
+        "comments": "500 mL Aldrich"
+    },
+    {
+        "name": "Silica Gel c/indicador",
+        "amount": "4",
+        "location": "Armário",
+        "comments": "(Panreac +3 Sharlau )1 KG"
+    },
+    {
+        "name": "Silica Gel",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Sigma cod:391484-1KG - Bruno F."
+    },
+    {
+        "name": "Silica gel",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "250 g Merck"
+    },
+    {
+        "name": "Silica Fumed",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Sigma cod:S5505-500G - Bruno F."
+    },
+    {
+        "name": "Silica Coloidal",
+        "amount": "1",
+        "location": "H5",
+        "comments": "Sigma cod:421553-1L - Bruno F."
+    },
+    {
+        "name": "Propileno Glicol 1 L",
+        "amount": "2",
+        "location": "H5",
+        "comments": ""
+    },
+    {
+        "name": "Propil Galato",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "100 g Sigma"
+    },
+    {
+        "name": "Potássio Hidrogenoftalato 1 kg",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Panreac"
+    },
+    {
+        "name": "Pluronic P-123",
+        "amount": "0",
+        "location": "Armário",
+        "comments": "Sigma cod:435465-250ML - Bruno F."
+    },
+    {
+        "name": "Piridina",
+        "amount": "3",
+        "location": "H2",
+        "comments": "1 L Merck"
+    },
+    {
+        "name": "Piridina",
+        "amount": "4",
+        "location": "H3 e H1",
+        "comments": "(3 Sigma + 1 Panreac) 1L"
+    },
+    {
+        "name": "PEG-PPG-PEG",
+        "amount": "1",
+        "location": "",
+        "comments": "250 mL Sigma"
+    },
+    {
+        "name": "Óxido de Titânio(IV), anatase",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Sigma cod:232033-100G - Bruno F."
+    },
+    {
+        "name": "Óxido de Propileno 0.5 L",
+        "amount": "0",
+        "location": "",
+        "comments": "Sigma Aldrich"
+    },
+    {
+        "name": "ortosilicato de tetraeltilo",
+        "amount": "0",
+        "location": "H5",
+        "comments": "1L Aldrich"
+    },
+    {
+        "name": "Óleo para análises 1 L",
+        "amount": "0",
+        "location": "",
+        "comments": ""
+    },
+    {
+        "name": "Óleo de Mamona 5 L",
+        "amount": "0",
+        "location": "",
+        "comments": ""
+    },
+    {
+        "name": "Nitrato de Césio >99,0%",
+        "amount": "1",
+        "location": "",
+        "comments": "50 G - Bruno Figueiredo"
+    },
+    {
+        "name": "Nitrato de Alumínio 9H2O",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Sigma cod:31154-1KG - Bruno F."
+    },
+    {
+        "name": "N-Hexano 2.5 L",
+        "amount": "7",
+        "location": "H2",
+        "comments": "(5 Ficher Scientific + 2 Analar)"
+    },
+    {
+        "name": "N-Hexano 2.5 L",
+        "amount": "3",
+        "location": "H2, H1",
+        "comments": "Destilado"
+    },
+    {
+        "name": "n-hexano",
+        "amount": "1",
+        "location": "H4",
+        "comments": "Panreac 2.5L"
+    },
+    {
+        "name": "N-Heptano 1L",
+        "amount": "4",
+        "location": "H2 e H3 H4",
+        "comments": "Panreac"
+    },
+    {
+        "name": "Methylimidazole 100 mL",
+        "amount": "0",
+        "location": "",
+        "comments": ""
+    },
+    {
+        "name": "Metanol HPLC grade",
+        "amount": "1",
+        "location": "H3",
+        "comments": "2.5 L - José Pedro Aniceto Fisher"
+    },
+    {
+        "name": "Metanol HPLC",
+        "amount": "1",
+        "location": "H4",
+        "comments": "Sigma 2.5 L"
+    },
+    {
+        "name": "Metanol 2.5 L",
+        "amount": "1",
+        "location": "H3",
+        "comments": "Fluka"
+    },
+    {
+        "name": "Metanol 1 L",
+        "amount": "2",
+        "location": "H2 e H4",
+        "comments": "Ficher Scientific"
+    },
+    {
+        "name": "Isopropróxido de Titânio(IV)",
+        "amount": "1",
+        "location": "",
+        "comments": "Sigma cod:205273-500ML - Bruno F."
+    },
+    {
+        "name": "Isopropóxido de Alumínio",
+        "amount": "1",
+        "location": "",
+        "comments": "Sigma cod:220418-1KG - Bruno F."
+    },
+    {
+        "name": "hidroxitolueno butilado",
+        "amount": "1",
+        "location": "",
+        "comments": "1kg Safc"
+    },
+    {
+        "name": "Hidróxido de Tetrapropilamónio",
+        "amount": "1",
+        "location": "H5",
+        "comments": "Sigma cod:254533-100G - Bruno F."
+    },
+    {
+        "name": "Hidróxido de Tetrapropilamónio",
+        "amount": "0",
+        "location": "H5",
+        "comments": ""
+    },
+    {
+        "name": "Hidróxido de Sódio 1 kg",
+        "amount": "3",
+        "location": "Armário",
+        "comments": "Panreac + Normapur + Acros"
+    },
+    {
+        "name": "Hidróxido de Potássio 1 kg",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Panreac"
+    },
+    {
+        "name": "Hexadecytrimethyl-ammonium bro",
+        "amount": "1",
+        "location": "",
+        "comments": "500 g Sigma"
+    },
+    {
+        "name": "Fenolftaleina 100 g",
+        "amount": "1",
+        "location": "H5",
+        "comments": "Riedel de Haen"
+    },
+    {
+        "name": "Etanol 5 L",
+        "amount": "12",
+        "location": "",
+        "comments": "Ficher Scientific"
+    },
+    {
+        "name": "Etanol 2.5 L",
+        "amount": "0",
+        "location": "H3",
+        "comments": "Destilado"
+    },
+    {
+        "name": "Etanol (Bidom) - 2.5 L",
+        "amount": "1",
+        "location": "H3",
+        "comments": ""
+    },
+    {
+        "name": "Diclorometano 2.5 L",
+        "amount": "3",
+        "location": "H1",
+        "comments": "Destilado"
+    },
+    {
+        "name": "Diclorometano 2.5 L",
+        "amount": "9",
+        "location": "H1 e H3",
+        "comments": "(8 Ficher Scientific + 1 Normapur)"
+    },
+    {
+        "name": "Diclorometano",
+        "amount": "5",
+        "location": "H4",
+        "comments": "Fluka 2.5 L"
+    },
+    {
+        "name": "CTACl (Solução)",
+        "amount": "0",
+        "location": "H5",
+        "comments": "Sigma cod:292737-500ML - Bruno F."
+    },
+    {
+        "name": "CTABr SA",
+        "amount": "0",
+        "location": "Armário",
+        "comments": "Bruno Antunes"
+    },
+    {
+        "name": "Clorofórmio Deuterado 100 mL",
+        "amount": "3",
+        "location": "H3",
+        "comments": "Acros"
+    },
+    {
+        "name": "Cloreto de Titânio(IV) (sol.)",
+        "amount": "1",
+        "location": "H5",
+        "comments": "Sigma cod:404985-100ML - Bruno F."
+    },
+    {
+        "name": "Cloreto de Titânio(III) (sol.)",
+        "amount": "3",
+        "location": "H5",
+        "comments": "250 mL Sigma"
+    },
+    {
+        "name": "Cloreto de Titânio(III) (sol.)",
+        "amount": "1",
+        "location": "H5",
+        "comments": "Sigma cod:249998-500ML - Bruno F."
+    },
+    {
+        "name": "Cloreto de Titânio",
+        "amount": "0",
+        "location": "",
+        "comments": "250 G - Sigma-Aldrich"
+    },
+    {
+        "name": "Cloreto de Sódio",
+        "amount": "1",
+        "location": "",
+        "comments": "250 G - Sigma-Aldrich - Simão"
+    },
+    {
+        "name": "Cloreto de Potássio",
+        "amount": "1",
+        "location": "",
+        "comments": "250 G - Sigma-Aldrich - Simão"
+    },
+    {
+        "name": "Cloreto de Litio",
+        "amount": "1",
+        "location": "",
+        "comments": "10 G  - Sigma-Aldrich - Simão"
+    },
+    {
+        "name": "Cloreto de Césio",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Sigma cod: 289329-25G - Bruno F."
+    },
+    {
+        "name": "Cloreto de Césio",
+        "amount": "0",
+        "location": "",
+        "comments": "Sigma 100g"
+    },
+    {
+        "name": "Cloreto de Acetilo 100 mL",
+        "amount": "1",
+        "location": "H5",
+        "comments": "Fluka"
+    },
+    {
+        "name": "Cloreto de Acetilo 1 L",
+        "amount": "1",
+        "location": "H5",
+        "comments": ""
+    },
+    {
+        "name": "Citrato de Níquel (II)",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "100 G - Alfa-Aesa - Bruno A."
+    },
+    {
+        "name": "Carbonato de Sódio Anidro",
+        "amount": "1",
+        "location": "",
+        "comments": "500 G - José Pedro"
+    },
+    {
+        "name": "Carbonato de Sódio",
+        "amount": "0",
+        "location": "Armário",
+        "comments": "Panreac cod:141648-500G - Bruno F."
+    },
+    {
+        "name": "Carbonato de Hidrox. de Níquel",
+        "amount": "1",
+        "location": "",
+        "comments": "Panreac 250 G - Bruno A."
+    },
+    {
+        "name": "Brometo de Cetriamónio",
+        "amount": "0",
+        "location": "Armário",
+        "comments": "Sigma cod:H5882-500G - Bruno Antunes"
+    },
+    {
+        "name": "Anidrido Acético 2.5 L",
+        "amount": "2",
+        "location": "H5",
+        "comments": ""
+    },
+    {
+        "name": "Aluminato de Sódio",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Sigma cod:13404-2.5KG-R - Bruno F."
+    },
+    {
+        "name": "Água HPLC grade",
+        "amount": "3",
+        "location": "",
+        "comments": "2.5 L - José Pedro Aniceto"
+    },
+    {
+        "name": "Actilacetonato de Crómio (III)",
+        "amount": "1",
+        "location": "H3",
+        "comments": "100 g Aldrich"
+    },
+    {
+        "name": "Ácido Ursólico",
+        "amount": "1",
+        "location": "H2",
+        "comments": "5g Aktim"
+    },
+    {
+        "name": "Acido sulfúrico",
+        "amount": "1",
+        "location": "H2",
+        "comments": "2,5L"
+    },
+    {
+        "name": "Ácido Silicico",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Sigma cod:306363-100G - Bruno F."
+    },
+    {
+        "name": "Ácido oleanólico",
+        "amount": "1",
+        "location": "H2",
+        "comments": "5g Aktim"
+    },
+    {
+        "name": "Ácido nítrico concentrado",
+        "amount": "1",
+        "location": "H5",
+        "comments": "1L"
+    },
+    {
+        "name": "Ácido Nítrico 2.5 L",
+        "amount": "3",
+        "location": "H5",
+        "comments": "65 %"
+    },
+    {
+        "name": "Ácido Clorídrico",
+        "amount": "1",
+        "location": "H5",
+        "comments": "37 % Panreac"
+    },
+    {
+        "name": "Ácido Cítrico",
+        "amount": "1",
+        "location": "Armário",
+        "comments": "Sigma cod:251275-100G - Bruno F."
+    },
+    {
+        "name": "Ácido betulínico",
+        "amount": "1",
+        "location": "H2",
+        "comments": "5g Aktim"
+    },
+    {
+        "name": "Ácido Acético Glacial HPLC",
+        "amount": "2",
+        "location": "",
+        "comments": "1 L - José Pedro Aniceto"
+    },
+    {
+        "name": "Ácido acetico",
+        "amount": "1",
+        "location": "H5",
+        "comments": "1L (Hipersolv)"
+    },
+    {
+        "name": "Ácido 3-Piridinapropiônico SA",
+        "amount": "0",
+        "location": "",
+        "comments": "Recebido por Bruno Antunes"
+    },
+    {
+        "name": "Acetonitrilo HPLC",
+        "amount": "1",
+        "location": "H3",
+        "comments": "Ficher 2,5L"
+    },
+    {
+        "name": "Acetona 2.5 L",
+        "amount": "1",
+        "location": "H1 e H5",
+        "comments": "Destilada"
+    },
+    {
+        "name": "Acetona (Bidom) - 2.5 L",
+        "amount": "2",
+        "location": "",
+        "comments": ""
+    },
+    {
+        "name": "Acetato de etilo HPLC grade",
+        "amount": "2",
+        "location": "",
+        "comments": "2.5 L - José Pedro Aniceto"
+    },
+    {
+        "name": "Acetato de Etilo 2.5 L",
+        "amount": "2",
+        "location": "H3",
+        "comments": "(1 Ficher Scientific + 1 HyperSolv)"
+    },
+    {
+        "name": "Acetato de Etilo",
+        "amount": "1",
+        "location": "H4",
+        "comments": "2.5 L Acros"
+    },
+    {
+        "name": "2-Propanol HPLC grade",
+        "amount": "0",
+        "location": "",
+        "comments": "2 L - José Pedro Aniceto"
+    },
+    {
+        "name": "2-Propanol",
+        "amount": "1",
+        "location": "H3",
+        "comments": "1L - Sigma"
+    }
+]

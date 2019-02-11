@@ -1,0 +1,952 @@
+[
+    {
+        "title": "Separation of betulinic and oleanolic Acids by simulated moving bed",
+        "authors": "I. Azenha, J. Aniceto, S. Sequeira, C. Areia, A. Mendes, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "2 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Life cycle assessment of supercritical fluid extraction of lycopene from tomato residues",
+        "authors": "M.M.R. de Melo, C.M. Silva, N. Caetano, T. Mata, A. Martins",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "3 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Valorization of Quercus cerris cork by supercritical extraction with modified carbon dioxide as green and efficient solution in relation to the classical extraction with organic solvents",
+        "authors": "P.G. Vieira, M.M.R. de Melo, A. ¸Sen, M.M.Q. Simões, H. Pereira, I. Portugal, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "4 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Valorization of Aurantiochytrium sp. microalgae through supercritical fluid extraction: optimization of conditions, measurement and modeling of kinetic curves",
+        "authors": "M.M.R. De Melo, M. Sapatinha, J. Pinheiro, M. Lemos, N.M. Bandarra, I. Batista, M.C. Paulo, J. Coutinho, J. Saraiva, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "5 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "New extension of the Liu-Silva-Macedo model to multicomponent Lennard-Jones intradiffusivities",
+        "authors": "B. Zêzere, I. Portugal, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "6 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Experimental and modeled diffusivities of metal acetylacetonates in liquid ethanol and comparative insights with their diffusivity in supercritical CO2",
+        "authors": "B. Zêzere, I. Portugal, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "7 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Study of tritperpenic acids isolation by simulated moving bed at two distinct scales",
+        "authors": "J.P.S. Aniceto, I.S. Azenha, A. Mendes, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "8 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Molecularly Imprinted Polymers for the chromatographic separation of triterpenic acids isomers",
+        "authors": "J.P.S. Aniceto, A. Rudnitskaya, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "9 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Production of clean synthetic fuels using nanocrystalline MFI-based micro/mesoporous zeotypes synthesised via bottom-up approaches",
+        "authors": "A.F. Silva, A. Fernandes, M.M. Antunes, M.F. Ribeiro, C.M. Silva, A.A. Valente",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "10 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Production of clean synthetic fuels using nanocrystalline MFI-based micro/mesoporous zeotypes synthesised via top-down approaches",
+        "authors": "A.F. Silva, A. Fernandes, M.M. Antunes, M.F. Ribeiro, C.M. Silva, A.A. Valente",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "11 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Measurement of diffusion coefficients of lycopene and astaxanthin in compressed liquids",
+        "authors": "J.M. Silva, B. Zêzere, I. Portugal, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "12 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Synthesis and characterisation of aluminosilicate ZSM-5 membranes",
+        "authors": "S. Costa, S.P. Cardoso, Z. Lin, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "13 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Study of Hg2+ removal from tap water using different biosorbents",
+        "authors": "E. Fabre, C. Vale, E. Pereira, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "14 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Design of experiments and response surface methodology as powerful tools for optimization of adsorption heat pumps",
+        "authors": "J.M. Pinheiro, S. Salústio, A.A. Valente, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "15 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Copper foam coated with CPO-27(Ni) metal-organic framework for adsorption heat pump: simulation study using OpenFOAM",
+        "authors": "J.M. Pinheiro, S. Salústio, V. Geraldes, A. Valente, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "16 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Influence of distinct cations in solution on the equilibrium and kinetics of mercury removal using titanosilicate ETS-4",
+        "authors": "S.P. Cardoso, T. Faria, C.B. Lopes, E. Pereira, I. Portugal, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "17 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Selective recovery of platinum-group elements using Fe3O4@EG nanocomposites and their precursors",
+        "authors": "F. Rocha, E. Pereira, T. Trindade, C.M. Silva, C.B. Lopes",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "18 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "New promising microporous niobium and vanadium silicates for mercury removal from aqueous solutions",
+        "authors": "E. Fabre, A. Rocha, C.B. Lopes, C. Vale, C.M. Silva, E. Pereira",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "19 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Design and efficiency assessment of a packed bed distillation column by HETP and HTU approaches",
+        "authors": "A.F. Silva, A.A. Valente, F.A. da Silva, C.M. Silva",
+        "conference": "ChemPor 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "20 – 4 October",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Micro/mesostructured catalysts based on the BEA topology for 1-butene oligomerisation",
+        "authors": "A.F. Silva, A. Fernandes, P. Neves, M.M. Antunes, S.M. Rocha, M.F. Ribeiro, C. M. Silva; Valente, A.A. Valente",
+        "conference": " Jornadas CICECO 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "11-12 June",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Optimization of adsorption heat pumps by design of experiments and response surface methodology",
+        "authors": "J.M. Pinheiro, S. Salústio, A.A. Valente, C.M. Silva",
+        "conference": "Jornadas CICECO 2018",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "11-12 June",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Diffusion coefficients of metal acetylacetonates in liquid ethanol and supercritical CO2",
+        "authors": "B. Zêzere, A. L. Magalhães, I. Portugal, C.M. Silva",
+        "conference": "6th Portuguese Young Chemists Meeting",
+        "city": "Setúbal",
+        "country": "Portugal",
+        "date": "15 – 18 May",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "The separation of betulinic and oleanolic acids by simulated moving bed chromatography: Experimental and modeling studies",
+        "authors": "I.S. Azenha, J.P.S. Aniceto, S. Sequeira, A. Mendes, C.M. Silva",
+        "conference": "6th Portuguese Young Chemists Meeting",
+        "city": "Setúbal",
+        "country": "Portugal",
+        "date": "16 – 18 May",
+        "year": "2018",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Design and optimization of a simulated moving bed unit for the separation of betulinic, oleanolic and ursolic acids mixtures: experimental and modeling studies",
+        "authors": "I.S. Azenha, J.P.S. Aniceto, F.M.J. Domingues, A. Mendes, C.M. Silva",
+        "conference": "10º Encontro Nacional de Cromatografia",
+        "city": "Bragança",
+        "country": "Portugal",
+        "date": "4-6 December",
+        "year": "2017",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Chromatographic measurement of eucalyptol diffusivities in compressed fluids",
+        "authors": "B. Zêzere, I.S. Azenha, A.L. Magalhães, A. Mendes, C.M. Silva",
+        "conference": "10º Encontro Nacional de Cromatografia",
+        "city": "Bragança",
+        "country": "Portugal",
+        "date": "4-6 December",
+        "year": "2017",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Análise Discriminante como ferramenta para controle de qualidade de café torrado",
+        "authors": "P.R.A.B de Toledo, M.M de Melo, H.R. Pezza, A.T. Toci, L. Pezza, C.M. Silva",
+        "conference": "43°Congresso Brasileiro de Pesquisas Cafeeiras",
+        "city": "Minas Gerais",
+        "country": "Brazil",
+        "date": "7-10 October ",
+        "year": "2017",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Valorization of vegetal biomass through supercritical CO2 extraction: from lab to exploitation",
+        "authors": "M.M.R. de Melo, A. J.D. Silvestre, C.M. Silva",
+        "conference": " Ciência 2017",
+        "city": "Lisboa",
+        "country": "Portugal",
+        "date": "3-5 July",
+        "year": "2017",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Olefin oligomerisation over TUD-1 type aluminosilicates acid catalysts",
+        "authors": "A.F. Silva, A.A. Valente, C.M. Silva",
+        "conference": "Research Day",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "13 June",
+        "year": "2017",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Valorization of vegetal biomass through supercritical CO2 extraction: from lab to exploitation",
+        "authors": "M.M.R. de Melo, A.J.D. Silvestre, C.M. Silva",
+        "conference": " Research Day",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "14 June",
+        "year": "2017",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Recovery of rare-earth elements using a magnetic graphene-based nanocomposite",
+        "authors": "C.B. Lopes, E.L. Afonso, E. Pereira, C. Vale, T. Trindade, C.M. Silva",
+        "conference": "I Reunião do Grupo de Carbono",
+        "city": "Porto",
+        "country": "Portugal",
+        "date": "12-13 June",
+        "year": "2017",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Synthesis and characterization of magnetic graphene based nanocomposites for the recovery of rare earth elements materials",
+        "authors": "E.L. Afonso, E. Pereira, T. Trindade, C.M. Silva, C.B. Lopes",
+        "conference": "Jornadas CICECO 2017",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "9-12 April",
+        "year": "2017",
+        "pub_type": "poster"
+    },
+    {
+        "title": "One-pot conversion of furfural in the presence of a Sn, Al-containing zeolite beta catalyst",
+        "authors": "P. Neves, M.M. Antunes, S. Lima, A.L. Magalhães, E Fazio, A. Fernandes, F. Neri, C.M. Silva, S.M. Rocha, M.F. Ribeiro, M. Pillinger, A. Urakawa, A.A. Valente",
+        "conference": "10º Encontro Nacional de Catálise e Materiais Porosos",
+        "city": "Lisboa",
+        "country": "Portugal",
+        "date": "19-20 May",
+        "year": "2016",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Mechanistic and kinetic modelling studies of furfural conversio to bio-products",
+        "authors": "A.L. Magalhães, M.M. Antunes, S. Lima, P. Neves, E. Fazio, A. Fernandes, F. Neri, C.M. Silva, S.M. Rocha, M.F. Ribeiro, M. Pillinger, A. Urakawa, A.A. Valente",
+        "conference": "10º Encontro Nacional de Catálise e Materiais Porosos",
+        "city": "Lisboa",
+        "country": "Portugal",
+        "date": "19-20 May",
+        "year": "2016",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Prospective production of friedelin through supercritical CO2 extraction of Quercus cerris cork",
+        "authors": "M.M.R. de Melo, Ali Şen, A.J.D. Silvestre, H. Pereira, C.M. Silva",
+        "conference": "14th European Workshop on Lignocellulosics and Pulp (EWLP-2016)",
+        "city": "Autrans",
+        "country": "France",
+        "date": "28-30 June",
+        "year": "2016",
+        "pub_type": "poster"
+    },
+    {
+        "title": "One-pot conversion of furfural to bio-products: Mechanism and kinetic modelling",
+        "authors": "M.M. Antunes, S. Lima, P. Neves, A.L. Magalhães, E. Fazio, A. Fernandes, F. Neri, C.M. Silva, S.M. Rocha, M.F. Ribeiro, M. Pillinger, A. Urakawa, A.A. Valente",
+        "conference": "2nd EuGSC - 2nd EuCheMS Congress on Green and Sustainable Chemistry",
+        "city": "Lisbon",
+        "country": "Portugal",
+        "date": "4-7 October",
+        "year": "2015",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Valorization of the invasive plant water hyacinth (E. crassipes) by production of stigmasterol enriched extracts through supercritical CO2",
+        "authors": "M.M.R de Melo, P.F. Martins, A.J.D. Silvestre, C.M. Silva",
+        "conference": "2nd EuGSC - 2nd EuCheMS Congress on Green and Sustainable Chemistry",
+        "city": "Lisbon",
+        "country": "Portugal",
+        "date": "4-7 October",
+        "year": "2015",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Modeling diffusion coefficients in liquids, gases and supercritical fluids",
+        "authors": "R.V. Vaz, A.L. Magalhães, José R.B. Gomes, C.M. Silva",
+        "conference": "Researcher Day - University of Aveiro",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "3 June",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Separation of isomers by simulated moving bed (SMB) chromatography",
+        "authors": "J.P.S. Aniceto, C.M. Silva",
+        "conference": " Researcher Day - University of Aveiro",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "4 June",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Measurement of adsorption and thermophysical properties of ETS-10",
+        "authors": "J.M. Pinheiro, A.A. Valente, Z. Lin, J. Rocha, S. Salustio, N. Ferreira, C.M. Silva",
+        "conference": "EIDS Summer Workshop - University of Pardubice",
+        "city": "Czech Republic",
+        "country": "Czech Republic",
+        "date": "28 May",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Supercritical fluid extraction of triterpenic acids from Eucalyptus globulus bark at different scales",
+        "authors": "M.M.R. de Melo, R.M.A. Domingues, M. Sova, . Lack, H. Seidlitz, F. Lang Jr., A.J.D. Silvestre, C.M. Silva",
+        "conference": "EIDS Summer Workshop - University of Pardubice",
+        "city": "Czech Republic",
+        "country": "Czech Republic",
+        "date": "29 May",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Measurement of tracer diffusivities of α-pinene in supercritical CO2",
+        "authors": "R.V. Vaz, J. Leite, C.M. Silva",
+        "conference": "XX Econtro Luso-Galego de Química",
+        "city": "Porto",
+        "country": "Portugal",
+        "date": "26-29 November",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Prediction of tracer diffusivities in supercritical CO2 using statistical models",
+        "authors": "R.V. Vaz, S.M.R. Santos, J.D. Cordeiro, A.S. Barros, C.M. Silva",
+        "conference": "XX Econtro Luso-Galego de Química",
+        "city": "Porto",
+        "country": "Portugal",
+        "date": "26-29 November",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Synthesis and characterization of AM-2 and AM-3 titanosilicate membranes",
+        "authors": "S.P. Cardoso, I.C. Azenha, A.E.Rodrigues, Z. Lin, C.M. Silva",
+        "conference": "XX Econtro Luso-Galego de Química",
+        "city": "Porto",
+        "country": "Portugal",
+        "date": "26-29 November",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Jacinto-de-água (Eichhornia crassipes): de planta invasora a fonte promissora de fitosteróis",
+        "authors": "R.P. Silva, M.M.R. de Melo, A.J.D. Silvestre, C.M. Silva",
+        "conference": "XX Econtro Luso-Galego de Química",
+        "city": "Porto",
+        "country": "Portugal",
+        "date": "26-29 November",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Isolation of high value triterpenic acids by Simulated Moving Bed (SMB): design of lab unit and modelling results",
+        "authors": "J.P.S Aniceto, A.F. Silva, S.P.Cardoso, C.M. Silva",
+        "conference": "XX Econtro Luso-Galego de Química",
+        "city": "Porto",
+        "country": "Portugal",
+        "date": "26-29 November",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Gac oil production using supercritical CO₂: process optimization through a RSM-COM hybrid approach",
+        "authors": "P.F. Martins, M.M.R de Melo, C.M. Silva",
+        "conference": "XX Econtro Luso-Galego de Química",
+        "city": "Porto",
+        "country": "Portugal",
+        "date": "26-29 November",
+        "year": "2014",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Evaluation of the anticancer effects of triterpenic-enriched Eucaliptus bark extracts on human cancer cells",
+        "authors": "A.R. Guerra, J. Pereira, R.M.A. Domingues, O. Guerreiro, P. Ramos, H. Oliveira, C. Pereira-Wilson, C.S.R. Freire, C.P. Neto,  C.M. Silva, A.J.D. Silvestre, C. Lima, M.F. Duarte",
+        "conference": "FuBio Seminar 2013",
+        "city": "Helsinki",
+        "country": "Finland",
+        "date": "27 August",
+        "year": "2013",
+        "pub_type": "poster"
+    },
+    {
+        "title": "High value triterpenic acids from Eucalyptus barks: design and construction of a Simulated Moving Bed (SMB) equipment for the isolation of pure compounds",
+        "authors": "J.P.S. Aniceto, S.P. Cardoso, C.M. Silva",
+        "conference": "FuBio Seminar 2013",
+        "city": "Helsinki",
+        "country": "Finland",
+        "date": "27 August",
+        "year": "2013",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Extraction of Bioactive Components from Eucalyptus and Birch Bark by Supercritical CO2 Extraction",
+        "authors": "M. Sova, E. Lack, H. Seidlitz, F. Lang Jr., J. Fernandes, M.M.R. de Melo, R.M.A. Domingues, A.J.D. Silvestre, C.M. Silva",
+        "conference": "6th International Symposium on High Pressure Processes Technology - EFCE Event No. 708",
+        "city": "Belgrade",
+        "country": "Serbia",
+        "date": "8-11 September",
+        "year": "2013",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Prediction of Properties of Heavy Petroleum Fractions by  1H NMR Spectroscopy and Multivariate Models",
+        "authors": "S.L. Silva, F.G. Martins, J.C. Ribeiro, F.A. Da Silva, C.M. Silva, Artur M.S. Silva",
+        "conference": "Researcher Day - University of Aveiro",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "19 June",
+        "year": "2013",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Supercritical CO2 Extraction of High Value Triterpenic Compounds from Eucalyptus Bark Residues. A contribution for Biorefinery Integration in Pulp and Paper Industries",
+        "authors": "R.M.A. Domingues, M. Melo, C. Pascoal Neto, A.J.D. Silvestre, C.M. Silva",
+        "conference": "RRB8 - 8th International Conference on Renewable Resources & Biorefineries",
+        "city": "Toulouse",
+        "country": "France",
+        "date": "June 4-6",
+        "year": "2012",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Synthesis and permeation properties of small-pore titanosilicate AM-3 membranes.",
+        "authors": "S.P. Cardoso, P.F. Lito, J. Rocha, Z. Lin, C.M. Silva",
+        "conference": "Euromembrane",
+        "city": "London",
+        "country": "UK",
+        "date": "September 23-27",
+        "year": "2012",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Detoxification of Sulphide Spent Liquors for bioethanol fermentation employing ion exchange resins.",
+        "authors": "D.L.A. Fernandes, C.M. Silva, A.M.R.B. Xavier, D. Evtuguin",
+        "conference": "III Workshop em Biotecnologia",
+        "city": " Aveiro",
+        "country": "Portugal",
+        "date": "May 9",
+        "year": "2012",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Eucalyptus Biomass Residues from Agroforest and Pulping Industry as Source of High Value Triterpenic Compounds.",
+        "authors": "R.M.A. Domingues, G. Sousa, C.M. Silva, C. Freire, A.J.D. Silvestre, C.P. Neto",
+        "conference": "NWBC - Nordic Wood Biorefinery Conference",
+        "city": "Stockholm",
+        "country": "Sweden",
+        "date": "March 22-24",
+        "year": "2011",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Supercritical CO2 extraction of high value triterpenoids from Eucalyptus globulus bark: preliminary experiments",
+        "authors": "E.L.G. Oliveira, R.M.A. Domingues, C.S.R. Freire, C.P. Neto, A.J.D. Silvestre, C.M. Silva",
+        "conference": "NWBC - Nordic Wood Biorefinery Conference",
+        "city": "Stockholm",
+        "country": "Sweden",
+        "date": "March 22-24",
+        "year": "2011",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Eucalyptus bark residues as source of high value triterpenic compounds. Preliminary extractions with supercritical CO2",
+        "authors": "R.MA. Domingues, E.L.G. Oliveira, G. Sousa, C. Freire, C.M. Silva, A.J.D. Silvestre, C.P. Neto",
+        "conference": "RR 2011 – International Conference “Renewable Wood and Plant Resources: Chemistry, Technology, Pharmacology, Medicine”",
+        "city": "Saint-Petersburg",
+        "country": "Russia",
+        "date": "June 21-24",
+        "year": "2011",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Theoretical and Experimental Study of Acetic Acid Esterification",
+        "authors": "B.M. Antunes, I. Portugal, C.M. Silva",
+        "conference": "11th International Chemical and Biological Engineering Conference",
+        "city": "Lisbon",
+        "country": "Portugal",
+        "date": "September 5-7",
+        "year": "2011",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Kinetic study of the acetylation of ricinoleic acid with acetic anhydride",
+        "authors": "R.M. Silva, C.M. Silva, I. Portugal",
+        "conference": "11th International Chemical and Biological Engineering Conference",
+        "city": "Lisbon",
+        "country": "Portugal",
+        "date": "September 5-7",
+        "year": "2011",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Permeation of small gases through 6-ring channels titanosilicate membranes",
+        "authors": "P.F. Lito, S.P. Cardoso, X. Lia, J. Rocha, Z. Lin, C.M. Silva",
+        "conference": "11th International Chemical and Biological Engineering Conference",
+        "city": "Lisbon",
+        "country": "Portugal",
+        "date": "September 5-7",
+        "year": "2011",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Synthesis and characterization of microporous titanosilicate AM-3 membranes for small gases permeation",
+        "authors": "P.F. Lito, X. Li, J. Rocha, Z. Lin, C.M. Silva",
+        "conference": "8th ECCE – Europeen Congresso Chemical Engineering",
+        "city": "Berlin",
+        "country": "Germany",
+        "date": "September 25-29",
+        "year": "2011",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Modelling Phase and Chemical Equilibrium in Catalytic Esterification of Acetic Acid and Ethanol",
+        "authors": "S.M. Leite, B.M. Antunes, I. Portugal, C.M. Silva",
+        "conference": "8th ECCE – European Congress of Chemical Engineering",
+        "city": "Berlin",
+        "country": "Germany",
+        "date": "September 25-29",
+        "year": "2011",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Universal Entropy Scaling Law for Self-diffusion Coefficients",
+        "authors": "R.V. Vaz, A.L. Magalhães, C.M. Silva",
+        "conference": "8th ECCE – European Congress of Chemical Engineering",
+        "city": "Berlin",
+        "country": "Germany",
+        "date": "September 25-29",
+        "year": "2011",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Microwave-Assisted Molybdenum-Catalysed Epoxidation of Olefin",
+        "authors": "M. Abrantes, P. Neves, M.M. Antunes, S. Gago, F.A.A. Paz, A.E. Rodrigues, M. Pillinger, I.S. Gonçalves, C.M. Silva, A.A. Valente",
+        "conference": "3rd EuCheMS Chemistry Congress",
+        "city": "Nürnberg",
+        "country": "Germany",
+        "date": "August 29 - September 2",
+        "year": "2010",
+        "pub_type": "poster"
+    },
+    {
+        "title": "ETS-4 fixed-bed ion exchange system for the remediation of mercury(II) contaminated water",
+        "authors": "C.B. Lopes, M. Otero, Z. Lin, C.M. Silva, J. Rocha, E. Pereira, A.C. Duarte",
+        "conference": "SETAC Europe: Science and Technology for Environmental Protection, 20th Meeting",
+        "city": "Seville",
+        "country": "Spain",
+        "date": "May 23-27",
+        "year": "2010",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Adsorção de Mercúrio (II) em Micro- e Nano-Partículas",
+        "authors": "C.B. Lopes, P. Figueira, A. Daniel-da-Silva, M. Otero, Z. Lin, C.M. Silva, J. Rocha, E. Pereira, T. Andrade, A.C. Duarte",
+        "conference": "XXXV Reunião Ibérica de Adsorção",
+        "city": "Lisboa",
+        "country": "Portugal",
+        "date": "8-10 September",
+        "year": "2010",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Production of Second Generation Bioethanol and Single Cell Protein from High Spent Sulfite Liquor",
+        "authors": "D.J.P. Nunes, T.M.R. Fonseca, P.M. Domingues, C.M. Silva, D.V. Evtuguin, A.M.R.B. Xavier",
+        "conference": "XVI Encontro Luso-Galego de Química",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "November 10-12",
+        "year": "2010",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Catalytic epoxidation activity of a dioxomolybdenum(VI) complex bearing a chiral tetradentate bis-oxazoline ligand",
+        "authors": "P. Neves, S. Gago, C.C.L. Pereira, S. Figueiredo, A. Lemos, A.D. Lopes, I.S. Gonçalves, M. Pillinger, C.M. Silva, A.A. Valente",
+        "conference": "Catalysis Lectures for Environmental Applications and Renewables CLEAR Summer School",
+        "city": "Chalkidiki",
+        "country": "Greece",
+        "date": "May 24-29",
+        "year": "2009",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Enhancement of Supercritical Fluid Extraction of Grape Seed Oil with Enzymatic Pre-treatment",
+        "authors": "C.P. Passos, R.M. Silva, F.A. Da Silva, M.A. Coimbra, C.M. Silva",
+        "conference": "CHISA",
+        "city": "Prague",
+        "country": "Czech Republic",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Maxwell-Stefan based model for ion exchange in microporous materials",
+        "authors": "P.F. Lito, C.M. Silva",
+        "conference": "CHEMPOR 2008",
+        "city": "Braga",
+        "country": "Portugal",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Cadmium (II) removal from aqueous solution using microporous titanosilicate ETS-4 and ETS-10",
+        "authors": "L. Barreira, E. Camarinha, P.F. Lito, J. Rocha, Z. Lin, A.C. Duarte, E. Pereira, C.M. Silva",
+        "conference": "CHEMPOR 2008",
+        "city": "Braga",
+        "country": "Portugal",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Procyanidin Average Degree of Polymerization",
+        "authors": "C.P. Passos, S.M. Cardoso, A.S. Barros, C.M. Silva, M.A. Coimbra",
+        "conference": "CHEMPOR 2008",
+        "city": "Braga",
+        "country": "Portugal",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Supercritical Fluid Extraction of Grape Seed Oil using an Enzymatic Pre-treatment",
+        "authors": "C.P. Passos, R.M. Silva, F.A. Da Silva, M.A. Coimbra, C.M. Silva",
+        "conference": "CHEMPOR 2008",
+        "city": "Braga",
+        "country": "Portugal",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "High Pressure Treatment of Grape Seed to Enhance the Yield of Oil Extraction",
+        "authors": "A.L. Magalhães, C.P. Passos, J.A. Saraiva, M,A. Coimbra, C.M. Silva",
+        "conference": "CHEMPOR 2008",
+        "city": "Braga",
+        "country": "Portugal",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Numerical Simulation of Supercritical Extraction Processes",
+        "authors": "C.M. Silva, C.P. Passos, M.A. Coimbra, F.A. Da Silva",
+        "conference": "CHEMPOR 2008",
+        "city": "Braga",
+        "country": "Portugal",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Comparative mercury removal by ETS-4 and activated carbon from low contaminated solutions",
+        "authors": "C.B. Lopes, M. Otero, Z. Lin, C.M. Silva, J. Rocha, E. Pereira, A.C. Duarte",
+        "conference": "CHEMPOR 2008",
+        "city": "Braga",
+        "country": "Portugal",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Molybdenum η3-allyldicarbonyl complexes as a new class of precursors for highly reactive epoxidation catalysts with tert-butyl hydroperoxide",
+        "authors": "P. Neves, J.C. Alonso, M.J.P. Silva, S. Quintal, P.D. Vaz, C.M. Silva, A.A. Valente, P. Ferreira, M.J. Calhorda, V. Félix, M.G.B. Drew",
+        "conference": "CHEMPOR 2008",
+        "city": "Braga",
+        "country": "Portugal",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Modelling Solubility of Amino Acids in Aqueous Solutions",
+        "authors": "C.M. Silva, S.A. Alves, F.A. Da Silva",
+        "conference": "CHEMPOR 2008",
+        "city": "Braga",
+        "country": "Portugal",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Kinetic study of mercury removal from contaminated water by zeolie X",
+        "authors": "A.C. Duarte, Z. Lin, C.B. Lopes, M. Otero, E. Pereira, J. Rocha, C.M. Silva",
+        "conference": "ISEAC 35",
+        "city": "Gdansk",
+        "country": "Poland",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Synthesis and catalytic properties in olefin epoxidation of bis(chloro)dioxomolybdenum(VI)-bis(N,N-dialkylamide) complexes. Activation of Dioxygen and Homogeneous Catalytic Oxidation",
+        "authors": "P. Neves , S. Gago, B. Monteiro, A.D. Lopes, F.A.A. Paz, M. Pillinger, C.M. Silva, I. S. Gonçalves, A.A. Valente",
+        "conference": "ADHOC-2008",
+        "city": "Veneza",
+        "country": "Itália",
+        "date": "",
+        "year": "2008",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Mercury Removal with Zeolite ETS-4",
+        "authors": "C.B. Lopes, P.F. Lito, M. Otero, Z. Lin, J. Rocha, C.M. Silva, E. Pereira, A.C. Duarte",
+        "conference": "4th International Zeolite Membrane Meeting (IZMM4)",
+        "city": "Zaragoza",
+        "country": "Spain",
+        "date": "",
+        "year": "2007",
+        "pub_type": "poster"
+    },
+    {
+        "title": "M.G.B. η3-Allyldicarbonyl Complexes as A New Class Of Precursors for Drew Molybdenum Highly Reactive Epoxidation Catalysts with Tert-Butyl Hydroperoxide",
+        "authors": "P. Neves, J.C. Alonso, M.J.P. Silva, S. Quintal, P.D. Vaz, C.M. Silva, A.A. Valente, P. Ferreira, M.J. Calhorda, V. Felix",
+        "conference": "8º Encontro Nacional de Catalise e Materiais Porosos of Sociedade Portuguesa de Quimica",
+        "city": "Lamego",
+        "country": "Portugal",
+        "date": "",
+        "year": "2007",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Enhancement of Grape Seed Oil extraction using Enzymatic pre treatment of seed - Parameters optimization",
+        "authors": "C.P. Passos, S. Yilmaz, E. Donmez, C.M. Silva, M.A. Coimbra",
+        "conference": "5th Euro Fed Lipid Congress",
+        "city": "Gothenburg",
+        "country": "Sweden",
+        "date": "",
+        "year": "2007",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Enzymatic treatment of grape seed to improve the oil extraction yield",
+        "authors": "C.P. Passos, S. Yilmaz, C.M. Silva, M.A. Coimbra",
+        "conference": "Micro Biotec - XXXIII",
+        "city": "Lisboa",
+        "country": "Portugal",
+        "date": "",
+        "year": "2007",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Solid-Liquid Equilibrium of Sugars in Aqueous Solution: Measurement and Modelling",
+        "authors": "F. Gil, A.M. Peres, E.A. Macedo, F.A. Da Silva, C.M. Silva",
+        "conference": "CHEMPOR 2005",
+        "city": "Coimbra",
+        "country": "Portugal",
+        "date": "",
+        "year": "2005",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Mercury Removal with Titanosilicate Zeolites",
+        "authors": "C.B. Lopes, C.M. Silva, F. A. Da Silva, J. Rocha, E. Pereira",
+        "conference": "CHEMPOR 2005",
+        "city": "Coimbra",
+        "country": "Portugal",
+        "date": "",
+        "year": "2005",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Ultrafiltração Tangencial de Suspensões Aquosas de Saccharomyces cerevisiae",
+        "authors": "A.M.R.B. Xavier, M.F.J. Eusébio, F.A. Da Silva, C.M. Silva",
+        "conference": "CHEMPOR 2005",
+        "city": "Coimbra",
+        "country": "Portugal",
+        "date": "",
+        "year": "2005",
+        "pub_type": "poster"
+    },
+    {
+        "title": "A Controller Tuning Laboratory Experiment",
+        "authors": "F.A. Da Silva, C.M. Silva",
+        "conference": "CHEMPOR 2005",
+        "city": "Coimbra",
+        "country": "Portugal",
+        "date": "",
+        "year": "2005",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Characterization of Grape Seed Triglycerides and Phenolic Compounds as a Preliminary Approach to Enhance its Oil Functional Properties",
+        "authors": "C.P. Passos, E. Coelho, S.M. Cardoso, C.M. Silva, M.A. Coimbra",
+        "conference": "CHEMPOR 2005",
+        "city": "Coimbra",
+        "country": "Portugal",
+        "date": "",
+        "year": "2005",
+        "pub_type": "poster"
+    },
+    {
+        "title": "On simulating a fixed bed and cyclic adsorption separation process",
+        "authors": "F.A. Da Silva, C.M. Silva",
+        "conference": "CHEMPOR 2005",
+        "city": "Coimbra",
+        "country": "Portugal",
+        "date": "",
+        "year": "2005",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Applicability of Taylor-Aris Analysis to Non-Newtonian Fluids",
+        "authors": "C. Filho, C.M. Silva, M.B. Quadri, E.A. Macedo",
+        "conference": "CHEMPOR 2005",
+        "city": "Coimbra",
+        "country": "Portugal",
+        "date": "",
+        "year": "2005",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Adsorption Undergraduate Experiments",
+        "authors": "S. Sequeira, F.A. Da Silva, C.M. Silva, I. Portugal",
+        "conference": "CHEMPOR 2005",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "",
+        "year": "2001",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Diffusion Coefficients of Linalool in Supercritical Carbon Dioxide",
+        "authors": "C. Filho, C.M. Silva, M.B. Quadri, E.A. Macedo",
+        "conference": "EMPROMER 2001",
+        "city": "Santa Fé",
+        "country": "Argentina",
+        "date": "",
+        "year": "2001",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Tracer Diffusion Coefficients of β-Pinene in Supercritical Carbon Dioxide",
+        "authors": "C. Filho, C.M. Silva, M.B. Quadri, E.A. Macedo",
+        "conference": "CHEMPOR 2001",
+        "city": "Aveiro",
+        "country": "Portugal",
+        "date": "",
+        "year": "2001",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Diffusion Coefficients of D-Limonene in Supercritical Carbon Dioxide",
+        "authors": "C. Filho, C.M. Silva, E.A. Macedo",
+        "conference": "18th European Seminar on Applied Thermodynamics",
+        "city": "Kutna Hora",
+        "country": "República Checa",
+        "date": "",
+        "year": "2000",
+        "pub_type": "poster"
+    },
+    {
+        "title": "Generalized Free Volume Theory for the Transport Properties of Dense Fluids",
+        "authors": "C.M. Silva, E.A. Macedo",
+        "conference": "17th European Seminar on Applied Thermodynamics",
+        "city": "Vilamoura",
+        "country": "Portugal",
+        "date": "",
+        "year": "1999",
+        "pub_type": "poster"
+    }
+]
