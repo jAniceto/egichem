@@ -111,9 +111,9 @@
         <div class="col-md-3">
           <h5 class="text-secondary"><i class="fas fa-map-marker"></i> Visit</h5>
           <p class="text-secondary">
-            Lab 29.1.5 and 29.1.15<br>
-            Departamento de Química<br>
-            Universidade de Aveiro<br>
+            Lab 29.1.5 and Office 29.1.15<br>
+            Department of Chemistry<br>
+            University of Aveiro<br>
             Campus Universitário de Santiago<br>
             3810-193 Aveiro - Portugal<br>
           </p>
@@ -122,31 +122,40 @@
         <hr class="clearfix w-75 d-md-none">
 
         <div class="col-md-3">
-          <h5 class="text-secondary"><i class="fas fa-phone"></i> Call</h5>
+          <h5 class="text-secondary"><i class="fas fa-envelope"></i> Get in touch</h5>
           <p class="text-secondary">
-            T: +351 234 401549<br>
-            F: +351 234 370084<br>
+            Email: dq-egichem[at]ua.pt<br>
+            Phone: +351 234 401549<br>
+            Fax: +351 234 370084<br>
           </p>
         </div>
 
         <hr class="clearfix w-75 d-md-none">
 
-        <div class="col-md-3">
-          <h5 class="text-secondary"><i class="fas fa-envelope"></i> Contact</h5>
-          <p class="text-secondary">dq-egichem[at]ua.pt</p>
+        <div class="col-md-2">
+          <p class="text-secondary">
+              Managed by:<br>
+              Marcelo Melo
+            </p>
+            <p class="text-secondary">
+              Created by:<br>
+              José Aniceto
+            </p>
+            <p class="text-secondary"><i class="far fa-copyright"></i> 
+              <script>document.write(new Date().getFullYear())</script> 
+              EgiChem
+            </p>
         </div>
 
         <hr class="clearfix w-75 d-md-none">
 
-        <div class="col-md-3">
-          <p class="text-muted">
-            Managed by:<br>
-            Marcelo Melo
-          </p>
-          <p class="text-muted">
-            <!-- Created by:<br>
-            José Aniceto -->
-          </p>
+        <div class="col-md-4">
+          <div>
+            <img src="{% static 'website/images/logo_CICECO.png' %}" class="img-fluid" alt="CICECO Logo">
+          </div>
+          <!-- <div>
+            <img src="{% static 'website/images/logo_ua.png' %}" class="img-fluid" alt="">
+          </div> -->
         </div>
       </div>
     </div>
@@ -177,6 +186,7 @@
   <script src="{% static 'website/fullcalendar.js' %}"></script>
 
   <script>
+    // Show active page on navbar
     const navItems = [].slice.call(
       document.querySelectorAll('.nav-item')
     ).filter(
@@ -190,6 +200,7 @@
     }
   </script>
 
+  <!-- Page specific scripts -->
   {% block scripts %}{% endblock %}
 
 </body>
