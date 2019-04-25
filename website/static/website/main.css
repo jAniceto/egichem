@@ -18,8 +18,8 @@ html {
 
 body {
   /* background: #fafafa; */
-  color: #333333;
-  font-family: 'Roboto', sans-serif;
+  /* color: #333333; */
+  /* font-family: 'Roboto', sans-serif; */
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -28,6 +28,10 @@ h1, h2, h3, h4, h5, h6 {
 
 ul {
   margin: 0;
+}
+
+#section {
+  font-family: 'Raleway', sans-serif;
 }
 
 
@@ -75,38 +79,38 @@ ul {
 
 
 /* NAV */
-.site-header .navbar-nav .nav-link {
-  /* color: #cbd5db; */
-  color: #62AA23;
-  border-radius: 5px;
+nav {
+  /* min-height: 190px; */
+  font-weight: bold;
+  font-family: 'Raleway', sans-serif;
 }
 
-.site-header .navbar-nav .nav-link:hover {
-  /* color: #ffffff; */
-  /* border-bottom: 5px solid #62AA23; */
-  /* background-color: #62AA23; */
+nav .navbar-brand {
+  padding: 0;
+  margin: 0;
 }
 
-.site-header .navbar-nav .nav-link.active {
-  font-weight: 500;
+.nav-item {
+  color: #62AA23 !important;
 }
 
-.hvr-fade {
-  display: inline-block;
-  vertical-align: middle;
-  -webkit-transform: perspective(1px) translateZ(0);
-  transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-  overflow: hidden;
-  -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
-  -webkit-transition-property: color, background-color;
-  transition-property: color, background-color;
+@media (min-width: 992px) { 
+  .navbar-nav li a {
+    transition: all 0.4s;
+    padding: 40px 0px;
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+  }
+  
+  .navbar-nav li .nav-item.active, .navbar-nav li a:hover {
+    margin-top: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 4px solid #62AA23;
+    border-top: 4px solid #62AA23;
+  }
 }
-.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
-  background-color: #62AA23;
-  color: white !important;
-}
+
 
 /* LINKS STYLES */
 a {
