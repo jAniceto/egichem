@@ -2,28 +2,52 @@
 
 {% block content %}
 
+
 {%  for unit in lab_units  %}
-  <div class="row mb-3">
-    <div class="col-md-12">
-      <div class="card w-100">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="unit-img">
-                <img src="{{ unit.image.url }}" class="img-fluid" alt="">
-              </div>
-            </div>
-            <div class="col-md-8">
-              <h5 class="card-title">{{ unit.title }}</h5>
-              <p class="card-text">{{ unit.description }}</p>
-              <p class="card-text"><strong>Equipment:</strong> {{ unit.equipment }}</p>
-            </div>
+<div class="row mb-3">
+  <div class="col-md-12">
+    <div class="card mb-3 w-100">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <img src="{{ unit.image.url }}" class="card-img" alt="Equipment image">
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ unit.title }}</h5>
+            <p class="card-text">{{ unit.description }}</p>
+            <p class="card-text">Equipment: <small class="text-muted">{{ unit.equipment }}</small></p>
           </div>
-          
         </div>
       </div>
     </div>
+  </div>
 </div><!-- row closing -->
+{%  endfor %}
+
+
+
+{%  for unit in lab_units  %}
+<!-- <div class="row mb-3">
+  <div class="col-md-12">
+    <div class="card w-100">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="unit-img">
+              <img src="{{ unit.image.url }}" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <h5 class="card-title">{{ unit.title }}</h5>
+            <p class="card-text">{{ unit.description }}</p>
+            <p class="card-text"><strong>Equipment:</strong> {{ unit.equipment }}</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div> -->
 {%  endfor %}
 
 {% endblock content %}
