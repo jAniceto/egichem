@@ -1,5 +1,6 @@
 initial_data/egichem-backups
 initial_data/csv-data
+run_dev_server.bat
 config.json
 db_dump.json
 pg_db_dump.sql
