@@ -318,7 +318,7 @@
         <h5>PostDoc Researchers</h5>
         <p>
           {% for alumnus in alumni_postdocs  %}
-            {% if alumnus.position == 'PostDoc Researcher' %}{{ alumnus.name }}{% if not forloop.last %} &#10022; {% endif %}{%  endif %}
+            {% if alumnus.position == 'PostDoc Researcher' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
           {%  endfor %}
         </p>
       {% endif %}
@@ -326,7 +326,7 @@
         <h5>PhD Students</h5>
         <p>
           {% for alumnus in alumni_phds  %}
-            {% if alumnus.position == 'PhD Student' %}{{ alumnus.name }}{% if not forloop.last %} &#10022; {% endif %}{%  endif %}
+            {% if alumnus.position == 'PhD Student' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
           {%  endfor %}
         </p>
       {% endif %}
@@ -334,7 +334,7 @@
         <h5>Research Fellows</h5>
         <p>
           {% for alumnus in alumni_fellows  %}
-            {% if alumnus.position == 'Research Fellow' %}{{ alumnus.name }}{% if not forloop.last %} &#10022; {% endif %}{%  endif %}
+            {% if alumnus.position == 'Research Fellow' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
           {%  endfor %}
         </p>
       {% endif %}
@@ -342,7 +342,7 @@
         <h5>Master Students</h5>
         <p>
           {% for alumnus in alumni_masters %}
-            {% if alumnus.position == 'MSc Student' %}{{ alumnus.name }}{% if not forloop.last %} &#10022; {% endif %}{%  endif %}
+            {% if alumnus.position == 'MSc Student' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
           {%  endfor %}
         </p>
       {% endif %}
@@ -350,7 +350,7 @@
         <h5>Undergraduate Students</h5>
         <p>
           {% for alumnus in alumni_undergraduate  %}
-            {% if alumnus.position == 'Undergraduate Student' %}{{ alumnus.name }}{% if not forloop.last %} &#10022; {% endif %}{%  endif %}
+            {% if alumnus.position == 'Undergraduate Student' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
           {%  endfor %}
         </p>
       {% endif %}
