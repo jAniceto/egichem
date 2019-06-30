@@ -20,21 +20,21 @@ class Profile(models.Model):
     
     
     # Override the save method to handle image upload (reduce size and crop)
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
 
-        img = Image.open(storage.open(self.photo.name))
+    #     img = Image.open(storage.open(self.photo.name))
         
-        # Reduce size of image
-        if img.height > 300 or img.width > 300:
-            output_size = (300, 300)
-            img.thumbnail(output_size)
+    #     # Reduce size of image
+    #     if img.height > 300 or img.width > 300:
+    #         output_size = (300, 300)
+    #         img.thumbnail(output_size)
             
-            # Crop image to square
-            if img.width != img.height:
-                w, h = img.size
-                cropped = img.crop((w//2 - 300//2, h//2 - 300//2, w//2 + 300//2, h//2 + 300//2))
-                cropped.save(storage.open(self.photo.name))
+    #         # Crop image to square
+    #         if img.width != img.height:
+    #             w, h = img.size
+    #             cropped = img.crop((w//2 - 300//2, h//2 - 300//2, w//2 + 300//2, h//2 + 300//2))
+    #             cropped.save(storage.open(self.photo.name))
 
-            else:
-                img.save(storage.open(self.photo.name))
+    #         else:
+    #             img.save(storage.open(self.photo.name))

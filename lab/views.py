@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
@@ -85,3 +86,32 @@ def announcement_delete(request, pk):
     announcement = Announcement.objects.get(pk=pk)
     announcement.delete()
     return redirect('announcements')
+
+
+def is_current_member(user):
+    """Function to check if user is a current member (not alumni)"""
+    try:
+        if user.member:
+            if user.member.alumni is False:
+                print('Permission Granted.')
+                return True
+            else: 
+                print('Permission Denied. Is Alumni.')
+                return False
+
+    except AttributeError as e:
+        print('Permission denied.')
+        return False
+    
+
+@user_passes_test(is_current_member)
+def our_lab(request):
+
+    announcements = Announcement.objects.all().order_by('-date_added')[:3]
+
+    context = {
+		'page_title': 'Lab Home',
+		'page_subtitle': 'test',
+        'announcements': announcements,
+	}	
+    return render(request, 'lab/home.html', context)

@@ -1,0 +1,57 @@
+{% extends "lab/base.html" %}
+
+{% block content %}
+
+<h1 class="mt-4 mb-3">EgiChem Lab Management</h1>
+
+<p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident eveniet doloribus fugit, enim unde velit facilis, aperiam nemo veritatis rerum tempora aut porro nostrum, earum quibusdam distinctio eius? Minima, maiores.</p>
+
+<div class="row">
+  <div class="col-md-8">
+    
+    <div class="card-deck mt-3">
+      <div class="card">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title">Inventory</h5>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+      <div class="card">
+        <!-- <img src="..." class="card-img-top" alt="..."> -->
+        <div class="card-body">
+          <h5 class="card-title">Update personal info</h5>
+          <p class="card-text">Try to keep your personal information updated.</p>
+          <a href="{% url 'profile' %}" class="btn btn-primary">Update Profile</a>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="col-md-4">
+
+    <h2 class="mb-3">Announcements</h2>
+
+    {% for announcement in announcements %}
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="media">
+          <div class="media-body">
+            <h5 class="mt-0">{{ announcement.title }}</h5>
+            {{ announcement.content }}
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+</div>
+
+
+
+
+
+{% endblock content %}

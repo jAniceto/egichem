@@ -56,7 +56,7 @@ class Member(models.Model):
         ('MSc Student', 'MSc Student'),
         ('Undergraduate Student', 'Undergraduate Student'),
     )
-    user = models.OneToOneField(User, on_delete=models.SET_NULL, blank=True, null=True)
+    user = models.OneToOneField(User, on_delete=models.SET_NULL, blank=True, null=True, related_name='member')
     name = models.CharField(max_length=100)
     position = models.CharField(max_length=50, choices=POSITIONS)
     research_area = models.CharField(max_length=200, blank=True)
