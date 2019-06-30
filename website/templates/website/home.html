@@ -1,5 +1,5 @@
 {% extends "website/base.html" %}
-
+{% load static %}
 {% block content %}
 
 <div class="row">
@@ -8,7 +8,30 @@
     <!-- About EgiChem Section -->
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title">About EgiChem</h5>
+        <div id="carouselLabImages" class="carousel slide carousel-fade" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="{% static 'website/images/slider/IMG_3210-compressor.jpg' %}" class="d-block" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'website/images/slider/IMG_3239-compressor.jpg' %}" class="d-block" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'website/images/slider/IMG_3492-compressor.jpg' %}" class="d-block" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'website/images/slider/IMG_3325-compressor.jpg' %}" class="d-block" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'website/images/slider/IMG_3439-compressor.jpg' %}" class="d-block" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="{% static 'website/images/slider/IMG_3479-compressor.jpg' %}" class="d-block" alt="...">
+            </div>
+          </div>
+        </div>
+        
+        <h5 class="card-title mt-3">About EgiChem</h5>
         <!-- <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6> -->
         <p class="card-text">
             EgiChem is a chemical engineering group part of associate laboratory CICECO – Aveiro Institute of Materials in the University of Aveiro (Portugal). The EgiChem group is lead by Professor Carlos Silva and focuses on research and development of separation processes. Current main areas of research include adsorption, supercritical fluid extraction, chromatographic separations, and ion exchange.
