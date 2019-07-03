@@ -82,14 +82,6 @@ WSGI_APPLICATION = 'egichem.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-# SQLite
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 # Postgres
 DATABASES = {
     'default': {
@@ -170,6 +162,9 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS", "")
 
 # Activate Django-Heroku
 django_heroku.settings(locals())
+
+# Force HTTPS
+SECURE_SSL_REDIRECT = True
 
 
 # Set S3 as the place to store files
