@@ -70,12 +70,12 @@ def people(request):
 	phds = members.filter(position='PhD Student').exclude(highlighted=True).exclude(alumni=True)
 	fellows = members.filter(position='Research Fellow').exclude(highlighted=True).exclude(alumni=True)
 	masters = members.filter(position='MSc Student').exclude(highlighted=True).exclude(alumni=True)
-	undergraduates = members.filter(position='Undergraduate Students').exclude(highlighted=True).exclude(alumni=True)
+	undergraduates = members.filter(position='Undergraduate Student').exclude(highlighted=True).exclude(alumni=True)
 	alumni_postdocs = members.filter(alumni=True, position='PostDoc Researcher')
 	alumni_phds = members.filter(alumni=True, position='PhD Student')
 	alumni_fellows = members.filter(alumni=True, position='Research Fellow')
 	alumni_masters = members.filter(alumni=True, position='MSc Student')
-	alumni_undergraduates = members.filter(alumni=True, position='Undergraduate Students')
+	alumni_undergraduates = members.filter(alumni=True, position='Undergraduate Student')
 	
 	context = {
 		'page_title': 'People',

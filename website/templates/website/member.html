@@ -4,7 +4,7 @@
 
 <div class="row mt-4 mb-3">
 	<div class="col-md-3">
-		<img class="img-fluid img-thumbnail" src="{% if member.user.profile.photo.url %}{{ member.user.profile.photo.url }}{% else %}{{ member.photo.url }}{% endif %}" alt="">
+    <img class="img-fluid img-thumbnail" src="{% if member.user.profile.photo.url %}{{ member.user.profile.photo.url }}{% else %}{{ member.photo.url }}{% endif %}" alt="">
 		<div class="mt-3">
 			{% if member.user.profile.scopus_url %}
 			<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.scopus_url }}" role="button"><i class="fas fa-globe-europe"></i> Scopus</a>

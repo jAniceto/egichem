@@ -281,3 +281,9 @@ h4.title {
   position: relative;
   left: -12px;
 }
+
+
+/* PEOPLE PAGE */
+.embed-responsive .card-img {
+    object-fit: cover;
+}
