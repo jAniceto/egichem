@@ -188,3 +188,10 @@ STATICFILES_FINDERS = (
 )
 
 AWS_DEFAULT_ACL = None
+
+# Google Analytics
+# This allow checking in template if it is running in debug with {% if not debug %}{% endif %}
+INTERNAL_IPS = (
+    '127.0.0.1',
+    'localhost',
+)

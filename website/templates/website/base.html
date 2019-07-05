@@ -28,7 +28,6 @@
     <!-- Calendar -->
     <link rel="stylesheet" href="{% static 'website/fullcalendar/fullcalendar.css' %}">
     
-    
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="stylesheet">
     <!-- Font Awesome -->
@@ -41,9 +40,20 @@
     {% else %}
         <title>EGICHEM</title>
     {% endif %}
+
+    {% if not debug %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-58056773-9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-58056773-9');
+    </script>
+    {% endif %}
 </head>
 <body>
-
   <!-- Header -->
   <header class="site-header bg-light border-bottom mb-3">
     <div class="container px-0">
