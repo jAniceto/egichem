@@ -2,43 +2,37 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<!-- <div class="w-100 bg-egichem-green text-white text-center text-uppercase rounded p-1 mb-3">
-        <span class="font-weight-bold">{{ user.username }}</span>  &nbsp;|&nbsp;  <span class="text-small">Profile page</span>
-</div> -->
-
 <div id="section" class="w-100 bg-egichem-green text-white text-center text-uppercase p-1 mb-3 d-none d-md-block">
-    <span class="font-weight-bold">{{ user.username }}</span>  &nbsp;|&nbsp;  <span class="text-small">Profile page</span>
+  <span class="font-weight-bold">{{ user.username }}</span>  &nbsp;|&nbsp;  <span class="text-small">Profile page</span>
 </div>
 
-
 <div class="row mb-3">
-    <div class="col-md-12">
-        <div class="card bg-light">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-3">
-                        <img class="img-fluid img-thumbnail" src="{{ user.profile.photo.url }}" alt="">
-                        <h2 class="account-heading">{{ user.profile.scientific_name }}</h2>
-                        <p class="text-secondary">{{ user.email }}</p>
-                    </div>
-                    <div class="col-md-9">
-                        
-                        <form method="POST" enctype="multipart/form-data">
-                            {% csrf_token %}
-                            <fieldset class="form-group">
-                                <legend class="border-bottom mb-4">Profile info</legend>
-                                {{ u_form|crispy }}
-                                {{ p_form|crispy }}
-                            </fieldset>
-                            <div class="form-group">
-                                <button class="btn btn-outline-egichem" type="submit">Update</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+  <div class="col-md-12">
+    <div class="card bg-light">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <img class="img-fluid img-thumbnail " src="{{ user.profile.photo.url }}" alt="">
+            <h2 class="mt-3">{{ user.profile.scientific_name }}</h2>
+            <p class="text-secondary">{{ user.email }}</p>
+          </div>
+          <div class="col-md-9">
+            <form method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+              <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile info</legend>
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+              </fieldset>
+              <div class="form-group">
+                <button class="btn btn-outline-egichem" type="submit">Update</button>
+              </div>
+            </form>
+          </div>
         </div>
-    </div><!-- col-md-12 closing -->
+      </div>
+    </div>
+  </div><!-- col-md-12 closing -->
 </div><!-- row closing -->
 
 {% endblock content %}
