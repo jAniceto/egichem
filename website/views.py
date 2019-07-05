@@ -6,7 +6,7 @@ from blog.models import Post
 
 
 def home(request):
-	latest_posts = Post.objects.all().order_by('-date_posted')[:5]
+	latest_posts = Post.objects.all().order_by('-date_posted')[:3]
 	
 	publications = Publication.objects.all()
 	members = Member.objects.all()

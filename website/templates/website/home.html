@@ -53,7 +53,7 @@
           <li class="list-group-item p-2 pl-3 pr-3">
               {% if post.image %}<div class="float-md-left mr-3 mt-1"><img class="" src="{{ post.image.url }}" style="max-height: 120px; max-width: 200px;" alt="Post Image"></div>{% endif %}
             <p class="text-muted small mb-1">{{ post.date_posted|date:"F d, Y" }}</p>
-            <p>{{ post.summary }}</p>
+            <p>{{ post.summary|safe|linebreaks }}</p>
           </li>
         {% endfor %}
         <li class="list-group-item p-2 pl-3 pr-3"><a class="float-right text-muted link" href="{% url 'blog:news' %}">Read all news...</a></li>

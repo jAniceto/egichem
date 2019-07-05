@@ -173,7 +173,9 @@
 			{% for book_chapter in book_chapters %}
 			<div class="row mt-5 mb-3">
 				<div class="col-md-4">
-						<img class="img-fluid" src="{% if book_chapter.photo %}{{ book_chapter.photo.url }}{% endif %}" alt="">
+          <a href="{{ book_chapter.link }}" target="_blank">
+            <img class="img-fluid" src="{% if book_chapter.photo %}{{ book_chapter.photo.url }}{% endif %}" alt="">
+          </a>
 				</div>
 				<div class="col-md-8 small">
 					<p><strong>Book Title:</strong> {{ book_chapter.book_title }}</p>
@@ -182,7 +184,10 @@
 					<p><strong>Chapter Title:</strong> {{ book_chapter.title }}</p>
 					<p><strong>Authors:</strong> {{ book_chapter.authors }}</p>
 					<p><strong>Abstract:</strong> {{ book_chapter.abstract }}</p>
-				</div>
+          {% if book_chapter.link %}
+          <a class="btn btn-outline-egichem" href="{{ book_chapter.link }}" role="button" target="_blank"><i class="fas fa-link"></i> Link</a>
+          {% endif %}
+        </div>
 			</div>
 			{% endfor %}
 		</div>
