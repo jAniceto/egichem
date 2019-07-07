@@ -12,7 +12,7 @@
           <div class="row">
             <div class="col-md-3">
               <img class="img-fluid img-thumbnail w-100" src="{% if professor.user.profile.photo.url %}{{ professor.user.profile.photo.url }}{% else %}{{ professor.photo.url }}{% endif %}" alt="">
-              <div class="mt-3">
+              <div class="mt-3 mb-3">
                 {% if professor.user.profile.scopus_url %}
                 <a class="btn btn-outline-egichem btn-block" href="{{ professor.user.profile.scopus_url }}" role="button"><i class="fas fa-globe-europe"></i> Scopus</a>
                 {% endif %}
@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="col-md-9">
-              <h4 class="card-title"><a class="link" href="{% url 'member_page' professor.slug %}">{{ professor.name }}</a></h4>
+              <h3 class="card-title"><a class="link" href="{% url 'member_page' professor.slug %}">{{ professor.name }}</a></h3>
               <p class="card-text">{{ professor.user.profile.bio|safe }}</p>
             </div>
           </div>

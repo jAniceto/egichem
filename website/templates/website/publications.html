@@ -160,7 +160,7 @@
 						</div>
 					</div>
 					{% endifchanged %}
-					<p><a class="text-dark" href="{{ article.link }}" target="_blank">{{ forloop.revcounter }}. {{ article.authors }}. {{ article.title|safe }}, <em>{{ article.journal }}</em> {{ article.volume }} ({{ article.year }}) {{ article.pages }}.</a></p>
+					<p><a class="text-dark publication-link" href="{{ article.link }}" target="_blank">{{ forloop.revcounter }}. {{ article.authors }}. {{ article.title|safe }}, <em>{{ article.journal }}</em> {{ article.volume }} ({{ article.year }}) {{ article.pages }}.</a></p>
 					{% endfor %}
 				</div>
 			</div>

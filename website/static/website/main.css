@@ -287,3 +287,8 @@ h4.title {
 .embed-responsive .card-img {
     object-fit: cover;
 }
+
+
+.publication-link:hover {
+    text-decoration: underline;
+}
