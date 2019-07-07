@@ -105,7 +105,7 @@ def is_current_member(user):
     
 
 @user_passes_test(is_current_member)
-def our_lab(request):
+def egichem(request):
 
     announcements = Announcement.objects.all().order_by('-date_added')[:3]
 
