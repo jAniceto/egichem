@@ -1,20 +1,46 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import user_passes_test
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
 
 from .models import Material, Announcement
 
 
-class MaterialListView(PermissionRequiredMixin, LoginRequiredMixin, ListView):
-    permission_required = 'lab.manage_inventory'
+def is_current_member(user):
+    """Function to check if user is a current member (not alumni)"""
+    try:
+        if user.member:
+            if user.member.alumni is False:
+                print('Permission Granted.')
+                return True
+            else: 
+                print('Permission Denied. Is Alumni.')
+                return False
+
+    except AttributeError as e:
+        print('Permission denied.')
+        return False
+
+
+class MaterialListView(UserPassesTestMixin, LoginRequiredMixin, ListView):
+    # permission_required = 'lab.manage_inventory'
     model = Material
     template_name = 'lab/inventory.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'materials'
     ordering = ['name']
     paginate_by = 25
+
+    def test_func(self):
+        try:
+            if self.request.user.member:
+                if self.request.user.member.alumni is False:
+                    return True
+                else: 
+                    return False
+        except AttributeError as e:
+            return False
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -35,35 +61,75 @@ class MaterialListView(PermissionRequiredMixin, LoginRequiredMixin, ListView):
         return object_list
 
 
-class MaterialCreateView(LoginRequiredMixin, CreateView):
+class MaterialCreateView(UserPassesTestMixin, LoginRequiredMixin, CreateView):
     model = Material
     fields = ['name', 'specifications', 'amount', 'location', 'comments']
 
+    def test_func(self):
+        try:
+            if self.request.user.member:
+                if self.request.user.member.alumni is False:
+                    return True
+                else: 
+                    return False
+        except AttributeError as e:
+            return False
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 
-class MaterialUpdateView(LoginRequiredMixin, UpdateView):
+class MaterialUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     model = Material
     fields = ['name', 'cas', 'specifications', 'amount', 'location', 'comments']
 
+    def test_func(self):
+        try:
+            if self.request.user.member:
+                if self.request.user.member.alumni is False:
+                    return True
+                else: 
+                    return False
+        except AttributeError as e:
+            return False
+
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 
-class MaterialDeleteView(LoginRequiredMixin, DeleteView):
+class MaterialDeleteView(UserPassesTestMixin, LoginRequiredMixin, DeleteView):
     model = Material
     success_url = reverse_lazy('inventory')
 
+    def test_func(self):
+        try:
+            if self.request.user.member:
+                if self.request.user.member.alumni is False:
+                    return True
+                else: 
+                    return False
+        except AttributeError as e:
+            return False
 
-class AnnouncementListView(PermissionRequiredMixin, LoginRequiredMixin, ListView):
-    permission_required = 'lab.manage_inventory'
+
+class AnnouncementListView(UserPassesTestMixin, LoginRequiredMixin, ListView):
+    # permission_required = 'lab.manage_inventory'
     model = Announcement
     context_object_name = 'announcements'
     template_name = 'lab/announcements.html'  # <app>/<model>_<viewtype>.html
     ordering = ['-date_added']
+
+    def test_func(self):
+        try:
+            if self.request.user.member:
+                if self.request.user.member.alumni is False:
+                    return True
+                else: 
+                    return False
+        except AttributeError as e:
+            return False
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
@@ -73,35 +139,30 @@ class AnnouncementListView(PermissionRequiredMixin, LoginRequiredMixin, ListView
         return context
 
 
-class AnnouncementCreateView(LoginRequiredMixin, CreateView):
+class AnnouncementCreateView(UserPassesTestMixin, LoginRequiredMixin, CreateView):
     model = Announcement
     fields = ['title', 'content']
+
+    def test_func(self):
+        try:
+            if self.request.user.member:
+                if self.request.user.member.alumni is False:
+                    return True
+                else: 
+                    return False
+        except AttributeError as e:
+            return False
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super().form_valid(form)
 
 
+@user_passes_test(is_current_member)
 def announcement_delete(request, pk):
     announcement = Announcement.objects.get(pk=pk)
     announcement.delete()
     return redirect('announcements')
-
-
-def is_current_member(user):
-    """Function to check if user is a current member (not alumni)"""
-    try:
-        if user.member:
-            if user.member.alumni is False:
-                print('Permission Granted.')
-                return True
-            else: 
-                print('Permission Denied. Is Alumni.')
-                return False
-
-    except AttributeError as e:
-        print('Permission denied.')
-        return False
     
 
 @user_passes_test(is_current_member)
