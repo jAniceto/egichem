@@ -178,8 +178,8 @@ a.link:hover {
 
   .navbar {
     background-color: #f8f9fa!important;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #dee2e6;
+    /* margin-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6; */
   }
 
   .navbar-toggler {line-height: inherit;}
@@ -279,7 +279,13 @@ h4.title {
   border-left: 6px solid #62AA23;
   padding-left: 6px;
   position: relative;
-  left: -12px;
+  /* left: -12px; */
+}
+
+@media (min-width: 768px) { 
+    h4.title {
+        left: -12px;
+  } 
 }
 
 
