@@ -11,7 +11,7 @@
       <div class="card">
         <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
-          <h5 class="card-title">Inventory</h5>
+          <h4 class="card-title">Inventory</h4>
           <p class="card-text">List of all reagents, compounds, and solvents currently available at Lab 29.1.5.</p>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           <a href="{% url 'inventory' %}" class="btn btn-primary">Inventory</a>
@@ -20,12 +20,12 @@
       </div>
       
       <div class="card">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
-          <h5 class="card-title">Update personal info</h5>
+          <h4 class="card-title">Update personal info</h4>
           <p class="card-text">Try to keep your personal information updated.</p>
-          <p class="card-text"><small class="text-muted">Logged in as {{ user.username }}</small></p>
+          <p class="card-text"><small class="text-muted"><a href="{% url 'member_page' user.member.slug %}" class="card-link">{{ user.username }} Personal Page</a></small></p>
           <a href="{% url 'profile' %}" class="btn btn-primary">Update Profile</a>
+          <a href="{% url 'password_reset' %}" class="btn btn-outline-primary">Password Reset</a>
         </div>
       </div>
     </div>
@@ -37,12 +37,13 @@
 
     {% if announcements %}
       {% for announcement in announcements %}
-      <div class="card mb-4">
+      <div class="card mb-4 border-primary text-primary">
         <div class="card-body">
           <div class="media">
             <div class="media-body">
               <h5 class="mt-0">{{ announcement.title }}</h5>
-              {{ announcement.content }}
+              <p>{{ announcement.content }}</p>
+              <p class="text-muted mb-0"><small>{{ announcement.user.username }}</small></p>
             </div>
           </div>
         </div>
