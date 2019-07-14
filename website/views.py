@@ -1,8 +1,36 @@
 import datetime
 from django.shortcuts import render
 from django.http import Http404
+from django.db.models import Q
 from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication, Tool, Award
 from blog.models import Post
+
+import re
+
+
+def format_scientific_name(name):
+    """Creates several name formats."""
+    names_and_initials = re.split('\W+', name)
+    name_number = len(names_and_initials)
+    name_fmt_1 = ''  # F.X.Y. Lastname
+    name_fmt_2 = ''  # F. Lastname
+    name_fmt_3 = ''  # F. X. Y. Lastname
+    name_fmt_4 = ''  # First X. Y. Lastname
+    for i, n in enumerate(names_and_initials):
+        if i == name_number-1:
+            name_fmt_1 += ' ' + n
+            name_fmt_2 += ' ' + n
+            name_fmt_3 += n
+            name_fmt_4 += n
+        else:
+            name_fmt_1 += n[0] + '.'
+            if i == 0:
+                name_fmt_2 += n[0] + '.'
+                name_fmt_4 += n + ' '
+            else:
+                name_fmt_4 += n[0] + '. '
+            name_fmt_3 += n[0] + '. '
+    return [name_fmt_1, name_fmt_2, name_fmt_3, name_fmt_4]
 
 
 def home(request):
@@ -123,34 +151,44 @@ def publications(request):
 
 
 def member_page(request, name_slug):
+    try:
+        member = Member.objects.get(slug=name_slug)
+        if member.user and member.user.profile:
+            # If member has a user profile get the scientific name from there
+            scientific_name = format_scientific_name(member.user.profile.scientific_name)
+        else:
+            # If member does not have a user profile create a scientific name based on the member name
+            scientific_name = format_scientific_name(member.name)
 
-	try:
-		member = Member.objects.get(slug=name_slug)
-		names = member.name.split(' ')
-		last_name = names[-1]
-		initial = names[0][0] + '.'
-		member_articles = Publication.objects.filter(pub_type='article', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
-		member_book_chapters = Publication.objects.filter(pub_type='book-chapter', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
-		member_patents = Publication.objects.filter(pub_type='patent', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
-		member_posters = Publication.objects.filter(pub_type='poster', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
-		member_presentations = Publication.objects.filter(pub_type='presentation', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
-		member_theses = Publication.objects.filter(pub_type='thesis', authors__contains=last_name).filter(authors__contains=initial).order_by('-year', 'title')
+        # Get member publications based on two possible scientific names
+        member_pubs = Publication.objects.filter(
+            Q(authors__contains=scientific_name[0]) | 
+            Q(authors__contains=scientific_name[1]) |
+            Q(authors__contains=scientific_name[2]) |
+            Q(authors__contains=scientific_name[3])
+        )
+        member_articles = member_pubs.filter(pub_type='article').order_by('-year', 'title')
+        member_book_chapters = member_pubs.filter(pub_type='book-chapter').order_by('-year', 'title')
+        member_patents = member_pubs.filter(pub_type='patent').order_by('-year', 'title')
+        member_posters = member_pubs.filter(pub_type='poster').order_by('-year', 'title')
+        member_presentations = member_pubs.filter(pub_type='presentation').order_by('-year', 'title')
+        member_theses = member_pubs.filter(pub_type='thesis').order_by('-year', 'title')
 
-		context = {
-			'page_title': member.name,
-			'member': member,
-			'member_articles': member_articles,
-			'member_book_chapters': member_book_chapters,
-			'member_patents': member_patents,
-			'member_posters': member_posters,
-			'member_presentations': member_presentations,
-			'member_theses': member_theses,
-		}
+        context = {
+            'page_title': member.name,
+            'member': member,
+            'member_articles': member_articles,
+            'member_book_chapters': member_book_chapters,
+            'member_patents': member_patents,
+            'member_posters': member_posters,
+            'member_presentations': member_presentations,
+            'member_theses': member_theses,
+        }
 
-	except Member.DoesNotExist:
-		raise Http404("Member page does not exist.")
-	
-	return render(request, 'website/member.html', context)
+    except Member.DoesNotExist:
+        raise Http404("Member page does not exist.")
+
+    return render(request, 'website/member.html', context)
 
 
 def tools(request):
