@@ -39,6 +39,7 @@ urlpatterns = [
     path('news/', include('blog.urls')),
     path('contact/', include('sendemail.urls')),
     path('egichem/', include('lab.urls')),
+    path('tools/calculators/', include('calculators.urls')),
 ]
 
 # Used to serve media files locally

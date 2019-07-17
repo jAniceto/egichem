@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'calculators.apps.CalculatorsConfig',
     'lab.apps.LabConfig',
     'sendemail.apps.SendemailConfig',
     'blog.apps.BlogConfig',

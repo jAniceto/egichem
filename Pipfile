@@ -14,6 +14,8 @@ gunicorn = "*"
 django-heroku = "*"
 django-storages = "*"
 boto3 = "*"
+numpy = "*"
+scipy = "*"
 
 [requires]
 python_version = "3.7"
