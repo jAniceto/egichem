@@ -25,3 +25,15 @@ class CarbonDioxideForm(forms.Form):
         min_value=0,
     )
     
+    def clean(self):
+        """Override the clean method. cosolvent_fraction is required if a cosolvent is selected."""
+        cleaned_data = super().clean()
+        cosolvent = cleaned_data.get('cosolvent')
+        cosolvent_fraction = cleaned_data.get('cosolvent_fraction')
+
+        if cosolvent_fraction == None:
+            if cosolvent == 'NONE':
+                pass
+            else:
+                print('raise error')
+                raise forms.ValidationError('You must specify the cosolvent fraction.')

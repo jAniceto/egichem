@@ -8,6 +8,7 @@ def carbon_dioxide(request):
 
     if request.method == 'POST':
         form = CarbonDioxideForm(request.POST)
+        # print('valid', form.is_valid())
 
         if form.is_valid():
             cosolvent = form.cleaned_data['cosolvent']
@@ -28,8 +29,12 @@ def carbon_dioxide(request):
                 # Calculate pure CO2-EtOH density
                 CO2EtOH_dens = CO2_EtOH.get_density(pressure, temperature, cosolvent_fraction)
                 print('CO2-EtOH density:', CO2EtOH_dens)
-                density = CO2EtOH_dens
+                density = f'{CO2EtOH_dens:.8f}'
                 viscosity = ''
+
+        else:
+            density = ''
+            viscosity = ''
     
     else:
         form = CarbonDioxideForm()
