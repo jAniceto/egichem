@@ -90,7 +90,7 @@ nav .navbar-brand {
   margin: 0;
 }
 
-.nav-item {
+#navbar .nav-item {
   color: #62AA23 !important;
 }
 
@@ -237,9 +237,9 @@ h4.card-title {
 	font-size: 1.1rem;
 }
 
-.card-header {
+/* .card-header {
   padding: 5px;
-}
+} */
 
 
 /* CALENDAR */
