@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from .forms import CarbonDioxideForm
+from .forms import CarbonDioxideForm, IsothermForm
 
 from properties import CO2, CO2_EtOH
+import numpy as np
 
 
 def carbon_dioxide(request):
@@ -49,3 +50,37 @@ def carbon_dioxide(request):
         'viscosity': viscosity
 	}	
     return render(request, 'calculators/carbon_dioxide.html', context)
+
+
+def parse_XY_data(data):
+    """Parse XY data"""
+    X_data = []
+    Y_data = []
+    for line in data.splitlines():
+        # line = line.strip()
+        xy = line.split(' ')
+        X_data.append(float(xy[0]))
+        Y_data.append(float(xy[1]))
+    return np.array(X_data), np.array(Y_data)
+
+
+def isotherms(request):
+
+    if request.method == 'POST':
+        form = IsothermForm(request.POST)
+
+        if form.is_valid():
+            xy_data = form.cleaned_data['xy_data']
+            x, y = parse_XY_data(xy_data)
+            print(x)
+            print(y)
+    
+    else:
+        form = IsothermForm()
+
+    context = {
+		'page_title': 'Tools',
+        'page_subtitle': 'Programs developed by the EgiChem Group',
+        'form': form,
+	}
+    return render(request, 'calculators/isotherms.html', context)

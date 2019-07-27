@@ -37,3 +37,22 @@ class CarbonDioxideForm(forms.Form):
             else:
                 print('raise error')
                 raise forms.ValidationError('You must specify the cosolvent fraction.')
+
+
+class IsothermForm(forms.Form):
+    ISOTHERMS = [
+        ('linear', 'Linear'),
+        ('langmuir', 'Langmuir'),
+        ('linearlangmuir', 'Linear-Langmuir'),
+        ('bilangmuir', 'Bi-Langmuir'),
+        ('freundlich', 'Freundlich'),
+    ]
+    isotherm_type = forms.MultipleChoiceField(
+        choices=ISOTHERMS, 
+        label="Isotherm type", 
+        widget=forms.CheckboxSelectMultiple()
+    )
+    xy_data = forms.CharField(
+        label='XY Data', 
+        widget=forms.Textarea(attrs={'rows': 12})
+    )

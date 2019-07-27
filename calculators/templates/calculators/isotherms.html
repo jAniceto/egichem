@@ -1,0 +1,44 @@
+{% extends "website/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="row mb-3">
+  <div class="col">
+    <h2>Fit adsorption isotherms to data</h2>
+    <!-- <p class="lead">Calculate supercritical carbon dioxide density and viscosity.</p> -->
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-3">
+    <form method="POST">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input class="btn btn-egichem" type="submit" value="Fit Isotherms">
+    </form>
+  </div>
+
+  <div class="col-md-4">
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, tempora nemo velit quam saepe tenetur, officia enim minus sequi doloremque, voluptas sapiente earum possimus eos autem sint nulla. Voluptate, corrupti.</p>
+  </div>
+
+  <div class="col-md-5">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed assumenda id quas, eius alias laudantium quasi cumque quibusdam quae neque dolore, consectetur saepe officia enim exercitationem odio tempora cum quidem.</p>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col">
+    <h4>Notes:</h4>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse consequatur libero, ad error facilis perspiciatis commodi placeat molestias, nesciunt voluptatibus facere expedita vero tenetur temporibus iure quae laudantium repudiandae distinctio.</p>
+
+    <h4 class="mt-4">References:</h4>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe deleniti, fugiat neque voluptas ex, sunt numquam facilis aperiam iure voluptatum rerum totam quibusdam voluptates placeat. Voluptas voluptatem similique placeat soluta!</p>
+  </div>
+</div>
+{% endblock content %}
+
+
+{% block scripts %}
+
+{% endblock %}
