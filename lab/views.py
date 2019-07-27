@@ -1,11 +1,15 @@
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
+from django.contrib import messages
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
 
 from .models import Material, Announcement
+
+import csv
 
 
 def is_current_member(user):
@@ -24,13 +28,28 @@ def is_current_member(user):
         return False
 
 
+@user_passes_test(is_current_member)
+def egichem(request):
+    """Homepage for the private lab area"""
+    announcements = Announcement.objects.all().order_by('-date_added')[:3]
+    last_modified_material = Material.objects.all().order_by('-modified')[0]
+
+    context = {
+		'page_title': 'Lab Home',
+		'page_subtitle': '',
+        'announcements': announcements,
+        'last_modified_material': last_modified_material
+	}	
+    return render(request, 'lab/home.html', context)
+
+
 class MaterialListView(UserPassesTestMixin, LoginRequiredMixin, ListView):
     # permission_required = 'lab.manage_inventory'
     model = Material
     template_name = 'lab/inventory.html'  # <app>/<model>_<viewtype>.html
     context_object_name = 'materials'
     ordering = ['name']
-    paginate_by = 25
+    paginate_by = 100
 
     def test_func(self):
         try:
@@ -54,7 +73,8 @@ class MaterialListView(UserPassesTestMixin, LoginRequiredMixin, ListView):
         if query:
             object_list = self.model.objects.filter(
                 Q(name__icontains=query) | 
-                Q(specifications__icontains=query)
+                Q(specifications__icontains=query) |
+                Q(item_type__icontains=query)
             ).distinct().order_by('name')
         else:
             object_list = self.model.objects.all().order_by('name')
@@ -63,7 +83,7 @@ class MaterialListView(UserPassesTestMixin, LoginRequiredMixin, ListView):
 
 class MaterialCreateView(UserPassesTestMixin, LoginRequiredMixin, CreateView):
     model = Material
-    fields = ['name', 'specifications', 'amount', 'location', 'comments']
+    fields = ['item_type', 'name', 'specifications', 'amount', 'location', 'comments']
 
     def test_func(self):
         try:
@@ -82,7 +102,7 @@ class MaterialCreateView(UserPassesTestMixin, LoginRequiredMixin, CreateView):
 
 class MaterialUpdateView(UserPassesTestMixin, LoginRequiredMixin, UpdateView):
     model = Material
-    fields = ['name', 'cas', 'specifications', 'amount', 'location', 'comments']
+    fields = ['item_type', 'name', 'cas', 'specifications', 'amount', 'location', 'comments']
 
     def test_func(self):
         try:
@@ -163,16 +183,36 @@ def announcement_delete(request, pk):
     announcement = Announcement.objects.get(pk=pk)
     announcement.delete()
     return redirect('announcements')
-    
+
 
 @user_passes_test(is_current_member)
-def egichem(request):
+def export(request):
+    """Exports inventory list to CSV"""
+    materials = Material.objects.all()
 
-    announcements = Announcement.objects.all().order_by('-date_added')[:3]
+    material_list = []
+    for material in materials:
+        material_list.append({
+            'item_type': material.item_type,
+            'name': material.name,
+            'specifications': material.specifications,
+            'amount': material.amount,
+            'location': material.location,
+            'comments': material.comments,
+            'created': material.created,
+            'modified': material.modified,
+        })
+    
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="inventory.csv"'
 
-    context = {
-		'page_title': 'Lab Home',
-		'page_subtitle': 'test',
-        'announcements': announcements,
-	}	
-    return render(request, 'lab/home.html', context)
+    # Create CSV file
+    fnames = ['item_type', 'name', 'specifications', 'amount', 'location', 'comments', 'created', 'modified']
+    response.write(u'\ufeff'.encode('utf8'))
+    writer = csv.DictWriter(response, fieldnames=fnames)
+    writer.writeheader()  # writes the headers to the CSV file.
+    for material in material_list:
+        writer.writerow(material)
+
+    return response

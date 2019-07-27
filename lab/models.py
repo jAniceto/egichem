@@ -7,6 +7,13 @@ import cirpy
 
 
 class Material(models.Model):
+    TYPES = (
+        ('Reagent', 'Reagent'),
+        ('Material', 'Material'),
+        ('Tool', 'Tool'),
+        ('Other', 'Other'),
+    )
+    item_type = models.CharField(max_length=50, choices=TYPES, default='Reagent')
     name = models.CharField(max_length=200)
     specifications = models.CharField(max_length=500, blank=True)
     cas = models.CharField(max_length=50, blank=True, verbose_name='CAS')
@@ -16,7 +23,7 @@ class Material(models.Model):
     comments = models.TextField(blank=True)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,)
 
     class Meta:
         permissions = (

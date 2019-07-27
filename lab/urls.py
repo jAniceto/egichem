@@ -10,6 +10,7 @@ urlpatterns = [
     path('inventory/material/new/', MaterialCreateView.as_view(), name='material-create'),
     path('inventory/material/<int:pk>/update/', MaterialUpdateView.as_view(), name='material-update'),
     path('inventory/material/<int:pk>/delete/', MaterialDeleteView.as_view(), name='material-delete'),
+    path('inventory/export/', views.export, name='export'),
     path('announcements/', AnnouncementListView.as_view(), name='announcements'),
     path('announcements/new/', AnnouncementCreateView.as_view(), name='announcement-create'),
     path('announcements/<int:pk>/delete/', views.announcement_delete, name='announcement-delete'),

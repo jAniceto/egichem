@@ -5,15 +5,13 @@
 <div class="row">
   <div class="col-md-8">
     <h2 class="mt-4 mb-3">EgiChem Lab Management</h2>
-    <!-- <p class="lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Provident eveniet doloribus fugit, enim unde velit facilis, aperiam nemo veritatis rerum tempora aut porro nostrum, earum quibusdam distinctio eius? Minima, maiores.</p> -->   
     
     <div class="card-deck mt-3">
       <div class="card">
-        <!-- <img src="..." class="card-img-top" alt="..."> -->
         <div class="card-body">
           <h4 class="card-title">Inventory</h4>
-          <p class="card-text">List of all reagents, compounds, and solvents currently available at Lab 29.1.5.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+          <p class="card-text">List of all reagents, materials and tools currently available at Lab 29.1.5.</p>
+          <p class="card-text"><small class="text-muted">Last updated {{ last_modified_material.modified|date:"Y/n/j G:i" }}</small></p>
           <a href="{% url 'inventory' %}" class="btn btn-primary">Inventory</a>
           <a href="{% url 'material-create' %}" class="btn btn-outline-primary">Add Item</a>
         </div>

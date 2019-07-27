@@ -1,16 +1,26 @@
 {% extends "lab/base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
-<div class="mt-3">
-  <form method="POST">
+<div class="row mt-3">
+  <div class="col-md-6">
+    <form method="POST">
       {% csrf_token %}
       <fieldset class="form-group">
-          <legend class="border-bottom mb-4">Add Material to Inventory</legend>
+          <legend class="border-bottom mb-3">Add Item to Inventory</legend>
           {{ form|crispy }}
       </fieldset>
       <div class="form-group">
-          <button class="btn btn-outline-primary" type="submit">Add</button>
+          <button class="btn btn-outline-primary" type="submit">Add Item</button>
       </div>
-  </form>
+    </form>
+  </div>
+  
+  <div class="col-md-5 offset-md-1">
+    <h3 class="mb-3">Recommendations</h3>
+    <p>Insert <strong>reagent names</strong> in English. <strong>Materials and tools</strong> can be in portuguese if thats the usual name.</p>
+    <p>Use the <strong>Specifications</strong> field to enter product brand (e.g. Sigma-Aldrich), mass or volume (e.g. 2.5 L), purities, etc.</p>
+    <p>In the <strong>Location</strong> field enter the place where the item is stored in the lab, for instance H1 (for Hotte 1), Armário, Bancada X. If the item is in the <strong>office</strong> enter Gab.</p>
+    <p>Use the <strong>Comments</strong> section to enter any other relevant information about the item. For instance, if it is something managed by a specific group member, you can enter that info here.</p>
+  </div>
 </div>
 {% endblock content %}

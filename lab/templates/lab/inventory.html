@@ -2,34 +2,37 @@
 
 {% block content %}
 
-<h1 class="display-4 mt-4">Materials Inventory</h1>
+<h1 class="mt-4">Materials Inventory</h1>
 <p class="lead">
-  Below is a list of all reagents, compounds, and solvents currently available at Lab 29.1.5. Please try to keep this list updated.
+  Below is a list of all reagents, materials and tools currently available at Lab 29.1.5. Please try to keep this list updated.
 </p>
 
-<div class="row">
-  <div class="col-md-3">
-    <a class="btn btn-primary mb-2 mb-md-0" href="{% url 'material-create' %}" role="button">
-      <i class="fas fa-plus"></i> Add Item to Inventory
-    </a>
-  </div>
-
-  <div class="col-md-9">
-    <form class="form-inline float-md-right" method="GET" action="">
+<div class="row mt-4">
+  <div class="col-md-4">
+    <form class="form-inline" method="GET" action="">
       <label class="sr-only" for="inlineFormInputName2">Search Field</label>
-      <input type="text" name="q" class="form-control mb-2 mr-sm-2" placeholder="E.g. metanol" value="{{ request.GET.q }}">
+      <input type="text" name="q" class="form-control mb-2 mr-sm-2" placeholder="E.g. methanol" value="{{ request.GET.q }}">
       <button type="submit" class="btn btn-primary mb-2">Search</button>
     </form>
   </div>
+
+  <div class="col-md-8">
+    <a class="btn btn-primary mb-2 mb-md-0 float-md-right" href="{% url 'material-create' %}" role="button">
+      <i class="fas fa-plus"></i> Add Item to Inventory
+    </a>
+    <a class="btn btn-outline-primary mr-2 mb-2 mb-md-0 float-md-right" href="{% url 'export' %}" role="button">Export</a>
+    <a class="btn btn-link mr-2 mb-2 mb-md-0 float-md-right" href="{% url 'inventory' %}?q=other" role="button">Others</a>
+    <a class="btn btn-link mr-2 mb-2 mb-md-0 float-md-right" href="{% url 'inventory' %}?q=tool" role="button">Tools</a>
+    <a class="btn btn-link mr-2 mb-2 mb-md-0 float-md-right" href="{% url 'inventory' %}?q=material" role="button">Materials</a>
+    <a class="btn btn-link mr-2 mb-2 mb-md-0 float-md-right" href="{% url 'inventory' %}?q=reagent" role="button">Reagents</a>
+  </div>
 </div>
-
-
-
 
 <div id="inventory" class="mt-4 table-responsive">
   <table class="table table-hover">
     <thead>
       <tr>
+        <th scope="col">Type</th>
         <th scope="col">Name</th>
         <th scope="col">Specifications</th>
         <th scope="col">Amount</th>
@@ -40,15 +43,34 @@
     <tbody>
       {% for material in materials %}
       <tr>
+        <td>
+          {% if material.item_type == 'Reagent' %}
+          <a class="text-reset" href="" title="Reagent">
+            <i class="fas fa-atom fa-lg"></i>
+          </a>
+          {% elif material.item_type == 'Material' %}
+          <a class="text-reset" href="" title="Material">
+            <i class="fas fa-flask fa-lg"></i>
+          </a>
+          {% elif material.item_type == 'Tool' %}
+          <a class="text-reset" href="" title="Tool">
+            <i class="fas fa-tools fa-lg"></i>
+          </a>
+          {% else %}
+          <a class="text-reset" href="" title="Other">
+            <i class="fas fa-archive fa-lg"></i>
+          </a>
+          {% endif %}
+        </td>
         <td>{{ material.name }}</td>
         <td>{{ material.specifications }}</td>
         <td>{{ material.amount }}</td>
         <td>{{ material.location }}</td>
         <td class="fit">
           <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#modal-{{ material.pk }}"><i class="fas fa-info"></i></button>
-            <a class="btn btn-secondary" href="{% url 'material-update' material.id %}" role="button"><i class="fas fa-edit"></i></a>
-            <a class="btn btn-secondary" href="{% url 'material-delete' material.id %}" role="button"><i class="fas fa-trash"></i></a>
+            <button type="button" class="btn btn-secondary" title="Info" data-toggle="modal" data-target="#modal-{{ material.pk }}"><i class="fas fa-info"></i></button>
+            <a class="btn btn-secondary" href="{% url 'material-update' material.id %}" title="Update" role="button"><i class="fas fa-edit"></i></a>
+            <a class="btn btn-secondary" href="{% url 'material-delete' material.id %}" title="Delete" role="button"><i class="fas fa-trash"></i></a>
           </div>
 
         </td>
@@ -97,10 +119,33 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Specifications: {{ material.specifications }}</p>
+        <!-- <p>Specifications: {{ material.specifications }}</p>
         <p>Quantity available: {{ material.amount }}</p>
-        <p>Storage location: {{ material.location }}</p>
-        <p class="text-muted small">Last updated by <u>{{ material.user }}</u> on <u>{{ material.modified|date:"Y/n/j G:i" }}</u>. Originally created on <u>{{ material.created|date:"Y/n/j G:i" }}</u>.</p>
+        <p>Storage location: {{ material.location }}</p> -->
+        
+        <table class="table table-borderless table-responsive">
+          <tbody>
+            <tr>
+              <td class="fit pl-0">Specifications</td>
+              <td>{{ material.specifications }}</td>
+            </tr>
+            <tr>
+              <td class="fit pl-0">Quantity available</td>
+              <td>{{ material.amount }}</td>
+            </tr>
+            <tr>
+              <td class="fit pl-0">Storage location</td>
+              <td>{{ material.location }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+        {% if material.comments %}
+        <h6>Comments:</h6>
+        <p>{{ material.comments }}</p>
+        {% endif %}
+        
+        <p class="text-muted small mt-4">Last updated by <u>{{ material.user }}</u> on <u>{{ material.modified|date:"Y/n/j G:i" }}</u>. Initially created on <u>{{ material.created|date:"Y/n/j G:i" }}</u>.</p>
       </div>
       <div class="modal-footer">
         <a class="btn btn-primary" href="{% url 'material-update' material.id %}" role="button">Update</a>
