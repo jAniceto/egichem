@@ -198,9 +198,10 @@ def export(request):
             'specifications': material.specifications,
             'amount': material.amount,
             'location': material.location,
-            'comments': material.comments,
+            'comments': material.comments.replace('\r\n', ', '),
             'created': material.created,
             'modified': material.modified,
+            'last_modified_by': material.user,
         })
     
     # Create the HttpResponse object with the appropriate CSV header.
@@ -208,7 +209,7 @@ def export(request):
     response['Content-Disposition'] = 'attachment; filename="inventory.csv"'
 
     # Create CSV file
-    fnames = ['item_type', 'name', 'specifications', 'amount', 'location', 'comments', 'created', 'modified']
+    fnames = ['item_type', 'name', 'specifications', 'amount', 'location', 'comments', 'created', 'modified', 'last_modified_by']
     response.write(u'\ufeff'.encode('utf8'))
     writer = csv.DictWriter(response, fieldnames=fnames)
     writer.writeheader()  # writes the headers to the CSV file.

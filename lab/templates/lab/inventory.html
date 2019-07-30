@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<h1 class="mt-4">Materials Inventory</h1>
+<h1 class="mt-4">Inventory</h1>
 <p class="lead">
   Below is a list of all reagents, materials and tools currently available at Lab 29.1.5. Please try to keep this list updated.
 </p>
@@ -45,19 +45,19 @@
       <tr>
         <td>
           {% if material.item_type == 'Reagent' %}
-          <a class="text-reset" href="" title="Reagent">
+          <a class="text-reset" href="{% url 'inventory' %}?q=reagent" title="Reagent">
             <i class="fas fa-atom fa-lg"></i>
           </a>
           {% elif material.item_type == 'Material' %}
-          <a class="text-reset" href="" title="Material">
+          <a class="text-reset" href="{% url 'inventory' %}?q=material" title="Material">
             <i class="fas fa-flask fa-lg"></i>
           </a>
           {% elif material.item_type == 'Tool' %}
-          <a class="text-reset" href="" title="Tool">
+          <a class="text-reset" href="{% url 'inventory' %}?q=tool" title="Tool">
             <i class="fas fa-tools fa-lg"></i>
           </a>
           {% else %}
-          <a class="text-reset" href="" title="Other">
+          <a class="text-reset" href="{% url 'inventory' %}?q=other" title="Other">
             <i class="fas fa-archive fa-lg"></i>
           </a>
           {% endif %}
@@ -119,10 +119,6 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- <p>Specifications: {{ material.specifications }}</p>
-        <p>Quantity available: {{ material.amount }}</p>
-        <p>Storage location: {{ material.location }}</p> -->
-        
         <table class="table table-borderless table-responsive">
           <tbody>
             <tr>
