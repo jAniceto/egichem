@@ -1,8 +1,10 @@
 """
 CO2.py
 Calculates supercritical carbon dioxide density and viscosity for given temperature and pressure.
-Uses the AG-HGK EQUATION to calculate density
-Uses the ALTUNIN-SAKHABETINOV to calculate viscosity
+
+Density calculated using the AG-HGK equation
+Viscosity calculated using the Altunin-Sakhabetinov empirical expression
+
 """
 
 import numpy as np

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .forms import CarbonDioxideForm, IsothermForm
 
-from properties import CO2, CO2_EtOH
+from properties import CO2, CO2_EtOH, EtOH
 import numpy as np
 
 
@@ -20,18 +20,16 @@ def carbon_dioxide(request):
             if cosolvent == 'NONE':
                 # Calculate pure CO2 density and viscosity
                 CO2_dens = CO2.get_density(pressure, temperature)
-                print('CO2 density:', CO2_dens)
                 CO2_visc = CO2.get_viscosity(temperature, CO2_dens)
-                print('CO2 viscosity in cP:', CO2_visc)
                 density = f'{CO2_dens:.8f}'
                 viscosity = f'{CO2_visc:.8f}'
             
             elif cosolvent == 'ETHANOL':
-                # Calculate pure CO2-EtOH density
+                # Calculate pure CO2-EtOH density and viscosity
                 CO2EtOH_dens = CO2_EtOH.get_density(pressure, temperature, cosolvent_fraction)
-                print('CO2-EtOH density:', CO2EtOH_dens)
+                CO2EtOH_visc = CO2_EtOH.get_viscosity(pressure, temperature, cosolvent_fraction)
                 density = f'{CO2EtOH_dens:.8f}'
-                viscosity = ''
+                viscosity = f'{CO2EtOH_visc:.8f}'
 
         else:
             density = ''

@@ -1,10 +1,20 @@
 """
 CO2_EtOH.py
 Calculates supercritical carbon dioxide / ethanol mixture density for given temperature and pressure.
+
+Density calculated using the Soave-Redlich-Kwong equation of state
+M. Kariznovi, H. Nourozieh, J. Abedi, Experimental measurements and predictions of density, viscosity, and carbon dioxide solubility in methanol, ethanol, and 1-propanol, The Journal of Chemical Thermodynamics, 57 (2013) 408-415. 
+https://www.sciencedirect.com/science/article/pii/S0021961412003801
+
+Viscosity calculated using the Kendall and Monroe mixing relation
+J. Kendall, K.P. Monroe, The viscosity of liquids. II. The viscosity composition curve for ideal liquid mixtures, Journal of the American Chemical Society  39-9 (1917) 1787-1802.
+https://pubs.acs.org/doi/abs/10.1021/ja02254a001
 """
 
 import numpy as np
 from scipy import optimize
+from properties import EtOH
+from properties import CO2
 
 
 # Properties of CO2 and Ethanol
@@ -68,5 +78,27 @@ def get_density(P, T, x2):
         return None
 
 
+def get_viscosity(P, T, x2):
+    """
+    Computes supercritical CO2 viscosity
+
+    INPUTS:
+    p : pressure in bar
+    T : temperature in celsius
+    x2 : molar fraction of solvent 2
+
+    OUTPUTS:
+    visc : supercritical CO2 viscosity at temperature t in cP
+    """
+    dens_EtOH, visc_EtOH = EtOH.get_density_viscosity(P, T)
+    dens_CO2 = CO2.get_density(P, T)
+    visc_CO2 = CO2.get_viscosity(T, dens_CO2)
+
+    visc_mix = ( x2 * visc_EtOH**(1/3) + (1-x2) * visc_CO2**(1/3) )**3
+
+    return visc_mix
+
+
 if __name__ == '__main__':
-    print(get_density(300, 60, 0.1))
+    print('Density', get_density(275, 30, 0.08))
+    print('Viscosity', get_viscosity(275, 30, 0.08))
