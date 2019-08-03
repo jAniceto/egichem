@@ -16,6 +16,7 @@ django-storages = "*"
 boto3 = "*"
 numpy = "*"
 scipy = "*"
+matplotlib = "*"
 
 [requires]
 python_version = "3.7"

@@ -5,7 +5,6 @@
 <div class="row mb-3">
   <div class="col">
     <h2>Fit adsorption isotherms to data</h2>
-    <!-- <p class="lead">Calculate supercritical carbon dioxide density and viscosity.</p> -->
   </div>
 </div>
 
@@ -15,15 +14,33 @@
       {% csrf_token %}
       {{ form|crispy }}
       <input class="btn btn-egichem" type="submit" value="Fit Isotherms">
+      <button type="button" class="btn btn-outline-egichem" onclick="dummyData()">Example data</button>
     </form>
   </div>
 
-  <div class="col-md-4">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia, tempora nemo velit quam saepe tenetur, officia enim minus sequi doloremque, voluptas sapiente earum possimus eos autem sint nulla. Voluptate, corrupti.</p>
+  <div class="col-md-3 offset-md-1">
+    {% for isotherm_name, isotherm_results in data_out.items %}
+    <h5>{{ isotherm_name }}</h5>
+    <table class="table table-sm table-borderless">
+      <tbody>
+        {% for param_name, param_value in isotherm_results.params.items %}
+        <tr>
+          <td>{{ param_name }}</td>
+          <td>{{ param_value|floatformat:4 }}</td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td>AARD (%)</td>
+          <td>{{ isotherm_results.aard|floatformat:2 }}</td>
+        </tr>
+      </tbody>
+    </table>
+    {% endfor %}
+
   </div>
 
   <div class="col-md-5">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed assumenda id quas, eius alias laudantium quasi cumque quibusdam quae neque dolore, consectetur saepe officia enim exercitationem odio tempora cum quidem.</p>
+      <div id="plot"></div>
   </div>
 </div>
 
@@ -40,5 +57,58 @@
 
 
 {% block scripts %}
+<!-- Load Ploty -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
+<!-- Plot isotherms -->
+<script>
+  plotDiv = document.getElementById('plot');
+
+  var exp = {
+    x: {{ data_in.x }},
+    y: {{ data_in.y }},
+    mode: 'markers',
+    type: 'scatter',
+    name: 'Experimental'
+  };
+
+  var data = [exp];
+
+  {% for isotherm_name, isotherm_results in data_out.items %}
+    data.push({
+      x: {{ isotherm_results.xmodel }},
+      y: {{ isotherm_results.ymodel }},
+      mode: 'lines',
+      type: 'scatter',
+      name: '{{ isotherm_name }}'
+    });
+  {% endfor %}
+
+  var layout = {
+    showlegend: true,
+	  legend: {"orientation": "h"}
+  };
+
+  Plotly.newPlot(plotDiv, data, layout);
+
+</script>
+
+<!-- Dummy data button -->
+<script>
+  function dummyData() {
+    XY_DATA = `0 0
+4.7 0.061
+7.0 0.073
+9.31 0.094
+16.6 0.118
+32.5 0.139
+62.8 0.157`
+
+    document.getElementById('id_xy_data').value = XY_DATA;
+    document.getElementById('id_isotherm_type_2').checked = true;
+    document.getElementById('id_isotherm_type_3').checked = true;
+    document.getElementById('id_isotherm_type_4').checked = true;
+    document.getElementById('id_isotherm_type_5').checked = true;    
+  }
+</script>
 {% endblock %}
