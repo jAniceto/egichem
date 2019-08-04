@@ -7,6 +7,15 @@ from properties import isotherms as isoT
 import numpy as np
 
 
+def calculators_home(request):
+    """Online calculators homepage"""
+    context = {
+		'page_title': 'Tools',
+        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+	}
+    return render(request, 'calculators/calculators_home.html', context)
+
+
 def carbon_dioxide(request):
     """Carbon dioxide properties calculator"""
     if request.method == 'POST':
@@ -43,7 +52,7 @@ def carbon_dioxide(request):
 
     context = {
 		'page_title': 'Tools',
-        'page_subtitle': 'Programs developed by the EgiChem Group',
+        'page_subtitle': 'Online calculators developed by the EgiChem Group',
         'form': form,
         'density': density,
         'viscosity': viscosity
@@ -148,7 +157,7 @@ def isotherms(request):
 
                 context = {
                     'page_title': 'Tools',
-                    'page_subtitle': 'Programs developed by the EgiChem Group',
+                    'page_subtitle': 'Online calculators developed by the EgiChem Group',
                     'form': form,
                     'data_in': data_in,
                     'data_out': data_out,
@@ -166,7 +175,7 @@ def isotherms(request):
 
     context = {
 		'page_title': 'Tools',
-        'page_subtitle': 'Programs developed by the EgiChem Group',
+        'page_subtitle': 'Online calculators developed by the EgiChem Group',
         'form': form,
 	}
     return render(request, 'calculators/isotherms.html', context)
