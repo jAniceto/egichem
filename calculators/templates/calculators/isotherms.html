@@ -18,19 +18,19 @@
     </form>
   </div>
 
-  <div class="col-md-3 offset-md-1">
+  <div class="col-md-3 offset-md-1 mt-4 mt-md-0">
     {% for isotherm_name, isotherm_results in data_out.items %}
-    <h5>{{ isotherm_name }}</h5>
+    <h5>{{ isotherm_name }} model</h5>
     <table class="table table-sm table-borderless">
       <tbody>
         {% for param_name, param_value in isotherm_results.params.items %}
         <tr>
-          <td>{{ param_name }}</td>
+          <td>\({{ param_name }}\)</td>
           <td>{{ param_value|floatformat:4 }}</td>
         </tr>
         {% endfor %}
         <tr>
-          <td>AARD (%)</td>
+          <td>\(AARD\) (%)</td>
           <td>{{ isotherm_results.aard|floatformat:2 }}</td>
         </tr>
       </tbody>
@@ -47,10 +47,37 @@
 <div class="row mt-4">
   <div class="col">
     <h4>Notes:</h4>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Esse consequatur libero, ad error facilis perspiciatis commodi placeat molestias, nesciunt voluptatibus facere expedita vero tenetur temporibus iure quae laudantium repudiandae distinctio.</p>
+
+    <h5>Isotherm models</h5>
+    <p>The isotherm is the analytical relation between the solute concentration in the solid, or solid load, \(q\), and its concentration in the fluid phase, \(C\), at constant temperature.</p> 
+    
+    <h5>Linear</h5>
+    <p>\[q = H C\]</p>
+    <p>where \(H\) is the linear equilibrium constant.</p>
+
+    <h5>Langmuir</h5>
+    <p>\[q = \frac{a C}{1 + b C}\]</p>
+    <p>where \(a = Q b\), \(Q\) is the adsorbent capacity and \(b\) is the adsorption equilibrium constant.</p>
+
+    <h5>Freundlich</h5>
+    <p>\[q = k C^{1/n}\]</p>
+    <p>where \(k\) and \(n\) are Freundlich isotherm constants for a given adsorbate and adsorbent at a given temperature.</p>
+
+    <h5>Linear-Langmuir</h5>
+    <p>\[q = m C + \frac{a C}{1 + b C}\]</p>
+    <p>which adds a linear contribution term to the Langmuir model.</p>
+
+    <h5>Bi-Langmuir</h5>
+    <p>\[q = \frac{a_1 C}{1 + b_1 C} + \frac{a_2 C}{1 + b_2 C}\]</p>
+    <p>where two Langmuir contributions are considered representing two adsorption sites.</p>
+
+    <h5>Langmuir-Freundlich</h5>
+    <p>\[q = \frac{a C^n}{1 + b C^n}\]</p>
+    <p>a combination of the Langmuir and Freundlich isotherms.</p>
 
     <h4 class="mt-4">References:</h4>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe deleniti, fugiat neque voluptas ex, sunt numquam facilis aperiam iure voluptatum rerum totam quibusdam voluptates placeat. Voluptas voluptatem similique placeat soluta!</p>
+    <p><a class="text-dark publication-link" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9783527678129.assep047" target="_blank">J.P.S. Aniceto, C.M. Silva. Preparative Chromatography: Batch and Continuous, in: Analytical Separation Science, Vol 4 (2015).</a></p>
+    <p><a class="text-dark publication-link" href="https://www.wiley.com/en-us/Preparative+Chromatography%2C+2nd%2C+Completely+Revised+and+Enlarged+Edition-p-9783527328987" target="_blank">A. Seidel-Morgenstern, M. Schulte, A. Epping. Fundamentals and General Terminology, in: Preparative Chromatography, 2nd Edition (2012).</a></p>
   </div>
 </div>
 {% endblock content %}
@@ -89,11 +116,11 @@
 	  legend: {"orientation": "h"}
   };
 
-  Plotly.newPlot(plotDiv, data, layout);
+  Plotly.newPlot(plotDiv, data, layout, {responsive: true});
 
 </script>
 
-<!-- Dummy data button -->
+<!-- Example data button -->
 <script>
   function dummyData() {
     XY_DATA = `0 0

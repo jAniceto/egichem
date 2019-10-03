@@ -35,6 +35,10 @@
     <!-- Academicons -->
     <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
 
+    <!-- Load MathJax -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     {% if page_title %}
         <title>EgiChem{% if page_title != 'Home' %} | {{ page_title }}{% endif %}</title>
     {% else %}
