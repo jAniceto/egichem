@@ -153,7 +153,7 @@ def publications(request):
 def member_page(request, name_slug):
     try:
         member = Member.objects.get(slug=name_slug)
-        if member.user and member.user.profile:
+        if member.user and member.user.profile and member.user.profile.scientific_name:
             # If member has a user profile get the scientific name from there
             scientific_name = format_scientific_name(member.user.profile.scientific_name)
         else:

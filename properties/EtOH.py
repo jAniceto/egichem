@@ -62,7 +62,7 @@ def get_density_viscosity(P, T):
     Tr = (T+273.15)/Tc
     F = 0.015*Cn*(1+11.5*Cn)
     B = 520.23 - 1240*Tr + 827*Tr**2 - F
-    dens = Cx*np.log((B+PM)/(B+P0))*Dens0 + Dens0
+    dens = Cx*np.log10((B+PM)/(B+P0))*Dens0 + Dens0
 
     visc0 = 10**(Aq+Bq/(T+273.15)+Cq*(T+273.15)+Dq*(T+273.15)**2)
     Ax = 10.4+0.0006*Cn**3.5-5/Cn
