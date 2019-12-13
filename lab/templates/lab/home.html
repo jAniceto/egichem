@@ -2,11 +2,33 @@
 
 {% block content %}
 
+{% if announcements %}
+<h2 class="mt-4 mb-3">Announcements</h2>
+
 <div class="row">
-  <div class="col-md-8">
-    <h2 class="mt-4 mb-3">EgiChem Lab Management</h2>
-    
-    <div class="card-deck mt-3">
+  <div class="col">
+    <div class="card-deck">
+      {% for announcement in announcements %}
+        <div class="card mb-4 border-primary text-primary">
+          <div class="card-body">
+            <h5 class="mt-0">{{ announcement.title }}</h5>
+            <p>{{ announcement.content }}</p>
+            <p class="text-muted mb-0"><small>{{ announcement.user.username }}</small></p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+
+<h2 class="mt-4 mb-3">EgiChem Lab Management</h2>
+
+<div class="row">
+  <div class="col">
+    <div class="card-deck">
+      
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Inventory</h4>
@@ -20,38 +42,27 @@
       <div class="card">
         <div class="card-body">
           <h4 class="card-title">Update personal info</h4>
-          <p class="card-text">Try to keep your personal information updated.</p>
+          <p class="card-text">Update your personal information: username, e-mail, bio, photo, links...</p>
           <p class="card-text"><small class="text-muted"><a href="{% url 'member_page' user.member.slug %}" class="card-link">{{ user.username }} Personal Page</a></small></p>
           <a href="{% url 'profile' %}" class="btn btn-primary">Update Profile</a>
           <a href="{% url 'password_reset' %}" class="btn btn-outline-primary">Password Reset</a>
         </div>
       </div>
-    </div>
-    
-  </div>
 
-  <div class="col-md-4">
-    <h2 class="mt-4 mb-3">Announcements</h2>
-
-    {% if announcements %}
-      {% for announcement in announcements %}
-      <div class="card mb-4 border-primary text-primary">
+      <div class="card">
         <div class="card-body">
-          <div class="media">
-            <div class="media-body">
-              <h5 class="mt-0">{{ announcement.title }}</h5>
-              <p>{{ announcement.content }}</p>
-              <p class="text-muted mb-0"><small>{{ announcement.user.username }}</small></p>
-            </div>
-          </div>
+          <h4 class="card-title">Book Library</h4>
+          <p class="card-text">A collection of Chemical Engineering books in PDF format.</p>
+          <p class="card-text"><small class="text-muted">Files available on Google Drive.</small></p>
+          <a href="https://drive.google.com/drive/folders/0B7VAUlhkJstLRkdWc0JUdG9GSUU?usp=sharing" target="_blank" class="btn btn-primary mt-auto">Books</a>
         </div>
       </div>
-      {% endfor %}
-    {% else %}
-      <p>Nothing at this time.</p>
-    {% endif %}
+
+    </div>
   </div>
 </div>
+
+
 
 
 
