@@ -30,7 +30,12 @@
 		{% else %}
 		<p class="card-text">{{ member.name }} is a {{ member.position}} at EgiChem focusing on {{ member.research_area }}.</p>
     {% endif %}
-    
+
+    <!-- For Professor Carlos -->
+    {% if member.name == 'Carlos Manuel Silva' %}
+      {% include 'website/_includes/prof_metrics.html' %}
+    {% endif %}
+
     <!-- Publications -->
     {% if member_articles or member_book_chapters or member_patents or member_posters or member_presentations or member_theses %}
     <h4 class="card-title title mt-4 mb-3">Publications</h4>
