@@ -62,20 +62,49 @@
   </div>
 
   <div class="col-md-5 offset-md-2">
-    <form>
-      <div class="form-group row">
-        <label for="density" class="col-sm-4 col-form-label">Density (g&#183;cm<sup>-3</sup>)</label> 
-        <div class="col-sm-8">
-          <input type="text" name="density" value="{{ density }}" class="form-control" disabled>
+
+    <div class="clearfix">
+      <button class="btn btn-light btn-sm mb-2 float-md-right" type="button" id="btn" data-toggle="collapse" data-target=".collapse">
+        Toggle S.I. / Non-S.I. units
+      </button>
+    </div>
+
+
+    
+    <div class="collapse show fade">
+      <form>
+        <div class="form-group row">
+          <label for="density" class="col-sm-4 col-form-label">Density (kg&#183;m<sup>-3</sup>)</label> 
+          <div class="col-sm-8">
+            <input type="text" name="density" value="{{ density_si }}" class="form-control" disabled>
+          </div>
         </div>
-      </div>
-      <div id="viscosityDiv" class="form-group row">
-        <label for="viscosity" class="col-sm-4 col-form-label">Viscosity (cP)</label> 
-        <div class="col-sm-8">
-          <input type="text" name="viscosity" value="{{ viscosity }}" class="form-control" disabled>
+        <div id="viscosityDiv" class="form-group row">
+          <label for="viscosity" class="col-sm-4 col-form-label">Viscosity (Pa&#183;s)</label> 
+          <div class="col-sm-8">
+            <input type="text" name="viscosity" value="{{ viscosity_si }}" class="form-control" disabled>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
+
+    <div class="collapse fade">
+      <form>
+        <div class="form-group row">
+          <label for="density" class="col-sm-4 col-form-label">Density (g&#183;cm<sup>-3</sup>)</label> 
+          <div class="col-sm-8">
+            <input type="text" name="density" value="{{ density }}" class="form-control" disabled>
+          </div>
+        </div>
+        <div id="viscosityDiv" class="form-group row">
+          <label for="viscosity" class="col-sm-4 col-form-label">Viscosity (cP)</label> 
+          <div class="col-sm-8">
+            <input type="text" name="viscosity" value="{{ viscosity }}" class="form-control" disabled>
+          </div>
+        </div>
+      </form>
+    </div>
+
   </div>
 </div>
 

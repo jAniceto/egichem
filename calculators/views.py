@@ -33,6 +33,8 @@ def carbon_dioxide(request):
                 CO2_visc = CO2.get_viscosity(temperature, CO2_dens)
                 density = f'{CO2_dens:.8f}'
                 viscosity = f'{CO2_visc:.8f}'
+                density_si = f'{CO2_dens*1000:.4f}'  # convert g/cm3 to kg/m3
+                viscosity_si = f'{CO2_visc*0.001:.4E}'  # convert cP to Pa s
             
             elif cosolvent == 'ETHANOL':
                 # Calculate pure CO2-EtOH density and viscosity
@@ -40,22 +42,30 @@ def carbon_dioxide(request):
                 CO2EtOH_visc = CO2_EtOH.get_viscosity(pressure, temperature, cosolvent_fraction)
                 density = f'{CO2EtOH_dens:.8f}'
                 viscosity = f'{CO2EtOH_visc:.8f}'
+                density_si = f'{CO2EtOH_dens*1000:.4f}'  # convert g/cm3 to kg/m3
+                viscosity_si = f'{CO2EtOH_visc*0.001:.4E}'  # convert cP to Pa s
 
         else:
             density = ''
             viscosity = ''
+            density_si = ''
+            viscosity_si = ''
     
     else:
         form = CarbonDioxideForm()
         density = ''
         viscosity = ''
+        density_si = ''
+        viscosity_si = ''
 
     context = {
 		'page_title': 'Tools',
         'page_subtitle': 'Online calculators developed by the EgiChem Group',
         'form': form,
         'density': density,
-        'viscosity': viscosity
+        'viscosity': viscosity,
+        'density_si': density_si,
+        'viscosity_si': viscosity_si
 	}	
     return render(request, 'calculators/carbon_dioxide.html', context)
 
