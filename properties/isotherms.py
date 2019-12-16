@@ -39,7 +39,7 @@ class Isotherm:
         self.ymodel = ycalc
 
     def aard(self, ycalc):
-        """Calculate average absolure relative deviation (AARD)"""
+        """Calculate average absolute relative deviation (AARD)"""
         if self.yexp[0] == 0:
             yexp = self.yexp[1:]
             ycalc = ycalc[1:]
@@ -49,6 +49,19 @@ class Isotherm:
         aards = np.abs(ycalc - yexp)/yexp
         aard = np.sum(aards)/len(aards)
         return aard
+
+    def R_square(self, ycalc):
+        """Calculate determination coefficient (R^2)"""
+        yavg = np.mean(self.yexp)
+        r_square = 1 - (np.sum((self.yexp-ycalc)**2))/(np.sum((self.yexp-yavg)**2))
+        return r_square
+
+    def R_square_adjusted(self, ycalc, parameters):
+        """Calculate adjusted determination coefficient (R^2 adj)"""
+        n = len(ycalc)
+        r_square = self.R_square(ycalc)
+        r_square_adjusted = 1-(1-r_square)*(n-1)/(n-parameters-1)
+        return r_square_adjusted
 
     def plot(self, plot_exp=True):
         """Plot isotherm"""
@@ -179,24 +192,32 @@ if __name__ == '__main__':
     linear.plot()
     ycalc_linear = linear.isotherm(c_exp)
     print('AARD', linear.aard(ycalc_linear)*100)
+    print('R2', linear.R_square(ycalc_linear))
+    print('R2adjusted', linear.R_square_adjusted(ycalc_linear, 1))
 
     langmuir = Langmuir()
     langmuir.fit(c_exp, q_exp)
     langmuir.plot(plot_exp=False)
     ycalc_langmuir = langmuir.isotherm(c_exp)
     print('AARD', langmuir.aard(ycalc_langmuir)*100)
+    print('R2', langmuir.R_square(ycalc_langmuir))
+    print('R2adjusted', langmuir.R_square_adjusted(ycalc_langmuir, 2))
 
     lin_langmuir = LinearLangmuir()
     lin_langmuir.fit(c_exp, q_exp)
     lin_langmuir.plot(plot_exp=False)
     ycalc_lin_langmuir = lin_langmuir.isotherm(c_exp)
     print('AARD', lin_langmuir.aard(ycalc_lin_langmuir)*100)
+    print('R2', lin_langmuir.R_square(ycalc_lin_langmuir))
+    print('R2adjusted', lin_langmuir.R_square_adjusted(ycalc_lin_langmuir, 3))
 
     freundlich = Freundlich()
     freundlich.fit(c_exp, q_exp)
     freundlich.plot(plot_exp=False)
     ycalc_freundlich = freundlich.isotherm(c_exp)
     print('AARD', freundlich.aard(ycalc_freundlich)*100)
+    print('R2', freundlich.R_square(ycalc_freundlich))
+    print('R2adjusted', freundlich.R_square_adjusted(ycalc_freundlich, 2))
 
     plt.legend(['Experimental', 'Linear', 'Langmuir', 'LinearLangmuir', 'Freundlich'])
     plt.xlabel('C')

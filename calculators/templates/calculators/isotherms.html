@@ -33,6 +33,14 @@
           <td>\(AARD\) (%)</td>
           <td>{{ isotherm_results.aard|floatformat:2 }}</td>
         </tr>
+        <tr>
+          <td>\(R^2\)</td>
+          <td>{{ isotherm_results.r_square|floatformat:4 }}</td>
+        </tr>
+        <tr>
+          <td>\(R_{adj}^2\)</td>
+          <td>{{ isotherm_results.r_square_adjusted|floatformat:4 }}</td>
+        </tr>
       </tbody>
     </table>
     {% endfor %}
@@ -44,11 +52,11 @@
   </div>
 </div>
 
-<div class="row mt-4">
+<div class="row mt-5">
   <div class="col">
     <h4>Notes:</h4>
 
-    <h5>Isotherm models</h5>
+    <h5 class="font-italic">Isotherm models</h5>
     <p>The isotherm is the analytical relation between the solute concentration in the solid, or solid load, \(q\), and its concentration in the fluid phase, \(C\), at constant temperature.</p> 
     
     <h5>Linear</h5>
@@ -74,6 +82,18 @@
     <h5>Langmuir-Freundlich</h5>
     <p>\[q = \frac{a C^n}{1 + b C^n}\]</p>
     <p>a combination of the Langmuir and Freundlich isotherms.</p>
+
+    <h5 class="mt-5 font-italic">Fitting performance</h5 class="mt-5">
+    <p>The absolute average relative deviation (\( AARD \)), determination coefficient (\(R^2\)), and adjusted determination (\(R_{adj}^2\)) were used to evaluated the quality of fit of the isotherm models. These are defined below, where \( y_i^{exp} \) is the experimental value, \(y_i^{calc}\) is the calculated or expected value, \( \bar{y}_i \) is the mean of the experimental values, \( NDP \) is the number of data points, and \( p \) is the number of model parameters.</p>
+
+    <h5>Absolute Average Relative Deviation</h5>
+    <p>\[AARD = \frac{100}{NDP} \sum_{i=1}^{NDP} \frac{|y_i^{calc}-y_i^{exp}|}{y_i^{exp}}\]</p>
+
+    <h5>Determination coefficient</h5>
+    <p>\[R^2 = 1 - \frac{ \sum_{i} (y_i^{exp}-y_i^{calc})^2 }{ \sum_{i} (y_i^{exp}-\bar{y}_i)^2 }\]</p>
+
+    <h5>Adjusted determination coefficient</h5>
+    <p>\[R_{adj}^2 = 1 - (1-R^2) \frac{NDP-1}{NDP-p-1}\]</p>
 
     <h4 class="mt-4">References:</h4>
     <p><a class="text-dark publication-link" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/9783527678129.assep047" target="_blank">J.P.S. Aniceto, C.M. Silva. Preparative Chromatography: Batch and Continuous, in: Analytical Separation Science, Vol 4 (2015).</a></p>

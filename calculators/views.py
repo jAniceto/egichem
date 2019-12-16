@@ -95,10 +95,14 @@ def isotherms(request):
                     linear.fit(x, y)
                     ycalc_linear = linear.isotherm(x)
                     aard_linear = linear.aard(ycalc_linear)*100
+                    r_square_linear = linear.R_square(ycalc_linear)
+                    r_square_adjusted_linear = linear.R_square_adjusted(ycalc_linear, 1)
                     data_out['Linear'] = {
                         'ycalc': ycalc_linear.tolist(),
                         'params': {k: v for k, v in zip(linear.parameter_names, linear.parameters)},
                         'aard': aard_linear,
+                        'r_square': r_square_linear,
+                        'r_square_adjusted': r_square_adjusted_linear,
                         'xmodel': linear.xmodel.tolist(),
                         'ymodel': linear.ymodel.tolist()
                     }
@@ -108,10 +112,14 @@ def isotherms(request):
                     langmuir.fit(x, y)
                     ycalc_langmuir = langmuir.isotherm(x)
                     aard_langmuir = langmuir.aard(ycalc_langmuir)*100
+                    r_square_langmuir = langmuir.R_square(ycalc_langmuir)
+                    r_square_adjusted_langmuir = langmuir.R_square_adjusted(ycalc_langmuir, 2)
                     data_out['Langmuir'] = {
                         'ycalc': ycalc_langmuir.tolist(),
                         'params': {k: v for k, v in zip(langmuir.parameter_names, langmuir.parameters)},
                         'aard': aard_langmuir,
+                        'r_square': r_square_langmuir,
+                        'r_square_adjusted': r_square_adjusted_langmuir,
                         'xmodel': langmuir.xmodel.tolist(),
                         'ymodel': langmuir.ymodel.tolist()
                     }
@@ -121,10 +129,14 @@ def isotherms(request):
                     linearlangmuir.fit(x, y)
                     ycalc_linearlangmuir = linearlangmuir.isotherm(x)
                     aard_linearlangmuir = linearlangmuir.aard(ycalc_linearlangmuir)*100
+                    r_square_linearlangmuir = linearlangmuir.R_square(ycalc_linearlangmuir)
+                    r_square_adjusted_linearlangmuir = linearlangmuir.R_square_adjusted(ycalc_linearlangmuir, 3)
                     data_out['Linear-Langmuir'] = {
                         'ycalc': ycalc_linearlangmuir.tolist(),
                         'params': {k: v for k, v in zip(linearlangmuir.parameter_names, linearlangmuir.parameters)},
                         'aard': aard_linearlangmuir,
+                        'r_square': r_square_linearlangmuir,
+                        'r_square_adjusted': r_square_adjusted_linearlangmuir,
                         'xmodel': linearlangmuir.xmodel.tolist(),
                         'ymodel': linearlangmuir.ymodel.tolist()
                     }
@@ -134,10 +146,14 @@ def isotherms(request):
                     bilangmuir.fit(x, y)
                     ycalc_bilangmuir = bilangmuir.isotherm(x)
                     aard_bilangmuir = bilangmuir.aard(ycalc_bilangmuir)*100
+                    r_square_bilangmuir = bilangmuir.R_square(ycalc_bilangmuir)
+                    r_square_adjusted_bilangmuir = bilangmuir.R_square_adjusted(ycalc_bilangmuir, 4)
                     data_out['Bi-Langmuir'] = {
                         'ycalc': ycalc_bilangmuir.tolist(),
                         'params': {k: v for k, v in zip(bilangmuir.parameter_names, bilangmuir.parameters)},
                         'aard': aard_bilangmuir,
+                        'r_square': r_square_bilangmuir,
+                        'r_square_adjusted': r_square_adjusted_bilangmuir,
                         'xmodel': bilangmuir.xmodel.tolist(),
                         'ymodel': bilangmuir.ymodel.tolist()
                     }
@@ -147,10 +163,14 @@ def isotherms(request):
                     freundlich.fit(x, y)
                     ycalc_freundlich = freundlich.isotherm(x)
                     aard_freundlich = freundlich.aard(ycalc_freundlich)*100
+                    r_square_freundlich = freundlich.R_square(ycalc_freundlich)
+                    r_square_adjusted_freundlich = freundlich.R_square_adjusted(ycalc_freundlich, 2)
                     data_out['Freundlich'] = {
                         'ycalc': ycalc_freundlich.tolist(),
                         'params': {k: v for k, v in zip(freundlich.parameter_names, freundlich.parameters)},
                         'aard': aard_freundlich,
+                        'r_square': r_square_freundlich,
+                        'r_square_adjusted': r_square_adjusted_freundlich,
                         'xmodel': freundlich.xmodel.tolist(),
                         'ymodel': freundlich.ymodel.tolist()
                     }
