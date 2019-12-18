@@ -84,9 +84,9 @@
     <p>a combination of the Langmuir and Freundlich isotherms.</p>
 
     <h5 class="mt-5 font-italic">Fitting performance</h5 class="mt-5">
-    <p>The absolute average relative deviation (\( AARD \)), determination coefficient (\(R^2\)), and adjusted determination (\(R_{adj}^2\)) were used to evaluated the quality of fit of the isotherm models. These are defined below, where \( y_i^{exp} \) is the experimental value, \(y_i^{calc}\) is the calculated or expected value, \( \bar{y}_i \) is the mean of the experimental values, \( NDP \) is the number of data points, and \( p \) is the number of model parameters.</p>
+    <p>The average absolute relative deviation (\( AARD \)), determination coefficient (\(R^2\)), and adjusted determination (\(R_{adj}^2\)) were used to evaluated the quality of fit of the isotherm models. These are defined below, where \( y_i^{exp} \) is the experimental value, \(y_i^{calc}\) is the calculated or expected value, \( \bar{y}_i \) is the mean of the experimental values, \( NDP \) is the number of data points, and \( p \) is the number of model parameters.</p>
 
-    <h5>Absolute Average Relative Deviation</h5>
+    <h5>Average Absolute Relative Deviation</h5>
     <p>\[AARD = \frac{100}{NDP} \sum_{i=1}^{NDP} \frac{|y_i^{calc}-y_i^{exp}|}{y_i^{exp}}\]</p>
 
     <h5>Determination coefficient</h5>
@@ -105,8 +105,7 @@
 
 {% block scripts %}
 <!-- Load Ploty -->
-<!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> -->
-<!-- <script src="https://cdn.plot.ly/plotly-1.49.0.min.js"></script> -->
+<!-- Loaded in the head of the base.html template -->
 
 <!-- Plot isotherms -->
 <script>
