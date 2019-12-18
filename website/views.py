@@ -74,7 +74,7 @@ def lab(request):
 	context = {
 		'page_title': 'Lab',
 		'page_subtitle': 'The EGICHEM laboratory comprises the following research units',
-		'lab_units': LabUnit.objects.all()
+		'lab_units': LabUnit.objects.all().order_by('-date_added')
 	}
 	return render(request, 'website/lab.html', context)
 
@@ -124,7 +124,7 @@ def people(request):
 
 
 def publications(request):
-	publications = Publication.objects.all().order_by('-year', 'title')
+	publications = Publication.objects.all().order_by('-year', '-date_added')
 	articles = publications.filter(pub_type='article')
 	book_chapters = publications.filter(pub_type='book-chapter')
 	patents = publications.filter(pub_type='patent')
