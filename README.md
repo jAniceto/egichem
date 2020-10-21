@@ -22,3 +22,7 @@ Run development server:
 ```
 $ pipenv run python manage.py runserver
 ```
+Or by specifying the local settings file:
+```
+$ python manage.py runserver --settings=egichem.settings_local
+```
