@@ -294,7 +294,11 @@ h4.title {
     object-fit: cover;
 }
 
-
 .publication-link:hover {
     text-decoration: underline;
+}
+
+.truncate {
+    max-height: 400px;
+    overflow: hidden;
 }
