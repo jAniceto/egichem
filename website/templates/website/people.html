@@ -55,10 +55,10 @@
             <h3 class="card-title"><a class="link" href="{% url 'member_page' professor.slug %}">{{ professor.name }}</a></h3>
             <div class="card-text">{{ professor.user.profile.bio|safe }}</div>
           </div>
-          <p class="card-text read-more text-right mb-3" style="display: none;">
+          <p class="card-text read-more text-right mb-0" style="display: none;">
             <a class="link small align-top" href="{% url 'member_page' professor.slug %}">Read more...</a>
           </p>
-          <p class="card-text mb-1">
+          <p class="card-text mb-1 mt-3">
             <small>
               {% if professor.user.profile.scopus_url %}
               <a class="link" href="{{ professor.user.profile.scopus_url }}" target="_blank"><i class="fas fa-globe-europe"></i> Scopus</a> &nbsp;

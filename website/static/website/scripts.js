@@ -43,7 +43,6 @@ function expandElement(el) {
 let expandableCards = document.querySelectorAll('.expandable-card');
 expandableCards.forEach(card => {
   let truncateDiv = card.querySelector('.truncate');
-  console.log(checkOverflow(truncateDiv))
   if (checkOverflow(truncateDiv)) {
     let readMoreButton = card.querySelector('.read-more');
     toggleDisplay(readMoreButton);
