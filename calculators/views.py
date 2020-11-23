@@ -209,3 +209,12 @@ def isotherms(request):
         'form': form,
 	}
     return render(request, 'calculators/isotherms.html', context)
+
+
+def d12_sc_co2(request):
+    """Prediction of binary diffusivities in supercritical carbon dioxide using ML"""
+    context = {
+        'page_title': 'Tools',
+        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+    }
+    return render(request, 'calculators/d12_sc_co2.html', context)
