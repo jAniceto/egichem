@@ -65,7 +65,7 @@ def research(request):
 	context = {
 		'page_title': 'Research',
 		'page_subtitle': 'Core areas of EGICHEM group',
-		'research_fields': ResearchField.objects.all()
+		'research_fields': ResearchField.objects.all().order_by('-date_added')
 	}
 	return render(request, 'website/research.html', context)
 
