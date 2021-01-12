@@ -218,3 +218,12 @@ def d12_sc_co2(request):
         'page_subtitle': 'Online calculators developed by the EgiChem Group',
     }
     return render(request, 'calculators/d12_sc_co2.html', context)
+
+
+def d12_polar_nonpolar(request):
+    """Prediction of binary diffusivities in polar and nonpolar systems using ML"""
+    context = {
+        'page_title': 'Tools',
+        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+    }
+    return render(request, 'calculators/d12_polar_nonpolar.html', context)
