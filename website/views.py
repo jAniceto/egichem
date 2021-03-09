@@ -65,7 +65,7 @@ def research(request):
 	context = {
 		'page_title': 'Research',
 		'page_subtitle': 'Core areas of EGICHEM group',
-		'research_fields': ResearchField.objects.all().order_by('-date_added')
+		'research_fields': ResearchField.objects.all().order_by('order', '-date_added')
 	}
 	return render(request, 'website/research.html', context)
 
@@ -74,7 +74,7 @@ def lab(request):
 	context = {
 		'page_title': 'Lab',
 		'page_subtitle': 'The EGICHEM laboratory comprises the following research units',
-		'lab_units': LabUnit.objects.all().order_by('-date_added')
+		'lab_units': LabUnit.objects.all().order_by('order','-date_added')
 	}
 	return render(request, 'website/lab.html', context)
 

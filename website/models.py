@@ -9,6 +9,7 @@ class ResearchField(models.Model):
     content = models.TextField()
     image = models.ImageField(default='images/350x200.png', upload_to='images/research-fields')
     date_added = models.DateTimeField(default=timezone.now)
+    order = models.IntegerField(default=99)
 
     def __str__(self):
         return self.title
@@ -20,6 +21,7 @@ class LabUnit(models.Model):
     equipment = models.TextField()
     image = models.ImageField(default='images/placeholder.png', upload_to='images/lab')
     date_added = models.DateTimeField(default=timezone.now)
+    order = models.IntegerField(default=99)
 
     def __str__(self):
         return self.title

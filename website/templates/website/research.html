@@ -4,22 +4,6 @@
 
 <!-- Previous version (to delete in the future) -->
 {% comment %}
-{%  for field in research_fields  %}
-  {% if forloop.counter0|divisibleby:3 %}<div class="row mb-3">{%  endif %}
-    <div class="col-md-4">
-      <div class="card">
-        <img class="card-img-top" src="{{ field.image.url }}" alt="">
-        <div class="card-body">
-          <h5 class="card-title">{{ field.title }}</h5>
-          <p class="card-text">{{ field.content }}</p>
-        </div>
-      </div>
-    </div>
-{%  if forloop.counter|divisibleby:3 or forloop.last %}</div><!-- row closing -->{%  endif %}
-{%  endfor %}
-{% endcomment %}
-
-
 <div class="card-columns">
   {%  for field in research_fields  %}
   <div class="card">
@@ -31,6 +15,21 @@
   </div>
   {%  endfor %}
 </div>
+{% endcomment %}
 
+
+<div class="row row-cols-1 row-cols-md-3">
+  {% for field in research_fields %}
+  <div class="col mb-4">
+    <div class="card h-100">
+      <img src="{{ field.image.url }}" class="card-img-top" alt="{{ field.title }}">
+      <div class="card-body">
+        <h3 class="card-title">{{ field.title }}</h3>
+        <p class="card-text">{{ field.content }}</p>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 {% endblock content %}
