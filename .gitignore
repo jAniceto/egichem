@@ -1,12 +1,9 @@
-initial_data/egichem-backups
-initial_data/csv-data
-notes.txt
 config.json
 db_dump.json
 pg_db_dump.sql
 settings_local.py
 .idea/
-_receipts/
+_extras/
 
 
 # Created by https://www.gitignore.io/api/python,django,visualstudiocode
