@@ -25,6 +25,7 @@
 
 <h2 class="mt-4 mb-3">EgiChem Lab Management</h2>
 
+{% comment %}
 <div class="row">
   <div class="col">
     <div class="card-deck">
@@ -89,12 +90,64 @@
           <h4 class="card-title">Lab Teams</h4>
           <p class="card-text">Up to date laboratory managements teams (cleaning, technical and safety) </p>
           <p class="card-text"><small class="text-muted">Google Spreadsheet</small></p>
-          <a href="#" class="btn btn-primary" disabled>Teams</a>
+          <a href="#" class="btn btn-primary disabled">Teams</a>
         </div>
       </div>
 
     </div>
   </div>
+</div>
+{% endcomment %}
+
+
+<div class="row row-cols-1 row-cols-md-3">
+
+  <!-- Inventory Card -->
+  <div class="col mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">Inventory</h4>
+        <p class="card-text">List of all reagents, materials and tools currently available at Lab 29.1.5.</p>
+        <p class="card-text"><small class="text-muted">Last updated {{ last_modified_material.modified|date:"Y/n/j G:i" }}</small></p>
+        <a href="{% url 'inventory' %}" class="btn btn-primary">Inventory</a>
+        <a href="{% url 'material-create' %}" class="btn btn-outline-primary">Add Item</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Profile Card -->
+  <div class="col mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">Update personal info</h4>
+        <p class="card-text">Update your personal information: username, e-mail, bio, photo, links...</p>
+        <p class="card-text"><small class="text-muted"><a href="{% url 'member_page' user.member.slug %}" class="card-link">{{ user.username }} Personal Page</a></small></p>
+        <a href="{% url 'profile' %}" class="btn btn-primary">Update Profile</a>
+        <a href="{% url 'password_reset' %}" class="btn btn-outline-primary">Password Reset</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- External Resources Cards -->
+  {% for resource in external_resources %}
+  <div class="col mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <h4 class="card-title">{{ resource.title }}</h4>
+        <p class="card-text">{{ resource.description }}</p>
+        <p class="card-text"><small class="text-muted">{{ resource.resource_type }}</small></p>
+        <a href="{{ resource.url1 }}" class="btn btn-primary" target="_blank">{{ resource.url1_text }}</a>
+        {% if url2 %}
+        <a href="{{ resource.url2 }}" class="btn btn-outline-primary" target="_blank">{{ resource.url2_text }}</a>
+        {% endif %}
+        {% if url3 %}
+        <a href="{{ resource.url3 }}" class="btn btn-outline-primary" target="_blank">{{ resource.url3_text }}</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+
 </div>
 
 

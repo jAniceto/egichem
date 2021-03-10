@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
 
-from .models import Material, Announcement
+from .models import Material, Announcement, ExternalResource
 
 import csv
 
@@ -33,12 +33,14 @@ def egichem(request):
     """Homepage for the private lab area"""
     announcements = Announcement.objects.all().order_by('-date_added')[:3]
     last_modified_material = Material.objects.all().order_by('-modified')[0]
+    external_resources = ExternalResource.objects.all().order_by('order', 'date_added')
 
     context = {
 		'page_title': 'Lab Home',
 		'page_subtitle': '',
         'announcements': announcements,
-        'last_modified_material': last_modified_material
+        'last_modified_material': last_modified_material,
+        'external_resources': external_resources
 	}	
     return render(request, 'lab/home.html', context)
 

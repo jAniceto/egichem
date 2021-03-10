@@ -69,3 +69,28 @@ class Announcement(models.Model):
 
     def get_absolute_url(self):
         return reverse('announcements')
+
+
+class ExternalResource(models.Model):
+    title = models.CharField(max_length=50)
+    description = models.TextField()
+    resource_type = models.TextField(blank=True)
+    url1 = models.URLField()
+    url1_text = models.CharField(max_length=15, default='Link')
+    url2 = models.URLField(blank=True)
+    url2_text = models.CharField(max_length=15, default='Link2')
+    url3 = models.URLField(blank=True)
+    url3_text = models.CharField(max_length=15, default='Link3')
+    date_added = models.DateTimeField(default=timezone.now)
+    order = models.IntegerField(default=99)
+
+    # class Meta:
+    #     permissions = (
+    #         ('manage_inventory', 'Can manage inventory'),
+    #     )
+
+    def __str__(self):
+        return f'{self.title}'
+
+    # def get_absolute_url(self):
+    #     return reverse('xxxx')
