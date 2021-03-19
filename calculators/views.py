@@ -227,3 +227,12 @@ def d12_polar_nonpolar(request):
         'page_subtitle': 'Online calculators developed by the EgiChem Group',
     }
     return render(request, 'calculators/d12_polar_nonpolar.html', context)
+
+
+def psychrometrics(request):
+    """Psychrometric functions to calculate thermodynamic properties of air"""
+    context = {
+        'page_title': 'Tools',
+        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+    }
+    return render(request, 'calculators/psychrometrics.html', context)
