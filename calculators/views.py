@@ -236,3 +236,12 @@ def psychrometrics(request):
         'page_subtitle': 'Online calculators developed by the EgiChem Group',
     }
     return render(request, 'calculators/psychrometrics.html', context)
+
+
+def psychrometrics_ventilation(request):
+    """Psychrometric functions to calculate thermodynamic properties of air"""
+    context = {
+        'page_title': 'Tools',
+        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+    }
+    return render(request, 'calculators/psychrometrics_vent.html', context)

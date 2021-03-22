@@ -1,146 +1,156 @@
 // Psychrometric calculations
 
+// Load psychrolib and set unit system
+let psychrolib = new Psychrometrics();
+psychrolib.SetUnitSystem(psychrolib.SI);
 
-var inputForm = document.getElementById('inputForm');
+// Get DOM Elements
+var psychrometricsForm = document.getElementById('psychrometricsForm');
+var alert = document.getElementById('alert');
+var refPressInput = document.getElementById('refPress');
+var dryBulbTempInput = document.getElementById('dryBulbTemp');
+var relHumInput = document.getElementById('relHum');
+var absHumInput = document.getElementById('absHum');
+var wetBulbTempInput = document.getElementById('wetBulbTemp');
+var dewPointTempInput = document.getElementById('dewPointTemp');
+var vapPressInput = document.getElementById('vapPress');
+var specVolInput = document.getElementById('specVol');
+var specEnthalInput = document.getElementById('specEnthal');
+
 
 function handleForm(event) { 
   event.preventDefault(); 
-  calcPsychrometrics();
+  calculatePsychrometrics();
 } 
 
-inputForm.addEventListener('submit', handleForm);
+psychrometricsForm.addEventListener('submit', handleForm);
 
 
-function calcPsychrometrics() {
-
-  // Define configuration variables
-  const atmosphericPressure = 101325;  // Atmospheric pressure in Pa
-  const storageTemp = 18;  // Desired storage temperature in Celsius
-
-  // ------------------------------------------------------------
-  // Get DOM Elements
-  // ------------------------------------------------------------
-
-  // Inputs
-  const inputIntTemp = parseFloat(document.getElementById('inputIntTemp').value);
-  const inputIntRelHum = parseFloat(document.getElementById('inputIntRelHum').value);
-  const inputExtTemp = parseFloat(document.getElementById('inputExtTemp').value);
-  const inputExtRelHum = parseFloat(document.getElementById('inputExtRelHum').value);
-  const inputCoolingTemp = parseFloat(document.getElementById('inputCooling').value);
-  const inputReheatingTemp = parseFloat(document.getElementById('inputReheating').value);
-
-  // Outputs
-  const outputIntAbsHum = document.getElementById('intAbsHum');
-  const outputExtAbsHum = document.getElementById('extAbsHum');
-  const outputRemovedWater = document.getElementById('removedWater');
-  const outputTreatedAbsHum = document.getElementById('treatedAbsHum');
-  const outputTreatedRelHum = document.getElementById('treatedRelHum');
-  const outputTreatedVapPress = document.getElementById('treatedVapPress');
-  const outputTreatedSpecVol = document.getElementById('treatedSpecVol');
-  const outputTreatedSpecEnthal = document.getElementById('treatedSpecEnthal');
-  const outputTreatedDewPoint = document.getElementById('treatedDewPoint');
-  const outputTreatedWetBulbTemp = document.getElementById('treatedWetBulbTemp');
-
-  // ------------------------------------------------------------
-  // Calculations
-  // ------------------------------------------------------------
+function calculatePsychrometrics() {
+  // Remove alert
+  clearAlert();
   
-  // Load psychrolib and set unit system
-  let psychrolib = new Psychrometrics();
-  psychrolib.SetUnitSystem(psychrolib.SI);
+  // Get input values
+  var refPress = parseFloat(refPressInput.value);
+  var dryBulbTemp = parseFloat(dryBulbTempInput.value);
+  var relHum = parseFloat(relHumInput.value);
+  var absHum = parseFloat(absHumInput.value);
+  var wetBulbTemp = parseFloat(wetBulbTempInput.value);
+  var dewPointTemp = parseFloat(dewPointTempInput.value);
+  var vapPress = parseFloat(vapPressInput.value);
+  var specVol = parseFloat(specVolInput.value);
+  var specEnthal = parseFloat(specEnthalInput.value);
 
-  // Interior Absolute Humidity
-  let IntAbsHum = psychrolib.GetHumRatioFromRelHum(
-    inputIntTemp, 
-    inputIntRelHum/100, 
-    atmosphericPressure
-  ) * 1000;
-  
-  // Exterior Absolute Humidity
-  let ExtAbsHum = psychrolib.GetHumRatioFromRelHum(
-    inputExtTemp, 
-    inputExtRelHum/100, 
-    atmosphericPressure
-  ) * 1000;
-  
-  // Relative Humidity after cooling
-  let CoolRelHum = psychrolib.GetRelHumFromHumRatio(
-    inputCoolingTemp, 
-    ExtAbsHum/1000, 
-    atmosphericPressure
-  ) * 100;
-  if (CoolRelHum > 100) {
-    CoolRelHum = 100;
+  try {
+    // Calculate depending on the inputs provided
+    if ((dryBulbTemp && wetBulbTemp && relHum) || (dryBulbTemp && wetBulbTemp && absHum) || (dryBulbTemp && relHum && absHum) || (wetBulbTemp && relHum && absHum) || (dryBulbTemp && wetBulbTemp && relHum && absHum)) {
+      // More than 2 properties provided
+      throw new Error("Only two variables can be defined in addition to the reference pressure");
+
+    } else if (!dryBulbTemp && !wetBulbTemp && !relHum && !absHum) {
+      throw new Error("Insufficient data provided");
+      
+    } else if (dryBulbTemp && relHum) {
+      // dryBulbTemp and relHum provided
+      absHum = psychrolib.GetHumRatioFromRelHum(
+        dryBulbTemp, 
+        relHum/100, 
+        refPress
+      ) * 1000;
+
+      wetBulbTemp = psychrolib.GetTWetBulbFromHumRatio(
+        dryBulbTemp,
+        absHum/1000, 
+        refPress
+      );
+
+      // Display Results
+      absHumInput.value = absHum.toFixed(2);
+      wetBulbTempInput.value = wetBulbTemp.toFixed(1);
+      
+    } else if (dryBulbTemp && absHum) {
+      // dryBulbTemp and absHum provided
+      relHum = psychrolib.GetRelHumFromHumRatio(
+        dryBulbTemp, 
+        absHum/1000, 
+        refPress
+      ) * 100;
+      if (relHum > 100) {
+        relHum = 100;
+      }
+
+      wetBulbTemp = psychrolib.GetTWetBulbFromHumRatio(
+        dryBulbTemp,
+        absHum/1000, 
+        refPress
+      );
+
+      // Display Results
+      relHumInput.value = relHum.toFixed(1);
+      wetBulbTempInput.value = wetBulbTemp.toFixed(1);
+
+    } else if (dryBulbTemp && wetBulbTemp) {
+      // dryBulbTemp and wetBulbTemp provided
+      relHum = psychrolib.GetRelHumFromTWetBulb(
+        dryBulbTemp, 
+        wetBulbTemp, 
+        refPress
+      ) * 100;
+      if (relHum > 100) {
+        relHum = 100;
+      }
+
+      absHum = psychrolib.GetHumRatioFromRelHum(
+        dryBulbTemp, 
+        relHum/100, 
+        refPress
+      ) * 1000;
+
+      // Display Results
+      relHumInput.value = relHum.toFixed(1);
+      absHumInput.value = absHum.toFixed(2);
+
+    } else {
+      throw new Error("Insufficient data provided");
+    }
+
+    // Calculate remaining properties
+    dewPointTemp = psychrolib.GetTDewPointFromHumRatio(
+      dryBulbTemp,
+      absHum/1000, 
+      refPress
+    );
+    
+    vapPress = psychrolib.GetVapPresFromHumRatio(
+      absHum/1000, 
+      refPress
+    );
+
+    specVol = psychrolib.GetMoistAirVolume(
+      dryBulbTemp,
+      absHum/1000, 
+      refPress
+    );
+
+    specEnthal = psychrolib.GetMoistAirEnthalpy(
+      dryBulbTemp,
+      absHum/1000
+    );
+
+    // Display remaining results
+    dewPointTempInput.value = dewPointTemp.toFixed(1);
+    vapPressInput.value = vapPress.toFixed(0);
+    specVolInput.value = specVol.toFixed(3);
+    specEnthalInput.value = specEnthal.toFixed(0);
+
+  } catch (e) {
+    alert.style.display = 'block';
+    alert.innerHTML = e;
   }
-
-  // Absolute Humidity after cooling
-  let CoolAbsHum = psychrolib.GetHumRatioFromRelHum(
-    inputCoolingTemp, 
-    CoolRelHum/100, 
-    atmosphericPressure
-  ) * 1000;
-
-  // Removed water
-  let removedWater = ExtAbsHum - CoolAbsHum;
-
-  // Treated Air Absolute Humidity (after reheating)
-  let treatedAbsHum = CoolAbsHum;
-
-  // Treated Air Relative Humidity (after reheating)
-  let treatedRelHum = psychrolib.GetRelHumFromHumRatio(
-    inputReheatingTemp, 
-    treatedAbsHum/1000, 
-    atmosphericPressure
-  ) * 100;
-
-  // Treated air vapor pressure (after reheating)
-  let treatedVapPress = psychrolib.GetVapPresFromHumRatio(
-    treatedAbsHum/1000, 
-    atmosphericPressure
-  );
-
-  // Treated air specific volume (after reheating)
-  let treatedSpecVol = psychrolib.GetMoistAirVolume(
-    inputReheatingTemp,
-    treatedAbsHum/1000, 
-    atmosphericPressure
-  );
-
-  // Treated air specific enthalpy (after reheating)
-  let treatedSpecEnthal = psychrolib.GetMoistAirEnthalpy(
-    inputReheatingTemp,
-    treatedAbsHum/1000
-  );
-
-  // Treated air dew point (after reheating)
-  let treatedDewPoint = psychrolib.GetTDewPointFromHumRatio(
-    inputReheatingTemp,
-    treatedAbsHum/1000, 
-    atmosphericPressure
-  );
-
-  // Treated air wet bulb temperature (after reheating)
-  let treatedWetBulbTemp = psychrolib.GetTWetBulbFromHumRatio(
-    inputReheatingTemp,
-    treatedAbsHum/1000, 
-    atmosphericPressure
-  );
-
-  // ------------------------------------------------------------
-  // Display results
-  // ------------------------------------------------------------
-  outputIntAbsHum.value = IntAbsHum.toFixed(1);
-  outputExtAbsHum.value = ExtAbsHum.toFixed(1);
-  outputRemovedWater.value = removedWater.toFixed(1);
-  outputTreatedAbsHum.value = treatedAbsHum.toFixed(1);
-  outputTreatedRelHum.value = treatedRelHum.toFixed(0);
-
-  outputTreatedVapPress.value = treatedVapPress.toFixed(1);
-  outputTreatedSpecVol.value = treatedSpecVol.toFixed(3);
-  outputTreatedSpecEnthal.value = treatedSpecEnthal.toFixed(0);
-  outputTreatedDewPoint.value = treatedDewPoint.toFixed(1);
-  outputTreatedWetBulbTemp.value = treatedWetBulbTemp.toFixed(1);
 
 }
 
-
+// Function to clear all inputs
+function clearAlert() {
+  alert.style.display = 'none';
+}
