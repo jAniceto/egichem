@@ -1,4 +1,7 @@
-// Psychrometric calculations
+// ---------------------------------------------- //
+// PSYCHROMETRIC CALCULATIONS
+// ---------------------------------------------- //
+
 
 // Load psychrolib and set unit system
 let psychrolib = new Psychrometrics();
