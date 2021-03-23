@@ -27,16 +27,6 @@ function range(start, stop, step) {
 };
 
 
-// Load psychrolib and set unit system
-// let psychrolib = new Psychrometrics();
-// psychrolib.SetUnitSystem(psychrolib.SI);
-
-
-// Get DOM Elements
-// let psychrometricsForm = document.getElementById('psychrometricsForm');
-// let refPressInput = document.getElementById('refPress');
-
-
 // Global layout configuration for Plotly 
 var layout = {
   margin: {
@@ -64,7 +54,7 @@ var layout = {
 	legend: {
     y: 0.5,
     x: 1.1,
-    title: {text: 'Click to hide/show lines.<br>Double-click to isolate.<br>'}
+    title: {text: 'Click to hide/show lines.<br>Double-click to isolate.<br>'},
   }
 };
 
@@ -75,14 +65,14 @@ var config = {
 
 
 // Create fixed variable ranges
-let dryBulbTempRange = range(-10, 55.5, 0.5);
-let relHumRange = range(10, 110, 10);
-let enthalRange = range(0, 150, 20);
-let wetBulbTempRange = range(-5, 35, 5);
+var dryBulbTempRange = range(-10, 55.5, 0.5);
+var relHumRange = range(10, 110, 10);
+var enthalRange = range(0, 150, 20);
+var wetBulbTempRange = range(-5, 35, 5);
 
 
 // Update Psychrometric Chart
-function createPsychrometricChart(pressure) {
+function createPsychrometricChart(chartID, pressure) {
 
   // Calculate Relative Humidity lines
   //----------------------------------
@@ -534,50 +524,48 @@ function createPsychrometricChart(pressure) {
     traceWetBulbTemp35, traceWetBulbTemp30, traceWetBulbTemp25, traceWetBulbTemp20, traceWetBulbTemp15, traceWetBulbTemp10, traceWetBulbTemp5, traceWetBulbTemp0, traceWetBulbTemp_5  // Wet bulb temperature lines
   ];
 
-  Plotly.newPlot('psychrometricChart', data, layout, config);
+  Plotly.newPlot(chartID, data, layout, config);
 
 }
 
 
 // Create Psychrometric Chart
-createPsychrometricChart(refPressInput.value);
+// createPsychrometricChart(refPressInput.value);
 
 
-var point = 0;  // counter for the point added to the plot
+// var point = 0;  // counter for the point added to the plot
 
-// Update Psychrometric Chart
-function updatePsychrometricChart() {
-  let dryBulbTempVal = document.getElementById('dryBulbTemp').value;
-  let absHumVal = document.getElementById('absHum').value;
+// // Update Psychrometric Chart
+// function updatePsychrometricChart() {
+//   let dryBulbTempVal = document.getElementById('dryBulbTemp').value;
+//   let absHumVal = document.getElementById('absHum').value;
 
-  point += 1;
-  pointStr = 'Point ' + point.toString();
+//   point += 1;
+//   pointStr = 'Point ' + point.toString();
 
-  Plotly.addTraces('psychrometricChart', {
-    x: [dryBulbTempVal],
-    y: [absHumVal],
-    mode: 'markers',
-    type: 'scatter',
-    marker: {
-      size: 10
-    },
-    hoverinfo: 'name+x+y',
-    hoverlabel: {namelength: -1},
-    name: pointStr
-  });
-}
+//   Plotly.addTraces('psychrometricChart', {
+//     x: [dryBulbTempVal],
+//     y: [absHumVal],
+//     mode: 'markers',
+//     type: 'scatter',
+//     marker: {
+//       size: 10
+//     },
+//     hoverinfo: 'name+x+y',
+//     hoverlabel: {namelength: -1},
+//     name: pointStr
+//   });
+// }
 
-psychrometricsForm.addEventListener('submit', function (event) { 
-  event.preventDefault(); 
-  updatePsychrometricChart();
-});
-
-
-// Clear Psychrometric Chart
-var clearButton = document.getElementById('clearButton');
-clearButton.addEventListener('click', function (event) { 
-  point = 0;  // reset point count
-  createPsychrometricChart(refPressInput.value);  // reset whole plot (redraw)
-});
+// psychrometricsForm.addEventListener('submit', function (event) { 
+//   event.preventDefault(); 
+//   updatePsychrometricChart();
+// });
 
 
+// // Clear Psychrometric Chart
+// var clearButton = document.getElementById('clearButton');
+// clearButton.addEventListener('click', function (event) { 
+//   point = 0;  // reset point count
+//   createPsychrometricChart(refPressInput.value);  // reset whole plot (redraw)
+// });

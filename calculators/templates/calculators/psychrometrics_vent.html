@@ -1,0 +1,374 @@
+{% extends "website/base.html" %} {% load static %} {% block content %}
+
+
+<div class="row mb-3">
+  <div class="col">
+    <h2>Psychrometrics for drying or ventilation processes</h2>
+    <nav class="mt-4">
+      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <a class="nav-link active" id="nav-heat-cool-tab" data-toggle="tab" href="#nav-heat-cool" role="tab" aria-controls="nav-heat-cool" aria-selected="true">Heating or Cooling</a>
+        <a class="nav-link" id="nav-vent-tab" data-toggle="tab" href="#nav-vent" role="tab" aria-controls="nav-vent" aria-selected="false">Ventilation system</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    
+    <!-- Heating/Cooling tab -->
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="nav-heat-cool" role="tabpanel" aria-labelledby="nav-heat-cool-tab">
+
+        <p class="lead mb-4">Calculates thermodynamic properties of air before and after a heating/cooling process by temperature increase/decrease.</p>
+
+        <form id="heatCoolForm">
+          <div class="row">
+            <div class="col-md-5">
+
+              <div class="form-group row">
+
+                <label for="refPress" class="col-sm-6 col-form-label">Reference Pressure</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="refPress" type="number" step="1" class="form-control" value="101325" aria-label="Reference Pressure" aria-describedby="addon-refPress">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-refPress">Pa</span>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Col 1 -->
+            <div class="col-md-5">          
+              
+              <h5>Current conditions:</h5>
+    
+              <div class="form-group row">
+    
+                <label for="currentTemp" class="col-sm-6 col-form-label">Temperature</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="currentTemp" type="number" step="0.1" class="form-control" aria-label="Current Temperature" aria-describedby="addon-currentTemp">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-currentTemp">°C</span>
+                    </div>
+                  </div>
+                </div>
+    
+                <label for="currentRelHum" class="col-sm-6 col-form-label">Relative Humidity</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="currentRelHum" type="number" step="0.1" min="0" max="100" class="form-control" aria-label="Current Relative Humidity" aria-describedby="addon-currentRelHum">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-currentRelHum">%</span>
+                    </div>
+                  </div>
+                </div>
+    
+                <label for="currentAbsHum" class="col-sm-6 col-form-label">Absolute Humidity</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="currentAbsHum" type="number" step="any" min="0" class="form-control" aria-label="Current Absolute Humidity" aria-describedby="addon-currentAbsHum" disabled>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-currentAbsHum">g<sub>water</sub>/kg<sub>air</sub></span>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+    
+            </div>
+          
+            <!-- Col 2 -->
+            <div class="col-md-5 offset-md-2">
+
+              <h5>After heating/cooling:</h5>
+    
+              <div class="form-group row">
+
+                <label for="finalTemp" class="col-sm-6 col-form-label">Temperature</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="finalTemp" type="number" step="0.1" class="form-control" aria-label="Final Temperature" aria-describedby="addon-finalTemp">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-finalTemp">°C</span>
+                    </div>
+                  </div>
+                </div>
+
+                <label for="finalRelHum" class="col-sm-6 col-form-label">Relative Humidity</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="finalRelHum" type="number" step="0.1" min="0" max="100" class="form-control" aria-label="Relative Humidity" aria-describedby="addon-finalRelHum" disabled>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-finalRelHum">%</span>
+                    </div>
+                  </div>
+                </div>
+
+                <label for="finalAbsHum" class="col-sm-6 col-form-label">Absolute Humidity</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="finalAbsHum" type="number" step="any" min="0" class="form-control" aria-label="Final Absolute Humidity" aria-describedby="addon-finalAbsHum" disabled>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-finalAbsHum">g<sub>water</sub>/kg<sub>air</sub></span>
+                    </div>
+                  </div>
+                </div>
+    
+                <label for="removWater" class="col-sm-6 col-form-label">Condensed Water</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="removWater" type="number" class="form-control" aria-label="Removed Water" aria-describedby="addon-removWater" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-removWater">g<sub>water</sub>/kg<sub>air</sub></span>
+                    </div>
+                  </div>
+                </div>
+    
+              </div>
+    
+            </div>   
+          
+          </div>
+          
+    
+          <div class="form-group row">
+            <div class="col">
+              <div id="alertHeatCool" class="alert alert-warning" role="alert" style="display: none;"></div>
+              
+              <button type="submit" class="btn btn-egichem">Calculate</button>
+            </div>
+          </div>
+    
+        </form>
+
+      </div>
+
+
+      <!-- Ventilation tab -->
+      <div class="tab-pane fade" id="nav-vent" role="tabpanel" aria-labelledby="nav-vent-tab">
+
+        <p class="lead">Calculates thermodynamic properties of air by simulating the use of a ventilator system to provide treated air to an interior storage location. The ventilator takes in the ambient air, removes part of the water (cooling), and slightly reheats the air to decrease the relative humidity.</p>
+
+        <div class="row">
+          <!-- Col 1 -->
+          <div class="col-md-5">
+        
+            <form id="ventForm">
+
+              <h5 class="form-text mb-3">Ambient air conditions and ventilation system settings:</h5>
+              <div class="form-group row">
+
+                <label for="inputIntTemp" class="col-sm-6 col-form-label">Interior Temperature</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="inputIntTemp" type="number" step="0.1" class="form-control" aria-label="Interior Temperature" aria-describedby="addon-IntTemp">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-IntTemp">°C</span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="inputIntRelHum" class="col-sm-6 col-form-label">Interior Relative Humidity</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="inputIntRelHum" type="number" step="1" min="0" max="100" class="form-control" aria-label="Interior Relative Humidity" aria-describedby="addon-IntRelHum">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-IntRelHum">%</span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="inputExtTemp" class="col-sm-6 col-form-label">Exterior Temperature</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="inputExtTemp" type="number" step="0.1" class="form-control" aria-label="Exterior Temperature" aria-describedby="addon-ExtTemp">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-ExtTemp">°C</span>
+                    </div>
+                  </div>
+                </div>
+
+                <label for="inputExtRelHum" class="col-sm-6 col-form-label">Exterior Relative Humidity</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="inputExtRelHum" type="number" step="1" min="0" max="100" class="form-control" aria-label="Exterior Relative Humidity" aria-describedby="addon-ExtRelHum">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-ExtRelHum">%</span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="inputCooling" class="col-sm-6 col-form-label">Cooling Temperature</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="inputCooling" type="number" step="0.1" class="form-control" aria-label="Cooling Temperature" aria-describedby="addon-Cooling">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-Cooling">°C</span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="inputReheating" class="col-sm-6 col-form-label">Reheating Temperature</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="inputReheating" type="number" step="0.1" class="form-control" aria-label="Reheating Temperature" aria-describedby="addon-Reheating">
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-Cooling">°C</span>
+                    </div>
+                  </div>
+                </div>
+
+                <label for="intAbsHum" class="col-sm-6 col-form-label d-none">Interior Absolute Humidity</label>
+                <div class="col-sm-6 d-none">
+                  <div class="input-group mb-3">
+                    <input id="intAbsHum" type="number" step="any" min="0" class="form-control" aria-label="Interior Absolute Humidity" aria-describedby="addon-intAbsHum" disabled>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-intAbsHum">g<sub>water</sub>/kg<sub>air</sub></span>
+                    </div>
+                  </div>
+                </div>
+
+                <label for="extAbsHum" class="col-sm-6 col-form-label d-none">Exterior Absolute Humidity</label>
+                <div class="col-sm-6 d-none">
+                  <div class="input-group mb-3">
+                    <input id="extAbsHum" type="number" step="any" min="0" class="form-control" aria-label="Exterior Absolute Humidity" aria-describedby="addon-extAbsHum" disabled>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-extAbsHum">g<sub>water</sub>/kg<sub>air</sub></span>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+        
+              <div class="form-group row">
+                <div class="col-sm-10">
+                  <button type="submit" class="btn btn-egichem">Calculate</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        
+          <!-- Col 2 -->
+          <div class="col-md-5 offset-md-2 mt-4 mt-md-0">
+            <form>
+              <h5 class="form-text mb-3">Treated air conditions:</h5>
+              <div class="form-group row">
+        
+                <label for="removedWater" class="col-sm-6 col-form-label">Removed Water</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="removedWater" type="number" class="form-control" aria-label="Removed Water" aria-describedby="addon-removedWater" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-removedWater">g<sub>water</sub>/kg<sub>air</sub></span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="treatedAbsHum" class="col-sm-6 col-form-label">Absolute Humidity</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="treatedAbsHum" type="number" class="form-control" aria-label="Absolute Humidity" aria-describedby="addon-treatedAbsHum" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-treatedAbsHum">g<sub>water</sub>/kg<sub>air</sub></span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="treatedRelHum" class="col-sm-6 col-form-label">Relative Humidity</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="treatedRelHum" type="number" class="form-control" aria-label="Relative Humidity" aria-describedby="addon-treatedRelHum" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-treatedRelHum">%</span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="treatedVapPress" class="col-sm-6 col-form-label">Vapor Pressure</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="treatedVapPress" type="number" class="form-control" aria-label="Vapor Pressure" aria-describedby="addon-treatedVapPress" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-treatedVapPress">Pa</span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="treatedSpecVol" class="col-sm-6 col-form-label">Specific Volume</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="treatedSpecVol" type="number" class="form-control" aria-label="Specific Volume" aria-describedby="addon-treatedSpecVol" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-treatedSpecVol">m<sup>3</sup>/kg<sub>dry air</sub></span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="treatedSpecEnthal" class="col-sm-6 col-form-label">Specific Enthalpy</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="treatedSpecEnthal" type="number" class="form-control" aria-label="Specific Enthalpy" aria-describedby="addon-treatedSpecEnthal" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-treatedSpecEnthal">J/kg<sub>dry air</sub></span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="treatedDewPoint" class="col-sm-6 col-form-label">Dew Point</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="treatedDewPoint" type="number" class="form-control" aria-label="Dew Point" aria-describedby="addon-treatedDewPoint" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-treatedDewPoint">°C</span>
+                    </div>
+                  </div>
+                </div>
+        
+                <label for="treatedWetBulbTemp" class="col-sm-6 col-form-label">Wet Bulb Temperature</label>
+                <div class="col-sm-6">
+                  <div class="input-group mb-3">
+                    <input id="treatedWetBulbTemp" type="number" class="form-control" aria-label="Wet Bulb Temperature" aria-describedby="addon-treatedWetBulbTemp" readonly>
+                    <div class="input-group-append">
+                      <span class="input-group-text" id="addon-treatedWetBulbTemp">°C</span>
+                    </div>
+                  </div>
+                </div>
+        
+              </div>
+        
+            </form>
+        
+        
+          </div>
+        
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row mt-4 d-none d-md-flex">
+  <div class="col">
+    <h4>Psychrometric Chart</h4>
+    <div id='psychrometricChartVent'><!-- Plotly chart will be drawn inside this DIV --></div>
+  </div>
+</div>
+
+
+
+{% endblock content %} {% block scripts %}
+<script src="{% static 'calculators/psychrolib.js' %}" type="text/javascript"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"  type="text/javascript"></script>
+<script src="{% static 'calculators/psychrometricsChart.js' %}" type="text/javascript"></script>
+<script src="{% static 'calculators/psychrometricsVent.js' %}" type="text/javascript"></script>
+{% endblock %}
