@@ -157,3 +157,46 @@ function calculatePsychrometrics() {
 function clearAlert() {
   alert.style.display = 'none';
 }
+
+
+
+// Create Psychrometric Chart
+createPsychrometricChart('psychrometricChart', refPressInput.value);
+
+
+var point = 0;  // counter for the point added to the plot
+
+// Update Psychrometric Chart
+function updatePsychrometricChart(chartID) {
+  let dryBulbTempVal = document.getElementById('dryBulbTemp').value;
+  let absHumVal = document.getElementById('absHum').value;
+
+  point += 1;
+  pointStr = 'Point ' + point.toString();
+
+  Plotly.addTraces(chartID, {
+    x: [dryBulbTempVal],
+    y: [absHumVal],
+    mode: 'markers',
+    type: 'scatter',
+    marker: {
+      size: 10
+    },
+    hoverinfo: 'name+x+y',
+    hoverlabel: {namelength: -1},
+    name: pointStr
+  });
+}
+
+psychrometricsForm.addEventListener('submit', function (event) { 
+  event.preventDefault(); 
+  updatePsychrometricChart('psychrometricChart');
+});
+
+
+// Clear Psychrometric Chart
+var clearButton = document.getElementById('clearButton');
+clearButton.addEventListener('click', function (event) { 
+  point = 0;  // reset point count
+  createPsychrometricChart('psychrometricChart', refPressInput.value);  // reset whole plot (redraw)
+});
