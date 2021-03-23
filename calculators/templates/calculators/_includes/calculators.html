@@ -4,10 +4,10 @@
   <div class="col mb-4">
     <div class="card h-100 bg-light">
       <div class="card-body">
-        <h3 class="card-title mb-1">Diffusivities in polar and nonpolar solvents</h3>
-        <p class="card-text"><small class="text-muted">Online Calculator</small></p>
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Diffusivities in polar and nonpolar solvents</h3>
         <p class="card-text">Machine Learning models for the prediction of diffusivities in polar (except water) and nonpolar (except supercritical carbon dioxide) solvents.</p>
-        <a href="{% url 'd12_polar_nonpolar' %}" class="btn btn-egichem">Calculate</a>
+        <a href="{% url 'd12_polar_nonpolar' %}" class="btn btn-egichem">Solvent Diffusivities</a>
       </div>
     </div>
   </div>
@@ -15,10 +15,10 @@
   <div class="col mb-4">
     <div class="card h-100 bg-light">
       <div class="card-body">
-        <h3 class="card-title mb-1">Diffusivities in Supercritical CO<sub>2</sub></h3>
-        <p class="card-text"><small class="text-muted">Online Calculator</small></p>
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Diffusivities in Supercritical CO<sub>2</sub></h3>
         <p class="card-text">Machine Learning models for the prediction of diffusivities in supercritical carbon dioxide.</p>
-        <a href="{% url 'd12_sc_co2' %}" class="btn btn-egichem">Calculate</a>
+        <a href="{% url 'd12_sc_co2' %}" class="btn btn-egichem">SC-CO<sub>2</sub> Diffusivities</a>
       </div>
     </div>
   </div>
@@ -26,10 +26,10 @@
   <div class="col mb-4">
     <div class="card h-100 bg-light">
       <div class="card-body">
-        <h3 class="card-title mb-1">Viscosity and density of SC-CO<sub>2</sub></h3>
-        <p class="card-text"><small class="text-muted">Online Calculator</small></p>
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Viscosity and density of SC-CO<sub>2</sub></h3>
         <p class="card-text">Supercritical carbon dioxide density and pressure calculation for pure CO<sub>2</sub> and CO<sub>2</sub> with ethanol as cosolvent.</p>
-        <a href="{% url 'carbon_dioxide' %}" class="btn btn-egichem">Calculate</a>
+        <a href="{% url 'carbon_dioxide' %}" class="btn btn-egichem">SC-CO<sub>2</sub> Properties</a>
       </div>
     </div>
   </div>
@@ -37,10 +37,10 @@
   <div class="col mb-4">
     <div class="card h-100 bg-light">
       <div class="card-body">
-        <h3 class="card-title mb-1">Adsorption isotherm fitting</h3>
-        <p class="card-text"><small class="text-muted">Online Calculator</small></p>
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Adsorption isotherm fitting</h3>
         <p class="card-text">Fits well known adsorption isotherm models (e.g. Linear, Langmuir, Freundlich) to experimental data.</p>
-        <a href="{% url 'isotherms' %}" class="btn btn-egichem">Calculate</a>
+        <a href="{% url 'isotherms' %}" class="btn btn-egichem">Isotherm fitting</a>
       </div>
     </div>
   </div>
@@ -48,10 +48,11 @@
   <div class="col mb-4">
     <div class="card h-100 bg-light">
       <div class="card-body">
-        <h3 class="card-title mb-1">Psychrometrics</h3>
-        <p class="card-text"><small class="text-muted">Online Calculator</small></p>
-        <p class="card-text">Calculate the thermodynamic properties of air.</p>
-        <a href="{% url 'psychrometrics' %}" class="btn btn-egichem">Calculate</a>
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Psychrometrics</h3>
+        <p class="card-text">Calculate the thermodynamic properties of air and simulate drying/ventilation processes. Visualize data in an interactive Psychrometric Chart.</p>
+        <a href="{% url 'psychrometrics' %}" class="btn btn-egichem">Psychrometric Calculator</a>
+        <a href="{% url 'psychrometrics_ventilation' %}" class="btn btn-egichem">Drying/Ventilation Simulator</a>
       </div>
     </div>
   </div>
