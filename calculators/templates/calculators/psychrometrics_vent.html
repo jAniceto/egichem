@@ -262,7 +262,7 @@
               <h5 class="form-text mb-3">Treated air conditions:</h5>
               <div class="form-group row">
         
-                <label for="removedWater" class="col-sm-6 col-form-label">Removed Water</label>
+                <label for="removedWater" class="col-sm-6 col-form-label">Condensed Water</label>
                 <div class="col-sm-6">
                   <div class="input-group mb-3">
                     <input id="removedWater" type="number" class="form-control" aria-label="Removed Water" aria-describedby="addon-removedWater" readonly>
@@ -364,10 +364,60 @@
   </div>
 </div>
 
+<div class="row mt-4">
+  <div class="col">
+    <h4>Definitions:</h4>
+    <p>
+      <strong>Reference Pressure:</strong> Default value of 101325 Pa represents the standard atmospheric pressure (1 atm).
+    </p>
+    <p>
+      <strong>Relative Humidity:</strong> Ratio between the amount of water in the air and maximum water the air could potentially hold.
+    </p>
+    <p>
+      <strong>Absolute Humidity:</strong> Total mass of water vapor present in a given mass of air. Also sometimes called Humidity Ratio.
+    </p>
+    <p>
+      <strong>Condensed Water:</strong> Amount of water that condensed due to cooling.
+    </p>
+    <p>
+      <strong>Interior Temperature and Relative Humidity:</strong> Values of Temperature and Relative Humidity inside the storage room.
+    </p>
+    <p>
+      <strong>Exterior Temperature and Relative Humidity:</strong> Ambient Temperature and Relative Humidity. This is the conditions of the air fed to the ventilation system.
+    </p>
+    <p>
+      <strong>Cooling Temperature:</strong> Temperature to which the ventilation system cools the ambient air.
+    </p>
+    <p>
+      <strong>Reheating Temperature:</strong> Temperature to which the ventilation system reheats the air after cooling. This is the temperature the systems feeds to the storage room.
+    </p>
+    <p>
+      <strong>Wet Bulb Temperature:</strong> Temperature read by a thermometer covered in water-soaked cloth (wet-bulb thermometer) over which air is passed. At 100 % relative humidity, the wet-bulb temperature is equal to the air temperature (dry-bulb temperature). At lower humidity the wet-bulb temperature is lower than dry-bulb temperature because of evaporative cooling.
+    </p>
+    <p>
+      <strong>Dew Point Temperature:</strong> Temperature to which air must be cooled to become saturated with water vapor. When cooled further, the water vapor will condense to form liquid water.
+    </p>
+    <p>
+      <strong>Vapor Pressure:</strong> Pressure exerted by a vapor in thermodynamic equilibrium with its condensed phases at a given temperature in a closed system.
+    </p>
+    <p>
+      <strong>Specific Volume:</strong> Ratio of a substance's volume to its mass. It is the reciprocal of density.
+    </p>
+    <p>
+      <strong>Specific Enthalpy:</strong> Ratio of a system's enthalpy to its mass.
+    </p>
+    
+
+    <h4 class="mt-4">References:</h4>
+    <p>D. Meyer and D. Thevenard (2019). PsychroLib: a library of psychrometric functions to calculate thermodynamic properties of air. Journal of Open Source Software, 4(33), 1137</p>
+    <p>American Society of Heating, Refrigerating and Air-Conditioning Engineers (2017). ASHRAE handbook fundamentals 2017: SI edition. Atlanta, GA: ASHRAE.</p>
+  </div>
+</div>
+
 
 
 {% endblock content %} {% block scripts %}
-<script src="https://cdn.plot.ly/plotly-latest.min.js"  type="text/javascript"></script>
+<!-- <script src="https://cdn.plot.ly/plotly-latest.min.js"  type="text/javascript"></script> -->
 <script src="{% static 'calculators/psychrolib.js' %}" type="text/javascript"></script>
 <script src="{% static 'calculators/psychrometricsChart.js' %}" type="text/javascript"></script>
 <script src="{% static 'calculators/psychrometricsVent.js' %}" type="text/javascript"></script>
