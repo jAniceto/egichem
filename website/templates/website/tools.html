@@ -6,7 +6,27 @@
 {% include 'calculators/_includes/calculators.html' %}
 
 
-<!-- Linked or downloadable tools -->
+<!-- Linked or downloadable tools (X by 2 grid of cards) -->
+<div class="row row-cols-1 row-cols-md-2">
+  {% for tool in tools %}
+  <div class="col mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">{{ tool.filetype }}</small></p>
+        <h3 class="card-title mb-3">{{ tool.title }}</h3>
+        <p class="card-text">{{ tool.description|safe }}</p>
+        {% if tool.program_file %}<a href="{{ tool.program_file.url }}" class="btn btn-egichem mr-2">Download</a>{% endif %}
+        {% if tool.help_file %}<a href="{{ tool.help_file.url }}" class="btn btn-outline-egichem mr-2">Help</a>{% endif %}
+        {% if tool.link %}<a href="{{ tool.link }}" class="btn btn-outline-egichem mr-2" target="_blank">Reference</a>{% endif %}
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+{% comment %}
 {% for tool in tools %}
   <div class="row mb-3">
     <div class="col-md-12">
@@ -33,5 +53,6 @@
     </div>
 </div><!-- row closing -->
 {%  endfor %}
+{% endcomment %}
 
 {% endblock content %}
