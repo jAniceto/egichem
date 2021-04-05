@@ -1,0 +1,71 @@
+{% extends "website/base.html" %} 
+{% load static %} 
+{% block content %}
+
+<div class="row mb-3">
+  <div class="col">
+    <h2>Unit Conversion</h2>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <p class="lead">Quick conversion</p>
+
+    <form id="quickConversionForm">
+      <div class="row">
+        <div class="col">
+          <div id="quickConversionAlert" class="alert alert-warning" role="alert" style="display: none;"></div>
+        </div>
+      </div>
+
+      <div class="row">
+        
+        <div class="col-md-3">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="quickFrom-addon">From:</span>
+            </div>
+            <input id="quickFrom" type="text" class="form-control" placeholder="123.4 m" aria-describedby="quickFrom-addon">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="quickTo-addon">To:</span>
+            </div>
+            <input id="quickTo" type="text" class="form-control" placeholder="km" aria-describedby="quickTo-addon">
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="input-group mb-3">
+            <input id="quickResult" type="text" class="form-control" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-2">
+          <button type="submit" class="btn btn-egichem btn-block">Convert</button>
+        </div>
+
+      </div>
+    </form>
+
+  </div>
+</div>
+
+
+<div class="row mt-4">
+  <div class="col">
+    <h4>Definitions:</h4>
+    
+  </div>
+</div>
+
+{% endblock content %} 
+
+{% block scripts %}
+<script src="{% static 'calculators/quantities.js' %}"></script>
+<script src="{% static 'calculators/unitConversion.js' %}"></script>
+{% endblock %}

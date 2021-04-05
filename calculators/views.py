@@ -6,12 +6,16 @@ from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
 import numpy as np
 
+# Globals
+PAGE_TITLE = 'Tools'
+PAGE_SUBTITLE = 'Online calculators developed by the EgiChem Group'
+
 
 def calculators_home(request):
     """Online calculators homepage"""
     context = {
-		'page_title': 'Tools',
-        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+		'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
 	}
     return render(request, 'calculators/calculators_home.html', context)
 
@@ -59,8 +63,8 @@ def carbon_dioxide(request):
         viscosity_si = ''
 
     context = {
-		'page_title': 'Tools',
-        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+		'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
         'form': form,
         'density': density,
         'viscosity': viscosity,
@@ -186,8 +190,8 @@ def isotherms(request):
                     }
 
                 context = {
-                    'page_title': 'Tools',
-                    'page_subtitle': 'Online calculators developed by the EgiChem Group',
+                    'page_title': PAGE_TITLE,
+                    'page_subtitle': PAGE_SUBTITLE,
                     'form': form,
                     'data_in': data_in,
                     'data_out': data_out,
@@ -204,8 +208,8 @@ def isotherms(request):
         form = IsothermForm()
 
     context = {
-		'page_title': 'Tools',
-        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+		'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
         'form': form,
 	}
     return render(request, 'calculators/isotherms.html', context)
@@ -214,8 +218,8 @@ def isotherms(request):
 def d12_sc_co2(request):
     """Prediction of binary diffusivities in supercritical carbon dioxide using ML"""
     context = {
-        'page_title': 'Tools',
-        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
     }
     return render(request, 'calculators/d12_sc_co2.html', context)
 
@@ -223,8 +227,8 @@ def d12_sc_co2(request):
 def d12_polar_nonpolar(request):
     """Prediction of binary diffusivities in polar and nonpolar systems using ML"""
     context = {
-        'page_title': 'Tools',
-        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
     }
     return render(request, 'calculators/d12_polar_nonpolar.html', context)
 
@@ -232,8 +236,8 @@ def d12_polar_nonpolar(request):
 def psychrometrics(request):
     """Psychrometric functions to calculate thermodynamic properties of air"""
     context = {
-        'page_title': 'Tools',
-        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
     }
     return render(request, 'calculators/psychrometrics.html', context)
 
@@ -241,7 +245,16 @@ def psychrometrics(request):
 def psychrometrics_ventilation(request):
     """Psychrometric functions to calculate thermodynamic properties of air"""
     context = {
-        'page_title': 'Tools',
-        'page_subtitle': 'Online calculators developed by the EgiChem Group',
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
     }
     return render(request, 'calculators/psychrometrics_vent.html', context)
+
+
+def unit_conversion(request):
+    """Unit conversions"""
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+    }
+    return render(request, 'calculators/unit_conversion.html', context)
