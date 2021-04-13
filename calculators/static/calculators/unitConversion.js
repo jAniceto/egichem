@@ -1,6 +1,17 @@
-// ---------------------------------------------- //
+// unitConversion.js
+
 // UNIT CONVERSIONS
-// ---------------------------------------------- //
+// Javascript functions to perform unit conversions
+
+// Requires:
+// quatities.js - https://github.com/gentooboontoo/js-quantities
+
+// Code by:
+// José Aniceto
+// EgiChem Group
+// CICECO - Aveiro Institute of Materials
+// University of Aveiro
+// Portugal
 
 
 // Quick Conversion

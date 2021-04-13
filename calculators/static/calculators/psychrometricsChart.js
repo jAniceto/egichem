@@ -1,6 +1,18 @@
-// ---------------------------------------------- //
+// psychrometricsChart.js
+
 // PSYCHROMETRIC CHART
-// ---------------------------------------------- //
+// Javascript functions visualize psychrometrics of the air/water mixture
+
+// Requires:
+// psychrolib.js - https://github.com/psychrometrics/psychrolib
+// plotly.js
+
+// Code by:
+// José Aniceto
+// EgiChem Group
+// CICECO - Aveiro Institute of Materials
+// University of Aveiro
+// Portugal
 
 // Function to create a range array
 function range(start, stop, step) {

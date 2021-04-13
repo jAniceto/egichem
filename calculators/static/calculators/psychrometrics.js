@@ -1,6 +1,17 @@
-// ---------------------------------------------- //
+// psychrometrics.js
+
 // PSYCHROMETRIC CALCULATIONS
-// ---------------------------------------------- //
+// Javascript functions to calculate psychrometrics of the air/water mixture
+
+// Requires:
+// psychrolib.js - https://github.com/psychrometrics/psychrolib
+
+// Code by:
+// José Aniceto
+// EgiChem Group
+// CICECO - Aveiro Institute of Materials
+// University of Aveiro
+// Portugal
 
 
 // Load psychrolib and set unit system

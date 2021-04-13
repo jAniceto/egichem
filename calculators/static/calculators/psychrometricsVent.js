@@ -1,6 +1,19 @@
-// --------------------------------------------------- //
-// PSYCHROMETRIC CALCULATIONS FOR DRYING/COOLING/VENTING
-// --------------------------------------------------- //
+// psychrometricsVent.js
+
+// PSYCHROMETRIC VENTILATION SIMULATION
+// Javascript functions to calculate psychrometrics of the air/water mixture and
+// simulate ventilation operation of a storage room
+
+// Requires:
+// psychrolib.js - https://github.com/psychrometrics/psychrolib
+
+// Code by:
+// José Aniceto
+// EgiChem Group
+// CICECO - Aveiro Institute of Materials
+// University of Aveiro
+// Portugal
+
 
 // Load psychrolib and set unit system
 let psychrolib = new Psychrometrics();
