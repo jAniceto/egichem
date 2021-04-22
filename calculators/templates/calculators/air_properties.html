@@ -134,6 +134,27 @@
   <div class="col">
     <h4>Notes</h4>
 
+    <p>
+      This calculator gathers several correlations to estimate the thermodynamic and transport properties of dry air at atmospheric pressure, for the range 200 - 400 K. All correlations deviate by less than 0.15 % from tabulated values.
+    </p>
+    
+    <p>Density can be shown to follow a simple inverse relationship (ideal gas) with a small correction term:</p>
+    <p>\[\rho \: \mathrm{[kg \: m^{-3}]} = \frac{351.99}{T} + \frac{344.88}{T^2}\]</p>
+
+    <p>Viscosity and thermal conductivity can be estimated using Sutherland’s equation:</p>
+    <p>\[\mu \: \mathrm{[10^{-6} Pa \: s]} = \frac{1.4592 T^{1.5}}{109.10 + T}\]</p>
+    <p>\[\nu \: \mathrm{[m^2 s^{-1}]} = \frac{\mu}{\rho}\]</p>
+    <p>\[k \: \mathrm{[W m^{-1} K^{-1}]} = \frac{2.3340 \times 10^{-3} T^{1.5}}{164.54 + T}\]</p>
+
+    <p>Specific heat follows a quadratic relationship:</p>
+    <p>\[C_p \: \mathrm{[J \: kg^{-1} K^{-1}]} = 1030.5 - 0.19975 T + 3.9734 \times 10^{-4} T^2\]</p>
+
+    <p>Thermal diffusivity is estimated by:</p>
+    <p>\[\alpha \: \mathrm{[10^{-6} m^2 s^{-1}]} = -4.3274 + 4.1190 \times 10^{-2} T + 1.5556 \times 10^{-4} T^2\]</p>
+
+    <p>Prandtl number is calculated by:</p>
+    <p>\[Pr = \frac{C_p \mu}{k}\]</p>
+
   </div>
 </div>
 
