@@ -112,3 +112,62 @@ function dryAirThermalExpansionCoefficient(temperature) {
 
   return 1/temperature;
 }
+
+
+// Get DOM elements
+var airPropertiesForm = document.getElementById('airPropertiesForm');
+var airPropertiesAlert = document.getElementById('airPropertiesAlert');
+var temperature = document.getElementById('temperature');
+var density = document.getElementById('density');
+var viscosity = document.getElementById('viscosity');
+var kinematicViscosity = document.getElementById('kinematicViscosity');
+var thermalConductivity = document.getElementById('thermalConductivity');
+var specificHeat = document.getElementById('specificHeat');
+var thermalDiffusivity = document.getElementById('thermalDiffusivity');
+var prandtlNumber = document.getElementById('prandtlNumber');
+
+
+// Listener for Form submit
+airPropertiesForm.addEventListener('submit', function (event) {
+  event.preventDefault(); 
+  calculateAirProperties();
+})
+
+
+// Validity Warning
+function validityWarning() {
+  airPropertiesAlert.style.display = 'block';
+  airPropertiesAlert.innerHTML = 'Warning: Temperature is outside correlation range of 200 - 400 K.';
+}
+
+
+// Calculate Properties and display results
+function calculateAirProperties() {
+
+  // Clear old warnings
+  airPropertiesAlert.style.display = 'none';
+  
+  // Check input
+  let temp = parseFloat(temperature.value) + 273.15;
+  if ((temp < 200) || (temp > 400)) {
+    validityWarning();
+  }
+  
+  let dens = dryAirDensity(temp);
+  let visc = dryAirViscosity(temp);
+  let kinVisc = dryAirKinematicViscosity(temp);
+  let conduct = dryAirThermalConductivity(temp);
+  let specHeat = dryAirSpecificHeat(temp);
+  let diffusiv = dryAirThermalDiffusivity(temp);
+  let Pr = dryAirPrandtlNumber(temp);
+
+  // Display results
+  density.value = dens.toPrecision(5);
+  viscosity.value = visc.toExponential(5);
+  kinematicViscosity.value = kinVisc.toExponential(5);
+  thermalConductivity.value = conduct.toPrecision(5);
+  specificHeat.value = specHeat.toPrecision(5);
+  thermalDiffusivity.value = diffusiv.toExponential(5);
+  prandtlNumber.value = Pr.toPrecision(5);
+
+}
