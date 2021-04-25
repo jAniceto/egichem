@@ -32,7 +32,7 @@
             <label for="density" class="col-sm-6 col-form-label">Density</label>
             <div class="col-sm-6">
               <div class="input-group mb-3">
-                <input id="density" type="number" class="form-control" aria-label="Density" aria-describedby="addon-density" readonly>
+                <input id="density" class="form-control" aria-label="Density" aria-describedby="addon-density" readonly>
                 <div class="input-group-append">
                   <span class="input-group-text" id="addon-density">kg m<sup>-3</sup></span>
                 </div>
@@ -42,7 +42,7 @@
             <label for="viscosity" class="col-sm-6 col-form-label">Dynamic Viscosity</label>
             <div class="col-sm-6">
               <div class="input-group mb-3">
-                <input id="viscosity" type="number" class="form-control" aria-label="Dynamic Viscosity" aria-describedby="addon-viscosity" readonly>
+                <input id="viscosity" class="form-control" aria-label="Dynamic Viscosity" aria-describedby="addon-viscosity" readonly>
                 <div class="input-group-append">
                   <span class="input-group-text" id="addon-viscosity">Pa s</span>
                 </div>
@@ -52,7 +52,7 @@
             <label for="kinematicViscosity" class="col-sm-6 col-form-label">Kinematic Viscosity</label>
             <div class="col-sm-6">
               <div class="input-group mb-3">
-                <input id="kinematicViscosity" type="number" class="form-control" aria-label="Kinematic Viscosity" aria-describedby="addon-kinematicViscosity" readonly>
+                <input id="kinematicViscosity" class="form-control" aria-label="Kinematic Viscosity" aria-describedby="addon-kinematicViscosity" readonly>
                 <div class="input-group-append">
                   <span class="input-group-text" id="addon-kinematicViscosity">m<sup>2</sup>&nbsp;s<sup>-1</sup></span>
                 </div>
@@ -71,7 +71,7 @@
             <label for="thermalConductivity" class="col-sm-6 col-form-label">Conductivity</label>
             <div class="col-sm-6">
               <div class="input-group mb-3">
-                <input id="thermalConductivity" type="number" class="form-control" aria-label="Conductivity" aria-describedby="addon-thermalConductivity" readonly>
+                <input id="thermalConductivity" class="form-control" aria-label="Conductivity" aria-describedby="addon-thermalConductivity" readonly>
                 <div class="input-group-append">
                   <span class="input-group-text" id="addon-thermalConductivity">W m<sup>-1</sup>&nbsp;K<sup>-1</sup></span>
                 </div>
@@ -81,7 +81,7 @@
             <label for="specificHeat" class="col-sm-6 col-form-label">Specific Heat</label>
             <div class="col-sm-6">
               <div class="input-group mb-3">
-                <input id="specificHeat" type="number" class="form-control" aria-label="Specific Heat" aria-describedby="addon-specificHeat" readonly>
+                <input id="specificHeat" class="form-control" aria-label="Specific Heat" aria-describedby="addon-specificHeat" readonly>
                 <div class="input-group-append">
                   <span class="input-group-text" id="addon-specificHeat">J kg<sup>-1</sup>&nbsp;K<sup>-1</sup></span>
                 </div>
@@ -92,7 +92,7 @@
             <label for="thermalDiffusivity" class="col-sm-6 col-form-label">Thermal Diffusivity</label>
             <div class="col-sm-6">
               <div class="input-group mb-3">
-                <input id="thermalDiffusivity" type="number" class="form-control" aria-label="ThermalDiffusivity" aria-describedby="addon-thermalDiffusivity" readonly>
+                <input id="thermalDiffusivity" class="form-control" aria-label="ThermalDiffusivity" aria-describedby="addon-thermalDiffusivity" readonly>
                 <div class="input-group-append">
                   <span class="input-group-text" id="addon-thermalDiffusivity">m<sup>2</sup>&nbsp;s<sup>-1</sup></span>
                 </div>
@@ -102,7 +102,7 @@
             <label for="prandtlNumber" class="col-sm-6 col-form-label">Prandtl Number</label>
             <div class="col-sm-6">
               <div class="input-group mb-3">
-                <input id="prandtlNumber" type="number" class="form-control" aria-label="Prandtl Number" aria-describedby="addon-prandtlNumber" lang="en" readonly>
+                <input id="prandtlNumber" class="form-control" aria-label="Prandtl Number" aria-describedby="addon-prandtlNumber" lang="en" readonly>
                 <div class="input-group-append">
                   <span class="input-group-text" id="addon-prandtlNumber">-</span>
                 </div>
@@ -138,7 +138,7 @@
       This calculator gathers several correlations to estimate the thermodynamic and transport properties of dry air at atmospheric pressure, for the range 200 - 400 K. All correlations deviate by less than 0.15 % from tabulated values.
     </p>
     
-    <p>Density can be shown to follow a simple inverse relationship (ideal gas) with a small correction term:</p>
+    <p>Density follows a simple inverse relationship (ideal gas) with a small correction term:</p>
     <p>\[\rho \: \mathrm{[kg \: m^{-3}]} = \frac{351.99}{T} + \frac{344.88}{T^2}\]</p>
 
     <p>Viscosity and thermal conductivity can be estimated using Sutherland’s equation:</p>
@@ -155,6 +155,17 @@
     <p>Prandtl number is calculated by:</p>
     <p>\[Pr = \frac{C_p \mu}{k}\]</p>
 
+  </div>
+</div>
+
+<div class="row mt-5">
+  <div class="col">
+    <h4>References</h4>
+
+    <p>
+      B.E. Poling, J.M. Prausnitz, J.P. O'Connell. Properties of Gases and Liquids, 5th Edition, McGraw-Hill, 2001.
+    </p>
+    
   </div>
 </div>
 
