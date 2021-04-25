@@ -11,4 +11,5 @@ urlpatterns = [
     path('psychrometrics/', views.psychrometrics, name='psychrometrics'),
     path('psychrometrics-vent/', views.psychrometrics_ventilation, name='psychrometrics_ventilation'),
     path('unit-conversion/', views.unit_conversion, name='unit_conversion'),
+    path('air-properties/', views.air_properties, name='air_properties'),
 ]

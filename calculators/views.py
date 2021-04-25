@@ -258,3 +258,12 @@ def unit_conversion(request):
         'page_subtitle': PAGE_SUBTITLE,
     }
     return render(request, 'calculators/unit_conversion.html', context)
+
+
+def air_properties(request):
+    """Properties of dry air at atmospheric pressure"""
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+    }
+    return render(request, 'calculators/air_properties.html', context)
