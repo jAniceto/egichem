@@ -40,9 +40,45 @@ function quickConvert() {
   // Remove alert is exists
   clearAlert(quickConversionAlert);
 
+  let fromVal = quickFrom.value;
+  let toVal = quickTo.value;
+
+  // Help parsing temperature units
+  if (fromVal.endsWith('C')) {
+    fromVal = fromVal.replace('C', 'tempC');
+  }
+
+  if (fromVal.endsWith('F')) {
+    fromVal = fromVal.replace('F', 'tempF');
+  }
+
+  if (fromVal.endsWith('K')) {
+    fromVal = fromVal.replace('K', 'tempK');
+  }
+
+  if (fromVal.endsWith('R')) {
+    fromVal = fromVal.replace('R', 'tempR');
+  }
+
+  if (toVal.endsWith('C')) {
+    toVal = toVal.replace('C', 'tempC');
+  }
+
+  if (toVal.endsWith('F')) {
+    toVal = toVal.replace('F', 'tempF');
+  }
+
+  if (toVal.endsWith('K')) {
+    toVal = toVal.replace('K', 'tempK');
+  }
+
+  if (toVal.endsWith('R')) {
+    toVal = toVal.replace('R', 'tempR');
+  }
+
   try {
-    fromQty = Qty.parse(quickFrom.value);
-    toQty = Qty.parse(quickTo.value);
+    fromQty = Qty.parse(fromVal);
+    toQty = Qty.parse(toVal);
     
     if (fromQty && toQty) {
       result = fromQty.to(toQty);
@@ -57,7 +93,7 @@ function quickConvert() {
       throw new Error("Can't parse the inputted values for FROM and TO.");
     }
     
-    quickResult.value = result.scalar.toPrecision(4);
+    quickResult.value = result.scalar.toPrecision(6);
 
   } catch (error) {
     quickConversionAlert.style.display = 'block';
@@ -140,11 +176,11 @@ var unitsByKind = [
       },
       {
         "id": "m",
-        "str": "meter"
+        "str": "meter (m)"
       },
       {
         "id": "km",
-        "str": "kilometer"
+        "str": "kilometer (km)"
       },
     ]
   },
@@ -169,7 +205,7 @@ var unitsByKind = [
       },
       {
         "id": "hectare",
-        "str": "hectare"
+        "str": "hectare (ha)"
       },
     ]
   },
@@ -186,7 +222,7 @@ var unitsByKind = [
       },
       {
         "id": "l",
-        "str": "liter"
+        "str": "liter (l)"
       },
       {
         "id": "cm3",
@@ -456,8 +492,6 @@ fromUnitSelect.addEventListener('change', function() {
     createSelectOptions('fromUnitSelect');
     createSelectOptions('toUnitSelect');
   } else {
-    console.log(fromUnitSelect.value);
-    console.log(Qty.parse(fromUnitSelect.value));
     var kind = Qty.parse(fromUnitSelect.value).kind();
     filterSelectOptions('toUnitSelect', kind);
   }
@@ -507,7 +541,7 @@ function detailedConvert() {
 
     result = fromQty.to(toQty);
     
-    detailedResult.value = +result.scalar.toPrecision(4);
+    detailedResult.value = +result.scalar.toPrecision(6);
 
   } catch (error) {
     detailedConversionAlert.style.display = 'block';
