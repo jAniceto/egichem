@@ -17,6 +17,7 @@ boto3 = "*"
 numpy = "*"
 scipy = "*"
 matplotlib = "*"
+pcsaft = "*"
 
 [requires]
 python_version = "3.7"
