@@ -408,12 +408,41 @@ var unitsByKind = [
       },
     ]
   },
+  // {
+  //   "kind": "concentration",
+  //   "units": [
+  //     {
+  //       "id": "mmol/ml",
+  //       "str": "milimol per mililiter (mmol/ml)"
+  //     },
+  //     {
+  //       "id": "mol/l",
+  //       "str": "mol per liter (mol/l)"
+  //     },
+  //     {
+  //       "id": "mol/cm3",
+  //       "str": "mol per cubic centimeter (mol/cm3)"
+  //     },
+  //     {
+  //       "id": "mol/dm3",
+  //       "str": "mol per cubic decimeter (mol/dm3)"
+  //     },
+  //     {
+  //       "id": "mol/m3",
+  //       "str": "mol per cubic meter (mol/m3)"
+  //     }
+  //   ]
+  // },
   {
     "kind": "density",
     "units": [
       {
         "id": "g/ml",
         "str": "gram per mililiter (g/ml)"
+      },
+      {
+        "id": "g/l",
+        "str": "gram per liter (g/l)"
       },
       {
         "id": "kg/l",
@@ -424,12 +453,12 @@ var unitsByKind = [
         "str": "gram per cubic centimeter (g/cm3)"
       },
       {
-        "id": "kg/m3",
-        "str": "gram per cubic centimeter (g/cm3)"
+        "id": "kg/dm3",
+        "str": "kilogram per cubic decimeter (kg/dm3)"
       },
       {
         "id": "kg/m3",
-        "str": "gram per cubic centimeter (g/cm3)"
+        "str": "kilogram per cubic meter (kg/m3)"
       },
     ]
   },
