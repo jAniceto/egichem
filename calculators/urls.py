@@ -12,4 +12,5 @@ urlpatterns = [
     path('psychrometrics-vent/', views.psychrometrics_ventilation, name='psychrometrics_ventilation'),
     path('unit-conversion/', views.unit_conversion, name='unit_conversion'),
     path('air-properties/', views.air_properties, name='air_properties'),
+    path('pcsaft-co2/', views.pcsaft_co2, name='pcsaft_co2'),
 ]
