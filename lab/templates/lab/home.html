@@ -137,10 +137,10 @@
         <p class="card-text">{{ resource.description }}</p>
         <p class="card-text"><small class="text-muted">{{ resource.resource_type }}</small></p>
         <a href="{{ resource.url1 }}" class="btn btn-primary" target="_blank">{{ resource.url1_text }}</a>
-        {% if url2 %}
+        {% if resource.url2 %}
         <a href="{{ resource.url2 }}" class="btn btn-outline-primary" target="_blank">{{ resource.url2_text }}</a>
         {% endif %}
-        {% if url3 %}
+        {% if resource.url3 %}
         <a href="{{ resource.url3 }}" class="btn btn-outline-primary" target="_blank">{{ resource.url3_text }}</a>
         {% endif %}
       </div>
