@@ -40,9 +40,9 @@ class CarbonDioxide():
             # CO2-Ethanol PC-SAFT parameters
             # CO2 - component 1
             # Ethanol - component 2
-            m = np.asarray([2.5692, 2.3827])
-            s = np.asarray([2.5637, 3.1771])
-            e = np.asarray([152.1, 198.24]) 
+            m = np.asarray([2.0729, 2.3827])
+            s = np.asarray([2.7852, 3.1771])
+            e = np.asarray([169.21, 198.24]) 
             k_ij = np.asarray([[0., 0.], [0., 0.]]) 
             vol_a = np.asarray([0, 0.032384])
             e_assoc = np.asarray([0, 2653.4])
@@ -54,9 +54,9 @@ class CarbonDioxide():
             # CO2-Water PC-SAFT parameters
             # CO2 - component 1
             # Water - component 2
-            m = np.asarray([2.5692, 1.0656])
-            s = np.asarray([2.5637, 3.0007])
-            e = np.asarray([152.1, 366.51]) 
+            m = np.asarray([2.0729, 1.0656])
+            s = np.asarray([2.7852, 3.0007])
+            e = np.asarray([169.21, 366.51]) 
             k_ij = np.asarray([[0., 0], [0, 0.]]) 
             vol_a = np.asarray([0, 0.034868])
             e_assoc = np.asarray([0, 2500.7])
@@ -68,9 +68,9 @@ class CarbonDioxide():
             # CO2-Methanol PC-SAFT parameters
             # CO2 - component 1
             # Methanol - component 2
-            m = np.asarray([2.5692, 1.5255])
-            s = np.asarray([2.5637, 3.23])
-            e = np.asarray([152.1, 188.9]) 
+            m = np.asarray([2.0729, 1.5255])
+            s = np.asarray([2.7852, 3.23])
+            e = np.asarray([169.21, 188.9]) 
             k_ij = np.asarray([[0., 0.018285945], [0.018285945, 0.]]) 
             vol_a = np.asarray([0, 0.035176])
             e_assoc = np.asarray([0, 2899.5])
@@ -110,6 +110,7 @@ class CarbonDioxide():
         float
             Mass density of the mixture [kg/m3]
         """
+        self.molar_density()
         return self.molar_dens * self.molar_mass_mix / 1000
 
     def enthalpy(self):
@@ -185,13 +186,25 @@ class CarbonDioxide():
 
 
 if __name__ == '__main__':
-    co2_EtOH = CarbonDioxide(30, 50, cossolvent='ethanol', cossolvent_fraction=0.15)
-    print('molar density', co2_EtOH.molar_density())
-    print('mass density', co2_EtOH.mass_density())
-    print('enthalpy vaporization', co2_EtOH.enthalpy())
-    print('res enthalpy', co2_EtOH.residual_enthalpy())
-    print('res entropy', co2_EtOH.residual_entropy())
-    print('res gibbs', co2_EtOH.residual_gibbs())
-    print('fugacity', co2_EtOH.fugacity())
-    print('compress', co2_EtOH.compressibility())
-    print('helmholtz', co2_EtOH.helmholtz())
+    # co2_EtOH = CarbonDioxide(30, 50, cossolvent='ethanol', cossolvent_fraction=0.15)
+    # print('molar density', co2_EtOH.molar_density())
+    # print('mass density', co2_EtOH.mass_density())
+    # print('enthalpy vaporization', co2_EtOH.enthalpy())
+    # print('res enthalpy', co2_EtOH.residual_enthalpy())
+    # print('res entropy', co2_EtOH.residual_entropy())
+    # print('res gibbs', co2_EtOH.residual_gibbs())
+    # print('fugacity', co2_EtOH.fugacity())
+    # print('compress', co2_EtOH.compressibility())
+    # print('helmholtz', co2_EtOH.helmholtz())
+
+    co2 = CarbonDioxide(20, 1)
+    print('molar density', co2.molar_density())
+    print('mass density', co2.mass_density())
+    print('enthalpy vaporization', co2.enthalpy())
+    print('res enthalpy', co2.residual_enthalpy())
+    print('res entropy', co2.residual_entropy())
+    print('res gibbs', co2.residual_gibbs())
+    print('fugacity', co2.fugacity())
+    print('compress', co2.compressibility())
+    print('helmholtz', co2.helmholtz())
+
