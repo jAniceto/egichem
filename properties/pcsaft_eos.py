@@ -71,9 +71,17 @@ class CarbonDioxide():
             m = np.asarray([2.0729, 1.5255])
             s = np.asarray([2.7852, 3.23])
             e = np.asarray([169.21, 188.9]) 
-            k_ij = np.asarray([[0., 0.018285945], [0.018285945, 0.]]) 
             vol_a = np.asarray([0, 0.035176])
             e_assoc = np.asarray([0, 2899.5])
+            # Parameters for calculation of kij (k_ij = a_ij + b_ij/Tr + c_ij*lnTr + d_ij*Tr + e_ij*Tr^2;   Tr=T/Tref)
+            a_ij = 0
+            b_ij = 0.024566
+            c_ij = -0.014496
+            d_ij = 0
+            e_ij = 0
+            Tr = temp / 298.15
+            k_ij_ = a_ij + b_ij/Tr + c_ij*np.log(Tr) + d_ij*Tr + e_ij*Tr**2
+            k_ij = np.asarray([[0., k_ij_], [k_ij_, 0.]]) 
             self.pcsaft_parameters = {'m':m, 's':s, 'e':e, 'k_ij':k_ij, 'vol_a': vol_a, 'e_assoc': e_assoc}
             molar_mass = np.asarray([44.01, 32.04])  # g/mol
             self.molar_mass_mix = self.x[0]*molar_mass[0] + self.x[1]*molar_mass[1]
