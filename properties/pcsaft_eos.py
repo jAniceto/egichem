@@ -158,7 +158,7 @@ class CarbonDioxide():
             c_ij = -0.014496
             d_ij = 0
             e_ij = 0
-            Tr = temp / 298.15
+            Tr = self.temperature / 298.15
             k_ij_ = a_ij + b_ij/Tr + c_ij*np.log(Tr) + d_ij*Tr + e_ij*Tr**2
             k_ij = np.asarray([[0., k_ij_], [k_ij_, 0.]]) 
             self.pcsaft_parameters = {'m':m, 's':s, 'e':e, 'k_ij':k_ij, 'vol_a': vol_a, 'e_assoc': e_assoc}
