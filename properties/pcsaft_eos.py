@@ -2,6 +2,85 @@ import numpy as np
 import pcsaft
 
 
+def calculate_properties(temp=None, press=None, x=None, molar_mass=None, m=None, s=None, e=None, vol_a=None, e_assoc=None, k_ij=None):
+    """Calculate properties of pure component or mixture using the PC-SAFT equation of state
+    
+    Parameters
+    ----------
+    temp : float
+        Temperature [ºC].
+    press : float
+        Pressure [bar].
+    x : list
+        Molar fraction of each component [mol/mol].
+    molar_mass : list
+        Molar mass of each component [g/mol].
+    m : list
+        Segment number of each component [-].
+    s : list
+        Segment diameter of each component [Angstrom].
+    e : list
+        Dispersion energy of each component [K].
+    vol_a : list
+        Association volume of each component [-].
+    e_assoc : list
+        Association energy of each component [K].
+    k_ij : float
+        Binary interaction parameter of each component [-].
+    
+    Returns
+    -------
+    properties : dict
+        Dictionary with calculated properties. It has the following keys:
+    """
+
+    # Unit conversions
+    temperature = temp + 273.15  # ºC to K
+    pressure = press * 1e5  # bar to Pa
+    molar_mass = np.asarray(molar_mass)  # g/mol
+    m = np.asarray(m)
+    s = np.asarray(s)
+    e = np.asarray(e) 
+    x = np.asarray(x)
+    vol_a = np.asarray(vol_a)
+    e_assoc = np.asarray(e_assoc)
+    k_ij = np.asarray(k_ij) 
+    
+    pcsaft_parameters = {'m':m, 's':s, 'e':e, 'vol_a': vol_a, 'e_assoc': e_assoc}
+    if k_ij:
+        pcsaft_parameters['k_ij'] = k_ij
+
+    # Calculations0
+    molar_mass_mix = sum(molar_mass * x)
+    molar_dens = pcsaft.pcsaft_den(temperature, pressure, x, pcsaft_parameters)
+    mass_dens = molar_dens * molar_mass_mix / 1000
+    try:
+        enthalpy_vap, vap_press = pcsaft.pcsaft_Hvap(temperature, x, pcsaft_parameters)
+    except pcsaft.SolutionError as e:
+        print(e)
+        enthalpy_vap, vap_press = None, None
+    residual_enthalpy = pcsaft.pcsaft_hres(temperature, molar_dens, x, pcsaft_parameters)
+    residual_entropy = pcsaft.pcsaft_sres(temperature, molar_dens, x, pcsaft_parameters)
+    residual_gibbs = pcsaft.pcsaft_gres(temperature, molar_dens, x, pcsaft_parameters)
+    fugacity = pcsaft.pcsaft_fugcoef(temperature, molar_dens, x, pcsaft_parameters)
+    compressibility = pcsaft.pcsaft_Z(temperature, molar_dens, x, pcsaft_parameters)
+    helmholtz = pcsaft.pcsaft_ares(temperature, molar_dens, x, pcsaft_parameters)
+
+    properties = {
+        'molar_mass_mix': molar_mass_mix,
+        'molar_dens': molar_dens,
+        'mass_dens': mass_dens,
+        'enthalpy_vap': enthalpy_vap,
+        'vap_press': vap_press,
+        'residual_enthalpy': residual_enthalpy,
+        'residual_entropy': residual_entropy,
+        'residual_gibbs': residual_gibbs,
+        'fugacity': fugacity,
+        'compressibility': compressibility,
+        'helmholtz': helmholtz,
+    }
+    return properties
+
 class CarbonDioxide():
     """
     Calculate physio and thermodynamic properties of carbon dioxide and

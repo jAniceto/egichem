@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm
+from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm
 
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
@@ -271,7 +271,7 @@ def air_properties(request):
 
 
 def pcsaft_co2(request):
-    """Properties of carbon dioxide mixtures using the PC-SAfT equation of state"""
+    """Properties of carbon dioxide mixtures using the PC-SAFT equation of state"""
     properties = {
         'molar_density': '',
         'mass_density': '',
@@ -327,6 +327,106 @@ def pcsaft_co2(request):
                 messages.warning(request, 'Warning: Enthalpy of vaporization could not be calculated.')
     else:
         form = PCSAFTForm()
+
+    context = {
+		'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+        'form': form,
+        'properties': properties,
+	}
+    return render(request, 'calculators/pcsaft-co2.html', context)
+
+
+def pcsaft(request):
+    """General calculator for the PC-SAFT equation of state"""
+    properties = {
+        'molar_mass': '',
+        'molar_density': '',
+        'mass_density': '',
+        'enthalpy_vaporization': '',
+        'vapor_pressure': '',
+        'residual_enthalpy': '',
+        'residual_entropy': '',
+        'residual_gibbs': '',
+        'fugacity': '',
+        'compressibility': '',
+        'helmholtz': '',
+    }
+
+    if request.method == 'POST':
+        form = GeneralPCSAFTForm(request.POST)
+
+        if form.is_valid():
+            temperature = form.cleaned_data['temperature']
+            pressure = form.cleaned_data['pressure']
+            molar_fraction_1 = form.cleaned_data['molar_fraction_1']
+            molar_mass_1 = form.cleaned_data['molar_mass_1']
+            molar_mass_2 = form.cleaned_data['molar_mass_2']
+            m_1 = form.cleaned_data['m_1']
+            m_2 = form.cleaned_data['m_2']
+            s_1 = form.cleaned_data['s_1']
+            s_2 = form.cleaned_data['s_2']
+            e_1 = form.cleaned_data['e_1']
+            e_2 = form.cleaned_data['e_2']
+            vol_assoc_1 = form.cleaned_data['vol_assoc_1']
+            vol_assoc_2 = form.cleaned_data['vol_assoc_2']
+            e_assoc_1 = form.cleaned_data['e_assoc_1']
+            e_assoc_2 = form.cleaned_data['e_assoc_2']
+            k_12 = form.cleaned_data['k_12']
+
+            try:
+                if molar_fraction_1 == 1:
+                    system = pcsaft_eos.calculate_properties(
+                        temp=temperature, 
+                        press=pressure, 
+                        x=[molar_fraction_1], 
+                        molar_mass=[molar_mass_1], 
+                        m=[m_1], 
+                        s=[s_1], 
+                        e=[e_1], 
+                        vol_a=[vol_assoc_1], 
+                        e_assoc=[e_assoc_1],
+                    )
+                else:
+                    system = pcsaft_eos.calculate_properties(
+                        temp=temperature, 
+                        press=pressure, 
+                        x=[molar_fraction_1, 1-molar_fraction_1], 
+                        molar_mass=[molar_mass_1, molar_mass_2], 
+                        m=[m_1, m_2], 
+                        s=[s_1, s_2], 
+                        e=[e_1, e_2], 
+                        vol_a=[vol_assoc_1, vol_assoc_2], 
+                        e_assoc=[e_assoc_1, e_assoc_2], 
+                        k_ij=[[0., k_12], [k_12, 0.]]
+                    )
+            except Exception as e:
+                print(e)
+                messages.error(request, 'PC-SAFT EoS could not be solved.')
+                return redirect('pcsaft')
+            
+            print(system)
+            properties['molar_mass'] = f"{system['molar_mass_mix']:.2f}"
+            properties['molar_density'] = f"{system['molar_dens']:.2f}"
+            properties['mass_density'] = f"{system['mass_dens']:.2f}"
+            properties['residual_enthalpy'] = f"{system['residual_enthalpy']:.2f}"
+            properties['residual_entropy'] = f"{system['residual_entropy']:.4f}"
+            properties['residual_gibbs'] = f"{system['residual_gibbs']:.2f}"
+            system_fugacity = system['fugacity']
+            properties['fugacity'] = f"{system_fugacity[0]:.4f}"
+            if len(system_fugacity) > 1:
+                properties['fugacity_cossolvent'] = f"{system_fugacity[1]:.4f}"
+            properties['compressibility'] = f"{system['compressibility']:.4f}"
+            properties['helmholtz'] = f"{system['helmholtz']:.4f}"
+
+            try:
+                properties['enthalpy_vaporization'] = f"{system['enthalpy_vap']:.2f}"
+                properties['vapor_pressure'] = f"{system['vap_press']:.2f}"
+            except Exception as e:
+                print(e)
+                messages.warning(request, 'Warning: Enthalpy of vaporization could not be calculated.')
+    else:
+        form = GeneralPCSAFTForm()
 
     context = {
 		'page_title': PAGE_TITLE,

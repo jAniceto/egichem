@@ -4,20 +4,28 @@
 
 <div class="row mb-3">
   <div class="col">
-    <h2>Calculations with the PC-SAFT equation of state</h2>
-    <p class="lead">Calculate properties of pure components and binary mixtures using the PC-SAFT equation of state.</p>
+    <h2>Properties of carbon dioxide mixtures</h2>
+    <p class="lead">Properties of carbon dioxide and carbon dioxide/cossolvent mixtures calculated using the PC-SAFT equation of state.</p>
   </div>
 </div>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-5">
 
     <form method="POST">
       {% csrf_token %}
 
-      <h6>System conditions:</h6>
       <div class="form-group row my-1">
+        <label for="id_cosolvent" class="col-sm-5 col-form-label">{{ form.cosolvent.label }}</label>
+        <div class="col-sm-7">
+          <div class="input-group mb-3">
+            {{ form.cosolvent }}
+          </div>
+        </div>
+        {{ form.cosolvent.errors }}
+      </div>
 
+      <div class="form-group row my-1">
         <label for="id_temperature" class="col-sm-5 col-form-label">{{ form.temperature.label }}</label>
         <div class="col-sm-7">
           <div class="input-group mb-3">
@@ -44,146 +52,29 @@
         {{ form.pressure.errors }}
       </div>
 
-      <div id="molar_fraction_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Molar fraction</label>
+      <div id="cosolvent_fraction_div" class="form-group row my-1">
+        <label for="id_pressure" class="col-sm-5 col-form-label">{{ form.cosolvent_fraction.label }}</label>
         <div class="col-sm-7">
           <div class="input-group mb-3">
-            {{ form.molar_fraction_1 }}
-            <input id="molarFractionComponent2" type="number" step="any" class="form-control" placeholder="Comp 2" disabled>
+            {{ form.cosolvent_fraction }}
             <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_molar_fraction_1">mol/mol</span>
+              <span class="input-group-text" id="addon-id_cosolvent_fraction">mol/mol</span>
             </div>
           </div>
         </div>
-        {{ form.molar_fraction_1.errors }}
-      </div>
-
-      <div id="molar_mass_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Molar mass</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.molar_mass_1 }}
-            {{ form.molar_mass_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_molar_mass_1">g/mol</span>
-            </div>
-          </div>
-        </div>
-        {{ form.molar_mass_1.errors }}
-        {{ form.molar_mass_2.errors }}
-      </div>
-      
-      <!-- PC-SAFT parameters -->
-      <h6>PC-SAFT equation parameters:</h6>
-      <div id="m_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Segment number (m)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.m_1 }}
-            {{ form.m_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_m_1">-</span>
-            </div>
-          </div>
-        </div>
-        {{ form.m_1.errors }}
-        {{ form.m_2.errors }}
-      </div>
-
-      <div id="s_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Segment diameter (&#963;)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.s_1 }}
-            {{ form.s_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_s_1">&#8491;</span>
-            </div>
-          </div>
-        </div>
-        {{ form.s_1.errors }}
-        {{ form.s_2.errors }}
-      </div>
-
-      <div id="e_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Dispersion energy (&#949;/k)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.e_1 }}
-            {{ form.e_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_e_1">K</span>
-            </div>
-          </div>
-        </div>
-        {{ form.e_1.errors }}
-        {{ form.e_2.errors }}
-      </div>
-
-      <div id="vol_assoc_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Association volume (k<sub>ab</sub>)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.vol_assoc_1 }}
-            {{ form.vol_assoc_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_vol_assoc_1">-</span>
-            </div>
-          </div>
-        </div>
-        {{ form.vol_assoc_1.errors }}
-        {{ form.vol_assoc_2.errors }}
-      </div>
-
-      <div id="e_assoc_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Association energy (&#949;<sub>ab</sub>/k)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.e_assoc_1 }}
-            {{ form.e_assoc_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_e_assoc_1">K</span>
-            </div>
-          </div>
-        </div>
-        {{ form.e_assoc_1.errors }}
-        {{ form.e_assoc_2.errors }}
-      </div>
-
-      <div id="k_12_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Interaction parameter (k<sub>ij</sub>)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.k_12 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_k_12">-</span>
-            </div>
-          </div>
-        </div>
-        {{ form.k_12.errors }}
+        {{ form.cosolvent_fraction.errors }}
       </div>
       
       <button type="submit" class="btn btn-egichem">Calculate</button>
-      <!-- <a href="{% url 'pcsaft' %}" type="button" class="btn btn-outline-egichem">Reset</a> -->
+      <a href="{% url 'pcsaft_co2' %}" type="button" class="btn btn-outline-egichem">Reset</a>
     </form>
 
   </div>
 
-  <div class="col-md-5 offset-md-1 mt-3 mt-md-0">
+  <div class="col-md-5 offset-md-2 mt-3 mt-md-0">
     <form>
       
-      <h6>Mixture properties:</h6>
       <div class="form-group row">
-
-        <label for="molar-mass" class="col-sm-6 col-form-label">Molar mass</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.molar_mass }}" id="molar-mass" class="form-control" aria-label="Molar mass" aria-describedby="addon-molar-mass" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-molar-mass">g mol<sup>-1</sup></span>
-            </div>
-          </div>
-        </div>
 
         <label for="molar-density" class="col-sm-6 col-form-label">Molar density</label>
         <div class="col-sm-6">
@@ -211,16 +102,6 @@
             <input value="{{ properties.enthalpy_vaporization }}" id="enthalpyVaporization" class="form-control" aria-label="Enthalpy of vaporization" aria-describedby="addon-enthalpyVaporization" readonly>
             <div class="input-group-append">
               <span class="input-group-text" id="addon-enthalpyVaporization">J mol<sup>-1</sup></span>
-            </div>
-          </div>
-        </div>
-
-        <label for="vaporPressure" class="col-sm-6 col-form-label">Vapor pressure</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.vapor_pressure }}" id="vaporPressure" class="form-control" aria-label="Vapor pressure" aria-describedby="addon-vaporPressure" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-vaporPressure">Pa</span>
             </div>
           </div>
         </div>
@@ -255,16 +136,27 @@
           </div>
         </div>
         
-        <label for="fugacity" class="col-sm-6 col-form-label">Fugacity coefficient</label>
+        <label for="fugacity" class="col-sm-6 col-form-label">Fugacity coefficient CO<sub>2</sub></label>
         <div class="col-sm-6">
           <div class="input-group mb-3">
-            <input value="{{ properties.fugacity }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient" aria-describedby="addon-fugacity" readonly>
-            <input value="{{ properties.fugacity_cossolvent }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient" aria-describedby="addon-fugacity" readonly>
+            <input value="{{ properties.fugacity }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient CO2" aria-describedby="addon-fugacity" readonly>
             <div class="input-group-append">
               <span class="input-group-text" id="addon-fugacity">-</span>
             </div>
           </div>
         </div>
+
+        {% if properties.fugacity_cossolvent %}
+        <label for="fugacity2" class="col-sm-6 col-form-label">Fugacity coefficient cossolvent</label>
+        <div class="col-sm-6">
+          <div class="input-group mb-3">
+            <input value="{{ properties.fugacity_cossolvent }}" id="fugacity2" class="form-control" aria-label="Fugacity coefficient cossolvent" aria-describedby="addon-fugacity2" readonly>
+            <div class="input-group-append">
+              <span class="input-group-text" id="addon-fugacity2">-</span>
+            </div>
+          </div>
+        </div>
+        {% endif %}
 
         <label for="compressibility" class="col-sm-6 col-form-label">Compressibility factor</label>
         <div class="col-sm-6">
@@ -300,18 +192,6 @@
     <p>This calculator implements the PC-SAFT equation of state.</p>
     <p>PC-SAFT (Perturbed Chain - Statistical Associating Fluid Theory) is an equation of state developed by J. Gross and G. Sadowski. It is based on statistical associating fluid theory (SAFT) and makes use of statistical mechanical methods. Unlike other SAFT equations of state that used unbonded spherical particles as a reference fluid, PC-SAFT uses spherical particles in the context of hard chains as reference fluid.</p>
 
-    <h4>Help</h4>
-    <p>For a single component mixture leave all Comp 2 inputs blank. The interaction parameter should also be blank.</p>
-    <p>Molar fraction of component 2 is calculated automatically.</p>
-    <p class="mb-0">Regarding the PC-SAFT equation of state parameters:</p>
-      <ul>
-        <li>Parameters for multiple molecules can be found in the references below.</li>
-        <li>The association volume parameter (k<sub>ab</sub>) should be set to 0 for non associating compounds.</li>
-        <li>The association energy parameter (&#949;<sub>ab</sub>/k) should be set to 0 for non associating compounds.</li>
-      </ul>
-      <p></p>
-    
-
     <h4>References</h4>
     <p>J. Gross, G. Sadowski. Perturbed-Chain SAFT: An Equation of State Based on a Perturbation Theory for Chain Molecules, Ind. Eng. Chem. Res., 2001, 40(4) 1244–1260.</p>
     <p>J. Gross, G. Sadowski. Application of the Perturbed-Chain SAFT Equation of State to Associating Systems, Ind. Eng. Chem. Res., 2002, 41(22) 5510–5515.</p>
@@ -325,12 +205,22 @@
 
 {% block scripts %}
 <script>
-  var molarFractionComponent2 = document.getElementById('molarFractionComponent2');
 
-  molarFractionComponent1.addEventListener('input', function (event) {
-    var x2 = 1 - parseFloat(this.value);
-    molarFractionComponent2.value = Math.round((x2 + Number.EPSILON) * 1000) / 1000;
+  function cosolventStatus() {
+    if (selectElement.value == 'NONE') {
+      selectDiv.style.display = "none";
+    } else {
+      selectDiv.style.display = "flex";
+    }
+  }
+
+  var selectElement = document.getElementById('id_cosolvent');
+  var selectDiv = document.getElementById('cosolvent_fraction_div');
+
+  selectElement.addEventListener("change", function () {
+    cosolventStatus()
   });
 
+  cosolventStatus()
 </script>
 {% endblock %}

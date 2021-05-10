@@ -104,3 +104,94 @@ class PCSAFTForm(forms.Form):
             else:
                 print('raise error')
                 raise forms.ValidationError('You must specify the cosolvent fraction.')
+
+
+class GeneralPCSAFTForm(forms.Form):
+    temperature = forms.FloatField(
+        label='Temperature', 
+        required=False,
+    )
+    pressure = forms.FloatField(
+        label='Pressure', 
+        required=False,
+        min_value=0.001, 
+    )
+    # Component 1
+    molar_fraction_1 = forms.FloatField(
+        label='Component 1 molar fraction', 
+        required=False,
+        max_value=1, 
+        min_value=0,
+    )
+    molar_mass_1 = forms.FloatField(
+        label='Component 1 molar mass', 
+        required=False,
+        min_value=0,
+    )
+    m_1 = forms.FloatField(
+        label='Component 1 segment number', 
+        required=False,
+    )
+    s_1 = forms.FloatField(
+        label='Component 1 segment diameter', 
+        required=False,
+    )
+    e_1 = forms.FloatField(
+        label='Component 1 dispersion energy', 
+        required=False,
+    )
+    vol_assoc_1 = forms.FloatField(
+        label='Component 1 association volume',
+    )
+    e_assoc_1 = forms.FloatField(
+        label='Component 1 association energy',
+    )
+    # Component 2
+    molar_mass_2 = forms.FloatField(
+        label='Component 1 molar mass', 
+        required=False,
+        min_value=0,
+    )
+    m_2 = forms.FloatField(
+        label='Component 2 segment number', 
+        required=False,
+    )
+    s_2 = forms.FloatField(
+        label='Component 2 segment diameter', 
+        required=False,
+    )
+    e_2 = forms.FloatField(
+        label='Component 2 dispersion energy', 
+        required=False,
+    )
+    vol_assoc_2 = forms.FloatField(
+        label='Component 2 association volume',
+        required=False,
+    )
+    e_assoc_2 = forms.FloatField(
+        label='Component 2 association energy',
+        required=False,
+    )
+    # Interaction parameters
+    k_12 = forms.FloatField(
+        label='Binary interaction parameters',
+        required=False,
+    )
+
+    # Customize form widgets
+    temperature.widget.attrs.update({'class': 'form-control'})
+    pressure.widget.attrs.update({'class': 'form-control'})
+    molar_fraction_1.widget.attrs.update({'class': 'form-control', 'id': 'molarFractionComponent1', 'placeholder': 'Comp 1'})
+    molar_mass_1.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 1'})
+    molar_mass_2.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 2'})
+    m_1.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 1'})
+    m_2.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 2'})
+    s_1.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 1'})
+    s_2.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 2'})
+    e_1.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 1'})
+    e_2.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 2'})
+    vol_assoc_1.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 1'})
+    vol_assoc_2.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 2'})
+    e_assoc_1.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 1'})
+    e_assoc_2.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 2'})
+    k_12.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 1 - Comp 2'})
