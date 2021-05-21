@@ -52,6 +52,7 @@ class Partner(models.Model):
 class Member(models.Model):
     POSITIONS = (
         ('Professor', 'Professor'),
+        ('Researcher', 'Researcher'),
         ('PostDoc Researcher', 'PostDoc Researcher'),
         ('PhD Student', 'PhD Student'),
         ('Research Fellow', 'Research Fellow'),

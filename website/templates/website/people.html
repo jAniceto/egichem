@@ -83,6 +83,61 @@
 {%  endif %}
 
 
+<!-- Resercher Students -->
+{%  if researchers %}
+<div class="row mt-4 mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h3 class="text-divider"><span>Researchers</span></h3>
+  </div>
+</div>
+
+{%  for researcher in researchers  %}
+{% if forloop.counter0|divisibleby:2 %}
+<div class="row mb-3">
+  <div class="col-md-12">
+    <div class="card-deck">
+{%  endif %}
+      <div class="card">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <div class="embed-responsive embed-responsive-1by1">
+              <img class="card-img embed-responsive-item" src="{% if researcher.user.profile.photo.url %}{{ researcher.user.profile.photo.url }}{% else %}{{ researcher.photo.url }}{% endif %}" alt="Photo">
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h3 class="card-title mb-3"><a class="link" href="{% url 'member_page' researcher.slug %}">{{ researcher.name }}</a></h3>
+              <p class="card-text mb-2">{{ researcher.research_area }}</p>
+              <!-- <p class="card-text mb-1"><small class="text-muted">With EgiChem since {{ researcher.date_added|date:"F Y" }}</small></p> -->
+              <p class="card-text mb-1">
+                <small>
+                  {% if researcher.user.profile.scopus_url %}
+                  <a class="link" href="{{ researcher.user.profile.scopus_url }}" target="_blank"><i class="fas fa-globe-europe"></i> Scopus</a> &nbsp;
+                  {% endif %}
+                  {% if researcher.user.profile.scholar_url %}
+                  <a class="link" href="{{ researcher.user.profile.scholar_url }}" target="_blank"><i class="ai ai-google-scholar"></i> Scholar</a> &nbsp; 
+                  {% endif %}
+                  {% if researcher.user.profile.linkedin_url %}
+                  <a class="link" href="{{ researcher.user.profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a> &nbsp; 
+                  {% endif %}
+                  {% if researcher.user.profile.personal_url %}
+                  <a class="link" href="{{ researcher.user.profile.personal_url }}" target="_blank"><i class="fas fa-link"></i> Personal Page</a> &nbsp; 
+                  {% endif %}
+                </small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+{%  if forloop.counter|divisibleby:2 or forloop.last %}
+    </div><!-- card-deck closing -->
+  </div><!-- col-md-12 closing -->
+</div><!-- row closing -->
+{%  endif %}
+{%  endfor %}
+{%  endif %}
+
+
 <!-- PostDoc Students -->
 {%  if postdocs %}
 <div class="row mt-4 mb-3">
