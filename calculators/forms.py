@@ -62,7 +62,7 @@ class PCSAFTForm(forms.Form):
     COSOLVENTS = [
         ('NONE', 'No cosolvent'),
         ('ETHANOL', 'Ethanol'),
-        ('WATER', 'Water'),
+        # ('WATER', 'Water'),
         ('METHANOL', 'Methanol'),
     ]
     cosolvent = forms.ChoiceField(
@@ -90,7 +90,7 @@ class PCSAFTForm(forms.Form):
     cosolvent.widget.attrs.update({'class': 'form-control'})
     temperature.widget.attrs.update({'class': 'form-control'})
     pressure.widget.attrs.update({'class': 'form-control'})
-    cosolvent_fraction.widget.attrs.update({'class': 'form-control'})
+    cosolvent_fraction.widget.attrs.update({'class': 'form-control', 'step': '0.01'})
 
     def clean(self):
         """Override the clean method. cosolvent_fraction is required if a cosolvent is selected."""

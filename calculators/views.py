@@ -293,16 +293,17 @@ def pcsaft_co2(request):
             pressure = form.cleaned_data['pressure']
             cosolvent_fraction = form.cleaned_data['cosolvent_fraction']
 
-            if cosolvent == 'NONE':
-                system = pcsaft_eos.CarbonDioxide(temperature, pressure)
-            elif cosolvent in ['ETHANOL', 'WATER', 'METHANOL']:
-                system = pcsaft_eos.CarbonDioxide(
-                        temperature, 
-                        pressure, 
-                        cossolvent=cosolvent.lower(), 
-                        cossolvent_fraction=cosolvent_fraction
-                    )
             try:
+                if cosolvent == 'NONE':
+                    system = pcsaft_eos.CarbonDioxide(temperature, pressure)
+                elif cosolvent in ['ETHANOL', 'WATER', 'METHANOL']:
+                    system = pcsaft_eos.CarbonDioxide(
+                            temperature, 
+                            pressure, 
+                            cossolvent=cosolvent.lower(), 
+                            cossolvent_fraction=cosolvent_fraction
+                        )
+            
                 properties['molar_density'] = f'{system.molar_density():.2f}'
                 properties['mass_density'] = f'{system.mass_density():.2f}'
                 properties['residual_enthalpy'] = f'{system.residual_enthalpy():.2f}'
@@ -314,17 +315,19 @@ def pcsaft_co2(request):
                     properties['fugacity_cossolvent'] = f'{system_fugacity[1]:.4f}'
                 properties['compressibility'] = f'{system.compressibility():.4f}'
                 properties['helmholtz'] = f'{system.helmholtz():.4f}'
+            
             except ValueError as e:
                 print(e)
-                messages.error(request, 'Invalid input was provided.')
-            except:
+                messages.error(request, f'Invalid input was provided: {e}')
+            
+            except Exception:
                 messages.error(request, 'PC-SAFT EoS could not be solved.')
 
-            try:
-                properties['enthalpy_vaporization'] = f'{system.enthalpy()[0]:.2f}'
-            except Exception as e:
-                print(e)
-                messages.warning(request, 'Warning: Enthalpy of vaporization could not be calculated.')
+            # try:
+            #     properties['enthalpy_vaporization'] = f'{system.enthalpy()[0]:.2f}'
+            # except Exception as e:
+            #     print(e)
+            #     messages.warning(request, 'Warning: Enthalpy of vaporization could not be calculated.')
     else:
         form = PCSAFTForm()
 
