@@ -96,6 +96,7 @@
           </div>
         </div>
 
+        {% comment %}
         <label for="enthalpyVaporization" class="col-sm-6 col-form-label">Enthalpy of vaporization</label>
         <div class="col-sm-6">
           <div class="input-group mb-3">
@@ -105,6 +106,7 @@
             </div>
           </div>
         </div>
+        {% endcomment %}
 
         <label for="residualEnthalpy" class="col-sm-6 col-form-label">Residual enthalpy</label>
         <div class="col-sm-6">
@@ -190,15 +192,25 @@
 
     <h4>Notes</h4>
     <p>This calculator implements the PC-SAFT equation of state.</p>
-    <p>PC-SAFT (Perturbed Chain - Statistical Associating Fluid Theory) is an equation of state developed by J. Gross and G. Sadowski. It is based on statistical associating fluid theory (SAFT) and makes use of statistical mechanical methods. Unlike other SAFT equations of state that used unbonded spherical particles as a reference fluid, PC-SAFT uses spherical particles in the context of hard chains as reference fluid.</p>
+    <p>PC-SAFT (Perturbed Chain - Statistical Associating Fluid Theory) is an equation of state developed by J. Gross and G. Sadowski [1,2]. It is based on statistical associating fluid theory (SAFT) and makes use of statistical mechanical methods. Unlike other SAFT equations of state that used unbonded spherical particles as a reference fluid, PC-SAFT uses spherical particles in the context of hard chains as reference fluid.</p>
+    <p>PC-SAFT has been tested by our group against experimental data from several sources at different temperature, pressures, and cossolvent fractions, providing very good results:<br>
+      - For CO<sub>2</sub>/ethanol mixtures, an average error of 1.67 % was obtained for experimental data from [3-6] (254 data points).<br>
+      - For CO<sub>2</sub>/methanol mixtures, an average error of 0.79 % was obtained for experimental data from [5,7,8] (274 data points).<br>
+      - For pure CO<sub>2</sub>, an average error of 0.49 % was obtained for experimental data from [3,9] (108 data points).<br>
+    </p>
 
     <h4>References</h4>
-    <p>J. Gross, G. Sadowski. Perturbed-Chain SAFT: An Equation of State Based on a Perturbation Theory for Chain Molecules, Ind. Eng. Chem. Res., 2001, 40(4) 1244–1260.</p>
-    <p>J. Gross, G. Sadowski. Application of the Perturbed-Chain SAFT Equation of State to Associating Systems, Ind. Eng. Chem. Res., 2002, 41(22) 5510–5515.</p>
-
+    <p>[1] J. Gross, G. Sadowski. Perturbed-Chain SAFT: An Equation of State Based on a Perturbation Theory for Chain Molecules, Ind. Eng. Chem. Res., 2001, 40(4) 1244–1260.</p>
+    <p>[2] J. Gross, G. Sadowski. Application of the Perturbed-Chain SAFT Equation of State to Associating Systems, Ind. Eng. Chem. Res., 2002, 41(22) 5510–5515.</p>
+    <p>[3] T. Zhu, H. Gong, and M. Dong. Density and Viscosity of CO<sub>2</sub> + Ethanol Binary Systems Measured by a Capillary Viscometer from 308.15 to 338.15 K and 15 to 45 MPa, J. Chem. Eng. Data, 2020, 65(8) 3820-3833.</p>
+    <p>[4] A. Zúñiga-Moreno and L.A. Galicia-Luna. Compressed Liquid Densities of Carbon Dioxide + Ethanol Mixtures at Four Compositions via a Vibrating Tube Densimeter up to 363 K and 25 MPa, J. Chem. Eng. Data, 2002, 47(2) 149-154.</p>
+    <p>[5] K.D. Tilly, N.R. Foster, S.J. Macnaughton, and D.L. Tomasko. Viscosity correlations for binary supercritical fluids, Ind. Eng. Chem. Res., 1994, 33(3) 681-688.</p>
+    <p>[6] H. Pöhler and E. Kiran. Volumetric Properties of Carbon Dioxide + Ethanol at High Pressures, J. Chem. Eng. Data, 1997, 42(2) 384-388.</p>
+    <p>[7] R.L. Smith, S.B. Lee, S. Suzuki, C. Saito, H. Inomata, and K. Arai. Densities of Carbon Dioxide + Methanol Mixtures at Temperatures from 313.2 to 323.2 K and at Pressures from 10 to 20 MPa, J. Chem. Eng. Data, 2002, 47(3) 608-612.</p>
+    <p>[8] L.A. Galicia-Luna, D. Richon, H. Renon. New Loading Technique for a Vibrating Tube Densimeter and Measurements of Liquid Densities up to 39.5 MPa for Binary and Ternary Mixtures of the Carbon Dioxide-Methanol-Propane System, J. Chem. Eng. Data, 1994, 39 424-431.</p>
+    <p>[9] National Institute of Standards and Technology (NIST), 2020.</p>
   </div>
 </div>
-
 
 {% endblock content %} 
 
