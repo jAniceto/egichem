@@ -23,7 +23,7 @@
     </div>
   </div>
   
-  <div class="col mb-4">
+  <!-- <div class="col mb-4">
     <div class="card h-100 bg-light">
       <div class="card-body">
         <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
@@ -32,18 +32,29 @@
         <a href="{% url 'carbon_dioxide' %}" class="btn btn-egichem">SC-CO<sub>2</sub> Properties</a>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <!-- <div class="col mb-4">
+  <div class="col mb-4">
     <div class="card h-100 bg-light">
       <div class="card-body">
         <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
         <h3 class="card-title mb-3">SC-CO<sub>2</sub> and SC-CO<sub>2</sub>/cossolvent properties</h3>
-        <p class="card-text">Thermodynamic properties of supercritical carbon dioxide and supercritical carbon dioxide and cossolvent mixtures calculated using the PC-SAFT equation of state.</p>
+        <p class="card-text">Thermodynamic properties of supercritical carbon dioxide and cossolvent mixtures calculated using the PC-SAFT equation of state.</p>
         <a href="{% url 'pcsaft_co2' %}" class="btn btn-egichem">SC-CO<sub>2</sub> Properties</a>
       </div>
     </div>
-  </div> -->
+  </div>
+
+  <div class="col mb-4">
+    <div class="card h-100 bg-light">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">PC-SAFT Equation of State</h3>
+        <p class="card-text">Calculate properties of pure components and binary mixtures using the PC-SAFT equation of state.</p>
+        <a href="{% url 'pcsaft' %}" class="btn btn-egichem">PC-SAFT EoS</a>
+      </div>
+    </div>
+  </div>
 
   <div class="col mb-4">
     <div class="card h-100 bg-light">
@@ -68,7 +79,7 @@
     </div>
   </div>
 
-    <!-- <div class="col mb-4">
+    <div class="col mb-4">
     <div class="card h-100 bg-light">
       <div class="card-body">
         <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
@@ -88,6 +99,17 @@
         <a href="{% url 'unit_conversion' %}" class="btn btn-egichem">Unit conversion</a>
       </div>
     </div>
-  </div> -->
+  </div>
+
+  <div class="col mb-4">
+    <div class="card h-100 bg-light">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Utilities</h3>
+        <p class="card-text">A collection of useful constants and functions used in chemical engineering.</p>
+        <a href="{% url 'utilities' %}" class="btn btn-egichem">Unit conversion</a>
+      </div>
+    </div>
+  </div>
   
 </div>
