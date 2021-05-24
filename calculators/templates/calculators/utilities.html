@@ -1,0 +1,460 @@
+{% extends "website/base.html" %} 
+{% load static %} 
+{% block content %}
+
+<div class="row mb-3">
+  <div class="col">
+    <h2>Utilities</h2>
+    <p class="lead">A collection of useful functions, constants and data. Below is a list of available sections.</p>
+    <ol class="lead">
+      <li><a href="#constants">Fundamental constants</a></li>
+      <li><a href="#errorFunctions">Error functions</a></li>
+      <li><a href="#trigFunctions">Trigonometric functions</a></li>
+      <li><a href="#hyperbFunctions">Hyperbolic functions</a></li>
+      <li><a href="#besselFunctions">Bessel functions</a></li>
+    </ol>
+
+  </div>
+</div>
+
+
+<!-- Fundamental constants -->
+<h3 id="constants" class="mb-3">Fundamental constants</h3>
+
+<p class="lead text-muted">Physical constants used in chemical engineering.</p>
+<div class="row mb-5">
+
+  <div class="col-md-6">
+    <table class="table table-responsive-md">
+      <tbody>
+        <tr>
+          <td>
+            Atomic mass unit, \(Da\) or \(u\)
+          </td>
+          <td>
+            1.66053906660(50)×10<sup>-27</sup> kg
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Avogadro's number, \(N_\text{A}\)
+          </td>
+          <td>
+            6.022142×10<sup>23</sup> mol⁻¹
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Boltzmann's constant, \(k_\text{B}\)
+          </td>
+          <td>
+            1.380649×10<sup>-23</sup> J K⁻¹ <br/>
+            8.617333262145×10<sup>-5</sup> eV K⁻¹
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Electron charge, \(q_\text{e}\)
+          </td>
+          <td>
+            1.602176634×10<sup>-19</sup> C
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Electron mass, \(m_\text{e}\)
+          </td>
+          <td>
+            9.1093837015(28)×10<sup>-31</sup> kg
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Faraday's constant, \(F\)
+          </td>
+          <td>
+            96485.33212 C mol⁻¹
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Gas constant, \(R\)
+          </td>
+          <td>
+            8.31446261815324 J K⁻¹ mol⁻¹ <br>
+            0.0831446261815324 L bar K⁻¹ mol⁻¹ <br>
+            0.082057366080960 L atm K⁻¹ mol⁻¹ <br>
+            1.98720425864083×10<sup>-3</sup> kcal K⁻¹ mol⁻¹ <br>
+            8.20573660809596×10<sup>-5</sup> m³ atm K⁻¹ mol⁻¹ <br>
+            8314.46261815324 L Pa K⁻¹ mol⁻¹ <br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-md-6">
+    <table class="table table-responsive-md">
+      <tbody>
+        <tr>
+          <td>
+            Gravitational acceleration, \(g\)
+          </td>
+          <td>
+            9.80665 m s²
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Molar volume (STP), \(V_\text{m}\)
+          </td>
+          <td>
+            0.024789570296023 m³ mol⁻¹
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Neutron mass, \(m_\text{n}\)
+          </td>
+          <td>
+            1.67492749804(95)×10<sup>-27</sup> kg
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Proton mass, \(m_\text{p}\)
+          </td>
+          <td>
+            1.67262192369(51)×10<sup>-27</sup> kg
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Planck's constant, \(h\)
+          </td>
+          <td>
+            6.62607015×10<sup>-34</sup> J Hz⁻¹
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            Speed of light, \(c\)
+          </td>
+          <td>
+            2.99792458×10<sup>-8</sup> m s⁻¹
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+
+<!-- Error functions -->
+<h3 id="errorFunctions" class="mb-3">Error functions</h3>
+<div class="row mb-5">
+  <div class="col">
+
+    <div id="erfCalculator">
+      <p class="lead text-muted">Calculate the error function, \(\text{erf}(x)\), and complementary error function, \(\text{erfc}(x)\), values for a given \(x\).</p>
+      
+      <div class="row">
+        <div class="col-md-3">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="errorX-addon">\(x\)</span>
+            </div>
+            <input id="errorX" type="text" class="form-control" aria-describedby="errorX-addon">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="erf-addon">\(\text{erf}(x)\)</span>
+            </div>
+            <input id="erf" type="text" class="form-control" aria-describedby="erf-addon" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="erfc-addon">\(\text{erfc}(x)\)</span>
+            </div>
+            <input id="erfc" type="text" class="form-control" aria-describedby="erfc-addon" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <input type="button" class="btn btn-egichem btn-block" value="Calculate" onclick="calcErrorFunctions();" >
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+<!-- Trigonometric functions -->
+<h3 id="trigFunctions" class="mb-3">Trigonometric functions</h3>
+<div class="row mb-5">
+  <div class="col">
+
+    <p class="lead text-muted">Calculate the value of several trigonometric functions for a given \(\theta\).</p>
+
+    <form id="trigForm">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="trigTheta-addon">\(\theta\)</span>
+            </div>
+            <input id="trigTheta" type="text" class="form-control" aria-describedby="trigTheta-addon">
+          </div>
+          <small id="trigThetaHelpBlock" class="form-text text-muted">
+            The input accepts <code>pi</code> as \(\pi\). For instance, you can enter <code>pi/2</code>.
+          </small>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radioRadDeg" id="radioRad" value="radians" checked>
+            <label class="form-check-label" for="inlineRadio1">Radians</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="radioRadDeg" id="radioDeg" value="degrees">
+            <label class="form-check-label" for="inlineRadio3">Degrees</label>
+          </div>
+        </div>
+
+        <div class="col-md-3 offset-md-1">
+          <button type="submit" class="btn btn-egichem btn-block">Calculate</button>
+        </div>
+      </div>
+
+      
+      <div class="row mt-3 mt-md-0">
+        <div class="col-md-4">
+      
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="sin-addon">\(\text{sin}(\theta)\)</span>
+            </div>
+            <input id="sin" type="text" class="form-control" aria-describedby="sin-addon" disabled>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="cos-addon">\(\text{cos}(\theta)\)</span>
+            </div>
+            <input id="cos" type="text" class="form-control" aria-describedby="cos-addon" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="tan-addon">\(\text{tan}(\theta)\)</span>
+            </div>
+            <input id="tan" type="text" class="form-control" aria-describedby="tan-addon" disabled>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="cotan-addon">\(\text{cotan}(\theta)\)</span>
+            </div>
+            <input id="cotan" type="text" class="form-control" aria-describedby="cotan-addon" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="sec-addon">\(\text{sec}(\theta)\)</span>
+            </div>
+            <input id="sec" type="text" class="form-control" aria-describedby="sec-addon" disabled>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="cosec-addon">\(\text{cosec}(\theta)\)</span>
+            </div>
+            <input id="cosec" type="text" class="form-control" aria-describedby="cosec-addon" disabled>
+          </div>
+        </div>
+        
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+<!-- Hyperbolic functions -->
+<h3 id="hyperbFunctions" class="mb-3">Hyperbolic functions</h3>
+<div class="row mb-5">
+  <div class="col">
+
+    <p class="lead text-muted">Calculate the value of several hyperbolic functions for a given \(x\).</p>
+
+    <form id="hyperbForm">
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="hyperbX-addon">\(x\)</span>
+            </div>
+            <input id="hyperbX" type="text" class="form-control" aria-describedby="hyperbX-addon">
+          </div>
+        </div>
+
+        <div class="col-md-3 offset-md-5">
+          <button type="submit" class="btn btn-egichem btn-block">Calculate</button>
+        </div>
+      </div>
+
+      <div class="row mt-3 mt-md-0">
+        <div class="col-md-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="sinh-addon">\(\text{sinh}(x)\)</span>
+            </div>
+            <input id="sinh" type="text" class="form-control" aria-describedby="sinh-addon" disabled>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="cosh-addon">\(\text{cosh}(x)\)</span>
+            </div>
+            <input id="cosh" type="text" class="form-control" aria-describedby="cosh-addon" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="tanh-addon">\(\text{tanh}(x)\)</span>
+            </div>
+            <input id="tanh" type="text" class="form-control" aria-describedby="tanh-addon" disabled>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="cotanh-addon">\(\text{cotanh}(x)\)</span>
+            </div>
+            <input id="cotanh" type="text" class="form-control" aria-describedby="cotanh-addon" disabled>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="sech-addon">\(\text{sech}(x)\)</span>
+            </div>
+            <input id="sech" type="text" class="form-control" aria-describedby="sech-addon" disabled>
+          </div>
+
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="cosech-addon">\(\text{cosech}(x)\)</span>
+            </div>
+            <input id="cosech" type="text" class="form-control" aria-describedby="cosech-addon" disabled>
+          </div>
+        </div>
+        
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+<!-- Bessel functions -->
+<h3 id="besselFunctions" class="mb-3">Bessel functions</h3>
+<div class="row mb-5">
+  <div class="col">
+
+    <p class="lead text-muted">Calculate the value of several Bessel functions for a given \(x\).</p>
+
+    <form id="besselForm">
+      
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="besselX-addon">Value</span>
+            </div>
+            <input id="besselX" type="text" class="form-control" aria-describedby="besselX-addon">
+          </div>
+        </div>
+
+        <div class="col-md-4 mb-3">
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="besselOrder-addon">Order</span>
+            </div>
+            <input id="besselOrder" type="text" class="form-control" aria-describedby="besselOrder-addon">
+          </div>
+        </div>
+
+        <div class="col-md-3 offset-md-1">
+          <button type="submit" class="btn btn-egichem btn-block">Calculate</button>
+        </div>
+      </div>
+
+      <div class="row mt-3 mt-md-0">
+        <label for="bessel1Kind" class="col-md-4 col-form-label">Bessel function of the first kind, \(J_\alpha\)</label>
+        <div class="col-md-4">
+          <input id="bessel1Kind" type="text" class="form-control mb-3" aria-label="bessel1Kind" disabled>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="bessel2Kind" class="col-md-4 col-form-label">Bessel function of the second kind, \(Y_\alpha\)</label>
+        <div class="col-md-4">
+          <input id="bessel2Kind" type="text" class="form-control mb-3" aria-label="bessel2Kind" disabled>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="modifiedBessel1Kind" class="col-md-4 col-form-label">Modified Bessel function of the first kind, \(I_\alpha\)</label>
+        <div class="col-md-4">
+          <input id="modifiedBessel1Kind" type="text" class="form-control mb-3" aria-label="modifiedBessel1Kind" disabled>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="modifiedBessel2Kind" class="col-md-4 col-form-label">Modified Bessel function of the second kind, \(K_\alpha\)</label>
+        <div class="col-md-4">
+          <input id="modifiedBessel2Kind" type="text" class="form-control mb-3" aria-label="modifiedBessel2Kind" disabled>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+</div>
+
+
+{% endblock content %} 
+
+{% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.3.2/math.js" integrity="sha512-Imer9iTeuCPbyZUYNTKsBWsAk3m7n1vOgPsAmw4OlkGSS9qK3/WlJZg7wC/9kL7nUUOyb06AYS8DyYQV7ELEbg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="{% static 'calculators/bessel.js' %}"></script>
+<script src="{% static 'calculators/utilities.js' %}"></script>
+{% endblock %}

@@ -5,6 +5,7 @@ from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTFor
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
 from properties import pcsaft_eos
+from properties import data
 import numpy as np
 
 # Globals
@@ -438,3 +439,17 @@ def pcsaft(request):
         'properties': properties,
 	}
     return render(request, 'calculators/pcsaft.html', context)
+
+
+def utilities(request):
+    """A collection of utility functions"""
+    constants = data.constants
+    constants_list = [v for k, v in constants.items()]
+    constants_1 = constants_list[:len(constants_list)//2]
+    constants_2 = constants_list[len(constants_list)//2:]
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+        'constants': constants_list,
+    }
+    return render(request, 'calculators/utilities.html', context)

@@ -14,4 +14,5 @@ urlpatterns = [
     path('air-properties/', views.air_properties, name='air_properties'),
     path('pcsaft-co2/', views.pcsaft_co2, name='pcsaft_co2'),
     path('pcsaft/', views.pcsaft, name='pcsaft'),
+    path('utilities/', views.utilities, name='utilities'),
 ]
