@@ -83,7 +83,8 @@ function dryAirThermalDiffusivity(temperature) {
   // Returns:
   //     float : Thermal diffusivity in m2/s
 
-  return (-4.3274 + 4.1190e-2*temperature + 1.5556e-4*temperature**2) * 1e-6;
+  // return (-4.3274 + 4.1190e-2*temperature + 1.5556e-4*temperature**2) * 1e-6;
+  return dryAirThermalConductivity(temperature) / dryAirDensity(temperature) / dryAirSpecificHeat(temperature)
 }
 
 
