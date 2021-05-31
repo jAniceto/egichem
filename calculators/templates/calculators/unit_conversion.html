@@ -2,121 +2,125 @@
 {% load static %} 
 {% block content %}
 
-<div class="row mb-3">
-  <div class="col">
-    <h2>Unit Conversion</h2>
+<div class="container mt-4">
+
+  <div class="row mb-3">
+    <div class="col">
+      <h1 class="display-5 mb-3">Unit Conversion</h1>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col">
-    <p class="lead">Smart conversion</p>
+  <div class="row">
+    <div class="col">
+      <p class="lead">Smart conversion</p>
 
-    <form id="quickConversionForm">
-      <div class="row">
-        <div class="col">
-          <div id="quickConversionAlert" class="alert alert-warning" role="alert" style="display: none;"></div>
+      <form id="quickConversionForm">
+        <div class="row">
+          <div class="col">
+            <div id="quickConversionAlert" class="alert alert-warning" role="alert" style="display: none;"></div>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        
-        <div class="col-md-3">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="quickFrom-addon">From:</span>
+        <div class="row">
+          
+          <div class="col-md-3">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="quickFrom-addon">From:</span>
+              </div>
+              <input id="quickFrom" type="text" class="form-control" placeholder="123.4 m" aria-describedby="quickFrom-addon">
             </div>
-            <input id="quickFrom" type="text" class="form-control" placeholder="123.4 m" aria-describedby="quickFrom-addon">
           </div>
-        </div>
 
-        <div class="col-md-3">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="quickTo-addon">To:</span>
+          <div class="col-md-3">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="quickTo-addon">To:</span>
+              </div>
+              <input id="quickTo" type="text" class="form-control" placeholder="km" aria-describedby="quickTo-addon">
             </div>
-            <input id="quickTo" type="text" class="form-control" placeholder="km" aria-describedby="quickTo-addon">
           </div>
-        </div>
 
-        <div class="col-md-4">
-          <div class="input-group mb-3">
-            <input id="quickResult" type="text" class="form-control" disabled>
+          <div class="col-md-4">
+            <div class="input-group mb-3">
+              <input id="quickResult" type="text" class="form-control" disabled>
+            </div>
           </div>
+
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-egichem btn-block">Convert</button>
+          </div>
+
         </div>
+      </form>
 
-        <div class="col-md-2">
-          <button type="submit" class="btn btn-egichem btn-block">Convert</button>
-        </div>
+      <p class="text-muted">
+        Perform quick conversions by typing the value and units. E.g., From: <code>100 cal</code>, To: <code>kJ</code>, result will be: <code>0.4184 kJ</code>.
+      </p>
 
-      </div>
-    </form>
-
-    <p class="text-muted">
-      Perform quick conversions by typing the value and units. E.g., From: <code>100 cal</code>, To: <code>kJ</code>, result will be: <code>0.4184 kJ</code>.
-    </p>
-
+    </div>
   </div>
-</div>
 
-<div class="row mt-5">
-  <div class="col">
-    <p class="lead">Specific conversion</p>
+  <div class="row mt-5">
+    <div class="col">
+      <p class="lead">Specific conversion</p>
 
-    <form id="detailedConversionForm">
-      <div class="row">
-        <div class="col">
-          <div id="detailedConversionAlert" class="alert alert-warning" role="alert" style="display: none;"></div>
+      <form id="detailedConversionForm">
+        <div class="row">
+          <div class="col">
+            <div id="detailedConversionAlert" class="alert alert-warning" role="alert" style="display: none;"></div>
+          </div>
         </div>
-      </div>
 
-      <div class="row">
-        
-        <div class="col-md-4">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="detailedFrom-addon">From:</span>
+        <div class="row">
+          
+          <div class="col-md-4">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="detailedFrom-addon">From:</span>
+              </div>
+              <input id="detailedFrom" type="text" class="form-control" placeholder="123.4" aria-describedby="detailedFrom-addon">
+              <select class="custom-select" id="fromUnitSelect">
+                <!-- Added dynamically -->
+              </select>
             </div>
-            <input id="detailedFrom" type="text" class="form-control" placeholder="123.4" aria-describedby="detailedFrom-addon">
-            <select class="custom-select" id="fromUnitSelect">
-              <!-- Added dynamically -->
-            </select>
           </div>
-        </div>
 
-        <div class="col-md-3">
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="toUnitSelect">To:</label>
+          <div class="col-md-3">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="toUnitSelect">To:</label>
+              </div>
+              <select class="custom-select" id="toUnitSelect">
+                <!-- Added dynamically -->
+              </select>
             </div>
-            <select class="custom-select" id="toUnitSelect">
-              <!-- Added dynamically -->
-            </select>
           </div>
-        </div>
 
-        <div class="col-md-3">
-          <div class="input-group mb-3">
-            <input id="detailedResult" type="text" class="form-control" disabled>
+          <div class="col-md-3">
+            <div class="input-group mb-3">
+              <input id="detailedResult" type="text" class="form-control" disabled>
+            </div>
           </div>
+
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-egichem btn-block">Convert</button>
+          </div>
+
         </div>
+      </form>
 
-        <div class="col-md-2">
-          <button type="submit" class="btn btn-egichem btn-block">Convert</button>
-        </div>
+      <p class="text-muted">
+        Input the value, the original unit and the desired conversion unit.
+      </p>
 
-      </div>
-    </form>
-
-    <p class="text-muted">
-      Input the value, the original unit and the desired conversion unit.
-    </p>
-
+    </div>
   </div>
-</div>
 
+</div>
 
 {% endblock content %} 
+
 
 {% block scripts %}
 <script src="{% static 'calculators/quantities.js' %}"></script>

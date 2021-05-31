@@ -2,173 +2,176 @@
 {% load static %}
 {% block content %}
 
-
-<div class="row mb-3">
-  <div class="col">
-    <h2>Estimation of diffusivities in polar and nonpolar systems</h2>
-  </div>
-</div>
-
-<div class="alert alert-secondary">
-  <div class="row">
-    <div class="col-lg-8 align-self-center">
-      <span>Online calculator coming soon! Download the software for offline use.</span>
+<div class="container mt-4">
+  
+  <div class="row mb-3">
+    <div class="col">
+      <h1 class="display-5 mb-3">Estimation of diffusivities in polar and nonpolar systems</h1>
     </div>
-    <div class="col-lg-4">
-      <div class="float-md-right mt-2 mt-md-0">
-        <a href="{% static 'calculators/ml-d12.zip' %}" class="btn btn-egichem" download>Download</a>
-        <a href="https://github.com/EgiChem/ml-D12-app" class="btn btn-egichem" target="_blank">Github</a>
+  </div>
+
+  <div class="alert alert-secondary">
+    <div class="row">
+      <div class="col-lg-8 align-self-center">
+        <span>Online calculator coming soon! Download the software for offline use.</span>
+      </div>
+      <div class="col-lg-4">
+        <div class="float-md-right mt-2 mt-md-0">
+          <a href="{% static 'calculators/ml-d12.zip' %}" class="btn btn-egichem" download>Download</a>
+          <a href="https://github.com/EgiChem/ml-D12-app" class="btn btn-egichem" target="_blank">Github</a>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="row mt-4">
-  <div class="col">
-    <h4>Notes:</h4>
-    <p>This tool estimates the binary diffusivity of a solute in polar (except water) and nonpolar (except supercritical carbon dioxide) solvents. It uses machine learning models trained with over 2500 experimental data points from over 150 systems.</p>
-    
-<h2 id="quickstart">Quickstart</h2>
-<p>Select the program and provide the properties using their flags.</p>
-<table class="table">
-<thead>
-<tr>
-<th>Solvent</th>
-<th>Program</th>
-<th>Required properties (unit) [-flag]</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Polar</td>
-<td>ml_polar.py</td>
-<td>Temperature (K) [-t]<br>Viscosity (cP) [-v]<br>Solute Molar Mass (g/mol) [-m2]<br>Solute Critical Pressure (bar) [-cp2]<br>Solvent Molar Mass (g/mol) [-m1]<br>Solvent Lennard-Jones Energy (K) -[e1]</td>
-</tr>
-<tr>
-<td>Nonpolar</td>
-<td>ml_nonpolar.py</td>
-<td>Temperature (K) [-t]<br>Viscosity (cP) [-v]<br>Solute Molar Mass (g/mol) [-m2]<br>Solute Critical Pressure (bar) [-cp2]<br>Solvent Molar Mass (g/mol) [-m1]</td>
-</tr>
-</tbody>
-</table>
-<p>Example:</p>
-<pre><code class="language-python"><div>python ml_scco2.py -t <span class="hljs-number">313.15</span> -d <span class="hljs-number">0.830000647</span> -mm <span class="hljs-number">430.71</span> -cp <span class="hljs-number">8.45543</span> -af <span class="hljs-number">0.8071</span>
+  <div class="row mt-4">
+    <div class="col">
+      <h4>Notes:</h4>
+      <p>This tool estimates the binary diffusivity of a solute in polar (except water) and nonpolar (except supercritical carbon dioxide) solvents. It uses machine learning models trained with over 2500 experimental data points from over 150 systems.</p>
+      
+  <h2 id="quickstart">Quickstart</h2>
+  <p>Select the program and provide the properties using their flags.</p>
+  <table class="table">
+  <thead>
+  <tr>
+  <th>Solvent</th>
+  <th>Program</th>
+  <th>Required properties (unit) [-flag]</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Polar</td>
+  <td>ml_polar.py</td>
+  <td>Temperature (K) [-t]<br>Viscosity (cP) [-v]<br>Solute Molar Mass (g/mol) [-m2]<br>Solute Critical Pressure (bar) [-cp2]<br>Solvent Molar Mass (g/mol) [-m1]<br>Solvent Lennard-Jones Energy (K) -[e1]</td>
+  </tr>
+  <tr>
+  <td>Nonpolar</td>
+  <td>ml_nonpolar.py</td>
+  <td>Temperature (K) [-t]<br>Viscosity (cP) [-v]<br>Solute Molar Mass (g/mol) [-m2]<br>Solute Critical Pressure (bar) [-cp2]<br>Solvent Molar Mass (g/mol) [-m1]</td>
+  </tr>
+  </tbody>
+  </table>
+  <p>Example:</p>
+  <pre><code class="language-python"><div>python ml_scco2.py -t <span class="hljs-number">313.15</span> -d <span class="hljs-number">0.830000647</span> -mm <span class="hljs-number">430.71</span> -cp <span class="hljs-number">8.45543</span> -af <span class="hljs-number">0.8071</span>
 
-<span class="hljs-comment"># Output:</span>
-<span class="hljs-comment"># Predicted diffusivities:</span>
-<span class="hljs-comment"># D12(1) = 5.81821846E-05 cm2/s</span></div></code></pre>
-<p>You can also calculate multiple points by providing the properties as a CSV file. See below.</p>
+  <span class="hljs-comment"># Output:</span>
+  <span class="hljs-comment"># Predicted diffusivities:</span>
+  <span class="hljs-comment"># D12(1) = 5.81821846E-05 cm2/s</span></div></code></pre>
+  <p>You can also calculate multiple points by providing the properties as a CSV file. See below.</p>
 
-<h2 id="requirements">Requirements</h2>
-<p>Python 3 and the following Python libraries are required:</p>
-<ul>
-<li>numpy</li>
-<li>pandas</li>
-<li>scikit-learn</li>
-<li>joblib</li>
-</ul>
-<p>Program is fully tested on:</p>
-<ul>
-<li>Python 3.7</li>
-<li>numpy 1.18.5</li>
-<li>pandas 1.0.5</li>
-<li>scikit-learn 0.23.1</li>
-</ul>
+  <h2 id="requirements">Requirements</h2>
+  <p>Python 3 and the following Python libraries are required:</p>
+  <ul>
+  <li>numpy</li>
+  <li>pandas</li>
+  <li>scikit-learn</li>
+  <li>joblib</li>
+  </ul>
+  <p>Program is fully tested on:</p>
+  <ul>
+  <li>Python 3.7</li>
+  <li>numpy 1.18.5</li>
+  <li>pandas 1.0.5</li>
+  <li>scikit-learn 0.23.1</li>
+  </ul>
 
-<h2 id="installation">Installation</h2>
-<ol>
-<li>Install Python from <a href="https://www.python.org/">python.org</a>.</li>
-<li>Download the software by clickig <code>Code</code> &gt;&gt; <code>Download ZIP</code>.</li>
-<li>Unpack the zip file.</li>
-<li>Open the command line and run <code>pip install -r requirements.txt</code> to install the required libraries.</li>
-<li>You can now <code>cd</code> to the program folder and use it as described below.</li>
-</ol>
+  <h2 id="installation">Installation</h2>
+  <ol>
+  <li>Install Python from <a href="https://www.python.org/">python.org</a>.</li>
+  <li>Download the software by clickig <code>Code</code> &gt;&gt; <code>Download ZIP</code>.</li>
+  <li>Unpack the zip file.</li>
+  <li>Open the command line and run <code>pip install -r requirements.txt</code> to install the required libraries.</li>
+  <li>You can now <code>cd</code> to the program folder and use it as described below.</li>
+  </ol>
 
-<h2 id="usage">Usage</h2>
+  <h2 id="usage">Usage</h2>
 
-<h3 id="option-1-by-providing-the-properties-in-order">Option 1) By providing the properties in order:</h3>
-<p>Call the program you desire and provide the properties in order. For istance, for the SC-CO2 program:</p>
-<ol>
-<li>Temperature (K)</li>
-<li>Density (g/cm3)</li>
-<li>Solute molecular mass (g/mol)</li>
-<li>Solute critical pressure (bar)</li>
-<li>Solute acentric factor (-)</li>
-</ol>
+  <h3 id="option-1-by-providing-the-properties-in-order">Option 1) By providing the properties in order:</h3>
+  <p>Call the program you desire and provide the properties in order. For istance, for the SC-CO2 program:</p>
+  <ol>
+  <li>Temperature (K)</li>
+  <li>Density (g/cm3)</li>
+  <li>Solute molecular mass (g/mol)</li>
+  <li>Solute critical pressure (bar)</li>
+  <li>Solute acentric factor (-)</li>
+  </ol>
 
-<pre><code class="language-python"><div>python ml_scco2.py --properties YOUR_TEMPERATURE YOUR_DENSITY YOUR_MOLECULAR_MASS YOUR_CRITICAL_PRESSURE YOUR_ACENTRIC_FACTOR</div></code></pre>
+  <pre><code class="language-python"><div>python ml_scco2.py --properties YOUR_TEMPERATURE YOUR_DENSITY YOUR_MOLECULAR_MASS YOUR_CRITICAL_PRESSURE YOUR_ACENTRIC_FACTOR</div></code></pre>
 
-<p>Example:</p>
-<pre><code class="language-python"><div>python ml_scco2.py --properties <span class="hljs-number">313.15</span> <span class="hljs-number">0.830000647</span> <span class="hljs-number">430.71</span> <span class="hljs-number">8.45543</span> <span class="hljs-number">0.8071</span>
+  <p>Example:</p>
+  <pre><code class="language-python"><div>python ml_scco2.py --properties <span class="hljs-number">313.15</span> <span class="hljs-number">0.830000647</span> <span class="hljs-number">430.71</span> <span class="hljs-number">8.45543</span> <span class="hljs-number">0.8071</span>
 
-<span class="hljs-comment"># Output:</span>
-<span class="hljs-comment"># Predicted diffusivities:</span>
-<span class="hljs-comment"># D12(1) = 5.81821846E-05 cm2/s</span></div></code></pre>
+  <span class="hljs-comment"># Output:</span>
+  <span class="hljs-comment"># Predicted diffusivities:</span>
+  <span class="hljs-comment"># D12(1) = 5.81821846E-05 cm2/s</span></div></code></pre>
 
-<h3 id="option-2-by-specifying-each-property">Option 2) By specifying each property:</h3>
-<p>In this case the order is irrelevant.</p>
-<pre><code class="language-python"><div>python ml_scco2.py --temperature YOUR_TEMPERATURE --density YOUR_DENSITY --molecularmass YOUR_MOLECULAR_MASS --criticalpressure YOUR_CRITICAL_PRESSURE --acentricfactor YOUR_ACENTRIC_FACTOR
+  <h3 id="option-2-by-specifying-each-property">Option 2) By specifying each property:</h3>
+  <p>In this case the order is irrelevant.</p>
+  <pre><code class="language-python"><div>python ml_scco2.py --temperature YOUR_TEMPERATURE --density YOUR_DENSITY --molecularmass YOUR_MOLECULAR_MASS --criticalpressure YOUR_CRITICAL_PRESSURE --acentricfactor YOUR_ACENTRIC_FACTOR
 
-<span class="hljs-comment"># OR using </span>
+  <span class="hljs-comment"># OR using </span>
 
-python ml_scco2.py -t YOUR_TEMPERATURE -d YOUR_DENSITY -mm YOUR_MOLECULAR_MASS -cp YOUR_CRITICAL_PRESSURE -af YOUR_ACENTRIC_FACTOR</div></code></pre>
+  python ml_scco2.py -t YOUR_TEMPERATURE -d YOUR_DENSITY -mm YOUR_MOLECULAR_MASS -cp YOUR_CRITICAL_PRESSURE -af YOUR_ACENTRIC_FACTOR</div></code></pre>
 
-<p>Example:</p>
-<pre><code class="language-python"><div>python ml_scco2.py -t <span class="hljs-number">313.15</span> -d <span class="hljs-number">0.830000647</span> -mm <span class="hljs-number">430.71</span> -cp <span class="hljs-number">8.45543</span> -af <span class="hljs-number">0.8071</span>
+  <p>Example:</p>
+  <pre><code class="language-python"><div>python ml_scco2.py -t <span class="hljs-number">313.15</span> -d <span class="hljs-number">0.830000647</span> -mm <span class="hljs-number">430.71</span> -cp <span class="hljs-number">8.45543</span> -af <span class="hljs-number">0.8071</span>
 
-<span class="hljs-comment"># Output:</span>
-<span class="hljs-comment"># Predicted diffusivities:</span>
-<span class="hljs-comment"># D12(1) = 5.81821846E-05 cm2/s</span></div></code></pre>
+  <span class="hljs-comment"># Output:</span>
+  <span class="hljs-comment"># Predicted diffusivities:</span>
+  <span class="hljs-comment"># D12(1) = 5.81821846E-05 cm2/s</span></div></code></pre>
 
-<h3 id="option-3-by-specifying-a-csv-file-with-the-input-data">Option 3) By specifying a CSV file with the input data:</h3>
-<p>The CSV file must include at least five columns with the following headers:</p>
-<table class="table">
-<thead>
-<tr>
-<th>Case</th>
-<th>SC-CO2</th>
-<th>Polar</th>
-<th>Nonpolar</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Properties/Headers</td>
-<td>T<br>density<br>solute.M2<br>solute.Pc<br>solute.w</td>
-<td>T<br>viscosity<br>solute.M2<br>solute.Pc<br>solvent.M1<br>solvent.elj</td>
-<td>T<br>viscosity<br>solute.M2<br>solute.Pc<br>solvent.M1</td>
-</tr>
-</tbody>
-</table>
+  <h3 id="option-3-by-specifying-a-csv-file-with-the-input-data">Option 3) By specifying a CSV file with the input data:</h3>
+  <p>The CSV file must include at least five columns with the following headers:</p>
+  <table class="table">
+  <thead>
+  <tr>
+  <th>Case</th>
+  <th>SC-CO2</th>
+  <th>Polar</th>
+  <th>Nonpolar</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+  <td>Properties/Headers</td>
+  <td>T<br>density<br>solute.M2<br>solute.Pc<br>solute.w</td>
+  <td>T<br>viscosity<br>solute.M2<br>solute.Pc<br>solvent.M1<br>solvent.elj</td>
+  <td>T<br>viscosity<br>solute.M2<br>solute.Pc<br>solvent.M1</td>
+  </tr>
+  </tbody>
+  </table>
 
-<p>You can provide any number of points as rows. See the <code>examples</code> folder.</p>
-<pre><code class="language-python"><div>python ml_scco2.py --csvfile YOUR_CSVFILE_PATH</div></code></pre>
+  <p>You can provide any number of points as rows. See the <code>examples</code> folder.</p>
+  <pre><code class="language-python"><div>python ml_scco2.py --csvfile YOUR_CSVFILE_PATH</div></code></pre>
 
-<p>Example:</p>
-<pre><code class="language-python"><div><span class="hljs-comment"># Using a file in the same directory with 3 points (rows)</span>
-python ml_scco2.py --csvfile sample-scco2-data.csv
+  <p>Example:</p>
+  <pre><code class="language-python"><div><span class="hljs-comment"># Using a file in the same directory with 3 points (rows)</span>
+  python ml_scco2.py --csvfile sample-scco2-data.csv
 
-<span class="hljs-comment"># Output:</span>
-<span class="hljs-comment"># Predicted diffusivities:</span>
-<span class="hljs-comment"># D12(1) = 5.03732712E-05 cm2/s</span>
-<span class="hljs-comment"># D12(2) = 1.05026748E-04 cm2/s</span>
-<span class="hljs-comment"># D12(3) = 9.14913157E-05 cm2/s</span></div></code></pre>
+  <span class="hljs-comment"># Output:</span>
+  <span class="hljs-comment"># Predicted diffusivities:</span>
+  <span class="hljs-comment"># D12(1) = 5.03732712E-05 cm2/s</span>
+  <span class="hljs-comment"># D12(2) = 1.05026748E-04 cm2/s</span>
+  <span class="hljs-comment"># D12(3) = 9.14913157E-05 cm2/s</span></div></code></pre>
 
-<h3 id="save-results">Save results</h3>
-<p>Optionally you can use the <code>--save</code> or <code>-s</code> flag to save the results in an csv file.</p>
-<pre><code class="language-python"><div>python ml_scco2.py --csvfile YOUR_CSVFILE_PATH --save</div></code></pre>
+  <h3 id="save-results">Save results</h3>
+  <p>Optionally you can use the <code>--save</code> or <code>-s</code> flag to save the results in an csv file.</p>
+  <pre><code class="language-python"><div>python ml_scco2.py --csvfile YOUR_CSVFILE_PATH --save</div></code></pre>
 
-<h3 id="help">Help</h3>
-<pre><code class="language-python"><div>python ml_scco2.py -h</div></code></pre>
+  <h3 id="help">Help</h3>
+  <pre><code class="language-python"><div>python ml_scco2.py -h</div></code></pre>
 
-<h2 id="citing">Citing</h2>
-<p>If you use the SC-CO2 program for a scientific publication please cite:</p>
-<ul>
-  <li><a href="https://www.sciencedirect.com/science/article/pii/S0167732221000076">José P.S. Aniceto, Bruno Zêzere, Carlos M. Silva. Machine learning models for the prediction of diffusivities in supercritical CO2 systems, Journal of Molecular Liquids (2021) 115281.</a></li>
-</ul>
+  <h2 id="citing">Citing</h2>
+  <p>If you use the SC-CO2 program for a scientific publication please cite:</p>
+  <ul>
+    <li><a href="https://www.sciencedirect.com/science/article/pii/S0167732221000076">José P.S. Aniceto, Bruno Zêzere, Carlos M. Silva. Machine learning models for the prediction of diffusivities in supercritical CO2 systems, Journal of Molecular Liquids (2021) 115281.</a></li>
+  </ul>
 
 
+    </div>
   </div>
+
 </div>
 {% endblock content %}
 

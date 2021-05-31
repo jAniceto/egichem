@@ -1,30 +1,37 @@
-{% extends "website/base.html" %}
+{% extends "website/base.html" %} 
 
 {% block content %}
 
-{%  for award in awards  %}
+<div class="container mt-4">
+
+  <h1 class="display-5 mb-3">
+    {{ page_title }}
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle }}</small>
+  </h1>
+
+  {%  for award in awards  %}
   <div class="row mb-3">
     <div class="col-md-12">
-      <div class="card w-100">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-4">
-              <div class="award-img">
-                <img src="{{ award.image.url }}" class="img-fluid" alt="">
-              </div>
-            </div>
-            <div class="col-md-8">
+      <div class="card shadow-sm mb-3 w-100">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ award.image.url }}" class="card-img" alt="Award image">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
               <h5 class="card-title">{% if award.link %}<a class="link" href="{{ award.link }}" target="_blank">{{ award.title }}</a>{% endif %}</h5>
-              {% if award.subtitle %}<p class="card-text">{{ award.subtitle }}</p>{% endif %}
-              {% if award.awarded_to %}<p class="card-text"><strong>Awarded to:</strong> {{ award.awarded_to }}</p>{% endif %}
-              {% if award.awarded_for %}<p class="card-text"><strong>Awarded for:</strong> "{{ award.awarded_for }}"</p>{% endif %}
+              {% if award.subtitle %}
+              <p class="card-text">{{ award.subtitle }}</p>{% endif %} {% if award.awarded_to %}
+              <p class="card-text"><strong>Awarded to:</strong> {{ award.awarded_to }}</p>{% endif %} {% if award.awarded_for %}
+              <p class="card-text"><strong>Awarded for:</strong> "{{ award.awarded_for }}"</p>{% endif %}
             </div>
           </div>
-          
         </div>
       </div>
     </div>
-</div><!-- row closing -->
-{%  endfor %}
+  </div><!-- row closing -->
+  {%  endfor %}
+
+</div>
 
 {% endblock content %}

@@ -1,77 +1,54 @@
 {% extends "website/base.html" %}
-
 {% block content %}
 
-{% for post in posts  %}
-<div class="row mb-3">
-  <div class="col-md-12">
-		<div class="card">
-			<div class="card-body">
-				<div class="row">
-					<div class="col-md-12">
-						<h3 class="card-title mb-0">{{ post.title }}</h3>
-						<p class="text-muted mb-1"><small>{{ post.date_posted|date:"F d, Y" }}</small></p>
-						{% if post.image %}<div class="float-md-right"><img class="img-thumbnail m-1" src="{{ post.image.url }}" style="max-height: 300px; max-width: 300px;" alt="Post Image"></div>{% endif %}
-						<p class="card-text">{{ post.content|safe|linebreaks }}</p>
-					</div>
-				</div>
-			</div>
-		</div>
-  </div><!-- col-md-12 closing -->
-</div><!-- row closing -->
-{%  endfor %}
+<div class="container mt-4">
 
-{% if is_paginated %}
+  <h1 class="display-5 mb-3">
+    {{ page_title }}
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle }}</small>
+  </h1>
 
-<!-- Bootstrap Pagination -->
-<!-- <nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">		
-		{% if page_obj.has_previous %}
-		<li class="page-item"><a class="page-link" href="?page=1">First</a></li>
-		<li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
-		{% endif %}
+  {% for post in posts %}
+  <div class="row mb-3">
+    <div class="col-md-12">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="card-title mb-0">{{ post.title }}</h3>
+              <p class="text-muted mb-1"><small>{{ post.date_posted|date:"F d, Y" }}</small></p>
+              {% if post.image %}
+              <div class="float-md-right"><img class="img-thumbnail m-1" src="{{ post.image.url }}" style="max-height: 300px; max-width: 300px;" alt="Post Image"></div>{% endif %}
+              <p class="card-text">{{ post.content|safe|linebreaks }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- col-md-12 closing -->
+  </div>
+  <!-- row closing -->
+  {% endfor %} 
+  
+  
+  <!-- Pagination -->
+  {% if is_paginated %}
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="btn-group" role="group" aria-label="Pagination">
+        {% if page_obj.has_previous %}
+        <a class="btn btn-outline-secondary mb-4" href="?page=1">First</a>
+        <a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a> {% endif %} {% for num in page_obj.paginator.page_range %} {% if page_obj.number == num %}
+        <a class="btn btn-secondary mb-4" href="?page={{ num }}">{{ num }}</a> {% elif num > page_obj.number|add:'-3' and num
+        < page_obj.number|add: '3' %} <a class="btn btn-outline-secondary mb-4" href="?page={{ num }}">{{ num }}</a>
+          {% endif %} {% endfor %} {% if page_obj.has_next %}
+          <a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
+          <a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a> {% endif %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
 
-		{% for num in page_obj.paginator.page_range %}
-		{% if page_obj.number == num %}
-			<li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-		{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-			<li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-		{% endif %}
-		{% endfor %}
-
-		{% if page_obj.has_next %}
-		<li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-		<li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
-		{% endif %}
-  </ul>
-</nav> -->
-
-<!-- Alternative Pagination -->
-<div class="row">
-	<div class="col-md-12 text-center">
-		<div class="btn-group" role="group" aria-label="Pagination">
-			{% if page_obj.has_previous %}
-			<a class="btn btn-outline-secondary mb-4" href="?page=1">First</a>
-			<a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.previous_page_number }}">Previous</a>
-			{% endif %}
-
-			{% for num in page_obj.paginator.page_range %}
-			{% if page_obj.number == num %}
-				<a class="btn btn-secondary mb-4" href="?page={{ num }}">{{ num }}</a>
-			{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
-				<a class="btn btn-outline-secondary mb-4" href="?page={{ num }}">{{ num }}</a>
-			{% endif %}
-			{% endfor %}
-
-			{% if page_obj.has_next %}
-			<a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.next_page_number }}">Next</a>
-			<a class="btn btn-outline-secondary mb-4" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
-			{% endif %}
-		</div>	
-	</div>
 </div>
-
-{% endif %}
-
 
 {% endblock content %}

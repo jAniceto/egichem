@@ -1,309 +1,195 @@
 {% extends "website/base.html" %}
 {% load static %}
+
 {% block content %}
+<div class="container mt-4">
 
-{% comment %}
-<!-- Old version of tab navigation - works worse on mobile -->
-<div class="row">
-	<div class="col-md-12">
-		<ul class="nav nav-tabs nav-justified responsive" id="publicationsTab" role="tablist">
-			<li class="nav-item">
-				<a class="nav-link tab-link active" id="articles-tab" data-toggle="tab" href="#articles" role="tab" aria-controls="articles" aria-selected="true">Articles</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link tab-link" id="book-chapters-tab" data-toggle="tab" href="#book-chapters" role="tab" aria-controls="profile" aria-selected="false">Book Chapters</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link tab-link" id="patents-tab" data-toggle="tab" href="#patents" role="tab" aria-controls="patents" aria-selected="false">Patents</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link tab-link" id="posters-tab" data-toggle="tab" href="#posters" role="tab" aria-controls="posters" aria-selected="false">Posters</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link tab-link" id="presentations-tab" data-toggle="tab" href="#presentations" role="tab" aria-controls="presentations" aria-selected="false">Presentations</a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link tab-link" id="theses-tab" data-toggle="tab" href="#theses" role="tab" aria-controls="theses" aria-selected="false">Theses</a>
-			</li>
-		</ul>
+  <h1 class="display-5 mb-4">
+    {{ page_title}}
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle}}</small>
+  </h1>
 
-		<div class="tab-content responsive mt-4" id="myTabContent">
+  <!-- New tab navigation - changes to accordion on mobile -->
+  <ul class="nav nav-tabs nav-justified responsive" role="tablist" style="font-weight: bold; font-family: 'Raleway', sans-serif;">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#articles" role="tab">Articles</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#book-chapters" role="tab">Book Chapters</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#patents" role="tab">Patents</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#posters" role="tab">Posters</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#presentations" role="tab">Presentations</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#theses" role="tab">Theses</a>
+    </li>
+  </ul>
 
-			<!-- Articles List -->
-			<div class="tab-pane fade show active" id="articles" role="tabpanel" aria-labelledby="articles-tab">
-				{% for article in articles %}
-				{% ifchanged article.year %}
-				<div class="row mt-4 mb-3">
-					<div class="col-md-8 offset-md-2">
-						<h3 class="text-divider"><span>{{ article.year }}</span></h3>
-					</div>
-				</div>
-				{% endifchanged %}
-				<p><a class="text-dark" href="{{ article.link }}" target="_blank">{{ forloop.revcounter }}. {{ article.authors }}. {{ article.title|safe }}, <em>{{ article.journal }}</em> {{ article.volume }} ({{ article.year }}) {{ article.pages }}.</a></p>
-				{% endfor %}
-			</div>
-
-			<!-- Book Chapters List -->
-			<div class="tab-pane fade" id="book-chapters" role="tabpanel" aria-labelledby="book-chapters-tab">
-				{% for book_chapter in book_chapters %}
-				<div class="row mt-5 mb-3">
-					<div class="col-md-4">
-							<img class="img-fluid" src="{% if book_chapter.photo %}{{ book_chapter.photo.url }}{% endif %}" alt="">
-					</div>
-					<div class="col-md-8 small">
-						<p><strong>Book Title:</strong> {{ book_chapter.book_title }}</p>
-						<p><strong>Publisher:</strong> {{ book_chapter.publisher }}</p>
-						<p><strong>Year:</strong> {{ book_chapter.year }}</p>
-						<p><strong>Chapter Title:</strong> {{ book_chapter.title }}</p>
-						<p><strong>Authors:</strong> {{ book_chapter.authors }}</p>
-						<p><strong>Abstract:</strong> {{ book_chapter.abstract }}</p>
-					</div>
-				</div>
-				{% endfor %}
-			</div>
-
-			<!-- Patents List -->
-			<div class="tab-pane fade" id="patents" role="tabpanel" aria-labelledby="patents-tab">
-				{% for patent in patents %}
-				{% ifchanged patent.year %}
-				<div class="row mt-4 mb-3">
-					<div class="col-md-8 offset-md-2">
-						<h3 class="text-divider"><span>{{ patent.year }}</span></h3>
-					</div>
-				</div>
-				{% endifchanged %}
-				<p>{{ patent.authors }}. {{ patent.title }}, {{ patent.patent_number }}, {{ patent.year }}.</p>
-				{% endfor %}
-			</div>
-			
-			<!-- Posters List -->
-			<div class="tab-pane fade" id="posters" role="tabpanel" aria-labelledby="posters-tab">
-				{% for poster in posters %}
-				{% ifchanged poster.year %}
-				<div class="row mt-4 mb-3">
-					<div class="col-md-8 offset-md-2">
-						<h3 class="text-divider"><span>{{ poster.year }}</span></h3>
-					</div>
-				</div>
-				{% endifchanged %}
-				<p>{{ poster.authors }}. {{ poster.title }}, {{ poster.conference }}, {{ poster.conference_city }}, {{ poster.conference_date }}, {{ poster.year }}.</p>
-				{% endfor %}
-			</div>
-
-			<!-- Presentations List -->
-			<div class="tab-pane fade" id="presentations" role="tabpanel" aria-labelledby="presentations-tab">
-				{% for presentation in presentations %}
-				{% ifchanged presentation.year %}
-				<div class="row mt-4 mb-3">
-					<div class="col-md-8 offset-md-2">
-						<h3 class="text-divider"><span>{{ presentation.year }}</span></h3>
-					</div>
-				</div>
-				{% endifchanged %}
-				<p>{{ presentation.authors }}. {{ presentation.title }}, {{ presentation.conference }}, {{ presentation.conference_city }}, {{ presentation.conference_date }}, {{ presentation.year }}.</p>
-				{% endfor %}
-			</div>
-			
-			<!-- Thesis List -->
-			<div class="tab-pane fade" id="theses" role="tabpanel" aria-labelledby="theses-tab">
-				{% for thesis in theses %}
-				{% ifchanged thesis.year %}
-				<div class="row mt-4 mb-3">
-					<div class="col-md-8 offset-md-2">
-						<h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
-					</div>
-				</div>
-				{% endifchanged %}
-				<p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
-				{% endfor %}
-			</div>
-
-		</div>
-	</div>
-</div>
-{% endcomment %}
-
-
-<!-- New tab navigation - changes to accordion on mobile -->
-<ul class="nav nav-tabs nav-justified responsive" role="tablist" style="font-weight: bold; font-family: 'Raleway', sans-serif;">
-	<li class="nav-item">
-		<a class="nav-link active" data-toggle="tab" href="#articles" role="tab">Articles</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#book-chapters" role="tab">Book Chapters</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#patents" role="tab">Patents</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#posters" role="tab">Posters</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#presentations" role="tab">Presentations</a>
-	</li>
-	<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#theses" role="tab">Theses</a>
-	</li>
-</ul>
-
-<!-- Articles List -->
-<div class="tab-content responsive">
-	<div class="tab-pane active" id="articles" role="tabpanel">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					{% for article in articles %}
-					{% ifchanged article.year %}
-					<div class="row mt-4 mb-3">
-						<div class="col-md-8 offset-md-2">
-							<h3 class="text-divider"><span>{{ article.year }}</span></h3>
-						</div>
-					</div>
-					{% endifchanged %}
-					<p><a class="text-dark publication-link" href="{{ article.link }}" target="_blank">{{ forloop.revcounter }}. {{ article.authors }}. {{ article.title|safe }}, <em>{{ article.journal }}</em> {{ article.volume }} ({{ article.year }}) {{ article.pages }}.</a></p>
-					{% endfor %}
-				</div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- Book Chapters List -->
-	<div class="tab-pane" id="book-chapters" role="tabpanel">
-		<div class="container-fluid">
-			{% for book_chapter in book_chapters %}
-			<div class="row mt-5 mb-3">
-				<div class="col-md-4">
-          <a href="{{ book_chapter.link }}" target="_blank">
-            <img class="img-fluid w-75" src="{% if book_chapter.photo %}{{ book_chapter.photo.url }}{% endif %}" alt="">
-          </a>
-				</div>
-				<div class="col-md-8 small">
-					<p><strong>Book Title:</strong> {{ book_chapter.book_title }}</p>
-					<p><strong>Publisher:</strong> {{ book_chapter.publisher }}</p>
-					<p><strong>Year:</strong> {{ book_chapter.year }}</p>
-					<p><strong>Chapter Title:</strong> {{ book_chapter.title }}</p>
-					<p><strong>Authors:</strong> {{ book_chapter.authors }}</p>
-					<p><strong>Abstract:</strong> {{ book_chapter.abstract }}</p>
-          {% if book_chapter.link %}
-          <a class="btn btn-outline-egichem" href="{{ book_chapter.link }}" role="button" target="_blank"><i class="fas fa-link"></i> Link</a>
-          {% endif %}
+  <!-- Articles List -->
+  <div class="tab-content responsive">
+    <div class="tab-pane active" id="articles" role="tabpanel">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            {% for article in articles %}
+            {% ifchanged article.year %}
+            <div class="row mt-4 mb-3">
+              <div class="col-md-8 offset-md-2">
+                <h3 class="text-divider"><span>{{ article.year }}</span></h3>
+              </div>
+            </div>
+            {% endifchanged %}
+            <p><a class="text-dark publication-link" href="{{ article.link }}" target="_blank">{{ forloop.revcounter }}. {{ article.authors }}. {{ article.title|safe }}, <em>{{ article.journal }}</em> {{ article.volume }} ({{ article.year }}) {{ article.pages }}.</a></p>
+            {% endfor %}
+          </div>
         </div>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
-	
-	<!-- Patents List -->
-	<div class="tab-pane" id="patents" role="tabpanel">
-		<div class="container-fluid">
-				{% for patent in patents %}
-				{% ifchanged patent.year %}
-				<div class="row mt-4 mb-3">
-					<div class="col-md-8 offset-md-2">
-						<h3 class="text-divider"><span>{{ patent.year }}</span></h3>
-					</div>
-				</div>
-				{% endifchanged %}
-				<p>{{ patent.authors }}. {{ patent.title }}, {{ patent.patent_number }}, {{ patent.year }}.</p>
-				{% endfor %}
-		</div>
-	</div>
-	
-	<!-- Posters List -->
-	<div class="tab-pane" id="posters" role="tabpanel">
-		<div class="container-fluid">
-			{% for poster in posters %}
-			{% ifchanged poster.year %}
-			<div class="row mt-4 mb-3">
-				<div class="col-md-8 offset-md-2">
-					<h3 class="text-divider"><span>{{ poster.year }}</span></h3>
-				</div>
-			</div>
-			{% endifchanged %}
-			<p>{{ poster.authors }}. {{ poster.title }}, {{ poster.conference }}, {{ poster.conference_city }}, {% if presentation.conference_date %}{{ poster.conference_date }}, {% endif %}{{ poster.year }}.</p>
-			{% endfor %}
-		</div>
-	</div>
+      </div>
+    </div>
+    
+    <!-- Book Chapters List -->
+    <div class="tab-pane" id="book-chapters" role="tabpanel">
+      <div class="container-fluid">
+        {% for book_chapter in book_chapters %}
+        <div class="row mt-5 mb-3">
+          <div class="col-md-4">
+            <a href="{{ book_chapter.link }}" target="_blank">
+              <img class="img-fluid w-75" src="{% if book_chapter.photo %}{{ book_chapter.photo.url }}{% endif %}" alt="">
+            </a>
+          </div>
+          <div class="col-md-8 small">
+            <p><strong>Book Title:</strong> {{ book_chapter.book_title }}</p>
+            <p><strong>Publisher:</strong> {{ book_chapter.publisher }}</p>
+            <p><strong>Year:</strong> {{ book_chapter.year }}</p>
+            <p><strong>Chapter Title:</strong> {{ book_chapter.title }}</p>
+            <p><strong>Authors:</strong> {{ book_chapter.authors }}</p>
+            <p><strong>Abstract:</strong> {{ book_chapter.abstract }}</p>
+            {% if book_chapter.link %}
+            <a class="btn btn-outline-egichem" href="{{ book_chapter.link }}" role="button" target="_blank"><i class="fas fa-link"></i> Link</a>
+            {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    
+    <!-- Patents List -->
+    <div class="tab-pane" id="patents" role="tabpanel">
+      <div class="container-fluid">
+          {% for patent in patents %}
+          {% ifchanged patent.year %}
+          <div class="row mt-4 mb-3">
+            <div class="col-md-8 offset-md-2">
+              <h3 class="text-divider"><span>{{ patent.year }}</span></h3>
+            </div>
+          </div>
+          {% endifchanged %}
+          <p>{{ patent.authors }}. {{ patent.title }}, {{ patent.patent_number }}, {{ patent.year }}.</p>
+          {% endfor %}
+      </div>
+    </div>
+    
+    <!-- Posters List -->
+    <div class="tab-pane" id="posters" role="tabpanel">
+      <div class="container-fluid">
+        {% for poster in posters %}
+        {% ifchanged poster.year %}
+        <div class="row mt-4 mb-3">
+          <div class="col-md-8 offset-md-2">
+            <h3 class="text-divider"><span>{{ poster.year }}</span></h3>
+          </div>
+        </div>
+        {% endifchanged %}
+        <p>{{ poster.authors }}. {{ poster.title }}, {{ poster.conference }}, {{ poster.conference_city }}, {% if presentation.conference_date %}{{ poster.conference_date }}, {% endif %}{{ poster.year }}.</p>
+        {% endfor %}
+      </div>
+    </div>
 
-	<!-- Presentations List -->
-	<div class="tab-pane" id="presentations" role="tabpanel">
-		<div class="container-fluid">
-			{% for presentation in presentations %}
-			{% ifchanged presentation.year %}
-			<div class="row mt-4 mb-3">
-				<div class="col-md-8 offset-md-2">
-					<h3 class="text-divider"><span>{{ presentation.year }}</span></h3>
-				</div>
-			</div>
-			{% endifchanged %}
-			<p>{{ presentation.authors }}. {{ presentation.title }}, {{ presentation.conference }}, {{ presentation.conference_city }}, {% if presentation.conference_date %}{{ presentation.conference_date }}, {% endif %}{{ presentation.year }}.</p>
-			{% endfor %}
-		</div>
-	</div>
+    <!-- Presentations List -->
+    <div class="tab-pane" id="presentations" role="tabpanel">
+      <div class="container-fluid">
+        {% for presentation in presentations %}
+        {% ifchanged presentation.year %}
+        <div class="row mt-4 mb-3">
+          <div class="col-md-8 offset-md-2">
+            <h3 class="text-divider"><span>{{ presentation.year }}</span></h3>
+          </div>
+        </div>
+        {% endifchanged %}
+        <p>{{ presentation.authors }}. {{ presentation.title }}, {{ presentation.conference }}, {{ presentation.conference_city }}, {% if presentation.conference_date %}{{ presentation.conference_date }}, {% endif %}{{ presentation.year }}.</p>
+        {% endfor %}
+      </div>
+    </div>
 
-	<!-- Theses List -->
-	<div class="tab-pane" id="theses" role="tabpanel">
-		<div class="container-fluid">
+    <!-- Theses List -->
+    <div class="tab-pane" id="theses" role="tabpanel">
+      <div class="container-fluid">
 
-			<!-- Theses type toggle -->
-			<!-- <div class="row mt-4">
-				<div class="btn-group mx-auto" role="group">
-					<a class="btn btn-secondary active" data-toggle="collapse" href="#phd-theses" role="button" aria-expanded="false" aria-controls="phd-theses">PhD Theses</a>
-					<a class="btn btn-secondary" data-toggle="collapse" href="#msc-theses" role="button" aria-expanded="false" aria-controls="msc-theses">MSc Theses</a>		
-				</div>
-			</div> -->
+        <!-- Theses type toggle -->
+        <!-- <div class="row mt-4">
+          <div class="btn-group mx-auto" role="group">
+            <a class="btn btn-secondary active" data-toggle="collapse" href="#phd-theses" role="button" aria-expanded="false" aria-controls="phd-theses">PhD Theses</a>
+            <a class="btn btn-secondary" data-toggle="collapse" href="#msc-theses" role="button" aria-expanded="false" aria-controls="msc-theses">MSc Theses</a>		
+          </div>
+        </div> -->
 
-			<div class="row mt-4">
-				<div class="btn-group mx-auto" role="group">
-					<button class="btn btn-secondary active" type="button" id="phd-btn" onclick="phdShow();" data-toggle="button" aria-pressed="true">PhD Theses</button >
-					<button class="btn btn-secondary" type="button" id="msc-btn" onclick="mscShow();" data-toggle="button">MSc Theses</button >		
-				</div>
-			</div>
+        <div class="row mt-4">
+          <div class="btn-group mx-auto" role="group">
+            <button class="btn btn-secondary active" type="button" id="phd-btn" onclick="phdShow();" data-toggle="button" aria-pressed="true">PhD Theses</button >
+            <button class="btn btn-secondary" type="button" id="msc-btn" onclick="mscShow();" data-toggle="button">MSc Theses</button >		
+          </div>
+        </div>
 
-			<!-- <div class="row mt-4">
-				<div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
-					<label class="btn btn-secondary active">
-						<input type="radio" name="options" id="option1" onclick="phdShow();" autocomplete="off" checked> PhD Theses
-					</label>
-					<label class="btn btn-secondary">
-						<input type="radio" name="options" id="option2" onclick="mscShow();" autocomplete="off"> MSc Theses
-					</label>
-				</div>
-			</div> -->
-			
-			<!-- PhD Theses -->
-			<div class="collapse show" id="phd-theses">
-				{% for thesis in phd_theses %}
-				{% ifchanged thesis.year %}
-				<div class="row mt-4 mb-3">
-					<div class="col-md-8 offset-md-2">
-						<h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
-					</div>
-				</div>
-				{% endifchanged %}
-				<p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
-				{% endfor %}
-			</div>
+        <!-- <div class="row mt-4">
+          <div class="btn-group btn-group-toggle mx-auto" data-toggle="buttons">
+            <label class="btn btn-secondary active">
+              <input type="radio" name="options" id="option1" onclick="phdShow();" autocomplete="off" checked> PhD Theses
+            </label>
+            <label class="btn btn-secondary">
+              <input type="radio" name="options" id="option2" onclick="mscShow();" autocomplete="off"> MSc Theses
+            </label>
+          </div>
+        </div> -->
+        
+        <!-- PhD Theses -->
+        <div class="collapse show" id="phd-theses">
+          {% for thesis in phd_theses %}
+          {% ifchanged thesis.year %}
+          <div class="row mt-4 mb-3">
+            <div class="col-md-8 offset-md-2">
+              <h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
+            </div>
+          </div>
+          {% endifchanged %}
+          <p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
+          {% endfor %}
+        </div>
 
-			<!-- MSc Theses -->
-			<div class="collapse" id="msc-theses">
-				{% for thesis in msc_theses %}
-				{% ifchanged thesis.year %}
-				<div class="row mt-4 mb-3">
-					<div class="col-md-8 offset-md-2">
-						<h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
-					</div>
-				</div>
-				{% endifchanged %}
-				<p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
-				{% endfor %}
-			</div>
+        <!-- MSc Theses -->
+        <div class="collapse" id="msc-theses">
+          {% for thesis in msc_theses %}
+          {% ifchanged thesis.year %}
+          <div class="row mt-4 mb-3">
+            <div class="col-md-8 offset-md-2">
+              <h3 class="text-divider"><span>{{ thesis.year }}</span></h3>
+            </div>
+          </div>
+          {% endifchanged %}
+          <p>{{ thesis.authors }}. {{ thesis.title }}, {{ thesis.get_thesis_type_display }}, Coordinator(s): {{ thesis.thesis_coordinators }}, {{ thesis.thesis_institution }}, {{ thesis.year }}.</p>
+          {% endfor %}
+        </div>
 
-		</div>
-	</div>
+      </div>
+    </div>
+
+  </div>
 
 </div>
-
 {% endblock content %}
 
 

@@ -2,133 +2,141 @@
 
 {% block content %}
 
-<div class="row mt-4 mb-3">
-	<div class="col-md-3">
-    <h3 class="d-md-none mb-3">{{ member.name }}</h3>
-    <img class="img-fluid img-thumbnail" src="{% if member.user.profile.photo.url %}{{ member.user.profile.photo.url }}{% else %}{{ member.photo.url }}{% endif %}" alt="">
-		<div class="my-3">
-			{% if member.user.profile.scopus_url %}
-			<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.scopus_url }}" role="button"><i class="fas fa-globe-europe"></i> Scopus</a>
-			{% endif %}
-			{% if member.user.profile.scholar_url %}
-			<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.scholar_url }}" role="button"><i class="ai ai-google-scholar"></i> Google Scholar</a>
-			{% endif %}
-			{% if member.user.profile.linkedin_url %}
-			<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.linkedin_url }}" role="button"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
-			{% endif %}
-			{% if member.user.profile.personal_url %}
-			<a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.personal_url }}" role="button"><i class="fas fa-link"></i> Personal Page</a>
-			{% endif %}
-		</div>
-	</div>
-	<div class="col-md-9">
+<div class="container mt-4">
 
-		<!-- Bio -->
-		<h4 class="card-title title mb-2">Bio</h4>
-		{% if member.user.profile.bio %}
-		<p class="card-text">{{ member.user.profile.bio|safe }}</p>
-		{% else %}
-		<p class="card-text">{{ member.name }} is a {{ member.position}} at EgiChem focusing on {{ member.research_area }}.</p>
-    {% endif %}
-
-    <!-- For Professor Carlos -->
-    {% if member.name == 'Carlos Manuel Silva' %}
-      {% include 'website/_includes/prof_metrics.html' %}
-    {% endif %}
-
-    <!-- Publications -->
-    {% if member_articles or member_book_chapters or member_patents or member_posters or member_presentations or member_theses %}
-    <h4 class="card-title title mt-4 mb-3">Publications</h4>
-    <div class="list-group list-group-horizontal-md">
-      {% if member_articles %}
-        <a href="#articles" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          Articles
-          <span class="badge badge-light">{{ member_articles|length }}</span>
-        </a>
-      {% endif %}
-      {% if member_book_chapters %}
-        <a href="#chapters" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          Book Chapters
-          <span class="badge badge-light">{{ member_book_chapters|length }}</span>
-        </a>
-      {% endif %}
-      {% if member_patents %}  
-        <a href="#patents" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          Patents
-          <span class="badge badge-light">{{ member_patents|length }}</span>
-        </a>
-      {% endif %}
-      {% if member_posters %}  
-        <a href="#posters" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          Posters
-          <span class="badge badge-light">{{ member_posters|length }}</span>
-        </a>
-      {% endif %}
-      {% if member_presentations %}
-        <a href="#presentations" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          Presentations
-          <span class="badge badge-light">{{ member_presentations|length }}</span>
-        </a>
-      {% endif %}  
-      {% if member_theses %}
-        <a href="#theses" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-          Theses
-          <span class="badge badge-light">{{ member_theses|length }}</span>
-        </a>
-      {% endif %}
+  <h1 class="display-5 mb-3">
+    {{ page_title }}
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle }}</small>
+  </h1>
+  
+  <div class="row mt-4 mb-3">
+    <div class="col-md-3">
+      <h3 class="d-md-none mb-3">{{ member.name }}</h3>
+      <img class="img-fluid img-thumbnail" src="{% if member.user.profile.photo.url %}{{ member.user.profile.photo.url }}{% else %}{{ member.photo.url }}{% endif %}" alt="">
+      <div class="my-3">
+        {% if member.user.profile.scopus_url %}
+        <a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.scopus_url }}" role="button"><i class="fas fa-globe-europe"></i> Scopus</a>
+        {% endif %}
+        {% if member.user.profile.scholar_url %}
+        <a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.scholar_url }}" role="button"><i class="ai ai-google-scholar"></i> Google Scholar</a>
+        {% endif %}
+        {% if member.user.profile.linkedin_url %}
+        <a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.linkedin_url }}" role="button"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+        {% endif %}
+        {% if member.user.profile.personal_url %}
+        <a class="btn btn-outline-egichem btn-block" href="{{ member.user.profile.personal_url }}" role="button"><i class="fas fa-link"></i> Personal Page</a>
+        {% endif %}
+      </div>
     </div>
-    {% endif %}
+    <div class="col-md-9">
 
-		<!-- Articles -->
-		{% if member_articles %}
-		<h4 id="articles" class="mt-4 card-title title mb-3">Articles</h4>
-		{% for pub in member_articles %}
-		<p><a class="text-dark publication-link" href="{{ pub.link }}" target="_blank">{{ pub.authors }}. {{ pub.title|safe }}, <em>{{ pub.journal }}</em> {{ pub.volume }} ({{ pub.year }}) {{ pub.pages }}.</a></p>
-		{% endfor %}
-		{% endif %}
+      <!-- Bio -->
+      <h4 class="card-title title mb-2">Bio</h4>
+      {% if member.user.profile.bio %}
+      <p class="card-text">{{ member.user.profile.bio|safe }}</p>
+      {% else %}
+      <p class="card-text">{{ member.name }} is a {{ member.position}} at EgiChem focusing on {{ member.research_area }}.</p>
+      {% endif %}
 
-		<!-- Book Chapters -->
-		{% if member_book_chapters %}
-		<h4 id="chapters" class="mt-4 card-title title mb-3">Book Chapters</h4>
-		{% for pub in member_book_chapters %}
-		<p><a class="text-dark" href="{{ pub.link }}" target="_blank">{{ pub.authors }}. {{ pub.title|safe }}, in <em>{{ pub.book_title }}</em>, {{ pub.publisher }}, ({{ pub.year }}).</a></p>
-		{% endfor %}
-		{% endif %}
+      <!-- For Professor Carlos -->
+      {% if member.name == 'Carlos Manuel Silva' %}
+        {% include 'website/_includes/prof_metrics.html' %}
+      {% endif %}
 
-		<!-- Patents -->
-		{% if member_patents %}
-		<h4 id="patents" class="mt-4 card-title title mb-3">Patents</h4>
-		{% for pub in member_patents %}
-		<p>{{ pub.authors }}. {{ pub.title }}, {{ pub.pub_number }}, {{ pub.year }}.</p>
-		{% endfor %}
-		{% endif %}
+      <!-- Publications -->
+      {% if member_articles or member_book_chapters or member_patents or member_posters or member_presentations or member_theses %}
+      <h4 class="card-title title mt-4 mb-3">Publications</h4>
+      <div class="list-group list-group-horizontal-md">
+        {% if member_articles %}
+          <a href="#articles" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Articles
+            <span class="badge badge-light">{{ member_articles|length }}</span>
+          </a>
+        {% endif %}
+        {% if member_book_chapters %}
+          <a href="#chapters" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Book Chapters
+            <span class="badge badge-light">{{ member_book_chapters|length }}</span>
+          </a>
+        {% endif %}
+        {% if member_patents %}  
+          <a href="#patents" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Patents
+            <span class="badge badge-light">{{ member_patents|length }}</span>
+          </a>
+        {% endif %}
+        {% if member_posters %}  
+          <a href="#posters" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Posters
+            <span class="badge badge-light">{{ member_posters|length }}</span>
+          </a>
+        {% endif %}
+        {% if member_presentations %}
+          <a href="#presentations" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Presentations
+            <span class="badge badge-light">{{ member_presentations|length }}</span>
+          </a>
+        {% endif %}  
+        {% if member_theses %}
+          <a href="#theses" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Theses
+            <span class="badge badge-light">{{ member_theses|length }}</span>
+          </a>
+        {% endif %}
+      </div>
+      {% endif %}
 
-		<!-- Posters -->
-		{% if member_posters %}
-		<h4 id="posters" class="mt-4 card-title title mb-3">Posters</h4>
-		{% for pub in member_posters %}
-		<p>{{ pub.authors }}. {{ pub.title }}, {{ pub.conference }}, {{ pub.conference_city }}, {{ pub.conference_date }}, {{ pub.year }}.</p>
-		{% endfor %}
-		{% endif %}
+      <!-- Articles -->
+      {% if member_articles %}
+      <h4 id="articles" class="mt-4 card-title title mb-3">Articles</h4>
+      {% for pub in member_articles %}
+      <p><a class="text-dark publication-link" href="{{ pub.link }}" target="_blank">{{ pub.authors }}. {{ pub.title|safe }}, <em>{{ pub.journal }}</em> {{ pub.volume }} ({{ pub.year }}) {{ pub.pages }}.</a></p>
+      {% endfor %}
+      {% endif %}
 
-		<!-- Presentations -->
-		{% if member_presentations %}
-		<h4 id="presentations" class="mt-4 card-title title mb-3">Presentations</h4>
-		{% for pub in member_presentations %}
-		<p>{{ pub.authors }}. {{ pub.title }}, {{ pub.conference }}, {{ pub.conference_city }}, {{ pub.conference_date }}, {{ pub.year }}.</p>
-		{% endfor %}
-		{% endif %}
+      <!-- Book Chapters -->
+      {% if member_book_chapters %}
+      <h4 id="chapters" class="mt-4 card-title title mb-3">Book Chapters</h4>
+      {% for pub in member_book_chapters %}
+      <p><a class="text-dark" href="{{ pub.link }}" target="_blank">{{ pub.authors }}. {{ pub.title|safe }}, in <em>{{ pub.book_title }}</em>, {{ pub.publisher }}, ({{ pub.year }}).</a></p>
+      {% endfor %}
+      {% endif %}
 
-		<!-- Theses -->
-		{% if member_theses %}
-		<h4 id="theses" class="mt-4 card-title title mb-3">Thesis</h4>
-		{% for pub in member_theses %}
-		<p>{{ pub.authors }}. {{ pub.title }}, {{ pub.get_thesis_type_display }}, Coordinator(s): {{ pub.thesis_coordinators }}, {{ pub.thesis_institution }}, {{ pub.year }}.</p>
-		{% endfor %}
-		{% endif %}
+      <!-- Patents -->
+      {% if member_patents %}
+      <h4 id="patents" class="mt-4 card-title title mb-3">Patents</h4>
+      {% for pub in member_patents %}
+      <p>{{ pub.authors }}. {{ pub.title }}, {{ pub.pub_number }}, {{ pub.year }}.</p>
+      {% endfor %}
+      {% endif %}
 
-	</div>
-</div><!-- row closing -->
+      <!-- Posters -->
+      {% if member_posters %}
+      <h4 id="posters" class="mt-4 card-title title mb-3">Posters</h4>
+      {% for pub in member_posters %}
+      <p>{{ pub.authors }}. {{ pub.title }}, {{ pub.conference }}, {{ pub.conference_city }}, {{ pub.conference_date }}, {{ pub.year }}.</p>
+      {% endfor %}
+      {% endif %}
 
+      <!-- Presentations -->
+      {% if member_presentations %}
+      <h4 id="presentations" class="mt-4 card-title title mb-3">Presentations</h4>
+      {% for pub in member_presentations %}
+      <p>{{ pub.authors }}. {{ pub.title }}, {{ pub.conference }}, {{ pub.conference_city }}, {{ pub.conference_date }}, {{ pub.year }}.</p>
+      {% endfor %}
+      {% endif %}
+
+      <!-- Theses -->
+      {% if member_theses %}
+      <h4 id="theses" class="mt-4 card-title title mb-3">Thesis</h4>
+      {% for pub in member_theses %}
+      <p>{{ pub.authors }}. {{ pub.title }}, {{ pub.get_thesis_type_display }}, Coordinator(s): {{ pub.thesis_coordinators }}, {{ pub.thesis_institution }}, {{ pub.year }}.</p>
+      {% endfor %}
+      {% endif %}
+
+    </div>
+  </div><!-- row closing -->
+
+</div>
 
 {% endblock content %}

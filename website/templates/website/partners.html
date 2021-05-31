@@ -2,51 +2,58 @@
 
 {% block content %}
 
-<!-- Collaborators section -->
-<div class="row">
-  <div class="col-md-12">
-    <!-- <div class="card w-100">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-12"> -->
-            <div class="table-responsive table-borderless px-lg-3">
-              <table class="table table-sm">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Affiliation</th>
-                    <th class="fit" scope="col">Collaboration Scope</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {% for collaborator in collaborators %}
-                  <tr>
-                    <td>{{ collaborator.name }}</td>
-                    <td><a class="link" href="{{ collaborator.link }}" target="_blank">{{ collaborator.affiliation }}</a></td>
-                    <td class="fit">{{ collaborator.scope }}</td>
-                  </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
-          <!-- </div>
+
+<div class="container mt-4">
+
+  <h1 class="display-5 mb-3">
+    {{ page_title }}
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle }}</small>
+  </h1>
+
+  <!-- Collaborators section -->
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card shadow-sm w-100 py-3">
+        <div class="table-responsive table-borderless px-lg-3">
+          <table class="table table-sm">
+            <thead>
+              <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Affiliation</th>
+                <th class="fit" scope="col">Collaboration Scope</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for collaborator in collaborators %}
+              <tr>
+                <td>{{ collaborator.name }}</td>
+                <td><a class="link" href="{{ collaborator.link }}" target="_blank">{{ collaborator.affiliation }}</a></td>
+                <td class="fit">{{ collaborator.scope }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
         </div>
       </div>
-    </div> -->
-  </div>
-</div>
-
-<!-- Partners section -->
-<div class="w-100 bg-egichem-green text-white text-center text-uppercase p-1 mb-3 mt-5">
-  <span class="font-weight-bold">{{ page_title2 }}</span>{% if page_subtitle2 %} &nbsp;|&nbsp;  <span class="text-small">{{ page_subtitle2 }}</span>{% endif %}
-</div>
-
-{%  for partner in partners  %}
-  {% if forloop.counter0|divisibleby:5 %}<div class="row partners align-items-center mb-5 mt-4 justify-content-center">{%  endif %}
-    <div class="col-md-2 mr-3 ml-3">
-      <a href="{{ partner.link }}"><img src="{{ partner.image.url }}" class="img-fluid" alt="{{ partner.name }}"></a>
     </div>
-{%  if forloop.counter|divisibleby:5 or forloop.last %}</div><!-- row closing -->{%  endif %}
-{%  endfor %}
+  </div>
+
+  <!-- Partners section -->
+  <h1 class="display-5 mt-5 mb-3">
+    {{ page_title2 }}
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle2 }}</small>
+  </h1>
+
+  <div class="card shadow-sm w-100 py-3">
+    {%  for partner in partners  %}
+      {% if forloop.counter0|divisibleby:5 %}<div class="row partners align-items-center mb-5 mt-4 justify-content-center">{%  endif %}
+        <div class="col-md-2 mr-3 ml-3">
+          <a href="{{ partner.link }}"><img src="{{ partner.image.url }}" class="img-fluid" alt="{{ partner.name }}"></a>
+        </div>
+    {%  if forloop.counter|divisibleby:5 or forloop.last %}</div><!-- row closing -->{%  endif %}
+    {%  endfor %}
+  </div>
+  
+</div>
 
 {% endblock content %}

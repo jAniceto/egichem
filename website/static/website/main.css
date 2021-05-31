@@ -1,139 +1,184 @@
 /* 
 CSS SECTIONS:
-- GENERAL
+- VARIABLES
+- GLOBAL
 - EGICHEM COLORS
 - LINKS STYLES
 - MOBILE NAV
+- BANNER CAROUSEL
 - CARD DECK
 - HORIZONTAL DIVIDER
-- Unorganized 
+- TABS TO ACCORDION ON MOBILE
+- CALENDAR 
 */
 
 
-/* GENERAL */
-html {
-  position: relative;
-  min-height: 100%;
+/* === VARIABLES === */
+
+:root {
+    --egichem-green: #059862;
+    --egichem-green-darker: #068657;
 }
 
-body {
-  /* background: #fafafa; */
-  /* color: #333333; */
-  /* font-family: 'Roboto', sans-serif; */
+
+/* === GLOBAL === */
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: #444444;
+    color: #444444;
 }
 
 ul {
-  margin: 0;
+    margin: 0;
 }
 
 #section {
-  font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 
-/* EGICHEM COLORS */
+/* === COLORS === */
+
 .bg-egichem-green {
-  background-color: #62AA23;
+    background-color: var(--egichem-green);
 }
 
-.bg-egichem-2 {
-  background-color: #C3C49E;
+.bg-egichem-footer {
+    background-color: #efefef;
+}
+
+.bg-egichem-transparent {
+    background-color: rgba(39, 174, 96, 0.7);
 }
 
 .text-egichem-green {
-  color: #62AA23;
+    color: var(--egichem-green);
 }
 
 .btn-egichem {
-  color: #fff;
-  background-color: #62AA23;
-  border-color: #62AA23;
+    color: #fff;
+    background-color: var(--egichem-green);
+    border-color: var(--egichem-green);
 }
 
 .btn-egichem:hover {
-  color: #fff;
-  background-color: #589920;
-  border-color: #589920;
+    color: #fff;
+    background-color: var(--egichem-green-darker);;
+    border-color: var(--egichem-green-darker);
 }
 
 .btn-outline-egichem {
-  color: #62AA23;
-  background-color: transparent;
-  background-image: none;
-  border-color: #62AA23;
+    color: var(--egichem-green);
+    border-color: var(--egichem-green);
 }
 
 .btn-outline-egichem:hover {
-  color: #fff;
-  background-color: #62AA23;
-  border-color: #62AA23;
+    color: #fff;
+    background-color: var(--egichem-green);
+    border-color: var(--egichem-green);
+}
+
+.list-group-item-egichem.active {
+    z-index: 2;
+    background-color: var(--egichem-green);
+    border-color: var(--egichem-green);
 }
 
 .text-small {
-  font-size: small;
+    font-size: small;
 }
 
 
-/* NAV */
+/* === NAV === */
+
 nav {
-  /* min-height: 190px; */
-  font-weight: bold;
-  font-family: 'Raleway', sans-serif;
+    /* min-height: 190px; */
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
 }
 
 nav .navbar-brand {
-  padding: 0;
-  margin: 0;
+    padding: 0;
+    margin: 0;
 }
 
 #navbar .nav-item {
-  color: #62AA23 !important;
+    color: white !important;
 }
 
-@media (min-width: 992px) { 
-  .navbar-nav li a {
+@media (min-width: 992px) {
+    /* .navbar-nav li a {
     transition: all 0.4s;
     padding: 40px 0px;
     border-bottom: 4px solid transparent;
     border-top: 4px solid transparent;
-  }
-  
-  .navbar-nav li .nav-item.active, .navbar-nav li a:hover {
+  } */
+    /* .navbar-nav li .nav-item.active, .navbar-nav li a:hover {
     margin-top: 30px;
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 4px solid #62AA23;
     border-top: 4px solid #62AA23;
-  }
+  } */
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: #495057;
+    background-color: #fafafa;
+    border-color: #dee2e6 #dee2e6 #fff;
 }
 
 
-/* FOOTER */
+/* MOBILE NAV */
+
+@media (max-width: 768px) {
+    /* Fix the margin of the right hand icon buttons */
+    .fix-margin {
+        margin-left: .5rem;
+        margin-right: .5rem;
+    }
+    .navbar {
+        /* background-color: #f8f9fa!important; */
+        /* margin-bottom: 1rem;
+    border-bottom: 1px solid #dee2e6; */
+    }
+    .navbar-toggler {
+        line-height: inherit;
+    }
+}
+
+
+/* === FOOTER === */
+
 body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
+    background: #fafafa;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
 main {
-  flex: 1;
+    flex: 1;
 }
 
 
-/* LINKS STYLES */
+/* === LINKS STYLES === */
+
 a {
-  color: #333333;
-  text-decoration: none;
+    color: #333333;
+    text-decoration: none;
 }
 
 a:hover {
-  color: rgba(97, 169, 34, 0.8);
-  text-decoration: none;
-} 
+    color: rgba(97, 169, 34, 0.8);
+    text-decoration: none;
+}
+
 
 /* main a.link {
   color: #333333;
@@ -147,53 +192,30 @@ main a.link:hover {
 } */
 
 a.tab-link {
-  color: #62AA23;
+    color: #62AA23;
 }
 
 a.tab-link.active {
-  color: #495057;
+    color: #495057;
 }
 
 a.link {
-  border-bottom: 1px dotted #222222;
-  /* Below is an alternative trick that allows to change spacing between dots */
-  /* background-image: linear-gradient(to right, #222222 33%, rgba(255,255,255,0) 0%);
+    border-bottom: 1px dotted #222222;
+    /* Below is an alternative trick that allows to change spacing between dots */
+    /* background-image: linear-gradient(to right, #222222 33%, rgba(255,255,255,0) 0%);
   background-position: bottom;
   background-size: 4px 1px;
   background-repeat: repeat-x; */
 }
 
 a.link:hover {
-  border-bottom: 1px dotted rgba(97, 169, 34, 0.8);
-}
-
-
-/* MOBILE NAV */
-@media (max-width: 768px) { 
-  /* Fix the margin of the right hand icon buttons */
-  .fix-margin {
-    margin-left: .5rem;
-    margin-right: .5rem;
-  }
-
-  .navbar {
-    background-color: #f8f9fa!important;
-    /* margin-bottom: 1rem;
-    border-bottom: 1px solid #dee2e6; */
-  }
-
-  .navbar-toggler {line-height: inherit;}
+    border-bottom: 1px dotted rgba(97, 169, 34, 0.8);
 }
 
 
 /* BANNER CAROUSEL */
-.carousel-item {
-  /* height:220px;     */
-  /* overflow:hidden; */
-}
 
-.carousel-item img {
-  /* min-height: 100%; */
+/* .carousel-item img {
   width: 100%;
 }
 
@@ -201,95 +223,127 @@ a.link:hover {
   margin-top: -1.25rem;
   margin-left: -1.25rem;
   margin-right: -1.25rem;
+} */
+
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
 }
 
-/* CARD DECK */
+.carousel-item {
+    height: 30rem;
+}
+
+.carousel-item>img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* === CARD DECK === */
+
 /* Forces a max width so if a row is not full, all cards have same width. Only applied in desktop mode */
 @media (min-width: 768px) {
-  .card-deck .card {
-    max-width: calc(50% - 30px);
-  }
-}
-
-/* HORIZONTAL DIVIDER */
-.text-divider{
-  margin: 1em 0; 
-  line-height: 0; 
-  text-align: center;
-}
-
-.text-divider span{
-  color: #6c757d;
-  background-color: #fff; 
-  padding: 0.5em;}
-
-.text-divider:before{ 
-  content: " "; 
-  display: block; 
-  border-top: 1px solid #e3e3e3; 
-  border-bottom: 1px solid #f7f7f7;
+    .card-deck .card {
+        max-width: calc(50% - 30px);
+    }
 }
 
 
-/* TABS TO ACCORDION ON MOBILE */
+/* === HORIZONTAL DIVIDER === */
+
+.text-divider {
+    margin: 1em 0;
+    line-height: 0;
+    text-align: center;
+}
+
+.text-divider span {
+    color: #6c757d;
+    background-color: #fafafa;
+    padding: 0.5em;
+}
+
+.text-divider:before {
+    content: " ";
+    display: block;
+    border-top: 1px solid #e3e3e3;
+    border-bottom: 1px solid #f7f7f7;
+}
+
+
+/* === TABS TO ACCORDION ON MOBILE === */
+
 h4.card-title {
-	margin: 0;
-	font-size: 1.1rem;
+    margin: 0;
+    font-size: 1.1rem;
 }
+
 
 /* .card-header {
   padding: 5px;
 } */
 
 
-/* CALENDAR */
+/* === CALENDAR === */
+
 #calendar {
-  max-width: 900px;
-  margin: 40px auto;
+    max-width: 900px;
+    margin: 40px auto;
 }
 
-button.fc-prev-button, button.fc-today-button, button.fc-next-button {
-  background-color: #62AA23;
-  border-color: #62AA23;
+button.fc-prev-button,
+button.fc-today-button,
+button.fc-next-button {
+    background-color: #62AA23;
+    border-color: #62AA23;
 }
 
 span.fc-event-dot {
-  background-color: #57961f;
+    background-color: #57961f;
 }
 
 
-/* PARTNERS & COLLABORATORS */
-@media (max-width: 768px) { 
-  div.partners img {
-    max-width: 80%;
-    display : block;
-    margin: 10px auto;
-  }
+/* === PARTNERS & COLLABORATORS PAGE === */
+
+@media (max-width: 768px) {
+    div.partners img {
+        max-width: 80%;
+        display: block;
+        margin: 10px auto;
+    }
 }
 
-.table td.fit, 
+.table td.fit,
 .table th.fit {
     white-space: nowrap;
     width: 1%;
 }
 
 
-/* MEMBER PAGE */
+/* === MEMBER PAGE === */
+
 h4.title {
-  border-left: 6px solid #62AA23;
-  padding-left: 6px;
-  position: relative;
-  /* left: -12px; */
+    border-left: 6px solid #62AA23;
+    padding-left: 6px;
+    position: relative;
+    /* left: -12px; */
 }
 
-@media (min-width: 768px) { 
+@media (min-width: 768px) {
     h4.title {
         left: -12px;
-  } 
+    }
 }
 
 
-/* PEOPLE PAGE */
+/* === PEOPLE PAGE === */
+
 .embed-responsive .card-img {
     object-fit: cover;
 }
@@ -301,4 +355,8 @@ h4.title {
 .truncate {
     max-height: 400px;
     overflow: hidden;
+}
+
+.list-group-item {
+    background-color: transparent;
 }

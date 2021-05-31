@@ -2,216 +2,219 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="row mb-3">
-  <div class="col">
-    <h2>Properties of carbon dioxide mixtures</h2>
-    <p class="lead">Properties of carbon dioxide and carbon dioxide/cossolvent mixtures calculated using the PC-SAFT equation of state.</p>
-  </div>
-</div>
+<div class="container mt-4">
 
-<div class="row">
-  <div class="col-md-5">
-
-    <form method="POST">
-      {% csrf_token %}
-
-      <div class="form-group row my-1">
-        <label for="id_cosolvent" class="col-sm-5 col-form-label">{{ form.cosolvent.label }}</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.cosolvent }}
-          </div>
-        </div>
-        {{ form.cosolvent.errors }}
-      </div>
-
-      <div class="form-group row my-1">
-        <label for="id_temperature" class="col-sm-5 col-form-label">{{ form.temperature.label }}</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.temperature }}
-            <!-- <input id="temperature" type="number" step="any" class="form-control" aria-label="Temperature" aria-describedby="addon-temperature"> -->
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_temperature">°C</span>
-            </div>
-          </div>
-        </div>
-        {{ form.temperature.errors }}
-      </div>
-
-      <div class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">{{ form.pressure.label }}</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.pressure }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_pressure">bar</span>
-            </div>
-          </div>
-        </div>
-        {{ form.pressure.errors }}
-      </div>
-
-      <div id="cosolvent_fraction_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">{{ form.cosolvent_fraction.label }}</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.cosolvent_fraction }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_cosolvent_fraction">mol/mol</span>
-            </div>
-          </div>
-        </div>
-        {{ form.cosolvent_fraction.errors }}
-      </div>
-      
-      <button type="submit" class="btn btn-egichem">Calculate</button>
-      <a href="{% url 'pcsaft_co2' %}" type="button" class="btn btn-outline-egichem">Reset</a>
-    </form>
-
+  <div class="row mb-3">
+    <div class="col">
+      <h1 class="display-5 mb-3">Properties of carbon dioxide mixtures</h1>
+      <p class="lead">Properties of carbon dioxide and carbon dioxide/cossolvent mixtures calculated using the PC-SAFT equation of state.</p>
+    </div>
   </div>
 
-  <div class="col-md-5 offset-md-2 mt-3 mt-md-0">
-    <form>
-      
-      <div class="form-group row">
+  <div class="row">
+    <div class="col-md-5">
 
-        <label for="molar-density" class="col-sm-6 col-form-label">Molar density</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.molar_density }}" id="molar-density" class="form-control" aria-label="Molar density" aria-describedby="addon-molar-density" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-molar-density">mol m<sup>-3</sup></span>
+      <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group row my-1">
+          <label for="id_cosolvent" class="col-sm-5 col-form-label">{{ form.cosolvent.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.cosolvent }}
             </div>
           </div>
+          {{ form.cosolvent.errors }}
         </div>
 
-        <label for="mass-density" class="col-sm-6 col-form-label">Mass density</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.mass_density }}" id="mass-density" class="form-control" aria-label="Mass density" aria-describedby="addon-mass-density" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-mass-density">kg m<sup>-3</sup></span>
+        <div class="form-group row my-1">
+          <label for="id_temperature" class="col-sm-5 col-form-label">{{ form.temperature.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.temperature }}
+              <!-- <input id="temperature" type="number" step="any" class="form-control" aria-label="Temperature" aria-describedby="addon-temperature"> -->
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_temperature">°C</span>
+              </div>
             </div>
           </div>
+          {{ form.temperature.errors }}
         </div>
 
-        {% comment %}
-        <label for="enthalpyVaporization" class="col-sm-6 col-form-label">Enthalpy of vaporization</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.enthalpy_vaporization }}" id="enthalpyVaporization" class="form-control" aria-label="Enthalpy of vaporization" aria-describedby="addon-enthalpyVaporization" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-enthalpyVaporization">J mol<sup>-1</sup></span>
+        <div class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">{{ form.pressure.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.pressure }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_pressure">bar</span>
+              </div>
             </div>
           </div>
-        </div>
-        {% endcomment %}
-
-        <label for="residualEnthalpy" class="col-sm-6 col-form-label">Residual enthalpy</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.residual_enthalpy }}" id="residualEnthalpy" class="form-control" aria-label="Residual enthalpy" aria-describedby="addon-residualEnthalpy" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-residualEnthalpy">J mol<sup>-1</sup></span>
-            </div>
-          </div>
-        </div>
-      
-        <label for="residualEntropy" class="col-sm-6 col-form-label">Residual entropy</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.residual_entropy }}" id="residualEntropy" class="form-control" aria-label="Residual entropy" aria-describedby="addon-residualEntropy" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-residualEntropy">J mol<sup>-1</sup> K<sup>-1</sup></span>
-            </div>
-          </div>
+          {{ form.pressure.errors }}
         </div>
 
-        <label for="residualGibbs" class="col-sm-6 col-form-label">Residual Gibbs energy</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.residual_gibbs }}" id="residualGibbs" class="form-control" aria-label="Residual Gibbs energy" aria-describedby="addon-residualGibbs" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-residualGibbs">J mol<sup>-1</sup></span>
+        <div id="cosolvent_fraction_div" class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">{{ form.cosolvent_fraction.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.cosolvent_fraction }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_cosolvent_fraction">mol/mol</span>
+              </div>
             </div>
           </div>
+          {{ form.cosolvent_fraction.errors }}
         </div>
         
-        <label for="fugacity" class="col-sm-6 col-form-label">Fugacity coefficient CO<sub>2</sub></label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.fugacity }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient CO2" aria-describedby="addon-fugacity" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-fugacity">-</span>
+        <button type="submit" class="btn btn-egichem">Calculate</button>
+        <a href="{% url 'pcsaft_co2' %}" type="button" class="btn btn-outline-egichem">Reset</a>
+      </form>
+
+    </div>
+
+    <div class="col-md-5 offset-md-2 mt-3 mt-md-0">
+      <form>
+        
+        <div class="form-group row">
+
+          <label for="molar-density" class="col-sm-6 col-form-label">Molar density</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.molar_density }}" id="molar-density" class="form-control" aria-label="Molar density" aria-describedby="addon-molar-density" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-molar-density">mol m<sup>-3</sup></span>
+              </div>
             </div>
           </div>
-        </div>
 
-        {% if properties.fugacity_cossolvent %}
-        <label for="fugacity2" class="col-sm-6 col-form-label">Fugacity coefficient cossolvent</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.fugacity_cossolvent }}" id="fugacity2" class="form-control" aria-label="Fugacity coefficient cossolvent" aria-describedby="addon-fugacity2" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-fugacity2">-</span>
+          <label for="mass-density" class="col-sm-6 col-form-label">Mass density</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.mass_density }}" id="mass-density" class="form-control" aria-label="Mass density" aria-describedby="addon-mass-density" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-mass-density">kg m<sup>-3</sup></span>
+              </div>
             </div>
           </div>
-        </div>
-        {% endif %}
 
-        <label for="compressibility" class="col-sm-6 col-form-label">Compressibility factor</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.compressibility }}" id="compressibility" class="form-control" aria-label="Compressibility factor" aria-describedby="addon-compressibility" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-compressibility">-</span>
+          {% comment %}
+          <label for="enthalpyVaporization" class="col-sm-6 col-form-label">Enthalpy of vaporization</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.enthalpy_vaporization }}" id="enthalpyVaporization" class="form-control" aria-label="Enthalpy of vaporization" aria-describedby="addon-enthalpyVaporization" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-enthalpyVaporization">J mol<sup>-1</sup></span>
+              </div>
             </div>
           </div>
-        </div>
+          {% endcomment %}
 
-        <label for="helmholtz" class="col-sm-6 col-form-label">Residual Helmholtz energy</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.helmholtz }}" id="helmholtz" class="form-control" aria-label="Residual Helmholtz energy" aria-describedby="addon-helmholtz" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-helmholtz">J mol<sup>-1</sup></span>
+          <label for="residualEnthalpy" class="col-sm-6 col-form-label">Residual enthalpy</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.residual_enthalpy }}" id="residualEnthalpy" class="form-control" aria-label="Residual enthalpy" aria-describedby="addon-residualEnthalpy" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-residualEnthalpy">J mol<sup>-1</sup></span>
+              </div>
             </div>
           </div>
+        
+          <label for="residualEntropy" class="col-sm-6 col-form-label">Residual entropy</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.residual_entropy }}" id="residualEntropy" class="form-control" aria-label="Residual entropy" aria-describedby="addon-residualEntropy" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-residualEntropy">J mol<sup>-1</sup> K<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+
+          <label for="residualGibbs" class="col-sm-6 col-form-label">Residual Gibbs energy</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.residual_gibbs }}" id="residualGibbs" class="form-control" aria-label="Residual Gibbs energy" aria-describedby="addon-residualGibbs" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-residualGibbs">J mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+          
+          <label for="fugacity" class="col-sm-6 col-form-label">Fugacity coefficient CO<sub>2</sub></label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.fugacity }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient CO2" aria-describedby="addon-fugacity" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-fugacity">-</span>
+              </div>
+            </div>
+          </div>
+
+          {% if properties.fugacity_cossolvent %}
+          <label for="fugacity2" class="col-sm-6 col-form-label">Fugacity coefficient cossolvent</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.fugacity_cossolvent }}" id="fugacity2" class="form-control" aria-label="Fugacity coefficient cossolvent" aria-describedby="addon-fugacity2" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-fugacity2">-</span>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+
+          <label for="compressibility" class="col-sm-6 col-form-label">Compressibility factor</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.compressibility }}" id="compressibility" class="form-control" aria-label="Compressibility factor" aria-describedby="addon-compressibility" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-compressibility">-</span>
+              </div>
+            </div>
+          </div>
+
+          <label for="helmholtz" class="col-sm-6 col-form-label">Residual Helmholtz energy</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.helmholtz }}" id="helmholtz" class="form-control" aria-label="Residual Helmholtz energy" aria-describedby="addon-helmholtz" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-helmholtz">J mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-      </div>
-
-    </form>
+      </form>
+    </div>
   </div>
-</div>
 
 
-<div class="row mt-4">
-  <div class="col">
+  <div class="row mt-4">
+    <div class="col">
 
-    <h4>Notes</h4>
-    <p>This calculator implements the PC-SAFT equation of state.</p>
-    <p>PC-SAFT (Perturbed Chain - Statistical Associating Fluid Theory) is an equation of state developed by J. Gross and G. Sadowski [1,2]. It is based on statistical associating fluid theory (SAFT) and makes use of statistical mechanical methods. Unlike other SAFT equations of state that used unbonded spherical particles as a reference fluid, PC-SAFT uses spherical particles in the context of hard chains as reference fluid.</p>
-    <p>PC-SAFT has been tested by our group against experimental data from several sources at different temperature, pressures, and cossolvent fractions, providing very good results:<br>
-      - For CO<sub>2</sub>/ethanol mixtures, an average error of 1.67 % was obtained for experimental data from [3-6] (254 data points).<br>
-      - For CO<sub>2</sub>/methanol mixtures, an average error of 0.79 % was obtained for experimental data from [5,7,8] (274 data points).<br>
-      - For pure CO<sub>2</sub>, an average error of 0.49 % was obtained for experimental data from [3,9] (108 data points).<br>
-    </p>
+      <h4>Notes</h4>
+      <p>This calculator implements the PC-SAFT equation of state.</p>
+      <p>PC-SAFT (Perturbed Chain - Statistical Associating Fluid Theory) is an equation of state developed by J. Gross and G. Sadowski [1,2]. It is based on statistical associating fluid theory (SAFT) and makes use of statistical mechanical methods. Unlike other SAFT equations of state that used unbonded spherical particles as a reference fluid, PC-SAFT uses spherical particles in the context of hard chains as reference fluid.</p>
+      <p>PC-SAFT has been tested by our group against experimental data from several sources at different temperature, pressures, and cossolvent fractions, providing very good results:<br>
+        - For CO<sub>2</sub>/ethanol mixtures, an average error of 1.67 % was obtained for experimental data from [3-6] (254 data points).<br>
+        - For CO<sub>2</sub>/methanol mixtures, an average error of 0.79 % was obtained for experimental data from [5,7,8] (274 data points).<br>
+        - For pure CO<sub>2</sub>, an average error of 0.49 % was obtained for experimental data from [3,9] (108 data points).<br>
+      </p>
 
-    <h4>References</h4>
-    <p>[1] J. Gross, G. Sadowski. Perturbed-Chain SAFT: An Equation of State Based on a Perturbation Theory for Chain Molecules, Ind. Eng. Chem. Res., 2001, 40(4) 1244–1260.</p>
-    <p>[2] J. Gross, G. Sadowski. Application of the Perturbed-Chain SAFT Equation of State to Associating Systems, Ind. Eng. Chem. Res., 2002, 41(22) 5510–5515.</p>
-    <p>[3] T. Zhu, H. Gong, and M. Dong. Density and Viscosity of CO<sub>2</sub> + Ethanol Binary Systems Measured by a Capillary Viscometer from 308.15 to 338.15 K and 15 to 45 MPa, J. Chem. Eng. Data, 2020, 65(8) 3820-3833.</p>
-    <p>[4] A. Zúñiga-Moreno and L.A. Galicia-Luna. Compressed Liquid Densities of Carbon Dioxide + Ethanol Mixtures at Four Compositions via a Vibrating Tube Densimeter up to 363 K and 25 MPa, J. Chem. Eng. Data, 2002, 47(2) 149-154.</p>
-    <p>[5] K.D. Tilly, N.R. Foster, S.J. Macnaughton, and D.L. Tomasko. Viscosity correlations for binary supercritical fluids, Ind. Eng. Chem. Res., 1994, 33(3) 681-688.</p>
-    <p>[6] H. Pöhler and E. Kiran. Volumetric Properties of Carbon Dioxide + Ethanol at High Pressures, J. Chem. Eng. Data, 1997, 42(2) 384-388.</p>
-    <p>[7] R.L. Smith, S.B. Lee, S. Suzuki, C. Saito, H. Inomata, and K. Arai. Densities of Carbon Dioxide + Methanol Mixtures at Temperatures from 313.2 to 323.2 K and at Pressures from 10 to 20 MPa, J. Chem. Eng. Data, 2002, 47(3) 608-612.</p>
-    <p>[8] L.A. Galicia-Luna, D. Richon, H. Renon. New Loading Technique for a Vibrating Tube Densimeter and Measurements of Liquid Densities up to 39.5 MPa for Binary and Ternary Mixtures of the Carbon Dioxide-Methanol-Propane System, J. Chem. Eng. Data, 1994, 39 424-431.</p>
-    <p>[9] National Institute of Standards and Technology (NIST), 2020.</p>
+      <h4>References</h4>
+      <p>[1] J. Gross, G. Sadowski. Perturbed-Chain SAFT: An Equation of State Based on a Perturbation Theory for Chain Molecules, Ind. Eng. Chem. Res., 2001, 40(4) 1244–1260.</p>
+      <p>[2] J. Gross, G. Sadowski. Application of the Perturbed-Chain SAFT Equation of State to Associating Systems, Ind. Eng. Chem. Res., 2002, 41(22) 5510–5515.</p>
+      <p>[3] T. Zhu, H. Gong, and M. Dong. Density and Viscosity of CO<sub>2</sub> + Ethanol Binary Systems Measured by a Capillary Viscometer from 308.15 to 338.15 K and 15 to 45 MPa, J. Chem. Eng. Data, 2020, 65(8) 3820-3833.</p>
+      <p>[4] A. Zúñiga-Moreno and L.A. Galicia-Luna. Compressed Liquid Densities of Carbon Dioxide + Ethanol Mixtures at Four Compositions via a Vibrating Tube Densimeter up to 363 K and 25 MPa, J. Chem. Eng. Data, 2002, 47(2) 149-154.</p>
+      <p>[5] K.D. Tilly, N.R. Foster, S.J. Macnaughton, and D.L. Tomasko. Viscosity correlations for binary supercritical fluids, Ind. Eng. Chem. Res., 1994, 33(3) 681-688.</p>
+      <p>[6] H. Pöhler and E. Kiran. Volumetric Properties of Carbon Dioxide + Ethanol at High Pressures, J. Chem. Eng. Data, 1997, 42(2) 384-388.</p>
+      <p>[7] R.L. Smith, S.B. Lee, S. Suzuki, C. Saito, H. Inomata, and K. Arai. Densities of Carbon Dioxide + Methanol Mixtures at Temperatures from 313.2 to 323.2 K and at Pressures from 10 to 20 MPa, J. Chem. Eng. Data, 2002, 47(3) 608-612.</p>
+      <p>[8] L.A. Galicia-Luna, D. Richon, H. Renon. New Loading Technique for a Vibrating Tube Densimeter and Measurements of Liquid Densities up to 39.5 MPa for Binary and Ternary Mixtures of the Carbon Dioxide-Methanol-Propane System, J. Chem. Eng. Data, 1994, 39 424-431.</p>
+      <p>[9] National Institute of Standards and Technology (NIST), 2020.</p>
+    </div>
   </div>
-</div>
 
+</div>
 {% endblock content %} 
 
 

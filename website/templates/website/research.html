@@ -2,34 +2,27 @@
 
 {% block content %}
 
-<!-- Previous version (to delete in the future) -->
-{% comment %}
-<div class="card-columns">
-  {%  for field in research_fields  %}
-  <div class="card">
-    <img class="card-img-top" src="{{ field.image.url }}" alt="">
-    <div class="card-body">
-      <h3 class="card-title">{{ field.title }}</h3>
-      <p class="card-text">{{ field.content }}</p>
-    </div>
-  </div>
-  {%  endfor %}
-</div>
-{% endcomment %}
+<div class="container mt-4">
 
+  <h1 class="display-5 mb-3">
+    {{ page_title}}
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle}}</small>
+  </h1>
 
-<div class="row row-cols-1 row-cols-md-3">
-  {% for field in research_fields %}
-  <div class="col mb-4">
-    <div class="card h-100">
-      <img src="{{ field.image.url }}" class="card-img-top" alt="{{ field.title }}">
-      <div class="card-body">
-        <h3 class="card-title">{{ field.title }}</h3>
-        <p class="card-text">{{ field.content }}</p>
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for field in research_fields %}
+    <div class="col mb-4">
+      <div class="card shadow-sm h-100">
+        <img src="{{ field.image.url }}" class="card-img-top" alt="{{ field.title }}">
+        <div class="card-body">
+          <h3 class="card-title">{{ field.title }}</h3>
+          <p class="card-text">{{ field.content }}</p>
+        </div>
       </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
+
 </div>
 
 {% endblock content %}

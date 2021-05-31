@@ -2,45 +2,55 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="row">
-	
-	<div class="col-md-6">
-		<div class="embed-responsive embed-responsive-16by9">
-			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.947254150569!2d-8.660213084211087!3d40.63104517934097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd23a2ab04ce07a7%3A0xa36bd9648d0090d9!2sUniversidade+de+Aveiro%2C+3810-193!5e0!3m2!1spt-PT!2spt!4v1547248913090" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-		</div>
-		<div class="row">
-			<div class="col-md-6">
-				<p class="mt-3">
-					<strong>Address:</strong></br>
-					Lab 29.1.5 and 29.1.15</br>
-					Departamento de Química</br>
-					Universidade de Aveiro</br>
-					Campus Universitário de Santiago</br>
-					3810-193 Aveiro - Portugal
-				</p>
-			</div>
-			<div class="col-md-6">
-				<p class="mt-3">
-					<strong>Phone:</strong> +351 234 401549</br>
-					<strong>Fax:</strong> +351 234 370084</br>
-					<strong>Email:</strong> dq-egichem[at]ua.pt
-				</p>
-			</div>
-		</div>
-	</div>
+<div class="container mt-4">
 
-	<div class="col-md-6">
-		<form method="POST" enctype="multipart/form-data">
-			{% csrf_token %}
-			<fieldset class="form-group">
-				<!-- <legend class="border-bottom mb-4">Contact Us</legend> -->
-				{{ form|crispy }}
-			</fieldset>
-			<div class="form-group">
-				<button class="btn btn-outline-egichem" type="submit">Send</button>
-			</div>
-		</form>
-	</div>
+  <h1 class="display-5 mb-3">
+    {{ page_title }}
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle }}</small>
+  </h1>
+
+  <div class="row">
+    
+    <div class="col-md-6">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3027.947254150569!2d-8.660213084211087!3d40.63104517934097!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd23a2ab04ce07a7%3A0xa36bd9648d0090d9!2sUniversidade+de+Aveiro%2C+3810-193!5e0!3m2!1spt-PT!2spt!4v1547248913090" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p class="mt-4">
+            <strong>Address:</strong></br>
+            Lab 29.1.5 and 29.1.15</br>
+            Departamento de Química</br>
+            Universidade de Aveiro</br>
+            Campus Universitário de Santiago</br>
+            3810-193 Aveiro - Portugal
+          </p>
+        </div>
+        <div class="col-md-6">
+          <p class="mt-4">
+            <strong>Phone:</strong> +351 234 401549</br>
+            <strong>Fax:</strong> +351 234 370084</br>
+            <strong>Email:</strong> dq-egichem[at]ua.pt
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <!-- <legend class="border-bottom mb-4">Contact Us</legend> -->
+          {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+          <button class="btn btn-outline-egichem" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+
+  </div>
+
 </div>
 
 {% endblock content %}

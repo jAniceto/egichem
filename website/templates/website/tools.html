@@ -2,57 +2,35 @@
 
 {% block content %}
 
-<!-- Online calculators - from calculators app -->
-{% include 'calculators/_includes/calculators.html' %}
+<div class="container mt-4">
+
+  <h1 class="display-5 mb-3">
+    {{ page_title }}
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle }}</small>
+  </h1>
+
+  <!-- Online calculators - from calculators app -->
+  {% include 'calculators/_includes/calculators.html' %}
 
 
-<!-- Linked or downloadable tools (X by 2 grid of cards) -->
-<div class="row row-cols-1 row-cols-md-2">
-  {% for tool in tools %}
-  <div class="col mb-4">
-    <div class="card h-100">
-      <div class="card-body">
-        <p class="card-text mb-1"><small class="text-muted">{{ tool.filetype }}</small></p>
-        <h3 class="card-title mb-3">{{ tool.title }}</h3>
-        <p class="card-text">{{ tool.description|safe }}</p>
-        {% if tool.program_file %}<a href="{{ tool.program_file.url }}" class="btn btn-egichem mr-2">Download</a>{% endif %}
-        {% if tool.help_file %}<a href="{{ tool.help_file.url }}" class="btn btn-outline-egichem mr-2">Help</a>{% endif %}
-        {% if tool.link %}<a href="{{ tool.link }}" class="btn btn-outline-egichem mr-2" target="_blank">Reference</a>{% endif %}
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-
-
-
-{% comment %}
-{% for tool in tools %}
-  <div class="row mb-3">
-    <div class="col-md-12">
-      <div class="card w-100">
+  <!-- Linked or downloadable tools (X by 2 grid of cards) -->
+  <div class="row row-cols-1 row-cols-md-2">
+    {% for tool in tools %}
+    <div class="col mb-4">
+      <div class="card shadow-sm h-100">
         <div class="card-body">
-          <div class="row">
-            <div class="col-md-3">
-              <div class="unit-img">
-                <img src="{{ tool.image.url }}" class="img-fluid mx-auto d-block" style="max-width: 150px;">
-              </div>
-            </div>
-            <div class="col-md-9">
-              <h5 class="card-title">{{ tool.title }}</h5>
-              {% if tool.filetype %}<p class="text-muted small mt-0">{{ tool.filetype }}</p>{% endif %}
-              {% if tool.description %}<p class="card-text">{{ tool.description }}</p>{% endif %}
-              {% if tool.program_file %}<a href="{{ tool.program_file.url }}" class="btn btn-egichem mr-2">Download</a>{% endif %}
-              {% if tool.help_file %}<a href="{{ tool.help_file.url }}" class="btn btn-outline-egichem mr-2">Help</a>{% endif %}
-              {% if tool.link %}<a href="{{ tool.link }}" class="btn btn-outline-egichem mr-2">Original Article</a>{% endif %}
-            </div>
-          </div>
-          
+          <p class="card-text mb-1"><small class="text-muted">{{ tool.filetype }}</small></p>
+          <h3 class="card-title mb-3">{{ tool.title }}</h3>
+          <p class="card-text">{{ tool.description|safe }}</p>
+          {% if tool.program_file %}<a href="{{ tool.program_file.url }}" class="btn btn-egichem mr-2">Download</a>{% endif %}
+          {% if tool.help_file %}<a href="{{ tool.help_file.url }}" class="btn btn-outline-egichem mr-2">Help</a>{% endif %}
+          {% if tool.link %}<a href="{{ tool.link }}" class="btn btn-outline-egichem mr-2" target="_blank">Reference</a>{% endif %}
         </div>
       </div>
     </div>
-</div><!-- row closing -->
-{%  endfor %}
-{% endcomment %}
+    {% endfor %}
+  </div>
+
+</div><!-- container closing -->
 
 {% endblock content %}

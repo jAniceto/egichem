@@ -2,324 +2,326 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div class="row mb-3">
-  <div class="col">
-    <h2>Calculations with the PC-SAFT equation of state</h2>
-    <p class="lead">Calculate properties of pure components and binary mixtures using the PC-SAFT equation of state.</p>
-  </div>
-</div>
+<div class="container mt-4">
 
-<div class="row">
-  <div class="col-md-6">
-
-    <form method="POST">
-      {% csrf_token %}
-
-      <h6>System conditions:</h6>
-      <div class="form-group row my-1">
-
-        <label for="id_temperature" class="col-sm-5 col-form-label">{{ form.temperature.label }}</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.temperature }}
-            <!-- <input id="temperature" type="number" step="any" class="form-control" aria-label="Temperature" aria-describedby="addon-temperature"> -->
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_temperature">°C</span>
-            </div>
-          </div>
-        </div>
-        {{ form.temperature.errors }}
-      </div>
-
-      <div class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">{{ form.pressure.label }}</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.pressure }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_pressure">bar</span>
-            </div>
-          </div>
-        </div>
-        {{ form.pressure.errors }}
-      </div>
-
-      <div id="molar_fraction_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Molar fraction</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.molar_fraction_1 }}
-            <input id="molarFractionComponent2" type="number" step="any" class="form-control" placeholder="Comp 2" disabled>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_molar_fraction_1">mol/mol</span>
-            </div>
-          </div>
-        </div>
-        {{ form.molar_fraction_1.errors }}
-      </div>
-
-      <div id="molar_mass_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Molar mass</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.molar_mass_1 }}
-            {{ form.molar_mass_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_molar_mass_1">g/mol</span>
-            </div>
-          </div>
-        </div>
-        {{ form.molar_mass_1.errors }}
-        {{ form.molar_mass_2.errors }}
-      </div>
-      
-      <!-- PC-SAFT parameters -->
-      <h6>PC-SAFT equation parameters:</h6>
-      <div id="m_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Segment number (m)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.m_1 }}
-            {{ form.m_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_m_1">-</span>
-            </div>
-          </div>
-        </div>
-        {{ form.m_1.errors }}
-        {{ form.m_2.errors }}
-      </div>
-
-      <div id="s_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Segment diameter (&#963;)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.s_1 }}
-            {{ form.s_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_s_1">&#8491;</span>
-            </div>
-          </div>
-        </div>
-        {{ form.s_1.errors }}
-        {{ form.s_2.errors }}
-      </div>
-
-      <div id="e_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Dispersion energy (&#949;/k)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.e_1 }}
-            {{ form.e_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_e_1">K</span>
-            </div>
-          </div>
-        </div>
-        {{ form.e_1.errors }}
-        {{ form.e_2.errors }}
-      </div>
-
-      <div id="vol_assoc_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Association volume (k<sub>ab</sub>)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.vol_assoc_1 }}
-            {{ form.vol_assoc_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_vol_assoc_1">-</span>
-            </div>
-          </div>
-        </div>
-        {{ form.vol_assoc_1.errors }}
-        {{ form.vol_assoc_2.errors }}
-      </div>
-
-      <div id="e_assoc_1_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Association energy (&#949;<sub>ab</sub>/k)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.e_assoc_1 }}
-            {{ form.e_assoc_2 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_e_assoc_1">K</span>
-            </div>
-          </div>
-        </div>
-        {{ form.e_assoc_1.errors }}
-        {{ form.e_assoc_2.errors }}
-      </div>
-
-      <div id="k_12_div" class="form-group row my-1">
-        <label for="id_pressure" class="col-sm-5 col-form-label">Interaction parameter (k<sub>ij</sub>)</label>
-        <div class="col-sm-7">
-          <div class="input-group mb-3">
-            {{ form.k_12 }}
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-id_k_12">-</span>
-            </div>
-          </div>
-        </div>
-        {{ form.k_12.errors }}
-      </div>
-      
-      <button type="submit" class="btn btn-egichem">Calculate</button>
-      <!-- <a href="{% url 'pcsaft' %}" type="button" class="btn btn-outline-egichem">Reset</a> -->
-    </form>
-
+  <div class="row mb-3">
+    <div class="col">
+      <h2>Calculations with the PC-SAFT equation of state</h2>
+      <p class="lead">Calculate properties of pure components and binary mixtures using the PC-SAFT equation of state.</p>
+    </div>
   </div>
 
-  <div class="col-md-5 offset-md-1 mt-3 mt-md-0">
-    <form>
-      
-      <h6>Mixture properties:</h6>
-      <div class="form-group row">
+  <div class="row">
+    <div class="col-md-6">
 
-        <label for="molar-mass" class="col-sm-6 col-form-label">Molar mass</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.molar_mass }}" id="molar-mass" class="form-control" aria-label="Molar mass" aria-describedby="addon-molar-mass" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-molar-mass">g mol<sup>-1</sup></span>
+      <form method="POST">
+        {% csrf_token %}
+
+        <h6>System conditions:</h6>
+        <div class="form-group row my-1">
+
+          <label for="id_temperature" class="col-sm-5 col-form-label">{{ form.temperature.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.temperature }}
+              <!-- <input id="temperature" type="number" step="any" class="form-control" aria-label="Temperature" aria-describedby="addon-temperature"> -->
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_temperature">°C</span>
+              </div>
             </div>
           </div>
+          {{ form.temperature.errors }}
         </div>
 
-        <label for="molar-density" class="col-sm-6 col-form-label">Molar density</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.molar_density }}" id="molar-density" class="form-control" aria-label="Molar density" aria-describedby="addon-molar-density" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-molar-density">mol m<sup>-3</sup></span>
+        <div class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">{{ form.pressure.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.pressure }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_pressure">bar</span>
+              </div>
             </div>
           </div>
+          {{ form.pressure.errors }}
         </div>
 
-        <label for="mass-density" class="col-sm-6 col-form-label">Mass density</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.mass_density }}" id="mass-density" class="form-control" aria-label="Mass density" aria-describedby="addon-mass-density" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-mass-density">kg m<sup>-3</sup></span>
+        <div id="molar_fraction_1_div" class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">Molar fraction</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.molar_fraction_1 }}
+              <input id="molarFractionComponent2" type="number" step="any" class="form-control" placeholder="Comp 2" disabled>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_molar_fraction_1">mol/mol</span>
+              </div>
             </div>
           </div>
+          {{ form.molar_fraction_1.errors }}
         </div>
 
-        <label for="enthalpyVaporization" class="col-sm-6 col-form-label">Enthalpy of vaporization</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.enthalpy_vaporization }}" id="enthalpyVaporization" class="form-control" aria-label="Enthalpy of vaporization" aria-describedby="addon-enthalpyVaporization" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-enthalpyVaporization">J mol<sup>-1</sup></span>
+        <div id="molar_mass_1_div" class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">Molar mass</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.molar_mass_1 }}
+              {{ form.molar_mass_2 }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_molar_mass_1">g/mol</span>
+              </div>
             </div>
           </div>
-        </div>
-
-        <label for="vaporPressure" class="col-sm-6 col-form-label">Vapor pressure</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.vapor_pressure }}" id="vaporPressure" class="form-control" aria-label="Vapor pressure" aria-describedby="addon-vaporPressure" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-vaporPressure">Pa</span>
-            </div>
-          </div>
-        </div>
-
-        <label for="residualEnthalpy" class="col-sm-6 col-form-label">Residual enthalpy</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.residual_enthalpy }}" id="residualEnthalpy" class="form-control" aria-label="Residual enthalpy" aria-describedby="addon-residualEnthalpy" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-residualEnthalpy">J mol<sup>-1</sup></span>
-            </div>
-          </div>
-        </div>
-      
-        <label for="residualEntropy" class="col-sm-6 col-form-label">Residual entropy</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.residual_entropy }}" id="residualEntropy" class="form-control" aria-label="Residual entropy" aria-describedby="addon-residualEntropy" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-residualEntropy">J mol<sup>-1</sup> K<sup>-1</sup></span>
-            </div>
-          </div>
-        </div>
-
-        <label for="residualGibbs" class="col-sm-6 col-form-label">Residual Gibbs energy</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.residual_gibbs }}" id="residualGibbs" class="form-control" aria-label="Residual Gibbs energy" aria-describedby="addon-residualGibbs" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-residualGibbs">J mol<sup>-1</sup></span>
-            </div>
-          </div>
+          {{ form.molar_mass_1.errors }}
+          {{ form.molar_mass_2.errors }}
         </div>
         
-        <label for="fugacity" class="col-sm-6 col-form-label">Fugacity coefficient</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.fugacity }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient" aria-describedby="addon-fugacity" readonly>
-            <input value="{{ properties.fugacity_cossolvent }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient" aria-describedby="addon-fugacity" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-fugacity">-</span>
+        <!-- PC-SAFT parameters -->
+        <h6>PC-SAFT equation parameters:</h6>
+        <div id="m_1_div" class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">Segment number (m)</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.m_1 }}
+              {{ form.m_2 }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_m_1">-</span>
+              </div>
             </div>
           </div>
+          {{ form.m_1.errors }}
+          {{ form.m_2.errors }}
         </div>
 
-        <label for="compressibility" class="col-sm-6 col-form-label">Compressibility factor</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.compressibility }}" id="compressibility" class="form-control" aria-label="Compressibility factor" aria-describedby="addon-compressibility" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-compressibility">-</span>
+        <div id="s_1_div" class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">Segment diameter (&#963;)</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.s_1 }}
+              {{ form.s_2 }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_s_1">&#8491;</span>
+              </div>
             </div>
           </div>
+          {{ form.s_1.errors }}
+          {{ form.s_2.errors }}
         </div>
 
-        <label for="helmholtz" class="col-sm-6 col-form-label">Residual Helmholtz energy</label>
-        <div class="col-sm-6">
-          <div class="input-group mb-3">
-            <input value="{{ properties.helmholtz }}" id="helmholtz" class="form-control" aria-label="Residual Helmholtz energy" aria-describedby="addon-helmholtz" readonly>
-            <div class="input-group-append">
-              <span class="input-group-text" id="addon-helmholtz">J mol<sup>-1</sup></span>
+        <div id="e_1_div" class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">Dispersion energy (&#949;/k)</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.e_1 }}
+              {{ form.e_2 }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_e_1">K</span>
+              </div>
             </div>
           </div>
+          {{ form.e_1.errors }}
+          {{ form.e_2.errors }}
         </div>
 
-      </div>
+        <div id="vol_assoc_1_div" class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">Association volume (k<sub>ab</sub>)</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.vol_assoc_1 }}
+              {{ form.vol_assoc_2 }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_vol_assoc_1">-</span>
+              </div>
+            </div>
+          </div>
+          {{ form.vol_assoc_1.errors }}
+          {{ form.vol_assoc_2.errors }}
+        </div>
 
-    </form>
+        <div id="e_assoc_1_div" class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">Association energy (&#949;<sub>ab</sub>/k)</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.e_assoc_1 }}
+              {{ form.e_assoc_2 }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_e_assoc_1">K</span>
+              </div>
+            </div>
+          </div>
+          {{ form.e_assoc_1.errors }}
+          {{ form.e_assoc_2.errors }}
+        </div>
+
+        <div id="k_12_div" class="form-group row my-1">
+          <label for="id_pressure" class="col-sm-5 col-form-label">Interaction parameter (k<sub>ij</sub>)</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.k_12 }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_k_12">-</span>
+              </div>
+            </div>
+          </div>
+          {{ form.k_12.errors }}
+        </div>
+        
+        <button type="submit" class="btn btn-egichem">Calculate</button>
+        <!-- <a href="{% url 'pcsaft' %}" type="button" class="btn btn-outline-egichem">Reset</a> -->
+      </form>
+
+    </div>
+
+    <div class="col-md-5 offset-md-1 mt-3 mt-md-0">
+      <form>
+        
+        <h6>Mixture properties:</h6>
+        <div class="form-group row">
+
+          <label for="molar-mass" class="col-sm-6 col-form-label">Molar mass</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.molar_mass }}" id="molar-mass" class="form-control" aria-label="Molar mass" aria-describedby="addon-molar-mass" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-molar-mass">g mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+
+          <label for="molar-density" class="col-sm-6 col-form-label">Molar density</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.molar_density }}" id="molar-density" class="form-control" aria-label="Molar density" aria-describedby="addon-molar-density" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-molar-density">mol m<sup>-3</sup></span>
+              </div>
+            </div>
+          </div>
+
+          <label for="mass-density" class="col-sm-6 col-form-label">Mass density</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.mass_density }}" id="mass-density" class="form-control" aria-label="Mass density" aria-describedby="addon-mass-density" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-mass-density">kg m<sup>-3</sup></span>
+              </div>
+            </div>
+          </div>
+
+          <label for="enthalpyVaporization" class="col-sm-6 col-form-label">Enthalpy of vaporization</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.enthalpy_vaporization }}" id="enthalpyVaporization" class="form-control" aria-label="Enthalpy of vaporization" aria-describedby="addon-enthalpyVaporization" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-enthalpyVaporization">J mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+
+          <label for="vaporPressure" class="col-sm-6 col-form-label">Vapor pressure</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.vapor_pressure }}" id="vaporPressure" class="form-control" aria-label="Vapor pressure" aria-describedby="addon-vaporPressure" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-vaporPressure">Pa</span>
+              </div>
+            </div>
+          </div>
+
+          <label for="residualEnthalpy" class="col-sm-6 col-form-label">Residual enthalpy</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.residual_enthalpy }}" id="residualEnthalpy" class="form-control" aria-label="Residual enthalpy" aria-describedby="addon-residualEnthalpy" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-residualEnthalpy">J mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+        
+          <label for="residualEntropy" class="col-sm-6 col-form-label">Residual entropy</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.residual_entropy }}" id="residualEntropy" class="form-control" aria-label="Residual entropy" aria-describedby="addon-residualEntropy" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-residualEntropy">J mol<sup>-1</sup> K<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+
+          <label for="residualGibbs" class="col-sm-6 col-form-label">Residual Gibbs energy</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.residual_gibbs }}" id="residualGibbs" class="form-control" aria-label="Residual Gibbs energy" aria-describedby="addon-residualGibbs" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-residualGibbs">J mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+          
+          <label for="fugacity" class="col-sm-6 col-form-label">Fugacity coefficient</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.fugacity }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient" aria-describedby="addon-fugacity" readonly>
+              <input value="{{ properties.fugacity_cossolvent }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient" aria-describedby="addon-fugacity" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-fugacity">-</span>
+              </div>
+            </div>
+          </div>
+
+          <label for="compressibility" class="col-sm-6 col-form-label">Compressibility factor</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.compressibility }}" id="compressibility" class="form-control" aria-label="Compressibility factor" aria-describedby="addon-compressibility" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-compressibility">-</span>
+              </div>
+            </div>
+          </div>
+
+          <label for="helmholtz" class="col-sm-6 col-form-label">Residual Helmholtz energy</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ properties.helmholtz }}" id="helmholtz" class="form-control" aria-label="Residual Helmholtz energy" aria-describedby="addon-helmholtz" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-helmholtz">J mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
   </div>
-</div>
 
 
-<div class="row mt-4">
-  <div class="col">
+  <div class="row mt-4">
+    <div class="col">
 
-    <h4>Notes</h4>
-    <p>This calculator implements the PC-SAFT equation of state.</p>
-    <p>PC-SAFT (Perturbed Chain - Statistical Associating Fluid Theory) is an equation of state developed by J. Gross and G. Sadowski. It is based on statistical associating fluid theory (SAFT) and makes use of statistical mechanical methods. Unlike other SAFT equations of state that used unbonded spherical particles as a reference fluid, PC-SAFT uses spherical particles in the context of hard chains as reference fluid.</p>
+      <h4>Notes</h4>
+      <p>This calculator implements the PC-SAFT equation of state.</p>
+      <p>PC-SAFT (Perturbed Chain - Statistical Associating Fluid Theory) is an equation of state developed by J. Gross and G. Sadowski. It is based on statistical associating fluid theory (SAFT) and makes use of statistical mechanical methods. Unlike other SAFT equations of state that used unbonded spherical particles as a reference fluid, PC-SAFT uses spherical particles in the context of hard chains as reference fluid.</p>
 
-    <h4>Help</h4>
-    <p>For a single component mixture leave all Comp 2 inputs blank. The interaction parameter should also be blank.</p>
-    <p>Molar fraction of component 2 is calculated automatically.</p>
-    <p class="mb-0">Regarding the PC-SAFT equation of state parameters:</p>
-      <ul>
-        <li>Parameters for multiple molecules can be found in the references below.</li>
-        <li>The association volume parameter (k<sub>ab</sub>) should be set to 0 for non associating compounds.</li>
-        <li>The association energy parameter (&#949;<sub>ab</sub>/k) should be set to 0 for non associating compounds.</li>
-      </ul>
-      <p></p>
-    
+      <h4>Help</h4>
+      <p>For a single component mixture leave all Comp 2 inputs blank. The interaction parameter should also be blank.</p>
+      <p>Molar fraction of component 2 is calculated automatically.</p>
+      <p class="mb-0">Regarding the PC-SAFT equation of state parameters:</p>
+        <ul>
+          <li>Parameters for multiple molecules can be found in the references below.</li>
+          <li>The association volume parameter (k<sub>ab</sub>) should be set to 0 for non associating compounds.</li>
+          <li>The association energy parameter (&#949;<sub>ab</sub>/k) should be set to 0 for non associating compounds.</li>
+        </ul>
+        <p></p>
+      
 
-    <h4>References</h4>
-    <p>J. Gross, G. Sadowski. Perturbed-Chain SAFT: An Equation of State Based on a Perturbation Theory for Chain Molecules, Ind. Eng. Chem. Res., 2001, 40(4) 1244–1260.</p>
-    <p>J. Gross, G. Sadowski. Application of the Perturbed-Chain SAFT Equation of State to Associating Systems, Ind. Eng. Chem. Res., 2002, 41(22) 5510–5515.</p>
+      <h4>References</h4>
+      <p>J. Gross, G. Sadowski. Perturbed-Chain SAFT: An Equation of State Based on a Perturbation Theory for Chain Molecules, Ind. Eng. Chem. Res., 2001, 40(4) 1244–1260.</p>
+      <p>J. Gross, G. Sadowski. Application of the Perturbed-Chain SAFT Equation of State to Associating Systems, Ind. Eng. Chem. Res., 2002, 41(22) 5510–5515.</p>
 
+    </div>
   </div>
+
 </div>
-
-
 {% endblock content %} 
 
 
