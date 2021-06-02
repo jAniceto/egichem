@@ -2,91 +2,71 @@
 {% load static %}
 {% block content %}
 
-<div>
-  <div id="fullWidthCarousel" class="carousel slide mb-4" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#fullWidthCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#fullWidthCarousel" data-slide-to="1"></li>
-      <li data-target="#fullWidthCarousel" data-slide-to="2"></li>
-      <li data-target="#fullWidthCarousel" data-slide-to="3"></li>
-      <li data-target="#fullWidthCarousel" data-slide-to="4"></li>
-      <li data-target="#fullWidthCarousel" data-slide-to="5"></li>
-    </ol>
-    <div class="carousel-inner">
-      <div class="container">
-        <!-- <div class="" style="position: absolute; z-index: 10;">
-          <div class="card my-5 bg-egichem-transparent text-white" style="width: 30rem; opacity: 0.5;">
-            <div class="card-body">
-              <h1 class="display-5 text-white mb-3">About EgiChem</h1>
-              <p class="lead">
-                EgiChem is a chemical engineering group part of associate laboratory CICECO – Aveiro Institute of Materials in the University of Aveiro (Portugal).
-              </p>
-              <p class="lead">
-                EgiChem is led by Professor Carlos Silva and focuses on research and development of separation processes.
-              </p>
-              <a href="#" class="card-link text-reset">Card link</a>
-              <a href="#" class="card-link text-reset">Another link</a>
-              <a href="#" class="card-link text-reset">Another link</a>
-            </div>
-          </div>
-        </div> -->
-        <div class="" style="position: absolute; z-index: 10;">
-          <div class="py-5" style="width: 30rem;">
+<div id="fullWidthCarousel" class="carousel slide mb-5" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#fullWidthCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#fullWidthCarousel" data-slide-to="1"></li>
+    <li data-target="#fullWidthCarousel" data-slide-to="2"></li>
+    <li data-target="#fullWidthCarousel" data-slide-to="3"></li>
+    <li data-target="#fullWidthCarousel" data-slide-to="4"></li>
+    <li data-target="#fullWidthCarousel" data-slide-to="5"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="container">
+      <!-- <div class="" style="position: absolute; z-index: 10;">
+        <div class="card my-5 bg-egichem-transparent text-white" style="width: 30rem; opacity: 0.5;">
+          <div class="card-body">
             <h1 class="display-5 text-white mb-3">About EgiChem</h1>
-            <p class="lead text-white">
+            <p class="lead">
               EgiChem is a chemical engineering group part of associate laboratory CICECO – Aveiro Institute of Materials in the University of Aveiro (Portugal).
             </p>
-            <p class="lead text-white">
+            <p class="lead">
+              EgiChem is led by Professor Carlos Silva and focuses on research and development of separation processes.
+            </p>
+            <a href="#" class="card-link text-reset">Card link</a>
+            <a href="#" class="card-link text-reset">Another link</a>
+            <a href="#" class="card-link text-reset">Another link</a>
+          </div>
+        </div>
+      </div> -->
+      <div id="about-carousel" class="">
+        <div class="row">
+          <div class="my-5 py-3 mx-3 mx-md-0 col-md-6">
+            <h1 class="display-5 text-light mb-4">About EgiChem</h1>
+            <p class="lead text-light">
+              EgiChem is a chemical engineering group part of associate laboratory CICECO – Aveiro Institute of Materials in the University of Aveiro (Portugal).
+            </p>
+            <p class="lead text-light">
               EgiChem is led by Professor Carlos Silva and focuses on research and development of separation processes.
             </p>
           </div>
         </div>
       </div>
-
-      <div class="carousel-item active">
-        <img src="{% static 'website/images/slider/IMG_3210-compressor.jpg' %}" class="bd-placeholder-img" >
-        <!-- <div class="container">
-          <div class="carousel-caption text-left">
-            <h1 class="text-white">Example headline.</h1>
-            <p>Some representative placeholder content for the first slide of the carousel.</p>
-          </div>
-        </div> -->
-      </div>
-      <!-- <div class="carousel-item">
-        <img src="{% static 'website/images/slider/IMG_3239-compressor.jpg' %}" class="bd-placeholder-img" >
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'website/images/slider/IMG_3492-compressor.jpg' %}" class="bd-placeholder-img" >
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'website/images/slider/IMG_3325-compressor.jpg' %}" class="bd-placeholder-img" >
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'website/images/slider/IMG_3439-compressor.jpg' %}" class="bd-placeholder-img" >
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'website/images/slider/IMG_3479-compressor.jpg' %}" class="bd-placeholder-img" >
-      </div> -->
-      <div class="carousel-item">
-        <img src="{% static 'website/images/slider/EgiChem Banners.png' %}" class="bd-placeholder-img" >
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'website/images/slider/EgiChem_Banners(1).png' %}" class="bd-placeholder-img" >
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'website/images/slider/EgiChem_Banners(2).png' %}" class="bd-placeholder-img" >
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'website/images/slider/EgiChem_Banners(3).png' %}" class="bd-placeholder-img" >
-      </div>
-      <div class="carousel-item">
-        <img src="{% static 'website/images/slider/EgiChem_Banners(4).png' %}" class="bd-placeholder-img" >
-      </div>
     </div>
+
+    <div class="carousel-item overlay active">
+      <img src="{% static 'website/images/slider/banner-1.png' %}">
+    </div>
+    <div class="carousel-item overlay">
+      <img src="{% static 'website/images/slider/banner-2.png' %}">
+    </div>
+    <div class="carousel-item overlay">
+      <img src="{% static 'website/images/slider/banner-3.png' %}">
+    </div>
+    <div class="carousel-item overlay">
+      <img src="{% static 'website/images/slider/banner-4.png' %}">
+    </div>
+    <div class="carousel-item overlay">
+      <img src="{% static 'website/images/slider/banner-5.png' %}">
+    </div>
+    <div class="carousel-item overlay">
+      <img src="{% static 'website/images/slider/banner-6.png' %}">
+    </div>
+
   </div>
 </div>
 
-<!-- About EgiChem Section -->
+<!-- About EgiChem Section (Old version) -->
 <!-- <div class="container">
   <div class="card">
     <div class="card-body">
@@ -126,31 +106,9 @@
 </div> -->
 
 
-<!-- <div class="container col-xxl-8 mb-5">
-  <div class="row flex-lg-row-reverse align-items-center g-5">
-    <div class="col-10 col-sm-8 col-lg-6">
-      <img src="{% static 'website/images/slider/IMG_3210-compressor.jpg' %}" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
-    </div>
-    <div class="col-lg-6">
-      <h1 class="display-5 fw-bold lh-1 mb-3">About EgiChem</h1>
-      <p class="lead">
-        EgiChem is a chemical engineering group part of associate laboratory CICECO – Aveiro Institute of Materials in the University of Aveiro (Portugal).
-      </p>
-      <p class="lead">
-        The EgiChem group is led by Professor Carlos Silva and focuses on research and development of separation processes. Current main areas of research include adsorption, supercritical fluid extraction, chromatographic separations, and ion exchange.
-      </p>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-outline-egichem px-4 mr-1" href="{% url 'research' %}" type="button">Research</a>
-        <a class="btn btn-outline-egichem px-4 mr-1" href="{% url 'people' %}" type="button">People</a>
-        <a class="btn btn-outline-egichem px-4 mr-1" href="{% url 'publications' %}" type="button">Publications</a>
-        <a class="btn btn-outline-egichem px-4 mr-1" href="{% url 'awards' %}" type="button">Awards</a>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-<div class="container mb-5">
-  <h1 class="display-5 fw-bold lh-1 mb-3">About EgiChem</h1>
+<!-- About EgiChem Section (New card version) -->
+<!-- <div class="container mb-5">
+  <h1 class="display-5 fw-bold mb-3">About EgiChem</h1>
   <div class="card mb-3">
     <div class="row no-gutters">
       <div class="col-md-6">
@@ -170,8 +128,6 @@
         </div>
       </div>
       <div class="col-md-6">
-        <!-- <img class="img-fluid" src="{% static 'website/images/slider/IMG_3210-compressor.jpg' %}" alt="..."> -->
-        
         <div id="aboutCarousel" class="carousel slide mb-0" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#aboutCarousel" data-slide-to="0" class="active"></li>
@@ -185,19 +141,19 @@
             <div class="carousel-item active">
               <img src="{% static 'website/images/slider/IMG_3210-compressor.jpg' %}" class="" >
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item text-center">
               <img src="{% static 'website/images/slider/IMG_3239-compressor.jpg' %}" class="" >
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item text-center">
               <img src="{% static 'website/images/slider/IMG_3492-compressor.jpg' %}" class="" >
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item text-center">
               <img src="{% static 'website/images/slider/IMG_3325-compressor.jpg' %}" class="" >
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item text-center">
               <img src="{% static 'website/images/slider/IMG_3439-compressor.jpg' %}" class="" >
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item text-center">
               <img src="{% static 'website/images/slider/IMG_3479-compressor.jpg' %}" class="" >
             </div>
           </div>
@@ -206,68 +162,78 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
-<div class="container mb-5">
-  <h1 class="display-5 fw-bold lh-1 mb-3">Core Research</h1>
-  <div class="card shadow-sm p-4">
-    <div class="row">
-      <div class="col-md-4">
-        <div class="list-group list-group-flush" id="list-tab" role="tablist">
-          <a class="list-group-item list-group-item-egichem list-group-item-action border-0 active" id="list-sfe-list" data-toggle="list" href="#list-sfe" role="tab" aria-controls="sfe">
-            <span class="h4">Supercritical fluid extraction</span>
-          </a>
-          <a class="list-group-item list-group-item-egichem list-group-item-action border-0" id="list-adsorption-list" data-toggle="list" href="#list-adsorption" role="tab" aria-controls="adsorption">
-            <span class="h4">Adsorption processes</span>
-          </a>
-          <a class="list-group-item list-group-item-egichem list-group-item-action border-0" id="list-membrane-list" data-toggle="list" href="#list-membrane" role="tab" aria-controls="membrane">
-            <span class="h4">Membrane separations</span>
-          </a>
-          <a class="list-group-item list-group-item-egichem list-group-item-action border-0" id="list-ionExchange-list" data-toggle="list" href="#list-ionExchange" role="tab" aria-controls="ionExchange">
-            <span class="h4">Ion exchange</span>
-          </a>
+<div class="container">
+  
+  <!-- Research -->
+  <div id="research" class="mb-5">
+    <h1 class="display-5 fw-bold mb-3">Research</h1>
+    <div class="card shadow-sm"> <!-- p-4 -->
+      <div class="row">
+        <div class="col-md-4">
+          <div class="list-group list-group-flush" id="list-tab" role="tablist">
+            <a class="list-group-item list-group-item-egichem list-group-item-action border-0 active" id="list-sfe-list" data-toggle="list" href="#list-sfe" role="tab" aria-controls="sfe">
+              <span class="h3">Supercritical Fluid Extraction</span>
+            </a>
+            <a class="list-group-item list-group-item-egichem list-group-item-action border-0" id="list-adsorption-list" data-toggle="list" href="#list-adsorption" role="tab" aria-controls="adsorption">
+              <span class="h3">Adsorption Processes</span>
+            </a>
+            <a class="list-group-item list-group-item-egichem list-group-item-action border-0" id="list-membrane-list" data-toggle="list" href="#list-membrane" role="tab" aria-controls="membrane">
+              <span class="h3">Membrane Separations</span>
+            </a>
+            <a class="list-group-item list-group-item-egichem list-group-item-action border-0" id="list-ionExchange-list" data-toggle="list" href="#list-ionExchange" role="tab" aria-controls="ionExchange">
+              <span class="h3">Ion Exchange</span>
+            </a>
+            <a class="list-group-item list-group-item-egichem list-group-item-action border-0" id="list-computer-list" data-toggle="list" href="#list-computer" role="tab" aria-controls="computer">
+              <span class="h3">Modeling and Simulation</span>
+            </a>
+          </div>
         </div>
-      </div>
-      <div class="col-md-8">
-        <div class="tab-content" id="nav-tabContent">
-          <div class="lead tab-pane fade show active" id="list-sfe" role="tabpanel" aria-labelledby="list-sfe-list">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid consequatur est adipisci, voluptate a aspernatur sit libero non magnam minus voluptatibus fugit unde, ut obcaecati vitae quia odit sed voluptatum!
-          </div>
-          <div class="lead tab-pane fade" id="list-adsorption" role="tabpanel" aria-labelledby="list-adsorption-list">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda nam consequatur blanditiis, libero velit qui accusantium reiciendis dolorem rerum quia omnis commodi hic, ullam cupiditate illo repellat nihil aut sed!
-            Amet, cum deleniti delectus ratione tempora quam, consequatur aut explicabo laborum reiciendis odio repellendus sequi dolorum voluptate facilis, inventore assumenda error! Ad libero ipsum architecto, quod nemo illum adipisci ut.
-          </div>
-          <div class="lead tab-pane fade" id="list-membrane" role="tabpanel" aria-labelledby="list-membrane-list">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda nam consequatur blanditiis, libero velit qui accusantium reiciendis dolorem rerum quia omnis commodi hic, ullam cupiditate illo repellat nihil aut sed!
-            Amet, cum deleniti delectus ratione tempora quam, consequatur aut explicabo laborum reiciendis odio repellendus sequi dolorum voluptate facilis, inventore assumenda error! Ad libero ipsum architecto, quod nemo illum adipisci ut.
-            Amet, cum deleniti delectus ratione tempora quam, consequatur aut explicabo laborum reiciendis odio repellendus sequi dolorum voluptate facilis, inventore assumenda error! Ad libero ipsum architecto, quod nemo illum adipisci ut.
-          </div>
-          <div class="lead tab-pane fade" id="list-ionExchange" role="tabpanel" aria-labelledby="list-ionExchange-list">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda nam consequatur blanditiis, libero velit qui accusantium reiciendis dolorem rerum quia omnis commodi hic, ullam cupiditate illo repellat nihil aut sed!
-            Amet, cum deleniti delectus ratione tempora quam, consequatur aut explicabo laborum reiciendis odio repellendus sequi dolorum voluptate facilis, inventore assumenda error! Ad libero ipsum architecto, quod nemo illum adipisci ut.
-            Amet, cum deleniti delectus ratione tempora quam, consequatur aut explicabo laborum reiciendis odio repellendus sequi dolorum voluptate facilis, inventore assumenda error! Ad libero ipsum architecto, quod nemo illum adipisci ut.
-            Amet, cum deleniti delectus ratione tempora quam, consequatur aut explicabo laborum reiciendis odio repellendus sequi dolorum voluptate facilis, inventore assumenda error! Ad libero ipsum architecto, quod nemo illum adipisci ut.
+        <div class="col-md-8">
+          <div class="tab-content p-3" id="nav-tabContent">
+            <div class="lead tab-pane fade show active" id="list-sfe" role="tabpanel" aria-labelledby="list-sfe-list">
+              <p>Supercritical Fluid Extraction uses a fluid at supercritical conditions (usually CO<sub>2</sub>) to extract target compounds from a multitude of materials. </p>
+              <p>Our research focuses on the extraction of valuable compounds from biomass residues, characterization of the resulting extracts, and the development of industrial processes through modeling, simulation, scale-up and economic evaluation studies.</p>
+            </div>
+            <div class="lead tab-pane fade" id="list-adsorption" role="tabpanel" aria-labelledby="list-adsorption-list">
+              <p>Our adsorption research has two distinct scopes: development of adsorption-based separation processes and Adsorption Heat Exchangers.</p>
+              <p>EgiChem works with Simulated Moving Bed (SMB) Chromatography for the purification of compounds with pharmaceutical interest, including the development of SMB processes and optimization strategies.</p>
+              <p class="mb-0">On the field of Adsorption Heat Exchangers, our work focuses on the optimization of the heating/cooling performance these equipments through modeling and simulations.</p>
+            </div>
+            <div class="lead tab-pane fade" id="list-membrane" role="tabpanel" aria-labelledby="list-membrane-list">
+              EgiChem specializes on the separation of several gases using membrane technology. Our research covers the synthesis, structural characterization, measurement of permeances and modeling of new inorganic membranes.
+            </div>
+            <div class="lead tab-pane fade" id="list-ionExchange" role="tabpanel" aria-labelledby="list-ionExchange-list">
+              <p>Our Ion Exchange research focuses on the removal of contaminants, such as heavy metals, from aqueous solutions through the development of innovative materials, including the synthesis and characterization of new ion exchange and sensing materials such as lanthanide silicates.</p>
+            </div>
+            <div class="lead tab-pane fade" id="list-computer" role="tabpanel" aria-labelledby="list-computer-list">
+              <p>All research conducted at our laboratory is strongly supported by modeling and simulation. Our projects require:</p>
+              <ul>
+                <li>advanced numerical methods and optimization algorithms,</li>
+                <li>chemical process simulation software,</li>
+                <li>computational fluid dynamics (CFD) simulations,</li>
+                <li>molecular dynamics simulations,</li>
+                <li>and machine learning models (for instance, artificial neural networks).</li>
+            </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
-</div>
 
-
-<div class="container col-xxl-8 px-4 mb-5">
   <div class="row">
     <div class="col-md-8 mb-3">
 
       <!-- Latest Publications Section -->
       <div id="publications" class="mb-5">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Latest Publications</h1>
+        <h1 class="display-5 fw-bold mb-3">Latest Publications</h1>
 
-        <div class="card shadow-sm p-4 mt-3">
+        <div class="card shadow-sm mt-3">
           <ul class="list-group list-group-flush">
-            {% for publication in latest_publications %}
+            <!-- {% for publication in latest_publications %}
               <li class="list-group-item p-0 mb-4">
                 <p class="text-muted small mb-0">{{ publication.pub_type|upper }}</p>
                 {% if publication.pub_type == 'article' %}
@@ -283,8 +249,17 @@
                 {% elif publication.pub_type == 'thesis' %}
                 <p>{{ publication.authors }}. {{ publication.title }}, {{ publication.get_thesis_type_display }}, {{ publication.thesis_coordinators }}, {{ publication.thesis_institution }}, {{ publication.year }}.</p>
                 {% endif %}
-                
               </li>
+            {% endfor %} -->
+            {% for publication in latest_publications %}
+            <a href="{{ publication.link }}" target="_blank" class="list-group-item list-group-item-action">
+              <p class="text-muted small mb-1">{{ publication.pub_type|upper }}</p>
+              <p class="mb-1">{{ publication.title|safe }}.</p>
+              <p class="mb-1">by {{ publication.authors }}</p>
+              {% if publication.pub_type == 'article' %}
+              <p class="mb-1">in <em>{{ publication.journal }}</em></p>
+              {% endif %}
+            </a>
             {% endfor %}
           </ul>
           <div class="card-footer text-muted border-0 bg-white">
@@ -294,8 +269,8 @@
       </div>
       
       <!-- Latest News Section -->
-      <div id="news">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Latest News</h1>
+      <div id="news" class="mb-5 mb-md-0">
+        <h1 class="display-5 fw-bold mb-3">Latest News</h1>
 
         <div class="card shadow-sm p-4 mt-3">
           <ul class="list-group list-group-flush">
@@ -324,8 +299,8 @@
     <div class="col-md-4">
 
       <!-- Facts and Numbers Section -->
-      <div id="facts">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Facts and Numbers</h1>
+      <div id="facts" class="mb-5">
+        <h1 class="display-5 fw-bold mb-3">Facts and Numbers</h1>
 
         <div class="card shadow-sm p-3 mt-3">
           <ul class="list-group list-group-flush ">
@@ -351,8 +326,8 @@
 
 
       <!-- Visit Also Section -->
-      <div id="visit" class="mt-4">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Visit</h1>
+      <div id="visit" class="mb-5">
+        <h1 class="display-5 fw-bold mb-3">Visit</h1>
         
         <div class="card shadow-sm p-3">
           <ul class="list-group list-group-flush">
@@ -367,8 +342,8 @@
 
 
       <!-- Calendar Section -->
-      <div id="visit" class="mt-4">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Events</h1>
+      <div id="visit" class="mb-5">
+        <h1 class="display-5 fw-bold mb-3">Events</h1>
         
         <div id='calendar' class="my-1"></div>
 

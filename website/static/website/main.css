@@ -36,6 +36,10 @@ ul {
     margin: 0;
 }
 
+.card {
+    border: none;
+}
+
 #section {
     font-family: 'Raleway', sans-serif;
 }
@@ -170,12 +174,12 @@ main {
 /* === LINKS STYLES === */
 
 a {
-    color: #333333;
+    color: var(--egichem-green);
     text-decoration: none;
 }
 
 a:hover {
-    color: rgba(97, 169, 34, 0.8);
+    color: var(--egichem-green-darker);
     text-decoration: none;
 }
 
@@ -191,16 +195,16 @@ main a.link:hover {
   text-decoration: none;
 } */
 
-a.tab-link {
+/* a.tab-link {
     color: #62AA23;
 }
 
 a.tab-link.active {
     color: #495057;
-}
+} */
 
 a.link {
-    border-bottom: 1px dotted #222222;
+    /* border-bottom: 1px dotted #222222; */
     /* Below is an alternative trick that allows to change spacing between dots */
     /* background-image: linear-gradient(to right, #222222 33%, rgba(255,255,255,0) 0%);
   background-position: bottom;
@@ -209,7 +213,7 @@ a.link {
 }
 
 a.link:hover {
-    border-bottom: 1px dotted rgba(97, 169, 34, 0.8);
+    /* border-bottom: 1px dotted rgba(97, 169, 34, 0.8); */
 }
 
 
@@ -235,16 +239,21 @@ a.link:hover {
 }
 
 .carousel-item>img {
-    position: absolute;
+    /* position: absolute;
     top: 0;
-    left: 0;
-    min-width: 100%;
+    left: 0; */
+    /* min-width: 100%;
     height: auto;
+    margin-left: auto;
+    margin-right: auto; */
+    min-height: 100%;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
 }
 
-.carousel-item:after {
+/* Dark overlay on carousel items */
+.carousel-item.overlay:after {
     content:"";
     display:block;
     position:absolute;
@@ -252,7 +261,13 @@ a.link:hover {
     bottom:0;
     left:0;
     right:0;
-    background:rgba(0,0,0,0.5);
+    background:rgba(0,0,0,0.4);
+  }
+
+  /* About section on top the carousel */
+  #about-carousel {
+    position: absolute; 
+    z-index: 10;
   }
 
 

@@ -33,7 +33,8 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
     <!-- Academicons -->
-    <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.rawgit.com/jpswalsh/academicons/master/css/academicons.min.css"> -->
 
     <!-- Load MathJax -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -78,31 +79,31 @@
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-item nav-link mx-2" href="{% url 'home' %}">HOME {{ MEDIA_URL }}</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'home' %}">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link mx-2" href="{% url 'research' %}">RESEARCH</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'research' %}">Research</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link mx-2" href="{% url 'people' %}">PEOPLE</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'people' %}">People</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link mx-2" href="{% url 'lab' %}">LAB</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'lab' %}">Lab</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link mx-2" href="{% url 'publications' %}">PUBLICATIONS</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'publications' %}">Publications</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link mx-2" href="{% url 'partners' %}">PARTNERS</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'partners' %}">Partners</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link mx-2" href="{% url 'blog:news' %}">NEWS</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'blog:news' %}">News</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link mx-2" href="{% url 'tools' %}">TOOLS</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'tools' %}">Tools</a>
             </li>
             <li class="nav-item">
-              <a class="nav-item nav-link mx-2" href="{% url 'contact' %}">CONTACT</a>
+              <a class="nav-item nav-link mx-2" href="{% url 'contact' %}">Contact</a>
             </li>
             <li class="nav-item">
               <a class="nav-item nav-link mx-2" href="{% url 'egichem' %}">
@@ -111,7 +112,7 @@
                 {% else %}
                 <i class="fas fa-lock"></i>
                 {% endif %}
-                <span class="d-md-none ml-1">PRIVATE AREA</span>
+                <span class="d-md-none ml-1">Private Area</span>
               </a>
             </li>
           </ul>
