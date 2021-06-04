@@ -2,32 +2,36 @@
 {% load crispy_forms_tags %}
 {% block content %}
 
-<div id="section" class="w-100 bg-egichem-green text-white text-center text-uppercase p-1 mb-3 d-none d-md-block">
-  <span class="font-weight-bold">Log In</span>
-</div>
+<div class="container mt-4">
 
-<div class="content-section">
-  <div class="row mt-3">
-    <div class="col-md-6">
-      <form method="POST">
-        {% csrf_token %}
-        <fieldset class="form-group">
-          {{ form|crispy }}
-        </fieldset>
-        <div class="form-group">
-          <button class="btn btn-outline-egichem" type="submit">Login</button>
+  <h1 class="display-5 mt-3 mb-4">
+    Log in
+  </h1> 
+
+  <div class="content-section">
+    <div class="row mt-3">
+      <div class="col-md-6">
+        <form method="POST">
+          {% csrf_token %}
+          <fieldset class="form-group">
+            {{ form|crispy }}
+          </fieldset>
+          <div class="form-group">
+            <button class="btn btn-outline-egichem" type="submit">Login</button>
+            <small class="text-muted">
+              <a class="ml-2 link" href="{% url 'password_reset' %}">Forgot your password?</a>
+            </small>
+          </div>
+        </form>
+        <div class="border-top pt-3">
           <small class="text-muted">
-            <a class="ml-2 link" href="{% url 'password_reset' %}">Forgot your password?</a>
+              Need An Account? <a class="ml-2 link" href="{% url 'register' %}">Register</a>
           </small>
         </div>
-      </form>
-      <div class="border-top pt-3">
-        <small class="text-muted">
-            Need An Account? <a class="ml-2 link" href="{% url 'register' %}">Register</a>
-        </small>
       </div>
     </div>
   </div>
+
 </div>
 
 {% endblock content %}
