@@ -139,7 +139,7 @@ def publications(request):
 
     context = {
         'page_title': 'Publications',
-        'page_subtitle': 'Our publications are divided in the following categories',
+        'page_subtitle': '',
         'articles': articles,
         'book_chapters': book_chapters,
         'patents': patents,
