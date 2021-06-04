@@ -262,7 +262,7 @@
             </a>
             {% endfor %}
           </ul>
-          <div class="card-footer text-muted border-0 bg-white">
+          <div class="card-footer bg-white">
             <a class="float-right text-muted" href="{% url 'publications' %}">See all publications...</a>
           </div>
         </div>
@@ -272,12 +272,12 @@
       <div id="news" class="mb-5 mb-md-0">
         <h1 class="display-5 fw-bold mb-3">Latest News</h1>
 
-        <div class="card shadow-sm p-4 mt-3">
+        <div class="card shadow-sm mt-3">
           <ul class="list-group list-group-flush">
             {% for post in latest_posts %}
-              <li class="list-group-item p-0 mb-4">
+              <li class="list-group-item">
                 {% if post.image %}
-                <div class="float-md-right mr-3 mt-1">
+                <div class="float-md-right ml-3 mt-2 mb-1">
                   <img class="" src="{{ post.image.url }}" style="max-height: 120px; max-width: 200px;" alt="Post Image">
                 </div>
                 {% endif %}
@@ -287,7 +287,7 @@
             {% endfor %}
             <!-- <li class="list-group-item p-2 pl-3 pr-3"><a class="float-right text-muted link" href="{% url 'blog:news' %}">Read all news...</a></li> -->
           </ul>
-          <div class="card-footer text-muted border-0 bg-white">
+          <div class="card-footer bg-white">
             <a class="float-right text-muted" href="{% url 'blog:news' %}">Read all news...</a>
           </div>
         </div>
@@ -302,14 +302,13 @@
       <div id="facts" class="mb-5">
         <h1 class="display-5 fw-bold mb-3">Facts and Numbers</h1>
 
-        <div class="card shadow-sm p-3 mt-3">
-          <ul class="list-group list-group-flush ">
+        <!-- <div class="card shadow-sm p-3 mt-3">
+          <ul class="list-group list-group-flush">
             <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ articles }}</strong> journal articles</li>
             <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ book_chapters }}</strong> book chapters</li>
             <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ patents }}</strong> patents</li>
             <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ communications }}</strong> oral and poster communications</li>
             <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ awards }}</strong> awards</li>
-            <!-- <li class="list-group-item p-2 pl-3 pr-3"><strong>{{ projects }}</strong> R&D projects</li> -->
             <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="postdocs_completed"><strong>{{ postdocs_completed }}</strong> PostDocs completed</li>
             <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="postdocs_oncourse"><strong>{{ postdocs_oncourse }}</strong> PostDocs on course</li>
             <li class="list-group-item collapse multi-collapse p-2 pl-3 pr-3" id="PhD_completed"><strong>{{ PhD_completed }}</strong> PhDs completed</li>
@@ -320,13 +319,73 @@
             <li class="list-group-item border-0 collapse multi-collapse p-2 pl-3 pr-3" id="MSc_oncourse"><strong>{{ MSc_oncourse }}</strong> MSc theses on course</li>
             <li class="list-group-item collapse show p-2 pl-3 pr-3" id="collapse-button"><a class="link text-muted float-right" style="cursor: pointer;" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="postdocs_completed postdocs_oncourse PhD_completed PhD_oncourse fellows_completed fellows_oncourse MSc_completed MSc_oncourse">More...</a></li>
           </ul>
+        </div> -->
+
+        <div class="card shadow-sm mt-3">
+           <div class="list-group list-group-flush">
+            <a href="{% url 'publications' %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Journal Articles
+              <span class="badge badge-egichem badge-pill">{{ articles }}</span>
+            </a>
+            <a href="{% url 'publications' %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Book Chapters
+              <span class="badge badge-egichem badge-pill">{{ book_chapters }}</span>
+            </a>
+            <a href="{% url 'publications' %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Patents
+              <span class="badge badge-egichem badge-pill">{{ patents }}</span>
+            </a>
+            <a href="{% url 'publications' %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Communications
+              <span class="badge badge-egichem badge-pill">{{ communications }}</span>
+            </a>
+            <a href="{% url 'awards' %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+              Awards
+              <span class="badge badge-egichem badge-pill">{{ awards }}</span>
+            </a>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              PostDocs completed
+              <span class="badge badge-egichem badge-pill">{{ postdocs_completed }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              PostDocs on course
+              <span class="badge badge-egichem badge-pill">{{ postdocs_oncourse }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              PhDs completed
+              <span class="badge badge-egichem badge-pill">{{ PhD_completed }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              PhDs on course
+              <span class="badge badge-egichem badge-pill">{{ PhD_oncourse }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Research Fellowships completed
+              <span class="badge badge-egichem badge-pill">{{ fellows_completed }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Research Fellowships on course
+              <span class="badge badge-egichem badge-pill">{{ fellows_oncourse }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              MSc Theses completed
+              <span class="badge badge-egichem badge-pill">{{ MSc_completed }}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              MSc Theses on course
+              <span class="badge badge-egichem badge-pill">{{ MSc_oncourse }}</span>
+            </li>
+
+          </div>
         </div>
 
       </div>
 
 
+
+
       <!-- Visit Also Section -->
-      <div id="visit" class="mb-5">
+      <!-- <div id="visit" class="mb-5">
         <h1 class="display-5 fw-bold mb-3">Visit</h1>
         
         <div class="card shadow-sm p-3">
@@ -336,6 +395,20 @@
             <li class="list-group-item p-2 pl-3 pr-3"><a class="" target="_blank" href="http://www.ciceco.ua.pt/index.php?language=pt">CICECO - Aveiro Institute of Materials</a></li>
             <li class="list-group-item p-2 pl-3 pr-3"><a class="" target="_blank" href="http://www.ua.pt/dqua/PageCourse.aspx?id=31&b=1">Mestrado Integrado Engenharia Química</a></li>
             <li class="list-group-item p-2 pl-3 pr-3"><a class="" target="_blank" href="http://www.aipqr.pt/">APQuímica</a></li>
+          </ul>
+        </div>
+      </div> -->
+
+      <div id="visit" class="mb-5">
+        <h1 class="display-5 fw-bold mb-3">Visit</h1>
+        
+        <div class="card shadow-sm">
+          <ul class="list-group list-group-flush">
+            <a class="list-group-item list-group-item-action" target="_blank" href="http://www.ua.pt/">Universidade de Aveiro (UA)</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="http://www.ua.pt/dqua/">Department of Chemistry UA</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="http://www.ciceco.ua.pt/index.php?language=pt">CICECO - Aveiro Institute of Materials</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="http://www.ua.pt/dqua/PageCourse.aspx?id=31&b=1">Mestrado Integrado Engenharia Química</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="http://www.aipqr.pt/">APQuímica</a>
           </ul>
         </div>
       </div>

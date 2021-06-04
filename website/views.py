@@ -56,7 +56,7 @@ def home(request):
         'fellows_oncourse': members.filter(position='Research Fellow').exclude(alumni=True).count(),
         'PhD_completed': publications.filter(pub_type='thesis', thesis_type='PhD').count(),
         'PhD_oncourse': members.filter(position='PhD Student').exclude(alumni=True).count(),
-        'postdocs_completed': members.filter(position='PostDoc Researcher').exclude(alumni=False).count(),
+        'postdocs_completed': members.filter(position='PostDoc Researcher').exclude(alumni=False).count() + members.filter(position='Researcher').count(),
         'postdocs_oncourse': members.filter(position='PostDoc Researcher').exclude(alumni=True).count(),
     }
     return render(request, 'website/home.html', context)

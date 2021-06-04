@@ -92,6 +92,11 @@ ul {
     border-color: var(--egichem-green);
 }
 
+.badge-egichem {
+    color: #fff;
+    background-color: var(--egichem-green);
+}
+
 .text-small {
     font-size: small;
 }
