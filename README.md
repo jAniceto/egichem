@@ -26,3 +26,12 @@ Or by specifying the local settings file:
 ```
 $ python manage.py runserver --settings=egichem.settings_local
 ```
+
+Alternativelly you can set settings module:
+```
+$ set DJANGO_SETTINGS_MODULE=egichem.settings_local
+```
+then no longer needed to specify settings:
+```
+$ python manage.py runserver
+```
