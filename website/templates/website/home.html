@@ -272,25 +272,17 @@
       <div id="news" class="mb-5 mb-md-0">
         <h1 class="display-5 fw-bold mb-3">Latest News</h1>
 
-        <div class="card shadow-sm mt-3">
-          <ul class="list-group list-group-flush">
-            {% for post in latest_posts %}
-              <li class="list-group-item">
-                {% if post.image %}
-                <div class="float-md-right ml-3 mt-2 mb-1">
-                  <img class="" src="{{ post.image.url }}" style="max-height: 120px; max-width: 200px;" alt="Post Image">
-                </div>
-                {% endif %}
-                <p class="text-muted small mb-0">{{ post.date_posted|date:"F d, Y" }}</p>
-                <p>{{ post.summary|safe|linebreaks }}</p>
-              </li>
-            {% endfor %}
-            <!-- <li class="list-group-item p-2 pl-3 pr-3"><a class="float-right text-muted link" href="{% url 'blog:news' %}">Read all news...</a></li> -->
-          </ul>
-          <div class="card-footer bg-white">
-            <a class="float-right text-muted" href="{% url 'blog:news' %}">Read all news...</a>
-          </div>
-        </div>
+    <!-- Banners -->
+    <div class="mb-3">
+      <a href="https://www.mdpi.com/journal/materials/special_issues/Nano_Featured_Materials" target="_blank">
+        <img src="{% static 'website/images/banner-materials.png' %}" class="img-fluid" alt="Banner Materials Special Issue">
+      </a>
+    </div>
+
+    <!-- Facts and Numbers Section -->
+    <div class="card bg-egichem-2" id="facts-numbers">
+      <div class="card-body p-2 pl-3 pr-3">
+        <h5 class="card-title mb-0">Facts and Numbers</h5>
       </div>
 
     </div> <!-- col-md-8 -->
