@@ -234,16 +234,16 @@ a.link:hover {
   margin-right: -1.25rem;
 } */
 
-.carousel-caption {
+#fullWidthCarousel .carousel-caption {
     bottom: 3rem;
     z-index: 10;
 }
 
-.carousel-item {
+#fullWidthCarousel .carousel-item {
     height: 30rem;
 }
 
-.carousel-item>img {
+#fullWidthCarousel .carousel-item>img {
     /* position: absolute;
     top: 0;
     left: 0; */
@@ -258,7 +258,7 @@ a.link:hover {
 }
 
 /* Dark overlay on carousel items */
-.carousel-item.overlay:after {
+#fullWidthCarousel .carousel-item.overlay:after {
     content:"";
     display:block;
     position:absolute;
@@ -270,7 +270,7 @@ a.link:hover {
   }
 
   /* About section on top the carousel */
-  #about-carousel {
+  #fullWidthCarousel #about-carousel {
     position: absolute; 
     z-index: 10;
   }
@@ -337,6 +337,41 @@ button.fc-next-button {
 
 span.fc-event-dot {
     background-color: #57961f;
+}
+
+
+/* === HOME PAGE === */
+.pill-title {
+    font-size: 1.5rem;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: var(--egichem-green);
+}
+
+/* Carousel indicators */
+/* #research2 .carousel-item {
+    height: 130px;
+} */
+
+/* #research2 .carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+} */
+
+#research2 .carousel-indicators {
+    bottom: -20px;
+}
+
+#research2 .carousel .carousel-indicators li {
+  background-color: #fff;
+  background-color: rgba(70, 70, 70, 0.5);
+}
+
+#research2 .carousel .carousel-indicators .active {
+  background-color: #444;
 }
 
 
