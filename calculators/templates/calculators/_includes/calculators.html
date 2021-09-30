@@ -49,6 +49,17 @@
     <div class="card shadow-sm h-100">
       <div class="card-body">
         <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Diffusion coefficients for binary gases</h3>
+        <p class="card-text">Estimated using the empirical correlation of Wilke and Lee (1955) for binary gas systems at low pressure.</p>
+        <a href="{% url 'd12_gas' %}" class="btn btn-egichem">Gas Diffusivities</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
         <h3 class="card-title mb-3">PC-SAFT Equation of State</h3>
         <p class="card-text">Calculate properties of pure components and binary mixtures using the PC-SAFT equation of state.</p>
         <a href="{% url 'pcsaft' %}" class="btn btn-egichem">PC-SAFT EoS</a>

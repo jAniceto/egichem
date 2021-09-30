@@ -1,0 +1,181 @@
+{% extends "website/base.html" %} 
+{% load static %} 
+{% block content %}
+
+<div class="container mt-4">
+
+  <div class="row mb-3">
+    <div class="col">
+      <h1 class="display-5 mb-3">Diffusion coefficients for binary gas systems at low pressure</h1>
+      <p class="lead">Estimated using the empirical correlation of Wilke and Lee (1955).</p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col">
+
+      <form id="WilkeLeeForm">
+        <div class="row">
+          <!-- Col 1 -->
+          <div class="col-md-5">
+
+            <div class="form-group row">
+
+              <label for="temperature" class="col-sm-6 col-form-label">Temperature</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input id="temperature" type="number" step="any" class="form-control" aria-label="Temperature" aria-describedby="addon-temperature">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-temperature">K</span>
+                  </div>
+                </div>
+              </div>
+
+              <label for="pressure" class="col-sm-6 col-form-label">Pressure</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input id="pressure" class="form-control" aria-label="pressure" aria-describedby="addon-pressure">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-pressure">bar</span>
+                  </div>
+                </div>
+              </div>
+
+              <label for="molarMass1" class="col-sm-6 col-form-label">Molar mass (comp 1)</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input id="molarMass1" class="form-control" aria-label="Molar mass (comp 1)" aria-describedby="addon-molarMass1">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-molarMass1">g&nbsp;mol<sup>-1</sup></span>
+                  </div>
+                </div>
+              </div>
+
+              <label for="molarMass2" class="col-sm-6 col-form-label">Molar mass (comp 2)</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input id="molarMass2" class="form-control" aria-label="Molar mass (comp 2)" aria-describedby="addon-molarMass2">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-molarMass2">g&nbsp;mol<sup>-1</sup></span>
+                  </div>
+                </div>
+              </div>
+
+              <label for="molarVolumeBoil1" class="col-sm-6 col-form-label">Molar volume at normal boiling temperature (comp 1)</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input id="molarVolumeBoil1" class="form-control" aria-label="Molar volume at normal boiling temperature (comp 1)" aria-describedby="addon-molarVolumeBoil1">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-molarVolumeBoil1">cm<sup>3</sup>&nbsp;mol<sup>-1</sup></span>
+                  </div>
+                </div>
+              </div>
+
+              <label for="molarVolumeBoil2" class="col-sm-6 col-form-label">Molar volume at normal boiling temperature (comp 2)</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input id="molarVolumeBoil2" class="form-control" aria-label="Molar volume at normal boiling temperature (comp 2)" aria-describedby="addon-molarVolumeBoil2">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-molarVolumeBoil2">cm<sup>3</sup>&nbsp;mol<sup>-1</sup></span>
+                  </div>
+                </div>
+              </div>
+
+              <label for="normalTempBoil1" class="col-sm-6 col-form-label">Normal boiling point (comp 1)</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input id="normalTempBoil1" class="form-control" aria-label="Normal boiling point (comp 1)" aria-describedby="addon-normalTempBoil1">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-normalTempBoil1">K</span>
+                  </div>
+                </div>
+              </div>
+
+              <label for="normalTempBoil2" class="col-sm-6 col-form-label">Normal boiling point (comp 2)</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input id="normalTempBoil2" class="form-control" aria-label="Normal boiling point (comp 2)" aria-describedby="addon-normalTempBoil2">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-normalTempBoil2">K</span>
+                  </div>
+                </div>
+              </div>
+      
+            </div>
+
+          </div>
+        
+          <!-- Col 2 -->
+          <div class="col-md-5 offset-md-2">
+
+            <div class="form-group row">
+
+              <label for="diffusionCoeffWilkeLee" class="col-sm-6 col-form-label">Diffusion coefficient</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input id="diffusionCoeffWilkeLee" class="form-control" aria-label="Diffusion coefficient" aria-describedby="addon-diffusionCoeffWilkeLee" readonly>
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-diffusionCoeffWilkeLee">cm<sup>2</sup>&nbsp;s<sup>-1</sup></span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+          </div>   
+        
+        </div>
+        
+
+        <div class="form-group row">
+          <div class="col">
+            <div id="WilkeLeeAlert" class="alert alert-warning" role="alert" style="display: none;"></div>
+            
+            <button type="submit" class="btn btn-egichem">Calculate</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+  <div class="row mt-5">
+    <div class="col">
+      <h4>Notes</h4>
+
+      <p>This calculator uses the Wilke and Lee empirical correlation to estimate the diffusion coefficients of binary gas systems at low pressure.</p>
+
+      <p>
+        \[D_\mathrm{12} \: \mathrm{[cm^2 \: s^{-1}]} = \frac{[3.03 - (0.98 / M_\mathrm{12}^{1/2})] (10^{-3}) T^{3/2}}{P M_\mathrm{12}^{1/2} \sigma_\mathrm{12}^{2} \Omega_\mathrm{D}}\]
+      </p>
+      <p>
+        \[M_\mathrm{12} = \frac{2}{1/M_1 + 1/M_2}\]
+      </p>
+      
+      <p>where \(D_\mathrm{12}\) is the binary diffusion coefficient in cm<sup>2</sup>/s, \(T\) is the temperature in K, \(P\) is pressure in bar, \(M_\mathrm{A}\) and \(M_\mathrm{B}\) are the molecular weights of components 1 and 2 in g/mol, \(\sigma_\mathrm{12}\) is the scale parameter, and \(\Omega_\mathrm{D}\) is a function with tabulated parameters.</p>
+
+      <p>Values of the diffusion coefficient estimated using Wilke and Lee correlation generally agree with experimental values to within 5 to 10 %, although discrepancies of more than 20 % are possible.</p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col">
+      <h4>References</h4>
+
+      <p>
+        B.E. Poling, J.M. Prausnitz, J.P. O'Connell. Properties of Gases and Liquids, 5th Edition, McGraw-Hill, 2001.
+      </p>
+      
+    </div>
+  </div>
+
+  {% endblock content %} 
+
+</div>
+
+{% block scripts %}
+<script src="{% static 'calculators/d12GasLowPressure.js' %}"></script>
+{% endblock %}

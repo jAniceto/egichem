@@ -453,3 +453,12 @@ def utilities(request):
         'constants': constants_list,
     }
     return render(request, 'calculators/utilities.html', context)
+
+
+def d12_gas(request):
+    """Diffusion coefficients for binary gas systems at low pressure"""
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+    }
+    return render(request, 'calculators/d12_gas.html', context)
