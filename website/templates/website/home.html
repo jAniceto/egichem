@@ -13,26 +13,10 @@
   </ol>
   <div class="carousel-inner">
     <div class="container">
-      <!-- <div class="" style="position: absolute; z-index: 10;">
-        <div class="card my-5 bg-egichem-transparent text-white" style="width: 30rem; opacity: 0.5;">
-          <div class="card-body">
-            <h1 class="display-5 text-white mb-3">About EgiChem</h1>
-            <p class="lead">
-              EgiChem is a chemical engineering group part of associate laboratory CICECO – Aveiro Institute of Materials in the University of Aveiro (Portugal).
-            </p>
-            <p class="lead">
-              EgiChem is led by Professor Carlos Silva and focuses on research and development of separation processes.
-            </p>
-            <a href="#" class="card-link text-reset">Card link</a>
-            <a href="#" class="card-link text-reset">Another link</a>
-            <a href="#" class="card-link text-reset">Another link</a>
-          </div>
-        </div>
-      </div> -->
       <div id="about-carousel" class="">
         <div class="row">
           <div class="my-5 py-3 mx-3 mx-md-0 col-md-6">
-            <h1 class="display-5 text-light mb-4">About EgiChem</h1>
+            <h1 class="text-light mb-4"><strong>About EgiChem</strong></h1>
             <p class="lead text-light">
               EgiChem is a chemical engineering group part of associate laboratory CICECO – Aveiro Institute of Materials in the University of Aveiro (Portugal).
             </p>
@@ -65,45 +49,6 @@
 
   </div>
 </div>
-
-<!-- About EgiChem Section (Old version) -->
-<!-- <div class="container">
-  <div class="card">
-    <div class="card-body">
-      <div id="carouselLabImages" class="carousel slide carousel-fade" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="{% static 'website/images/slider/IMG_3210-compressor.jpg' %}" class="d-block" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{% static 'website/images/slider/IMG_3239-compressor.jpg' %}" class="d-block" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{% static 'website/images/slider/IMG_3492-compressor.jpg' %}" class="d-block" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{% static 'website/images/slider/IMG_3325-compressor.jpg' %}" class="d-block" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{% static 'website/images/slider/IMG_3439-compressor.jpg' %}" class="d-block" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="{% static 'website/images/slider/IMG_3479-compressor.jpg' %}" class="d-block" alt="...">
-          </div>
-        </div>
-      </div>
-      
-      <h5 class="card-title mt-3">About EgiChem</h5>
-      <p class="card-text">
-        EgiChem is a chemical engineering group part of associate laboratory CICECO – Aveiro Institute of Materials in the University of Aveiro (Portugal). The EgiChem group is lead by Professor Carlos Silva and focuses on research and development of separation processes. Current main areas of research include adsorption, supercritical fluid extraction, chromatographic separations, and ion exchange.
-      </p>
-      <a class="link mr-3" href="{% url 'research' %}">Research</a>
-      <a class="link mr-3" href="{% url 'people' %}">People</a>
-      <a class="link mr-3" href="{% url 'publications' %}">Publications</a>
-      <a class="link mr-3" href="{% url 'awards' %}">Awards</a>
-    </div>
-  </div>
-</div> -->
 
 
 <!-- About EgiChem Section (New card version) -->
@@ -168,7 +113,7 @@
 <div class="container">
 
   <!-- Research section v3 -->
-  <h1 class="display-5 fw-bold mb-3 text-center">Main Research Areas</h1>
+  <h1 class="display-5 fw-bold mb-4 text-center">Research Focus</h1>
 
   <div id="research3" class="mb-5 pb-4">
 
@@ -196,23 +141,23 @@
     </ul>
     <div class="tab-content" id="pills-tabContent">
       <div class="tab-pane fade show active" id="pills-area1" role="tabpanel" aria-labelledby="pills-area1-tab">
-        <p class="text-center lead">
+        <p class="text-center lead" style="font-size: 1.3rem;">
           Supercritical Fluid Extraction uses a fluid at supercritical conditions (usually CO<sub>2</sub>) to extract target compounds from a multitude of materials.
           Our research focuses on the extraction of valuable compounds from biomass residues, characterization of the resulting extracts, and the development of industrial processes through modeling, simulation, scale-up and economic evaluation studies.
         </p>
       </div>
       <div class="tab-pane fade" id="pills-area2" role="tabpanel" aria-labelledby="pills-area2-tab">
-        <p class="text-center lead">
+        <p class="text-center lead" style="font-size: 1.3rem;">
           SMB is a continuous chromatographic separation technique. EgiChem research focuses on the purification of compounds with pharmaceutical interest, and in development of SMB process and optimization strategies.
         </p>
       </div>
       <div class="tab-pane fade" id="pills-area3" role="tabpanel" aria-labelledby="pills-area3-tab">
-        <p class="text-center lead">
+        <p class="text-center lead" style="font-size: 1.3rem;">
           EgiChem research on ion exchange has covered the issue of water pollutant removal through modeling and measurement of heavy metals removal from water solutions with the aid of titanosilicate materials.
         </p>
       </div>
       <div class="tab-pane fade" id="pills-area4" role="tabpanel" aria-labelledby="pills-area4-tab">
-        <p class="text-center lead">
+        <p class="text-center lead" style="font-size: 1.3rem;">
           EgiChem research covers transport properties through the measurement and modelling of diffusion coefficients. Some of the best models currently found in literature for correlation and prevision of diffusion coefficientes were published by Egichem researchers.
         </p>
       </div>
@@ -354,7 +299,7 @@
     </div>
   </div> -->
 
-  <div class="row mt-5">
+  <div class="row">
     <!-- LEFT COLUMN -->
     <div class="col-md-8 mb-3">
 
@@ -392,10 +337,8 @@
               {% endif %}
             </a>
             {% endfor %}
+            <a href="{% url 'publications' %}" target="_blank" class="list-group-item list-group-item-action text-muted text-right">See all publications...</a>
           </ul>
-          <div class="card-footer bg-white">
-            <a class="float-right text-muted" href="{% url 'publications' %}">See all publications...</a>
-          </div>
         </div>
       </div>
       
@@ -416,11 +359,12 @@
                 <p>{{ post.summary|safe|linebreaks }}</p>
               </li>
             {% endfor %}
+            <a href="{% url 'publications' %}" target="_blank" class="list-group-item list-group-item-action text-muted text-right">Read all news...</a>
             <!-- <li class="list-group-item p-2 pl-3 pr-3"><a class="float-right text-muted link" href="{% url 'blog:news' %}">Read all news...</a></li> -->
           </ul>
-          <div class="card-footer bg-white">
+          <!-- <div class="card-footer bg-white">
             <a class="float-right text-muted" href="{% url 'blog:news' %}">Read all news...</a>
-          </div>
+          </div> -->
         </div>
       </div>
 
