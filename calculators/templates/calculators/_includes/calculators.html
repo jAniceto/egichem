@@ -1,6 +1,173 @@
 <!-- X by 2 grid of cards -->
+
+<h2 class="mt-4">Property estimation</h2>
+
+<div class="row row-cols-1 row-cols-md-2">
+  
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">PC-SAFT Equation of State</h3>
+        <p class="card-text">Calculate properties of pure components and binary mixtures using the PC-SAFT equation of state.</p>
+        <a href="{% url 'pcsaft' %}" class="btn btn-egichem stretched-link">PC-SAFT EoS</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Diffusion coefficients for binary gases</h3>
+        <p class="card-text">Estimated using the empirical correlation of Wilke and Lee (1955) for binary gas systems at low pressure.</p>
+        <a href="{% url 'd12_gas' %}" class="btn btn-egichem stretched-link">Gas Diffusivities</a>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Diffusivities in polar and nonpolar solvents</h3>
+        <p class="card-text">Machine Learning models for the prediction of diffusivities in polar (except water) and nonpolar (except supercritical carbon dioxide) solvents.</p>
+        <a href="{% url 'd12_polar_nonpolar' %}" class="btn btn-egichem stretched-link">Solvent Diffusivities</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Diffusivities in Supercritical CO<sub>2</sub></h3>
+        <p class="card-text">Machine Learning models for the prediction of diffusivities in supercritical carbon dioxide.</p>
+        <a href="{% url 'd12_sc_co2' %}" class="btn btn-egichem stretched-link">SC-CO<sub>2</sub> Diffusivities</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<h2 class="mt-4">Supercritical fluids</h2>
+
 <div class="row row-cols-1 row-cols-md-2">
 
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">SC-CO<sub>2</sub> and SC-CO<sub>2</sub>/cossolvent properties</h3>
+        <p class="card-text">Thermodynamic properties of supercritical carbon dioxide and cossolvent mixtures calculated using the PC-SAFT equation of state.</p>
+        <a href="{% url 'pcsaft_co2' %}" class="btn btn-egichem stretched-link">SC-CO<sub>2</sub> Properties</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Viscosity and density of SC-CO<sub>2</sub></h3>
+        <p class="card-text">Supercritical carbon dioxide density and pressure calculation for pure CO<sub>2</sub> and CO<sub>2</sub> with ethanol as cosolvent.</p>
+        <a href="{% url 'carbon_dioxide' %}" class="btn btn-egichem stretched-link">SC-CO<sub>2</sub> Properties</a>
+      </div>
+    </div>
+  </div> -->
+
+</div>
+
+
+
+<h2 class="mt-4">Psychrometrics</h2>
+
+<div class="row row-cols-1 row-cols-md-2">
+
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Psychrometrics</h3>
+        <p class="card-text">Calculate the thermodynamic properties of air and simulate drying/ventilation processes. Visualize data in an interactive Psychrometric Chart.</p>
+        <a href="{% url 'psychrometrics' %}" class="btn btn-egichem">Psychrometric Calculator</a>
+        <a href="{% url 'psychrometrics_ventilation' %}" class="btn btn-egichem">Drying/Ventilation Simulator</a>
+      </div>
+    </div>
+  </div>
+
+    <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Air properties</h3>
+        <p class="card-text">Correlations to estimate the thermodynamic and transport properties of dry air at atmospheric pressure, for the range 200 - 400 K.</p>
+        <a href="{% url 'air_properties' %}" class="btn btn-egichem stretched-link">Air properties calculator</a>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+<h2 class="mt-4">Adsorption</h2>
+
+<div class="row row-cols-1 row-cols-md-2">
+
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Adsorption isotherm fitting</h3>
+        <p class="card-text">Fits well known adsorption isotherm models (e.g. Linear, Langmuir, Freundlich) to experimental data.</p>
+        <a href="{% url 'isotherms' %}" class="btn btn-egichem stretched-link">Isotherm fitting</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<h2 class="mt-4">Others</h2>
+
+<div class="row row-cols-1 row-cols-md-2">
+
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Unit conversion</h3>
+        <p class="card-text">Covert between units of time, length, area, volume, mass, temperature, pressure, energy, speed, volumetric flow, density, and viscosity.</p>
+        <a href="{% url 'unit_conversion' %}" class="btn btn-egichem stretched-link">Unit conversion</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Utilities</h3>
+        <p class="card-text">A collection of useful constants and functions used in chemical engineering.</p>
+        <a href="{% url 'utilities' %}" class="btn btn-egichem stretched-link">Unit conversion</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+{% comment %}
+<br>
+<hr>
+<br>
+
+<div class="row row-cols-1 row-cols-md-2">
+  
   <div class="col mb-4">
     <div class="card shadow-sm h-100">
       <div class="card-body">
@@ -124,3 +291,5 @@
   </div>
   
 </div>
+
+{% endcomment %}

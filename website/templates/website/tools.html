@@ -4,37 +4,15 @@
 
 <div class="container mt-4">
 
-<!-- Disclaimer -->
-<div class="alert alert-warning" role="alert">
-  <p class="mb-0"><strong>Disclaimer</strong>: All calculators on this website are provided in good faith and are accurate to the best of our knowledge. However, EgiChem does not make any guarantees about this information. Any action you take upon the information you find here, is strictly your responsibility. Feel free to contact us if you have any questions.</p>
-</div>
-
-<!-- Online calculators - from calculators app -->
-{% include 'calculators/_includes/calculators.html' %}
-
-
-<!-- Linked or downloadable tools (X by 2 grid of cards) -->
-<div class="row row-cols-1 row-cols-md-2">
-  {% for tool in tools %}
-  <div class="col mb-4">
-    <div class="card h-100">
-      <div class="card-body">
-        <p class="card-text mb-1"><small class="text-muted">{{ tool.filetype }}</small></p>
-        <h3 class="card-title mb-3">{{ tool.title }}</h3>
-        <p class="card-text">{{ tool.description|safe }}</p>
-        {% if tool.program_file %}<a href="{{ tool.program_file.url }}" class="btn btn-egichem mr-2">Download</a>{% endif %}
-        {% if tool.help_file %}<a href="{{ tool.help_file.url }}" class="btn btn-outline-egichem mr-2">Help</a>{% endif %}
-        {% if tool.link %}<a href="{{ tool.link }}" class="btn btn-outline-egichem mr-2" target="_blank">Reference</a>{% endif %}
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-
   <h1 class="display-5 mb-3">
     {{ page_title }}
     <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle }}</small>
   </h1>
+
+  <!-- Disclaimer -->
+  <div class="alert alert-warning" role="alert">
+    <p class="mb-0"><strong>Disclaimer</strong>: All calculators on this website are provided in good faith and are accurate to the best of our knowledge. However, EgiChem does not make any guarantees about this information. Any action you take upon the information you find here, is strictly your responsibility. Feel free to contact us if you have any questions.</p>
+  </div>
 
   <!-- Online calculators - from calculators app -->
   {% include 'calculators/_includes/calculators.html' %}
