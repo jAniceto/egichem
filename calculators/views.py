@@ -1,12 +1,15 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm
+from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm
 
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
 from properties import pcsaft_eos
+from properties import adsorption
 from properties import data
 import numpy as np
+import json
+
 
 # Globals
 PAGE_TITLE = 'Tools'
@@ -462,3 +465,64 @@ def d12_gas(request):
         'page_subtitle': PAGE_SUBTITLE,
     }
     return render(request, 'calculators/d12_gas.html', context)
+
+
+def klinkenberg(request):
+    """Klinkenberg model"""
+    results = None
+    resultsJSON = None
+
+    if request.method == 'POST':
+        form = KlinkenbergForm(request.POST)
+
+        if form.is_valid():
+            equilibrium_constant = form.cleaned_data['equilibrium_constant']
+            kinetic_constant = form.cleaned_data['kinetic_constant']
+            feed_concentration = form.cleaned_data['feed_concentration']
+            length = form.cleaned_data['length']
+            porosity = form.cleaned_data['porosity']
+            velocity = form.cleaned_data['velocity']
+            # radius = form.cleaned_data['radius']
+            time_final = form.cleaned_data['time_final']
+            xy_data = form.cleaned_data['xy_data']
+
+            try:
+                results = dict()
+                resultsJSON = dict()
+                if xy_data:
+                    texp, cexp = parse_XY_data(xy_data)
+                    kli = adsorption.Klinkenberg(ui=velocity, z=length, epsilonb=porosity)
+                    t, C = kli.fit(texp, cexp, Cfeed=feed_concentration, H_guess=equilibrium_constant, K_guess=kinetic_constant)
+                    params = kli.get_parameters()
+                    resultsJSON['texp'] = texp.tolist()
+                    resultsJSON['cexp'] = cexp.tolist()
+                    resultsJSON['t'] = t.tolist()
+                    resultsJSON['C'] = np.nan_to_num(C).tolist()
+                    results['H'] = params['H']
+                    results['K'] = params['K']
+                    results['metrics'] = kli.metrics
+                        
+                else:
+                    t = np.linspace(0, time_final, 100)
+                    kli = adsorption.Klinkenberg(H=equilibrium_constant, K=kinetic_constant, ui=velocity, z=length, epsilonb=porosity)
+                    C = kli.model(t, feed_concentration)
+                    resultsJSON['t'] = t.tolist()
+                    resultsJSON['C'] = np.nan_to_num(C).tolist()
+            
+            except ValueError as e:
+                print(e)
+                messages.error(request, f'Invalid input was provided: {e}')
+            
+            except Exception:
+                messages.error(request, 'Klinkenberg could not be solved.')
+
+    else:
+        form = KlinkenbergForm()
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+        'form': form,
+        'results': results,
+        'resultsJSON': json.dumps(resultsJSON),
+    }
+    return render(request, 'calculators/klinkenberg.html', context)

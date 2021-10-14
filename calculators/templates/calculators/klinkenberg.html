@@ -1,0 +1,296 @@
+{% extends "website/base.html" %} 
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-4">
+
+  <div class="row mb-3">
+    <div class="col">
+      <h1>Klinkenberg model</h1>
+      <p class="lead">Modeling adsorption kinetics using Klinkenberg model.</p>
+    </div>
+  </div>
+
+  <!-- Inputs -->
+  <div class="row">
+    <div class="col-md-12">
+
+      <form method="POST">
+        {% csrf_token %}
+        <div class="row">
+          <div class="col-md-5">
+
+            <div class="form-group row my-1">
+              <label for="id_equilibrium_constant" class="col-sm-5 col-form-label">{{ form.equilibrium_constant.label }}*</label>
+              <div class="col-sm-7">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-id_equilibrium_constant">\(H\)</span>
+                  </div>
+                  {{ form.equilibrium_constant }}
+                  <!-- <div class="input-group-append">
+                    <span class="input-group-text" id="addon-id_equilibrium_constant">°C</span>
+                  </div> -->
+                </div>
+              </div>
+              {{ form.equilibrium_constant.errors }}
+            </div>
+
+            <div class="form-group row my-1">
+              <label for="id_kinetic_constant" class="col-sm-5 col-form-label">{{ form.kinetic_constant.label }}*</label>
+              <div class="col-sm-7">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-id_kinetic_constant">\(K\)</span>
+                  </div>
+                  {{ form.kinetic_constant }}
+                </div>
+              </div>
+              {{ form.kinetic_constant.errors }}
+            </div>
+
+            <div class="form-group row my-1">
+              <label for="id_feed_concentration" class="col-sm-5 col-form-label">{{ form.feed_concentration.label }}*</label>
+              <div class="col-sm-7">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-id_feed_concentration">\(C_\mathrm{F}\)</span>
+                  </div>
+                  {{ form.feed_concentration }}
+                </div>
+              </div>
+              {{ form.feed_concentration.errors }}
+            </div>
+
+            <div class="form-group row my-1">
+              <label for="id_length" class="col-sm-5 col-form-label">{{ form.length.label }}*</label>
+              <div class="col-sm-7">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-id_length">\(z\)</span>
+                  </div>
+                  {{ form.length }}
+                </div>
+              </div>
+              {{ form.length.errors }}
+            </div>
+
+            <div class="form-group row my-1">
+              <label for="id_porosity" class="col-sm-5 col-form-label">{{ form.porosity.label }}*</label>
+              <div class="col-sm-7">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-id_porosity">\(\varepsilon_\mathrm{b}\)</span>
+                  </div>
+                  {{ form.porosity }}
+                </div>
+              </div>
+              {{ form.porosity.errors }}
+            </div>
+
+            <div class="form-group row my-1">
+              <label for="id_velocity" class="col-sm-5 col-form-label">{{ form.velocity.label }}*</label>
+              <div class="col-sm-7">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-id_velocity">\(u_\mathrm{i}\)</span>
+                  </div>
+                  {{ form.velocity }}
+                </div>
+              </div>
+              {{ form.velocity.errors }}
+            </div>
+
+            <div class="form-group row my-1">
+              <label for="id_time_final" class="col-sm-5 col-form-label">{{ form.time_final.label }}*</label>
+              <div class="col-sm-7">
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="addon-id_time_final">\(t_\mathrm{f}\)</span>
+                  </div>
+                  {{ form.time_final }}
+                </div>
+              </div>
+              {{ form.time_final.errors }}
+            </div>
+
+          </div>
+          <div class="col-md-5 offset-md-2">
+            <div class="form-group row my-1">
+              <label for="id_xy_data" class="col-sm-5 col-form-label">{{ form.xy_data.label }}</label>
+              <div class="col-sm-7">
+                <div class="input-group mb-3">
+                  {{ form.xy_data }}
+                </div>
+              </div>
+              {{ form.xy_data.errors }}
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-egichem">Calculate</button>
+        <a href="{% url 'klinkenberg' %}" type="button" class="btn btn-outline-egichem">Reset</a>
+        <button type="button" class="btn btn-outline-egichem" onclick="dummyData()">Example data</button>
+      </form>
+
+    </div>
+  </div> 
+
+  <!-- Results -->
+  <div class="row mt-5">
+    {% if results.metrics %}
+    <div class="col-md-3">
+      
+      <form>
+        <h5 class="mb-3">Fitted parameters</h5>
+        <div class="form-group">
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-resultH">\(H\)</span>
+              </div>
+              <input value="{{ results.H|floatformat:6 }}" id="resultH" class="form-control" aria-label="Molar density" aria-describedby="addon-resultH" readonly>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-resultK">\(K\)</span>
+              </div>
+              <input value="{{ results.K|floatformat:6 }}" id="resultK" class="form-control" aria-label="Molar density" aria-describedby="addon-resultK" readonly>
+            </div>
+          </div>
+
+        <h5 class="mb-3 mt-4">Fitting metrics</h5>
+        <div class="form-group">
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-AARD">\(AARD\)</span>
+              </div>
+              <input value="{{ results.metrics.aard|floatformat:2 }}" id="AARD" class="form-control" aria-label="Molar density" aria-describedby="addon-AARD" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-AARD">%</span>
+              </div>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="addon-r_square">\(R^2\)</span>
+              </div>
+              <input value="{{ results.metrics.r_square|floatformat:4 }}" id="r_square" class="form-control" aria-label="Molar density" aria-describedby="addon-r_square" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-r_square">-</span>
+              </div>
+            </div>
+
+        </div>
+      </form>
+      
+    </div>
+    {% endif %}
+
+    <div class="col">
+      <div id="plot"></div>
+    </div>
+  </div>
+
+  <!-- Notes -->
+  <div class="row mt-5">
+    <div class="col">
+      <h4>Notes</h4>
+      <p>Klinkenberg provides an useful approximation to the analytical solution of the Convection-Dispersion model proposed by Anzelius for the case of a single solute, an initially clean bed, frontal loading and negligible axial dispersion. According to the Klinkenberg approximation the solute concentration respect to axial distance and time is given by:</p>
+      <p>\[ \frac{C}{C_\mathrm{F}} \approx \frac{1}{2} [ 1 + \text{erf}( \sqrt{\tau} - \sqrt{\xi} + \frac{1}{8 \sqrt{\tau}} + \frac{1}{8 \sqrt{\xi}} ) ] \]</p>
+      <p>\[ \tau = K (t - \frac{z}{u_i}) \]</p>
+      <p>\[ \xi = \frac{K H z}{u_i} (\frac{1 - \varepsilon_b}{\varepsilon_b}) \]</p>
+      <p>where \(C\) is the  concentration in the fluid phase, \(H\) is the linear adsorption constant (also called Henry constant), \(K\) is the global mass transfer coefficient, \(u_\mathrm{i}\) is the interstitial velocity, \(\varepsilon_\mathrm{b}\) is the bulk porosity, \(C_\mathrm{F}\) is the feed concentration, \(z\) is the axial distance, and \(t\) is time. Resistances due to external transport, pore diffusivity, and kinetics are included in \(K\).</p>
+      <p>This approximation is accurate to \( < 0.6 \% \) error for \(\xi > 2.0 \).</p>
+
+      <h4>References</h4>
+      <p>A. Klinkenberg, Ind. Eng. Chem., 46, 2285–2289 (1954).</p>
+      <p>J.D. Seader, E.J. Henley, D.K. Roper. Separation Process Principles. John Wiley & Sons, Inc., 3rd edition, 2011.</p>
+    </div>
+  </div>
+
+</div>
+
+{% endblock content %}
+
+
+{% block scripts %}
+<!-- Load Ploty -->
+<!-- Loaded in the head of the base.html template -->
+
+<!-- Plot model -->
+<script>
+  plotDiv = document.getElementById('plot');
+
+  var res = JSON.parse("{{resultsJSON|escapejs}}");
+
+  var exp = {
+    x: res.texp,
+    y: res.cexp,
+    mode: 'markers',
+    type: 'scatter',
+    name: 'Experimental'
+  };
+
+  var data = [exp];
+
+  data.push({
+    x: res.t,
+    y: res.C,
+    mode: 'lines',
+    type: 'scatter',
+    name: 'Klinkenberg model'
+  });
+
+  var layout = {
+    showlegend: true,
+    legend: {"orientation": "h"},
+    paper_bgcolor: '#fafafa',
+    plot_bgcolor: '#fafafa',
+    margin: {
+      t: 10,
+    }
+  };
+
+  Plotly.newPlot(plotDiv, data, layout, {responsive: true});
+
+</script>
+
+<!-- Example data button -->
+<script>
+  function dummyData() {
+    let XY_DATA = `2.551 0.01017
+3.051 0.01076
+4.881 0.01377
+5.881 0.03296
+6.551 0.05185
+6.881 0.16357
+7.228 0.1561
+7.551 0.15563
+7.881 0.17299
+8.381 0.1704
+8.881 0.18896
+9.218 0.19792
+9.717 0.20818
+11.551 0.20488
+13.228 0.21502
+14.551 0.21492
+16.384 0.21429
+19.551 0.20979
+26.551 0.21592`
+
+    document.getElementById('id_xy_data').value = XY_DATA;
+    document.getElementById('id_equilibrium_constant').value = 2;
+    document.getElementById('id_kinetic_constant').value = 20;
+    document.getElementById('id_feed_concentration').value = 0.20752;
+    document.getElementById('id_length').value = 25;    
+    document.getElementById('id_porosity').value = 0.3558;    
+    document.getElementById('id_velocity').value = 16.912;    
+    document.getElementById('id_time_final').value = 28;    
+  }
+</script>
+{% endblock %}

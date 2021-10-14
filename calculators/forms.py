@@ -195,3 +195,55 @@ class GeneralPCSAFTForm(forms.Form):
     e_assoc_1.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 1'})
     e_assoc_2.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 2'})
     k_12.widget.attrs.update({'class': 'form-control', 'placeholder': 'Comp 1 - Comp 2'})
+
+
+class KlinkenbergForm(forms.Form):
+    equilibrium_constant = forms.FloatField(
+        label='Equilibrium constant', 
+        required=True,
+        min_value=0,
+    )
+    kinetic_constant = forms.FloatField(
+        label='Kinetic constant', 
+        required=True,
+        min_value=0,
+    )
+    feed_concentration = forms.FloatField(
+        label='Feed concentration', 
+        required=True,
+        min_value=0,
+    )
+    length = forms.FloatField(
+        label='Column length', 
+        required=True,
+        min_value=0,
+    )
+    porosity = forms.FloatField(
+        label='Bulk porosity', 
+        required=True,
+        min_value=0,
+    )
+    velocity = forms.FloatField(
+        label='Interstitial velocity', 
+        required=True,
+        min_value=0,
+    )
+    time_final = forms.FloatField(
+        label='Final time', 
+        required=True,
+        min_value=0,
+    )
+    xy_data = forms.CharField(
+        label='Experimental data', 
+        required=False,
+        widget=forms.Textarea(attrs={'rows': 16})
+    )
+    # Customize form widgets
+    equilibrium_constant.widget.attrs.update({'class': 'form-control'})
+    kinetic_constant.widget.attrs.update({'class': 'form-control'})
+    feed_concentration.widget.attrs.update({'class': 'form-control'})
+    length.widget.attrs.update({'class': 'form-control'})
+    porosity.widget.attrs.update({'class': 'form-control'})
+    velocity.widget.attrs.update({'class': 'form-control'})
+    time_final.widget.attrs.update({'class': 'form-control'})
+    xy_data.widget.attrs.update({'class': 'form-control'})
