@@ -14,6 +14,13 @@
 // Portugal
 
 
+/* -------------------------------------------------------------------------- */
+/*                             Utility functions                              */
+/* -------------------------------------------------------------------------- */
+function radToDegree(x) {
+  return x * 180 / math.PI;
+}
+
 
 /* -------------------------------------------------------------------------- */
 /*                              Error functions                               */
@@ -121,6 +128,98 @@ function calcTrigonometricFunctions() {
 document.getElementById('trigForm').addEventListener('submit', function (event) {
   event.preventDefault(); 
   calcTrigonometricFunctions();
+})
+
+
+/* -------------------------------------------------------------------------- */
+/*                      Inverse trigonometric functions                       */
+/* -------------------------------------------------------------------------- */
+function calcInvTrigonometricFunctions() {
+  // Inputs
+  let isRad = document.getElementById('radioRadInv').checked;
+  let x = document.getElementById('invTrigX').value;
+
+  // Safety check to avoid running large JS
+  if (x.length > 15) {
+    return;
+  }
+
+  // Calculations
+  if (x >= -1 && x <= 1) {
+    var asin = math.asin(x);
+    var acos = math.acos(x);
+  } else {
+    var asin = null;
+    var acos = null;
+  }
+  
+  if (x <= -1 && x >= 1) {
+    var asec = math.asec(x);
+    var acsc = math.acsc(x);  
+  } else {
+    var asec = null;
+    var acsc = null;
+  }
+
+  var atan = math.atan(x);
+  var acot = math.acot(x);
+  
+  // Inverse trigonometric functions results
+  let asinValue = document.getElementById('arcsin');
+  if (asin == null){
+    asinValue.value = '-';
+  } else if (isRad) {
+    asinValue.value = asin.toFixed(6);
+  } else {
+    asinValue.value = radToDegree(asin).toFixed(2);
+  }
+
+  let acosValue = document.getElementById('arccos');
+  if (acos == null){
+    acosValue.value = '-';
+  } else if (isRad) {
+    acosValue.value = acos.toFixed(6);
+  } else {
+    acosValue.value = radToDegree(acos).toFixed(2);
+  }
+
+  let arctanValue = document.getElementById('arctan');
+  if (isRad) {
+    arctanValue.value = atan.toFixed(6);
+  } else {
+    arctanValue.value = radToDegree(atan).toFixed(2);
+  }
+
+  let arccotanValue = document.getElementById('arccot');
+  if (isRad) {
+    arccotanValue.value = acot.toFixed(6);
+  } else {
+    arccotanValue.value = radToDegree(acot).toFixed(2);
+  }
+
+  let arcsecValue = document.getElementById('arcsec');
+  if (asec == null){
+    arcsecValue.value = '-';
+  } else if (isRad) {
+    arcsecValue.value = asec.toFixed(6);
+  } else {
+    arcsecValue.value = radToDegree(asec).toFixed(2);
+  }
+
+  let arccosecValue = document.getElementById('arccsc');
+  if (acsc == null){
+    arccosecValue.value = '-';
+  } else if (isRad) {
+    arccosecValue.value = acsc.toFixed(6);
+  } else {
+    arccosecValue.value = radToDegree(acsc).toFixed(2);
+  }
+}
+
+// Listener for trigForm submit
+document.getElementById('invTrigForm').addEventListener('submit', function (event) {
+  event.preventDefault(); 
+  calcInvTrigonometricFunctions();
 })
 
 

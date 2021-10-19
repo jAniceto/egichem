@@ -12,6 +12,7 @@
         <li><a href="#constants">Fundamental constants</a></li>
         <li><a href="#errorFunctions">Error functions</a></li>
         <li><a href="#trigFunctions">Trigonometric functions</a></li>
+        <li><a href="#invTrigFunctions">Inverse trigonometric functions</a></li>
         <li><a href="#hyperbFunctions">Hyperbolic functions</a></li>
         <li><a href="#besselFunctions">Bessel functions</a></li>
       </ol>
@@ -295,6 +296,99 @@
                 <span class="input-group-text" id="cosec-addon">\(\text{cosec}(\theta)\)</span>
               </div>
               <input id="cosec" type="text" class="form-control" aria-describedby="cosec-addon" disabled>
+            </div>
+          </div>
+          
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- Inverse trigonometric functions -->
+  <h3 id="invTrigFunctions" class="mb-3">Inverse trigonometric functions</h3>
+  <div class="row mb-5">
+    <div class="col">
+
+      <p class="lead text-muted">Calculate the value of several inverse trigonometric functions for a given \(x\).</p>
+
+      <form id="invTrigForm">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="invTrigX-addon">\(x\)</span>
+              </div>
+              <input id="invTrigX" type="text" class="form-control" aria-describedby="invTrigX-addon">
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="radioRadDegInv" id="radioRadInv" value="radians" checked>
+              <label class="form-check-label" for="radioRadInv">Radians</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="radio" name="radioRadDegInv" id="radioDegInv" value="degrees">
+              <label class="form-check-label" for="radioDegInv">Degrees</label>
+            </div>
+          </div>
+
+          <div class="col-md-3 offset-md-1">
+            <button type="submit" class="btn btn-egichem btn-block">Calculate</button>
+          </div>
+        </div>
+
+        
+        <div class="row mt-3 mt-md-0">
+          <div class="col-md-4">
+        
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="arcsin-addon">\(\text{arcsin}(x)\)</span>
+              </div>
+              <input id="arcsin" type="text" class="form-control" aria-describedby="arcsin-addon" disabled>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="arccos-addon">\(\text{arccos}(x)\)</span>
+              </div>
+              <input id="arccos" type="text" class="form-control" aria-describedby="arccos-addon" disabled>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="arctan-addon">\(\text{arctan}(x)\)</span>
+              </div>
+              <input id="arctan" type="text" class="form-control" aria-describedby="arctan-addon" disabled>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="arccot-addon">\(\text{arccot}(x)\)</span>
+              </div>
+              <input id="arccot" type="text" class="form-control" aria-describedby="arccot-addon" disabled>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="arcsec-addon">\(\text{arcsec}(x)\)</span>
+              </div>
+              <input id="arcsec" type="text" class="form-control" aria-describedby="arcsec-addon" disabled>
+            </div>
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="arccsc-addon">\(\text{arccsc}(x)\)</span>
+              </div>
+              <input id="arccsc" type="text" class="form-control" aria-describedby="arccsc-addon" disabled>
             </div>
           </div>
           
