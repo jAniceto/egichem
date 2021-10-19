@@ -405,7 +405,7 @@ def pcsaft(request):
                         e=[e_1, e_2], 
                         vol_a=[vol_assoc_1, vol_assoc_2], 
                         e_assoc=[e_assoc_1, e_assoc_2], 
-                        k_ij=[[0., k_12], [k_12, 0.]]
+                        k_ij=k_12
                     )
             except Exception as e:
                 print(e)
