@@ -2,7 +2,7 @@ import datetime
 from django.shortcuts import render
 from django.http import Http404
 from django.db.models import Q
-from .models import ResearchField, LabUnit, Partner, Collaborator, Member, Publication, Tool, Award
+from .models import MainResearchArea, ResearchField, LabUnit, Partner, Collaborator, Member, Publication, Tool, Award
 from blog.models import Post
 
 import re
@@ -34,6 +34,7 @@ def format_scientific_name(name):
 
 
 def home(request):
+    main_research_areas = MainResearchArea.objects.all().order_by('order', 'title')
     publications = Publication.objects.all()
     members = Member.objects.all()
     awards = Award.objects.all()
@@ -44,6 +45,8 @@ def home(request):
         'page_title': 'Home',
         'latest_posts': latest_posts,
         'latest_publications': latest_publications,
+        'main_research_areas': main_research_areas,
+        # Metrics
         'articles': publications.filter(pub_type='article').count(),
         'book_chapters': publications.filter(pub_type='book-chapter').count(),
         'patents': publications.filter(pub_type='patent').count(),

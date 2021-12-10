@@ -112,10 +112,38 @@
 
 <div class="container">
 
-  <!-- Research section v3 -->
-  <h1 class="display-5 fw-bold mb-4 text-center">Research Focus</h1>
+  <!-- <h1 class="display-5 fw-bold mb-4 text-center">Research Focus</h1> -->
 
-  <div id="research3" class="mb-5 pb-4">
+
+  <!-- Research section v3 (Dynamic) -->
+  <!-- <div id="research3" class="mb-5 pb-4">
+
+    <ul class="nav nav-pills nav-justified flex-column flex-sm-row mb-4" id="pills-tab" role="tablist">
+      {% for area in main_research_areas %}
+      <li class="nav-item" role="presentation">
+        <a class="flex-sm-fill nav-link {% if forloop.first %}active{% endif %}" id="pills-area{{ forloop.counter }}-tab" data-toggle="pill" href="#pills-area{{ forloop.counter }}" role="tab" aria-controls="pills-area{{ forloop.counter }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+          <div class="pill-title">{{ area.title|safe }}</div>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    <div class="tab-content" id="pills-tabContent">
+      {% for area in main_research_areas %}
+      <div class="tab-pane fade show {% if forloop.first %}active{% endif %}" id="pills-area{{ forloop.counter }}" role="tabpanel" aria-labelledby="pills-area{{ forloop.counter }}-tab">
+        <p class="text-center lead" style="font-size: 1.3rem;">
+          {{ area.description|safe }}
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+
+  </div> -->
+  
+  
+  
+  <!-- Research section v3 (Hard coded) -->
+  <!-- <div id="research3" class="mb-5 pb-4">
 
     <ul class="nav nav-pills nav-justified flex-column flex-sm-row mb-4" id="pills-tab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -163,7 +191,8 @@
       </div>
     </div>
 
-  </div>
+  </div> -->
+
 
 
   <!-- Research section v2 -->

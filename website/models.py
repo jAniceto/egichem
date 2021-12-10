@@ -4,6 +4,15 @@ from django.utils import timezone
 from django.utils.text import slugify
 
 
+class MainResearchArea(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    order = models.IntegerField(default=99)
+
+    def __str__(self):
+        return self.title
+
+
 class ResearchField(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
