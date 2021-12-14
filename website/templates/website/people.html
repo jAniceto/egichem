@@ -125,7 +125,7 @@
               </div>
             </div>
             <div class="col-md-8">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column h-100">
                 <h3 class="card-title fw-bold mb-1"><a class="text-reset" href="{% url 'member_page' postdoc.slug %}">{{ postdoc.name }}</a></h3>
                 <p class="card-text text-muted mb-2">{{ postdoc.research_area }}</p>
                 <ul class="list-inline mt-auto">
@@ -177,7 +177,7 @@
               </div>
             </div>
             <div class="col-md-8">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column h-100">
                 <h3 class="card-title fw-bold mb-1"><a class="text-reset" href="{% url 'member_page' phd.slug %}">{{ phd.name }}</a></h3>
                 <p class="card-text text-muted mb-2">{{ phd.research_area }}</p>
                 <ul class="list-inline mt-auto">
@@ -229,7 +229,7 @@
                 </div>
               </div>
               <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column h-100">
                   <h3 class="card-title fw-bold mb-1"><a class="text-reset" href="{% url 'member_page' fellow.slug %}">{{ fellow.name }}</a></h3>
                   <p class="card-text text-muted mb-2">{{ fellow.research_area }}</p>
                   <ul class="list-inline mt-auto">
@@ -281,7 +281,7 @@
                 </div>
               </div>
               <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body d-flex flex-column h-100">
                   <h3 class="card-title fw-bold mb-1"><a class="text-reset" href="{% url 'member_page' master.slug %}">{{ master.name }}</a></h3>
                   {% if master.thesis %}
                   <p class="card-text text-muted mb-2">{{ master.research_area }}</p>
@@ -335,7 +335,7 @@
               </div>
             </div>
             <div class="col-md-8">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column h-100">
                 <h3 class="card-title fw-bold mb-1"><a class="text-reset" href="{% url 'member_page' undergraduate.slug %}">{{ undergraduate.name }}</a></h3>
                 <p class="card-text text-muted mb-2">{{ undergraduate.research_area }}</p>
                 <ul class="list-inline mt-auto">
