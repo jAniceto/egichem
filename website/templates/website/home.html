@@ -365,7 +365,7 @@
               </li>
             {% endfor %} -->
             {% for publication in latest_publications %}
-            <a href="{{ publication.link }}" target="_blank" class="list-group-item list-group-item-action">
+            <a href="{% if publication.link %}{{ publication.link }}{% endif %}" target="_blank" class="list-group-item list-group-item-action">
               <p class="text-muted small mb-1">{{ publication.pub_type|upper }}</p>
               <p class="mb-1">{{ publication.title|safe }}.</p>
               <p class="mb-1">by {{ publication.authors }}</p>
@@ -374,7 +374,7 @@
               {% endif %}
             </a>
             {% endfor %}
-            <a href="{% url 'publications' %}" target="_blank" class="list-group-item list-group-item-action text-muted text-right">See all publications...</a>
+            <a href="{% url 'publications' %}" class="list-group-item list-group-item-action text-muted text-right">See all publications...</a>
           </ul>
         </div>
       </div>
@@ -396,7 +396,7 @@
                 <p>{{ post.summary|safe|linebreaks }}</p>
               </li>
             {% endfor %}
-            <a href="{% url 'publications' %}" target="_blank" class="list-group-item list-group-item-action text-muted text-right">Read all news...</a>
+            <a href="{% url 'blog:news' %}" class="list-group-item list-group-item-action text-muted text-right">Read all news...</a>
             <!-- <li class="list-group-item p-2 pl-3 pr-3"><a class="float-right text-muted link" href="{% url 'blog:news' %}">Read all news...</a></li> -->
           </ul>
           <!-- <div class="card-footer bg-white">
