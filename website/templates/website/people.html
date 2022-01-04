@@ -6,7 +6,7 @@
 
   <h1 class="display-5 mb-3">
     {{ page_title}}
-    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle}}</small>
+    <small class="text-muted font-weight-light d-none d-md-inline">{{ page_subtitle }}</small>
   </h1>
 
   <!-- Highlighted - Professors - version 2, horizontal -->
@@ -378,40 +378,55 @@
           <h5>PostDoc Researchers</h5>
           <p>
             {% for alumnus in alumni_postdocs  %}
-              {% if alumnus.position == 'PostDoc Researcher' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
-            {%  endfor %}
+              {% if alumnus.position == 'PostDoc Researcher' %}
+                <a class="text-reset" href="{% url 'member_page' alumnus.slug %}">{{ alumnus.name }}</a>
+                {% if not forloop.last %} &bull; {% endif %}
+              {% endif %}
+            {% endfor %}
           </p>
         {% endif %}
         {% if alumni_phds %}
           <h5>PhD Students</h5>
           <p>
             {% for alumnus in alumni_phds  %}
-              {% if alumnus.position == 'PhD Student' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
-            {%  endfor %}
+              {% if alumnus.position == 'PhD Student' %}
+                <a class="text-reset" href="{% url 'member_page' alumnus.slug %}">{{ alumnus.name }}</a>
+                {% if not forloop.last %} &bull; {% endif %}
+              {% endif %}
+            {% endfor %}
           </p>
         {% endif %}
         {% if alumni_fellows %}
           <h5>Research Fellows</h5>
           <p>
             {% for alumnus in alumni_fellows  %}
-              {% if alumnus.position == 'Research Fellow' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
-            {%  endfor %}
+              {% if alumnus.position == 'Research Fellow' %}
+                <a class="text-reset" href="{% url 'member_page' alumnus.slug %}">{{ alumnus.name }}</a>
+                {% if not forloop.last %} &bull; {% endif %}
+              {% endif %}
+            {% endfor %}
           </p>
         {% endif %}
         {% if alumni_masters %}
           <h5>Master Students</h5>
           <p>
             {% for alumnus in alumni_masters %}
-              {% if alumnus.position == 'MSc Student' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
-            {%  endfor %}
+              {% if alumnus.position == 'MSc Student' %}
+                <a class="text-reset" href="{% url 'member_page' alumnus.slug %}">{{ alumnus.name }}</a>
+                {% if not forloop.last %} &bull; {% endif %}
+              {% endif %}
+            {% endfor %}
           </p>
         {% endif %}
         {% if alumni_undergraduate %} 
           <h5>Undergraduate Students</h5>
           <p>
             {% for alumnus in alumni_undergraduate  %}
-              {% if alumnus.position == 'Undergraduate Student' %}{{ alumnus.name }}{% if not forloop.last %} &bull; {% endif %}{%  endif %}
-            {%  endfor %}
+              {% if alumnus.position == 'Undergraduate Student' %}
+                <a class="text-reset" href="{% url 'member_page' alumnus.slug %}">{{ alumnus.name }}</a>
+                {% if not forloop.last %} &bull; {% endif %}
+              {% endif %}
+            {% endfor %}
           </p>
         {% endif %}
     </div><!-- col-md-12 closing -->
