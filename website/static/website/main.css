@@ -2,14 +2,19 @@
 CSS SECTIONS:
 - VARIABLES
 - GLOBAL
-- EGICHEM COLORS
-- LINKS STYLES
+- COLORS
+- NAV
 - MOBILE NAV
+- LINKS STYLES
 - BANNER CAROUSEL
 - CARD DECK
 - HORIZONTAL DIVIDER
 - TABS TO ACCORDION ON MOBILE
 - CALENDAR 
+- HOME PAGE
+- PARTNERS & COLLABORATORS PAGE
+- MEMBER PAGE
+- PEOPLE PAGE
 */
 
 
@@ -119,22 +124,6 @@ nav .navbar-brand {
     color: white !important;
 }
 
-@media (min-width: 992px) {
-    /* .navbar-nav li a {
-    transition: all 0.4s;
-    padding: 40px 0px;
-    border-bottom: 4px solid transparent;
-    border-top: 4px solid transparent;
-  } */
-    /* .navbar-nav li .nav-item.active, .navbar-nav li a:hover {
-    margin-top: 30px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 4px solid #62AA23;
-    border-top: 4px solid #62AA23;
-  } */
-}
-
 .nav-tabs .nav-item.show .nav-link,
 .nav-tabs .nav-link.active {
     color: #495057;
@@ -150,11 +139,6 @@ nav .navbar-brand {
     .fix-margin {
         margin-left: .5rem;
         margin-right: .5rem;
-    }
-    .navbar {
-        /* background-color: #f8f9fa!important; */
-        /* margin-bottom: 1rem;
-    border-bottom: 1px solid #dee2e6; */
     }
     .navbar-toggler {
         line-height: inherit;
@@ -189,50 +173,7 @@ a:hover {
 }
 
 
-/* main a.link {
-  color: #333333;
-  background: linear-gradient(transparent 66%, rgba(98, 170, 35, 0.3) 33%);
-}
-
-main a.link:hover {
-  color: #333333;
-  background: linear-gradient(transparent 66%, rgba(98, 170, 35, 0.7) 33%);
-  text-decoration: none;
-} */
-
-/* a.tab-link {
-    color: #62AA23;
-}
-
-a.tab-link.active {
-    color: #495057;
-} */
-
-a.link {
-    /* border-bottom: 1px dotted #222222; */
-    /* Below is an alternative trick that allows to change spacing between dots */
-    /* background-image: linear-gradient(to right, #222222 33%, rgba(255,255,255,0) 0%);
-  background-position: bottom;
-  background-size: 4px 1px;
-  background-repeat: repeat-x; */
-}
-
-a.link:hover {
-    /* border-bottom: 1px dotted rgba(97, 169, 34, 0.8); */
-}
-
-
 /* BANNER CAROUSEL */
-
-/* .carousel-item img {
-  width: 100%;
-}
-
-#carouselLabImages {
-  margin-top: -1.25rem;
-  margin-left: -1.25rem;
-  margin-right: -1.25rem;
-} */
 
 #fullWidthCarousel .carousel-caption {
     bottom: 3rem;
@@ -349,17 +290,6 @@ span.fc-event-dot {
     color: #fff;
     background-color: var(--egichem-green);
 }
-
-/* Carousel indicators */
-/* #research2 .carousel-item {
-    height: 130px;
-} */
-
-/* #research2 .carousel-indicators li {
-    width: 10px;
-    height: 10px;
-    border-radius: 100%;
-} */
 
 #research2 .carousel-indicators {
     bottom: -20px;
