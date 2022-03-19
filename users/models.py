@@ -13,6 +13,8 @@ class Profile(models.Model):
     linkedin_url = models.URLField(blank=True)
     scopus_url = models.URLField(blank=True)
     personal_url = models.URLField(blank=True)
+    research_gate_url = models.URLField(blank=True)
+    orcid_url = models.URLField(blank=True)
 
     
     def __str__(self):

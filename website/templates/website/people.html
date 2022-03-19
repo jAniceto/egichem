@@ -37,6 +37,12 @@
                 {% if professor.user.profile.linkedin_url %}
                 <a class="link" href="{{ professor.user.profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin-in"></i> LinkedIn</a> &nbsp; 
                 {% endif %}
+                {% if professor.user.profile.research_gate_url %}
+                <a class="link" href="{{ professor.user.profile.research_gate_url }}" target="_blank"><i class="ai ai-researchgate"></i> Research Gate</a> &nbsp; 
+                {% endif %}
+                {% if professor.user.profile.orcid_url %}
+                <a class="link" href="{{ professor.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid"></i> ORCID</a> &nbsp; 
+                {% endif %}
                 {% if professor.user.profile.personal_url %}
                 <a class="link" href="{{ professor.user.profile.personal_url }}" target="_blank"><i class="fas fa-link"></i> Personal Page</a> &nbsp; 
                 {% endif %}
@@ -85,6 +91,12 @@
                   {% endif %}
                   {% if researcher.user.profile.linkedin_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ researcher.user.profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                  {% endif %}
+                  {% if researcher.user.profile.research_gate_url %}
+                  <li class="list-inline-item"><a class="text-reset" href="{{ researcher.user.profile.research_gate_url }}" target="_blank"><i class="ai ai-researchgate-square ai-2x"></i></a></li>
+                  {% endif %}
+                  {% if researcher.user.profile.orcid_url %}
+                  <li class="list-inline-item"><a class="text-reset" href="{{ researcher.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
                   {% endif %}
                   {% if researcher.user.profile.personal_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ researcher.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
@@ -138,6 +150,12 @@
                   {% if postdoc.user.profile.linkedin_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ postdoc.user.profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
                   {% endif %}
+                  {% if postdoc.user.profile.research_gate_url %}
+                  <li class="list-inline-item"><a class="text-reset" href="{{ postdoc.user.profile.research_gate_url }}" target="_blank"><i class="ai ai-researchgate-square ai-2x"></i></a></li>
+                  {% endif %}
+                  {% if postdoc.user.profile.orcid_url %}
+                  <li class="list-inline-item"><a class="text-reset" href="{{ postdoc.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
+                  {% endif %}
                   {% if postdoc.user.profile.personal_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ postdoc.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
                   {% endif %}
@@ -190,6 +208,12 @@
                   {% if phd.user.profile.linkedin_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ phd.user.profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
                   {% endif %}
+                  {% if phd.user.profile.research_gate_url %}
+                  <li class="list-inline-item"><a class="text-reset" href="{{ phd.user.profile.research_gate_url }}" target="_blank"><i class="ai ai-researchgate-square ai-2x"></i></a></li>
+                  {% endif %}
+                  {% if phd.user.profile.orcid_url %}
+                  <li class="list-inline-item"><a class="text-reset" href="{{ phd.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
+                  {% endif %}
                   {% if phd.user.profile.personal_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ phd.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
                   {% endif %}
@@ -241,6 +265,12 @@
                     {% endif %}
                     {% if fellow.user.profile.linkedin_url %}
                     <li class="list-inline-item"><a class="text-reset" href="{{ fellow.user.profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                    {% endif %}
+                    {% if fellow.user.profile.research_gate_url %}
+                    <li class="list-inline-item"><a class="text-reset" href="{{ fellow.user.profile.research_gate_url }}" target="_blank"><i class="ai ai-researchgate-square ai-2x"></i></a></li>
+                    {% endif %}
+                    {% if fellow.user.profile.orcid_url %}
+                    <li class="list-inline-item"><a class="text-reset" href="{{ fellow.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
                     {% endif %}
                     {% if fellow.user.profile.personal_url %}
                     <li class="list-inline-item"><a class="text-reset" href="{{ fellow.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
@@ -296,6 +326,12 @@
                     {% if master.user.profile.linkedin_url %}
                     <li class="list-inline-item"><a class="text-reset" href="{{ master.user.profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
                     {% endif %}
+                    {% if master.user.profile.research_gate_url %}
+                    <li class="list-inline-item"><a class="text-reset" href="{{ master.user.profile.research_gate_url }}" target="_blank"><i class="ai ai-researchgate-square ai-2x"></i></a></li>
+                    {% endif %}
+                    {% if master.user.profile.orcid_url %}
+                    <li class="list-inline-item"><a class="text-reset" href="{{ master.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
+                    {% endif %}
                     {% if master.user.profile.personal_url %}
                     <li class="list-inline-item"><a class="text-reset" href="{{ master.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
                     {% endif %}
@@ -347,6 +383,12 @@
                   {% endif %}
                   {% if undergraduate.user.profile.linkedin_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ undergraduate.user.profile.linkedin_url }}" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                  {% endif %}
+                  {% if undergraduate.user.profile.research_gate_url %}
+                  <li class="list-inline-item"><a class="text-reset" href="{{ undergraduate.user.profile.research_gate_url }}" target="_blank"><i class="ai ai-researchgate-square ai-2x"></i></a></li>
+                  {% endif %}
+                  {% if undergraduate.user.profile.orcid_url %}
+                  <li class="list-inline-item"><a class="text-reset" href="{{ undergraduate.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
                   {% endif %}
                   {% if undergraduate.user.profile.personal_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ undergraduate.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
