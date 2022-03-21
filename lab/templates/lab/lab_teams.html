@@ -1,0 +1,119 @@
+{% extends "lab/base.html" %}
+
+{% block content %}
+
+<h1 class="mt-4">Lab Teams</h1>
+
+<div class="row mt-3">
+
+  <div class="col-md-4 mb-3 mb-md-0">
+    <ul class="list-group">
+      <li class="list-group-item active" aria-current="true">
+        <h4 class="mb-0">Cleaning Team</h4>
+      </li>
+      {% if cleaning_members %}
+      {% for member in cleaning_members %}
+      <li class="list-group-item">{{ member.name }}</li>
+      {% endfor %}
+      {% else %}
+      <li class="list-group-item">Not assigned</li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="col-md-4 mb-3 mb-md-0">
+    <ul class="list-group">
+      <li class="list-group-item active" aria-current="true">
+        <h4 class="mb-0">Technical Team</h4>
+      </li>
+      {% if technic_members %}
+      {% for member in technic_members %}
+      <li class="list-group-item">{{ member.name }}</li>
+      {% endfor %}
+      {% else %}
+      <li class="list-group-item">Not assigned</li>
+      {% endif %}
+    </ul>
+  </div>
+
+  <div class="col-md-4 mb-3 mb-md-0">
+    <ul class="list-group">
+      <li class="list-group-item active" aria-current="true">
+        <h4 class="mb-0">Safety Team</h4>
+      </li>
+      {% if safety_members %}
+      {% for member in safety_members %}
+      <li class="list-group-item">{{ member.name }}</li>
+      {% endfor %}
+      {% else %}
+      <li class="list-group-item">Not assigned</li>
+      {% endif %}
+    </ul>
+  </div>
+
+</div>
+
+
+<div class="row mt-5">
+  <div class="col">
+    <h2>Schedule</h2>
+    <div class="row">
+      <div class="col">
+        <div class="table-responsive">
+          <table class="table">
+            <caption>* No info means that the previous team continues its job.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Year/Month</th>
+                <th scope="col">Cleaning</th>
+                <th scope="col">Technical</th>
+                <th scope="col">Safety</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% now "n" as current_month %}
+              {% now "Y" as current_year %}
+              {% for team in teams %}
+              <tr {% if team.year == current_year and team.month == current_month %}class="table-primary"{% endif %}>
+                <th scope="row">{{ team.year }}/{{ team.month }}</th>
+                <td>{{ team.cleaning.all|join:", " }}</td>
+                <td>{{ team.technic.all|join:", " }}</td>
+                <td>{{ team.safety.all|join:", " }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div class="row mt-5">
+  <div class="col">
+    <h2>General job description of each team</h2>
+    <h5>Cleaning Team</h5>
+    <ul>
+      <li>Keep the laboratory clean and tidy.</li>
+  </ul>
+
+  <h5>Technical Team</h5>
+    <ul>
+      <li>Replenish consumables.</li>
+      <li>Check for orders ready to pick up.</li>
+      <li>Keep inventory up to date.</li>
+      <li>Manage lab residues.</li>
+  </ul>
+
+  <h5>Safety Team</h5>
+    <ul>
+      <li>Enforce safe laboratory practices of all members.</li>
+      <li>Guarantee proper functioning of safety equipment.</li>
+  </ul>
+
+  </div>
+</div>
+
+{% endblock content %}

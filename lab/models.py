@@ -3,6 +3,8 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils import timezone
+from website.models import Member
+from datetime import datetime
 import cirpy
 
 
@@ -92,5 +94,28 @@ class ExternalResource(models.Model):
     def __str__(self):
         return f'{self.title}'
 
-    # def get_absolute_url(self):
-    #     return reverse('xxxx')
+
+class LabTeam(models.Model):
+    class Month(models.IntegerChoices):
+        JANUARY = 1
+        FEBRUARY = 2
+        MARCH = 3
+        APRIL = 4
+        MAY = 5
+        JUNE = 6
+        JULY = 7
+        AUGUST = 8
+        SEPTEMBER = 9
+        OCTOBER = 10
+        NOVEMBER = 11
+        DECEMBER = 12
+
+    month = models.IntegerField(choices=Month.choices, default=datetime.now().month)
+    year = models.IntegerField(default=datetime.now().year)
+    cleaning = models.ManyToManyField(Member, related_name='cleaning_team', limit_choices_to={'alumni': False}, blank=True)
+    technic = models.ManyToManyField(Member, related_name='technic_team', limit_choices_to={'alumni': False}, blank=True)
+    safety = models.ManyToManyField(Member, related_name='safety_team', limit_choices_to={'alumni': False}, blank=True)
+    # created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.year}/{self.month} Teams'

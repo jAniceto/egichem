@@ -7,9 +7,10 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
 
-from .models import Material, Announcement, ExternalResource
+from .models import Material, Announcement, ExternalResource, LabTeam
 
 import csv
+from datetime import datetime
 
 
 def is_current_member(user):
@@ -219,3 +220,47 @@ def export(request):
         writer.writerow(material)
 
     return response
+
+
+@user_passes_test(is_current_member)
+def lab_teams(request):
+    """Lab teams page"""
+    
+    def create_teams(teams):
+        current_month = datetime.now().month
+        current_year = datetime.now().year
+
+        current_found = False
+        cleaning_members, technic_members, safety_members = None, None, None
+        for team in teams:
+            if (team.year == current_year) and (team.month == current_month) and current_found == False:
+                if not cleaning_members:
+                    cleaning_members = team.cleaning.all()
+                if not technic_members:
+                    technic_members = team.technic.all()
+                if not safety_members:
+                    safety_members = team.safety.all()
+                current_found = True
+            
+            elif current_found:
+                if not cleaning_members:
+                    cleaning_members = team.cleaning.all()
+                if not technic_members:
+                    technic_members = team.technic.all()
+                if not safety_members:
+                    safety_members = team.safety.all()
+                    current_found = True
+        return cleaning_members, technic_members, safety_members
+
+    teams = LabTeam.objects.all().order_by('-year', '-month')
+    cleaning_members, technic_members, safety_members = create_teams(teams)
+
+    context = {
+		'page_title': 'lab_teams',
+		'page_subtitle': '',
+        'teams': teams,
+        'cleaning_members': cleaning_members,
+        'technic_members': technic_members,
+        'safety_members': safety_members,
+	}	
+    return render(request, 'lab/lab_teams.html', context)

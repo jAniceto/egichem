@@ -14,4 +14,5 @@ urlpatterns = [
     path('announcements/', AnnouncementListView.as_view(), name='announcements'),
     path('announcements/new/', AnnouncementCreateView.as_view(), name='announcement-create'),
     path('announcements/<int:pk>/delete/', views.announcement_delete, name='announcement-delete'),
+    path('lab-teams/', views.lab_teams, name='lab_teams'),
 ]
