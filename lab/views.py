@@ -7,7 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
 
-from .models import Material, Announcement, ExternalResource, LabTeam
+from .models import Material, Announcement, ExternalResource, LabTeam, Faq
 
 import csv
 from datetime import datetime
@@ -220,6 +220,30 @@ def export(request):
         writer.writerow(material)
 
     return response
+
+
+class FaqListView(UserPassesTestMixin, LoginRequiredMixin, ListView):
+    model = Faq
+    context_object_name = 'faqs'
+    template_name = 'lab/faq.html'  # <app>/<model>_<viewtype>.html
+    ordering = ['order', 'date_added']
+
+    def test_func(self):
+        try:
+            if self.request.user.member:
+                if self.request.user.member.alumni is False:
+                    return True
+                else: 
+                    return False
+        except AttributeError as e:
+            return False
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        # Add in extra context variables
+        context['page_title'] = 'faqs'
+        return context
 
 
 @user_passes_test(is_current_member)

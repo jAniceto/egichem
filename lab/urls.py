@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import MaterialListView, MaterialCreateView, MaterialDeleteView, MaterialUpdateView, AnnouncementListView, AnnouncementCreateView
+from .views import MaterialListView, MaterialCreateView, MaterialDeleteView, MaterialUpdateView, AnnouncementListView, AnnouncementCreateView, FaqListView
 from . import views
 
 
@@ -15,4 +15,5 @@ urlpatterns = [
     path('announcements/new/', AnnouncementCreateView.as_view(), name='announcement-create'),
     path('announcements/<int:pk>/delete/', views.announcement_delete, name='announcement-delete'),
     path('lab-teams/', views.lab_teams, name='lab_teams'),
+    path('faq/', FaqListView.as_view(), name='faqs'),
 ]

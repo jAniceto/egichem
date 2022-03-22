@@ -115,7 +115,16 @@ class LabTeam(models.Model):
     cleaning = models.ManyToManyField(Member, related_name='cleaning_team', limit_choices_to={'alumni': False}, blank=True)
     technic = models.ManyToManyField(Member, related_name='technic_team', limit_choices_to={'alumni': False}, blank=True)
     safety = models.ManyToManyField(Member, related_name='safety_team', limit_choices_to={'alumni': False}, blank=True)
-    # created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f'{self.year}/{self.month} Teams'
+
+
+class Faq(models.Model):
+    question = models.TextField()
+    answer =models.TextField()
+    order = models.IntegerField(default=99)
+    date_added = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Q: {self.question}'
