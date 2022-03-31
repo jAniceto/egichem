@@ -6,8 +6,11 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.db.models import Q
+from django.core.mail import send_mail, BadHeaderError
 
 from .models import Material, Announcement, ExternalResource, LabTeam, Faq
+from .forms import SendEmailForm
+from website.models import Member
 
 import csv
 from datetime import datetime
@@ -288,3 +291,45 @@ def lab_teams(request):
         'safety_members': safety_members,
 	}	
     return render(request, 'lab/lab_teams.html', context)
+
+
+@user_passes_test(is_current_member)
+def contacts(request):
+    """Lab members contacts page"""
+    members = Member.objects.filter(alumni=False).order_by('name')
+
+    if request.method == 'GET':
+        form = SendEmailForm()
+    else:
+        email_from = request.user.email
+        
+        form = SendEmailForm(request.POST)
+        if form.is_valid():
+            email_to = form.cleaned_data['email_to']
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+
+            email_to_emails = []
+            for member in email_to:
+                try:
+                    email_to_emails.append(member.user.email)
+                except AttributeError:
+                    messages.warning(request, f"Email failed to {member.name}! No email address found. Maybe the user has not registered an account.")
+
+            MAIL_TEMPLATE = f"FROM: \n{request.user.username} ({email_from})\n\nTO: \n{', '.join(email_to_emails)}\n\nMESSAGE:\n{message}"
+
+            try:
+                send_mail(subject, MAIL_TEMPLATE, email_from, email_to_emails)
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+
+            messages.success(request, 'Email sent!')
+            return redirect('contacts')
+
+    context = {
+		'page_title': 'contacts',
+		'page_subtitle': '',
+        'members': members,
+        'form': form
+	}	
+    return render(request, 'lab/contacts.html', context)

@@ -7,7 +7,8 @@ from PIL import Image
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     photo = models.ImageField(default='images/profile_photos/default.jpg', upload_to='images/profile_photos')
-    scientific_name = models.CharField(max_length=200)
+    scientific_name = models.CharField(max_length=200, blank=True)
+    phone_number = models.CharField(max_length=50, blank=True)
     bio = models.TextField(blank=True)
     scholar_url = models.URLField(blank=True)
     linkedin_url = models.URLField(blank=True)
@@ -15,6 +16,7 @@ class Profile(models.Model):
     personal_url = models.URLField(blank=True)
     research_gate_url = models.URLField(blank=True)
     orcid_url = models.URLField(blank=True)
+    ciencia_id = models.CharField(max_length=50, blank=True)
 
     
     def __str__(self):

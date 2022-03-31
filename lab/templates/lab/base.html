@@ -53,6 +53,9 @@
               <li class="nav-item">
                 <a class="nav-link{% if page_title == 'faqs' %} active{% endif %}" href="{% url 'faqs' %}">FAQ</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link{% if page_title == 'contacts' %} active{% endif %}" href="{% url 'contacts' %}">Contacts</a>
+              </li>
             </ul>
             <div class="navbar-nav">
               <ul class="navbar-nav mr-auto">
@@ -75,8 +78,13 @@
     <main role="main" class="container">
       {% if messages %}
         {% for message in messages %}
-          <div class="alert alert-{{ message.tags }}">
+          <div class="container mt-3 px-0">
+            <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
             {{ message }}
+            </div>
           </div>
         {% endfor %}
       {% endif %}
