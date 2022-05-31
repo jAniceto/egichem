@@ -56,41 +56,41 @@
           {% endif %}
 
           <!-- External links -->
-          {% if member.user.profile.scopus_url or member.user.profile.scholar_url or member.user.profile.linkedin_url or member.user.profile.personal_url %}
+          {% if member.user.profile.scopus_url or member.user.profile.scholar_url or member.user.profile.linkedin_url or member.user.profile.personal_url or member.user.profile.research_gate_url or member.user.profile.orcid_url %}
           <li class="list-group-item text-center">External links</li>
           {% endif %}
           {% if member.user.profile.scopus_url %}
-          <a href="{{ member.user.profile.scopus_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <a href="{{ member.user.profile.scopus_url }}" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             Scopus
             <span><i class="ai ai-scopus"></i></span>
           </a>
           {% endif %}
           {% if member.user.profile.scholar_url %}
-          <a href="{{ member.user.profile.scholar_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <a href="{{ member.user.profile.scholar_url }}" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             Google Scholar
             <span><i class="ai ai-google-scholar"></i></span>
           </a>
           {% endif %}
           {% if member.user.profile.linkedin_url %}
-          <a href="{{ member.user.profile.linkedin_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <a href="{{ member.user.profile.linkedin_url }}" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             LinkedIn
             <span><i class="fab fa-linkedin-in"></i></span>
           </a>
           {% endif %}
           {% if member.user.profile.research_gate_url %}
-          <a href="{{ member.user.profile.research_gate_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <a href="{{ member.user.profile.research_gate_url }}" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             Research Gate
             <span><i class="ai ai-researchgate-square"></i></span>
           </a>
           {% endif %}
           {% if member.user.profile.orcid_url %}
-          <a href="{{ member.user.profile.orcid_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <a href="{{ member.user.profile.orcid_url }}" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             ORCID
             <span><i class="ai ai-orcid-square"></i></span>
           </a>
           {% endif %}
           {% if member.user.profile.personal_url %}
-          <a href="{{ member.user.profile.personal_url }}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+          <a href="{{ member.user.profile.personal_url }}" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             Personal Page
             <span><i class="fas fa-external-link-square-alt"></i></span>
           </a>
@@ -125,47 +125,6 @@
 
       <!-- Publications -->
       <div id="member-publications" class="mt-5">
-        <!-- {% if member_articles or member_book_chapters or member_patents or member_posters or member_presentations or member_theses %}
-        <h3 class="card-title mt-4 mb-3">Publications</h3>
-        <div class="list-group list-group-horizontal-md">
-          {% if member_articles %}
-            <a href="#articles" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Articles
-              <span class="badge badge-light">{{ member_articles|length }}</span>
-            </a>
-          {% endif %}
-          {% if member_book_chapters %}
-            <a href="#chapters" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Book Chapters
-              <span class="badge badge-light">{{ member_book_chapters|length }}</span>
-            </a>
-          {% endif %}
-          {% if member_patents %}  
-            <a href="#patents" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Patents
-              <span class="badge badge-light">{{ member_patents|length }}</span>
-            </a>
-          {% endif %}
-          {% if member_posters %}  
-            <a href="#posters" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Posters
-              <span class="badge badge-light">{{ member_posters|length }}</span>
-            </a>
-          {% endif %}
-          {% if member_presentations %}
-            <a href="#presentations" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Presentations
-              <span class="badge badge-light">{{ member_presentations|length }}</span>
-            </a>
-          {% endif %}  
-          {% if member_theses %}
-            <a href="#theses" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
-              Theses
-              <span class="badge badge-light">{{ member_theses|length }}</span>
-            </a>
-          {% endif %}
-        </div>
-        {% endif %} -->
 
         <!-- Articles -->
         {% if member_articles %}
@@ -214,6 +173,7 @@
         <p>{{ pub.authors }}. {{ pub.title }}, {{ pub.get_thesis_type_display }}, Coordinator(s): {{ pub.thesis_coordinators }}, {{ pub.thesis_institution }}, {{ pub.year }}.</p>
         {% endfor %}
         {% endif %}
+        
       </div>
 
     </div>
