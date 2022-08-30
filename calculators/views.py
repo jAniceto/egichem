@@ -470,7 +470,7 @@ def d12_gas(request):
 
 def d12_rg(request):
     """Diffusion coefficients using Rice and Gray model."""
-    d12 = None
+    d12 = ''
 
     if request.method == 'POST':
         form = D12RiceGrayForm(request.POST)
