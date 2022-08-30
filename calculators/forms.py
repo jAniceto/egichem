@@ -247,3 +247,66 @@ class KlinkenbergForm(forms.Form):
     velocity.widget.attrs.update({'class': 'form-control'})
     time_final.widget.attrs.update({'class': 'form-control'})
     xy_data.widget.attrs.update({'class': 'form-control'})
+
+
+class D12RiceGrayForm(forms.Form):
+    temperature = forms.FloatField(
+        label='Temperature', 
+        required=False,
+    )
+    density = forms.FloatField(
+        label='Density', 
+        required=False,
+        min_value=0, 
+    )
+    solvent_Vc = forms.FloatField(
+        label='Solvent critical volume', 
+        required=False,
+        min_value=0,
+    )
+    solvent_Tc = forms.FloatField(
+        label='Solvent critical temperature', 
+        required=False,
+        min_value=0,
+    )
+    solvent_M = forms.FloatField(
+        label='Solvent molar mass', 
+        required=False,
+        min_value=0,
+    )
+    solute_Vc = forms.FloatField(
+        label='Solute critical volume', 
+        required=False,
+        min_value=0,
+    )
+    solute_Tc = forms.FloatField(
+        label='Solute critical temperature', 
+        required=False,
+        min_value=0,
+    )
+    solute_M = forms.FloatField(
+        label='Solute molar mass', 
+        required=False,
+        min_value=0,
+    )
+    B_12 = forms.FloatField(
+        label='Binary interaction parameter (B12)',
+        required=False,
+    )
+    # Interaction parameters
+    k_12 = forms.FloatField(
+        label='Binary interaction parameter for the LJ diameter (k12)',
+        required=False,
+    )
+
+    # Customize form widgets
+    temperature.widget.attrs.update({'class': 'form-control'})
+    density.widget.attrs.update({'class': 'form-control'})
+    solvent_Vc.widget.attrs.update({'class': 'form-control'})
+    solvent_Tc.widget.attrs.update({'class': 'form-control'})
+    solvent_M.widget.attrs.update({'class': 'form-control'})
+    solute_Vc.widget.attrs.update({'class': 'form-control'})
+    solute_Tc.widget.attrs.update({'class': 'form-control'})
+    solute_M.widget.attrs.update({'class': 'form-control'})
+    B_12.widget.attrs.update({'class': 'form-control'})
+    k_12.widget.attrs.update({'class': 'form-control'})

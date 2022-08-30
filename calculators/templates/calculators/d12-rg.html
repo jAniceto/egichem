@@ -1,0 +1,194 @@
+{% extends "website/base.html" %} 
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-4">
+
+  <div class="row mb-3">
+    <div class="col">
+      <h1>Diffusion coefficients calculation using Rice and Gray model</h1>
+      <p class="lead">Calculates the tracer diffusion coefficients of a given solute in a solvent using the Rice and Gray model.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+
+      <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-group row my-1">
+
+          <label for="id_temperature" class="col-sm-5 col-form-label">{{ form.temperature.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.temperature }}
+              <!-- <input id="temperature" type="number" step="any" class="form-control" aria-label="Temperature" aria-describedby="addon-temperature"> -->
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_temperature">K</span>
+              </div>
+            </div>
+          </div>
+          {{ form.temperature.errors }}
+        </div>
+
+        <div class="form-group row my-1">
+          <label for="id_density" class="col-sm-5 col-form-label">{{ form.density.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.density }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_density">g cm<sup>-3</sup></span>
+              </div>
+            </div>
+          </div>
+          {{ form.density.errors }}
+        </div>
+
+        <div class="form-group row my-1">
+          <label for="id_solvent_Vc" class="col-sm-5 col-form-label">{{ form.solvent_Vc.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.solvent_Vc }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_solvent_Vc">cm<sup>3</sup> mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+          {{ form.solvent_Vc.errors }}
+        </div>
+
+        <div class="form-group row my-1">
+          <label for="id_solvent_Tc" class="col-sm-5 col-form-label">{{ form.solvent_Tc.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.solvent_Tc }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_solvent_Tc">K</span>
+              </div>
+            </div>
+          </div>
+          {{ form.solvent_Tc.errors }}
+        </div>
+
+        <div class="form-group row my-1">
+          <label for="id_solvent_M" class="col-sm-5 col-form-label">{{ form.solvent_M.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.solvent_M }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_solvent_M">g mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+          {{ form.solvent_M.errors }}
+        </div>
+
+        <div class="form-group row my-1">
+          <label for="id_solute_Vc" class="col-sm-5 col-form-label">{{ form.solute_Vc.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.solute_Vc }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_solute_Vc">cm<sup>3</sup> mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+          {{ form.solute_Vc.errors }}
+        </div>
+
+        <div class="form-group row my-1">
+          <label for="id_solute_Tc" class="col-sm-5 col-form-label">{{ form.solute_Tc.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.solute_Tc }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_solute_Tc">K</span>
+              </div>
+            </div>
+          </div>
+          {{ form.solute_Tc.errors }}
+        </div>
+
+        <div class="form-group row my-1">
+          <label for="id_solute_M" class="col-sm-5 col-form-label">{{ form.solute_M.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.solute_M }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_solute_M">g mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+          {{ form.solute_M.errors }}
+        </div>
+
+        <div class="form-group row my-1">
+          <label for="id_B_12" class="col-sm-5 col-form-label">{{ form.B_12.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.B_12 }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_B_12">-</span>
+              </div>
+            </div>
+          </div>
+          {{ form.B_12.errors }}
+        </div>
+
+        <div class="form-group row my-1">
+          <label for="id_k_12" class="col-sm-5 col-form-label">{{ form.k_12.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.k_12 }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_k_12">-</span>
+              </div>
+            </div>
+          </div>
+          {{ form.k_12.errors }}
+        </div>
+        
+        <button type="submit" class="btn btn-egichem">Calculate</button>
+        <!-- <a href="{% url 'pcsaft' %}" type="button" class="btn btn-outline-egichem">Reset</a> -->
+      </form>
+
+    </div>
+
+    <div class="col-md-5 offset-md-1 mt-3 mt-md-0">
+      <form>
+        
+        <div class="form-group row">
+
+          <label for="d12-result" class="col-sm-6 col-form-label">Diffusion coefficient</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ d12_result }}" id="d12-result" class="form-control" aria-label="Diffusion coefficient" aria-describedby="addon-d12-result" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-d12-result">cm<sup>2</sup> s<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <div class="col">
+
+      <h4>Notes</h4>
+      <p>This calculator the Rice and Gray model to estimate the diffusion coefficients of solute in a solvent.</p>
+      <!-- <p>Data for known systems can be found in xxx</p> -->
+
+      <h4>References</h4>
+      <p>Manuscript under revision.</p>
+
+    </div>
+  </div>
+
+</div>
+{% endblock content %} 

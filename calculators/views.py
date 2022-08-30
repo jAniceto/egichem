@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm
+from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm, D12RiceGrayForm
 
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
 from properties import pcsaft_eos
 from properties import adsorption
 from properties import data
+from properties import D12_RG
 import numpy as np
 import json
 
@@ -459,12 +460,47 @@ def utilities(request):
 
 
 def d12_gas(request):
-    """Diffusion coefficients for binary gas systems at low pressure"""
+    """Diffusion coefficients for binary gas systems at low pressure."""
     context = {
         'page_title': PAGE_TITLE,
         'page_subtitle': PAGE_SUBTITLE,
     }
     return render(request, 'calculators/d12_gas.html', context)
+
+
+def d12_rg(request):
+    """Diffusion coefficients using Rice and Gray model."""
+    d12 = None
+
+    if request.method == 'POST':
+        form = D12RiceGrayForm(request.POST)
+
+        if form.is_valid():
+            temperature = form.cleaned_data['temperature']
+            density = form.cleaned_data['density']
+            solvent_Vc = form.cleaned_data['solvent_Vc']
+            solvent_Tc = form.cleaned_data['solvent_Tc']
+            solvent_M = form.cleaned_data['solvent_M']
+            solute_Vc = form.cleaned_data['solute_Vc']
+            solute_Tc = form.cleaned_data['solute_Tc']
+            solute_M = form.cleaned_data['solute_M']
+            b_12 = form.cleaned_data['B_12']
+            k_12 = form.cleaned_data['k_12']
+
+            try:
+                d12 = D12_RG.D12pred(temperature, density, solvent_Vc, solvent_Tc, solvent_M, solute_Vc, solute_Tc, solute_M, b_12, k_12)
+            except ValueError as e:
+                messages.error(request, f"Calculation error: {e}")
+
+    else:
+        form = D12RiceGrayForm()
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+        'form': form,
+        'd12_result': d12,
+    }
+    return render(request, 'calculators/d12-rg.html', context)
 
 
 def klinkenberg(request):
