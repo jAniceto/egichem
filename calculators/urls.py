@@ -7,6 +7,7 @@ urlpatterns = [
     path('carbon-dioxide/', views.carbon_dioxide, name='carbon_dioxide'),
     path('isotherms/', views.isotherms, name='isotherms'),
     path('d12-sc-co2/', views.d12_sc_co2, name='d12_sc_co2'),
+    path('d12-sc-co2-beta/', views.d12_sc_co2_beta, name='d12_sc_co2_beta'),  # trying to implement ML SC-CO2
     path('d12-polar-nonpolar/', views.d12_polar_nonpolar, name='d12_polar_nonpolar'),
     path('psychrometrics/', views.psychrometrics, name='psychrometrics'),
     path('psychrometrics-vent/', views.psychrometrics_ventilation, name='psychrometrics_ventilation'),

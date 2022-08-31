@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm, D12RiceGrayForm
+from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm, D12RiceGrayForm, D12MLSCCO2Form
 
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
@@ -8,6 +8,7 @@ from properties import pcsaft_eos
 from properties import adsorption
 from properties import data
 from properties import D12_RG
+from properties import ml_scco2
 import numpy as np
 import json
 
@@ -228,6 +229,36 @@ def d12_sc_co2(request):
         'page_subtitle': PAGE_SUBTITLE,
     }
     return render(request, 'calculators/d12_sc_co2.html', context)
+
+
+def d12_sc_co2_beta(request):
+    """Prediction of binary diffusivities in supercritical carbon dioxide using ML"""
+    d12 = ''
+
+    if request.method == 'POST':
+        form = D12MLSCCO2Form(request.POST)
+
+        if form.is_valid():
+            temperature = form.cleaned_data['temperature']
+            density = form.cleaned_data['density']
+            molarmass = form.cleaned_data['molarmass']
+            criticalpressure = form.cleaned_data['criticalpressure']
+            acentricfactor = form.cleaned_data['acentricfactor']
+
+            try:
+                d12 = ml_scco2.calc_D12(temperature, density, molarmass, criticalpressure, acentricfactor)
+            except:
+                messages.error(request, "Calculation error.")
+
+    else:
+        form = D12MLSCCO2Form()
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+        'form': form,
+        'd12_result': d12[0],
+    }
+    return render(request, 'calculators/d12_sc_co2-beta.html', context)
 
 
 def d12_polar_nonpolar(request):

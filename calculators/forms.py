@@ -310,3 +310,37 @@ class D12RiceGrayForm(forms.Form):
     solute_M.widget.attrs.update({'class': 'form-control'})
     B_12.widget.attrs.update({'class': 'form-control'})
     k_12.widget.attrs.update({'class': 'form-control'})
+
+
+class D12MLSCCO2Form(forms.Form):
+    temperature = forms.FloatField(
+        label='Temperature', 
+        required=True,
+    )
+    density = forms.FloatField(
+        label='Density', 
+        required=True,
+        min_value=0, 
+    )
+    molarmass = forms.FloatField(
+        label='Molar mass', 
+        required=True,
+        min_value=0,
+    )
+    criticalpressure = forms.FloatField(
+        label='Critical pressure', 
+        required=True,
+        min_value=0,
+    )
+    acentricfactor = forms.FloatField(
+        label='Acentric factor', 
+        required=True,
+        min_value=0,
+    )
+    
+    # Customize form widgets
+    temperature.widget.attrs.update({'class': 'form-control'})
+    density.widget.attrs.update({'class': 'form-control'})
+    molarmass.widget.attrs.update({'class': 'form-control'})
+    criticalpressure.widget.attrs.update({'class': 'form-control'})
+    acentricfactor.widget.attrs.update({'class': 'form-control'})
