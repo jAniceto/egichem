@@ -247,6 +247,7 @@ def d12_sc_co2_beta(request):
 
             try:
                 d12 = ml_scco2.calc_D12(temperature, density, molarmass, criticalpressure, acentricfactor)
+                d12 = d12[0]
             except:
                 messages.error(request, "Calculation error.")
 
@@ -256,7 +257,7 @@ def d12_sc_co2_beta(request):
         'page_title': PAGE_TITLE,
         'page_subtitle': PAGE_SUBTITLE,
         'form': form,
-        'd12_result': d12[0],
+        'd12_result': d12,
     }
     return render(request, 'calculators/d12_sc_co2-beta.html', context)
 
