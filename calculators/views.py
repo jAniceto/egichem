@@ -246,7 +246,7 @@ def d12_sc_co2(request):
 
             try:
                 d12 = ml_scco2.calc_D12(temperature, density, molarmass, criticalpressure, acentricfactor)
-                d12 = d12[0]
+                d12 = f"{d12[0]:1.3e}"
             except:
                 messages.error(request, "Calculation error.")
 
@@ -295,7 +295,7 @@ def d12_polar_nonpolar(request):
             elif calc_type == 'Nonpolar':
                 try:
                     d12 = ml_nonpolar.calc_D12(temperature, viscosity, solutemolarmass, solutecriticalpressure, solventmolarmass)
-                    d12 = d12[0]
+                    d12 = f"{d12[0]:1.3e}"
                 except:
                     messages.error(request, "Calculation error.")
 
@@ -572,7 +572,7 @@ def d12_rg(request):
         'page_title': PAGE_TITLE,
         'page_subtitle': PAGE_SUBTITLE,
         'form': form,
-        'd12_result': d12,
+        'd12_result': f"{d12[0]:1.3e}"
     }
     return render(request, 'calculators/d12-rg.html', context)
 
