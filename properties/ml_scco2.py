@@ -9,7 +9,7 @@ import sys
 # Configuration variables
 PIPELINE_64_PATH = 'calculators/static/calculators/ml-models/ml-scco2-model-64.mod'
 MODEL_VARIABLES = ['T', 'density', 'solute.M2', 'solute.Pc', 'solute.w']
-# OUTPUT_FILE_PATH = 'output.csv'
+OUTPUT_FILE_PATH = 'output.csv'
 
 def get_full_path(ending):
     current_file_path = os.path.dirname(os.path.realpath(__file__))
