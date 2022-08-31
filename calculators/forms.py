@@ -323,17 +323,17 @@ class D12MLSCCO2Form(forms.Form):
         min_value=0, 
     )
     molarmass = forms.FloatField(
-        label='Molar mass', 
+        label='Solute molar mass', 
         required=True,
         min_value=0,
     )
     criticalpressure = forms.FloatField(
-        label='Critical pressure', 
+        label='Solute critical pressure', 
         required=True,
         min_value=0,
     )
     acentricfactor = forms.FloatField(
-        label='Acentric factor', 
+        label='Solute acentric factor', 
         required=True,
         min_value=0,
     )
@@ -344,3 +344,52 @@ class D12MLSCCO2Form(forms.Form):
     molarmass.widget.attrs.update({'class': 'form-control'})
     criticalpressure.widget.attrs.update({'class': 'form-control'})
     acentricfactor.widget.attrs.update({'class': 'form-control'})
+
+
+class D12MLPolarNonpolarForm(forms.Form):
+    calc_type = forms.ChoiceField(
+        label='Type of calculation', 
+        required=True,
+        choices=[
+            ('Polar', 'Polar solvent'),
+            ('Nonpolar', 'Nonpolar solvent'),
+        ]
+    )
+    temperature = forms.FloatField(
+        label='Temperature', 
+        required=True,
+    )
+    viscosity = forms.FloatField(
+        label='Viscosity', 
+        required=True,
+        min_value=0, 
+    )
+    solutemolarmass = forms.FloatField(
+        label='Solute molar mass', 
+        required=True,
+        min_value=0,
+    )
+    solutecriticalpressure = forms.FloatField(
+        label='Solute critical pressure', 
+        required=True,
+        min_value=0,
+    )
+    solventmolarmass = forms.FloatField(
+        label='Solvent molar mass', 
+        required=True,
+        min_value=0,
+    )
+    solventLJenergy = forms.FloatField(
+        label='Solvent Lenard-Jones energy', 
+        required=False,
+        min_value=0,
+    )
+    
+    # Customize form widgets
+    calc_type.widget.attrs.update({'class': 'form-control'})
+    temperature.widget.attrs.update({'class': 'form-control'})
+    viscosity.widget.attrs.update({'class': 'form-control'})
+    solutemolarmass.widget.attrs.update({'class': 'form-control'})
+    solutecriticalpressure.widget.attrs.update({'class': 'form-control'})
+    solventmolarmass.widget.attrs.update({'class': 'form-control'})
+    solventLJenergy.widget.attrs.update({'class': 'form-control'})

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm, D12RiceGrayForm, D12MLSCCO2Form
+from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm, D12RiceGrayForm, D12MLSCCO2Form, D12MLPolarNonpolarForm
 
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
@@ -8,7 +8,7 @@ from properties import pcsaft_eos
 from properties import adsorption
 from properties import data
 from properties import D12_RG
-from properties import ml_scco2
+from properties import ml_scco2, ml_nonpolar, ml_polar
 import numpy as np
 import json
 
@@ -222,19 +222,18 @@ def isotherms(request):
     return render(request, 'calculators/isotherms.html', context)
 
 
-def d12_sc_co2(request):
+def d12_sc_co2_old(request):  # to delete in future
     """Prediction of binary diffusivities in supercritical carbon dioxide using ML"""
     context = {
         'page_title': PAGE_TITLE,
         'page_subtitle': PAGE_SUBTITLE,
     }
-    return render(request, 'calculators/d12_sc_co2.html', context)
+    return render(request, 'calculators/d12_sc_co2_old.html', context)
 
 
-def d12_sc_co2_beta(request):
+def d12_sc_co2(request):
     """Prediction of binary diffusivities in supercritical carbon dioxide using ML"""
     d12 = ''
-
     if request.method == 'POST':
         form = D12MLSCCO2Form(request.POST)
 
@@ -259,14 +258,57 @@ def d12_sc_co2_beta(request):
         'form': form,
         'd12_result': d12,
     }
-    return render(request, 'calculators/d12_sc_co2-beta.html', context)
+    return render(request, 'calculators/d12_sc_co2.html', context)
 
 
-def d12_polar_nonpolar(request):
+def d12_polar_nonpolar_old(request):  # to delete in future
     """Prediction of binary diffusivities in polar and nonpolar systems using ML"""
     context = {
         'page_title': PAGE_TITLE,
         'page_subtitle': PAGE_SUBTITLE,
+    }
+    return render(request, 'calculators/d12_polar_nonpolar_old.html', context)
+
+
+def d12_polar_nonpolar(request):
+    """Prediction of binary diffusivities in polar and nonpolar systems using ML"""
+    d12 = ''
+    if request.method == 'POST':
+        form = D12MLPolarNonpolarForm(request.POST)
+
+        if form.is_valid():
+            calc_type = form.cleaned_data['calc_type']
+            temperature = form.cleaned_data['temperature']
+            viscosity = form.cleaned_data['viscosity']
+            solutemolarmass = form.cleaned_data['solutemolarmass']
+            solutecriticalpressure = form.cleaned_data['solutecriticalpressure']
+            solventmolarmass = form.cleaned_data['solventmolarmass']
+            solventLJenergy = form.cleaned_data['solventLJenergy']
+
+            if calc_type == 'Polar':
+                try:
+                    d12 = ml_polar.calc_D12(temperature, viscosity, solutemolarmass, solutecriticalpressure, solventmolarmass, solventLJenergy)
+                    d12 = d12[0]
+                except:
+                    messages.error(request, "Calculation error.")
+
+            elif calc_type == 'Nonpolar':
+                try:
+                    d12 = ml_nonpolar.calc_D12(temperature, viscosity, solutemolarmass, solutecriticalpressure, solventmolarmass)
+                    d12 = d12[0]
+                except:
+                    messages.error(request, "Calculation error.")
+
+            else:
+                print('Polar or Nonpolar must be selected.')       
+
+    else:
+        form = D12MLPolarNonpolarForm()
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+        'form': form,
+        'd12_result': d12,
     }
     return render(request, 'calculators/d12_polar_nonpolar.html', context)
 
