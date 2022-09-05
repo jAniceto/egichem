@@ -572,7 +572,7 @@ def d12_rg(request):
         'page_title': PAGE_TITLE,
         'page_subtitle': PAGE_SUBTITLE,
         'form': form,
-        'd12_result': f"{d12[0]:1.3e}"
+        'd12_result': f"{d12:1.3e}"
     }
     return render(request, 'calculators/d12-rg.html', context)
 
