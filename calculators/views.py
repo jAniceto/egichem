@@ -563,6 +563,7 @@ def d12_rg(request):
 
             try:
                 d12 = D12_RG.D12pred(temperature, density, solvent_Vc, solvent_Tc, solvent_M, solute_Vc, solute_Tc, solute_M, b_12, k_12)
+                d12 = f"{d12:1.3e}"
             except ValueError as e:
                 messages.error(request, f"Calculation error: {e}")
 
@@ -572,7 +573,7 @@ def d12_rg(request):
         'page_title': PAGE_TITLE,
         'page_subtitle': PAGE_SUBTITLE,
         'form': form,
-        'd12_result': f"{d12:1.3e}"
+        'd12_result': d12
     }
     return render(request, 'calculators/d12-rg.html', context)
 
