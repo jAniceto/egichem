@@ -1,0 +1,484 @@
+{% extends "website/base.html" %} 
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-4">
+
+  <div class="row mb-3">
+    <div class="col">
+      <h1>Properties Estimation with the Joback method</h1>
+      <p class="lead">Estimation of pure component physical properties using the Joback Group Contribution method.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+
+      <form method="POST">
+        {% csrf_token %}
+
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group form-row my-1">
+              <label for="id_temperature" class="col-sm-6 col-form-label">
+                {{ form.temperature.label }} (optional)
+                {% if form.temperature.help_text %}
+                  <p class="font-weight-light">{{ form.temperature.help_text|safe }}</p>
+                {% endif %}
+              </label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  {{ form.temperature }}
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-id_temperature">K</span>
+                  </div>
+                </div>
+              </div>
+              
+              {{ form.temperature.errors }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-6">
+
+            <h6>Non-ring groups:</h6>
+            
+            <div class="form-group form-row my-0">
+              <label for="id_group1" class="col-sm-7 col-form-label">{{ form.group1.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group1 }}
+              </div>
+              {{ form.group1.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group2" class="col-sm-7 col-form-label">{{ form.group2.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group2 }}
+              </div>
+              {{ form.group2.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group3" class="col-sm-7 col-form-label">{{ form.group3.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group3 }}
+              </div>
+              {{ form.group3.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group4" class="col-sm-7 col-form-label">{{ form.group4.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group4 }}
+              </div>
+              {{ form.group4.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group5" class="col-sm-7 col-form-label">{{ form.group5.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group5 }}
+              </div>
+              {{ form.group5.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group6" class="col-sm-7 col-form-label">{{ form.group6.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group6 }}
+              </div>
+              {{ form.group6.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group7" class="col-sm-7 col-form-label">{{ form.group7.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group7 }}
+              </div>
+              {{ form.group7.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group8" class="col-sm-7 col-form-label">{{ form.group8.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group8 }}
+              </div>
+              {{ form.group8.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group9" class="col-sm-7 col-form-label">&equiv;CH</label>
+              <div class="col-sm-5">
+                  {{ form.group9 }}
+              </div>
+              {{ form.group9.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group10" class="col-sm-7 col-form-label">&equiv;C-</label>
+              <div class="col-sm-5">
+                  {{ form.group10 }}
+              </div>
+              {{ form.group10.errors }}
+            </div>
+
+            <h6 class="mt-md-3">Ring groups:</h6>
+            
+            <div class="form-group form-row my-0">
+              <label for="id_group11" class="col-sm-7 col-form-label">{{ form.group11.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group11 }}
+              </div>
+              {{ form.group11.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group12" class="col-sm-7 col-form-label">{{ form.group12.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group12 }}
+              </div>
+              {{ form.group12.errors }}
+            </div>
+            
+            <div class="form-group form-row my-0">
+              <label for="id_group13" class="col-sm-7 col-form-label">{{ form.group13.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group13 }}
+              </div>
+              {{ form.group13.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group14" class="col-sm-7 col-form-label">{{ form.group14.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group14 }}
+              </div>
+              {{ form.group14.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group15" class="col-sm-7 col-form-label">{{ form.group15.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group15 }}
+              </div>
+              {{ form.group15.errors }}
+            </div>
+
+            <h6 class="mt-md-3">Halogen groups:</h6>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group16" class="col-sm-7 col-form-label">{{ form.group16.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group16 }}
+              </div>
+              {{ form.group16.errors }}
+            </div>
+            
+            <div class="form-group form-row my-0">
+              <label for="id_group17" class="col-sm-7 col-form-label">{{ form.group17.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group17 }}
+              </div>
+              {{ form.group17.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group18" class="col-sm-7 col-form-label">{{ form.group18.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group18 }}
+              </div>
+              {{ form.group18.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group19" class="col-sm-7 col-form-label">{{ form.group19.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group19 }}
+              </div>
+              {{ form.group19.errors }}
+            </div>
+
+          </div>
+
+          <div class="col">
+
+            <h6 class="mt-3 mt-md-0">Oxygen groups:</h6>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group20" class="col-sm-7 col-form-label">{{ form.group20.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group20 }}
+              </div>
+              {{ form.group20.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group21" class="col-sm-7 col-form-label">{{ form.group21.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group21 }}
+              </div>
+              {{ form.group21.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group22" class="col-sm-7 col-form-label">{{ form.group22.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group22 }}
+              </div>
+              {{ form.group22.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group23" class="col-sm-7 col-form-label">{{ form.group23.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group23 }}
+              </div>
+              {{ form.group23.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group24" class="col-sm-7 col-form-label">{{ form.group24.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group24 }}
+              </div>
+              {{ form.group24.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group25" class="col-sm-7 col-form-label">{{ form.group25.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group25 }}
+              </div>
+              {{ form.group25.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group26" class="col-sm-7 col-form-label">{{ form.group26.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group26 }}
+              </div>
+              {{ form.group26.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group27" class="col-sm-7 col-form-label">{{ form.group27.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group27 }}
+              </div>
+              {{ form.group27.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group28" class="col-sm-7 col-form-label">{{ form.group28.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group28 }}
+              </div>
+              {{ form.group28.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group29" class="col-sm-7 col-form-label">{{ form.group29.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group29 }}
+              </div>
+              {{ form.group29.errors }}
+            </div>
+
+            <h6 class="mt-md-3">Nitrogen groups:</h6>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group30" class="col-sm-7 col-form-label">{{ form.group30.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group30 }}
+              </div>
+              {{ form.group30.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group31" class="col-sm-7 col-form-label">{{ form.group31.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group31 }}
+              </div>
+              {{ form.group31.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group32" class="col-sm-7 col-form-label">{{ form.group32.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group32 }}
+              </div>
+              {{ form.group32.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group33" class="col-sm-7 col-form-label">{{ form.group33.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group33 }}
+              </div>
+              {{ form.group33.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group34" class="col-sm-7 col-form-label">{{ form.group34.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group34 }}
+              </div>
+              {{ form.group34.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group35" class="col-sm-7 col-form-label">{{ form.group35.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group35 }}
+              </div>
+              {{ form.group35.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group36" class="col-sm-7 col-form-label">{{ form.group36.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group36 }}
+              </div>
+              {{ form.group36.errors }}
+            </div>
+            
+            <div class="form-group form-row my-0">
+              <label for="id_group37" class="col-sm-7 col-form-label">{{ form.group37.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group37 }}
+              </div>
+              {{ form.group37.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group38" class="col-sm-7 col-form-label">{{ form.group38.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group38 }}
+              </div>
+              {{ form.group38.errors }}
+            </div>
+
+            <h6 class="mt-md-3">Sulphur groups:</h6>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group39" class="col-sm-7 col-form-label">{{ form.group39.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group39 }}
+              </div>
+              {{ form.group39.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group40" class="col-sm-7 col-form-label">{{ form.group40.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group40 }}
+              </div>
+              {{ form.group40.errors }}
+            </div>
+
+            <div class="form-group form-row my-0">
+              <label for="id_group41" class="col-sm-7 col-form-label">{{ form.group41.label }}</label>
+              <div class="col-sm-5">
+                  {{ form.group41 }}
+              </div>
+              {{ form.group41.errors }}
+            </div>
+
+          </div>
+        
+        </div>
+        
+        <div class="form-row">
+          <div class="col">
+            <button type="submit" class="btn btn-egichem">Calculate</button>
+          </div>
+        </div>
+
+      </form>
+
+    </div>
+
+    <div class="col-md-5 offset-md-1 mt-3 mt-md-0">
+      <form>
+        
+        <h6>Physical properties:</h6>
+        <div class="form-group row">
+
+          {% for id, data in results.items %}
+            {% if id != 'temp' %}
+              <label for="{{ id }}" class="col-sm-6 col-form-label">{{ data.description|slice:":-1" }}</label>
+              <div class="col-sm-6">
+                <div class="input-group mb-3">
+                  <input value="{% if data.value %}{{ data.value }}{% endif %}" id="{{ id }}" class="form-control" aria-label="{{ data.description|slice:':-1' }}" aria-describedby="addon-{{ id }}" readonly>
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="addon-{{ id }}">{{ data.units }}</span>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <div class="col">
+
+      <h4>Notes</h4>
+      <p>This calculator implements the Joback Group Contribution method.</p>
+      
+      <p>The Joback method is a group-contribution method. Joback assumes that there are no interactions between the groups, and therefore only uses additive contributions and no contributions for interactions between groups.</p>
+
+      <h4>Help</h4>
+      <p>If no temperature is inputed, some calculations cannot be computed.</p>
+
+      <h4>References</h4>
+      <p>K.G. Joback, A Unified Approach to Physical Property Estimation Using Multivariate Statistical Techniques, Master thesis, Massachusetts Institute of Technology, Cambridge, 1984.</p>
+      <p>K.G. Joback, R.C. Reid, Estimation of pure-component properties from group-contributions, Chem. Eng. Commun., 1987, 57 (1–6), 233-243.</p>
+      <p>R.C. Reid, J.M. Prausnitz, B.E. Poling, The Properties of Gases & Liquids(4th edition), McGraw-Hill, 1987.</p>
+
+    </div>
+  </div>
+
+</div>
+{% endblock content %} 
+
+
+{% block scripts %}
+<script>
+
+  // Round value of an input
+  function roundTo(value, decimalPlaces) {
+    value = parseFloat(value);
+    return Math.round((value + Number.EPSILON) * 10**decimalPlaces) / 10**decimalPlaces
+  }
+
+  window.onload = function() {
+    document.getElementById('Mw').value = roundTo(document.getElementById('Mw').value, 4);
+    document.getElementById('Tb').value = roundTo(document.getElementById('Tb').value, 2);
+    document.getElementById('Tc').value = roundTo(document.getElementById('Tc').value, 2);
+    document.getElementById('Pc').value = roundTo(document.getElementById('Pc').value, 2);
+    document.getElementById('Vc').value = roundTo(document.getElementById('Vc').value, 2);
+    document.getElementById('Zc').value = roundTo(document.getElementById('Zc').value, 5);
+    document.getElementById('w').value = roundTo(document.getElementById('w').value, 5);
+    document.getElementById('Tm').value = roundTo(document.getElementById('Tm').value, 5);
+    document.getElementById('Hform').value = roundTo(document.getElementById('Hform').value, 4);
+    document.getElementById('Gform').value = roundTo(document.getElementById('Gform').value, 4);
+    document.getElementById('dHvapnorm').value = roundTo(document.getElementById('dHvapnorm').value, 4);
+    document.getElementById('Hfus').value = roundTo(document.getElementById('Hfus').value, 4);
+    document.getElementById('Cp').value = roundTo(document.getElementById('Cp').value, 4);
+    document.getElementById('dHvap').value = roundTo(document.getElementById('dHvap').value, 4);
+    document.getElementById('visc').value = roundTo(document.getElementById('visc').value, 6);
+    document.getElementById('dens').value = roundTo(document.getElementById('dens').value, 4);
+    document.getElementById('Pvap').value = roundTo(document.getElementById('Pvap').value, 4);
+  }
+
+</script>
+{% endblock %}

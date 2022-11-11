@@ -1,4 +1,5 @@
 from django import forms
+from properties.joback import get_group_list
 
 
 class CarbonDioxideForm(forms.Form):
@@ -393,3 +394,34 @@ class D12MLPolarNonpolarForm(forms.Form):
     solutecriticalpressure.widget.attrs.update({'class': 'form-control'})
     solventmolarmass.widget.attrs.update({'class': 'form-control'})
     solventLJenergy.widget.attrs.update({'class': 'form-control'})
+
+
+class JobackForm(forms.Form):
+    def __init__(self, *args, **kwargs):
+        # groups = ['-CH3', '-CH2-', '>CH-', '>C<', '=CH2', '=CH-', '=C<', '=C=', '=-CH', '=-C-', '-CH2- ring', '>CH- ring', '>C< ring', '=CH- ring', '=C< ring', '-F', '-Cl', '-Br', '-I', '-OH alcohol', '-OH phenol', '-O- nonring', '-O- ring', '>C=O nonring', '>C=O ring', 'O=CH- aldehyde', '-COOH acid', '-COO- ester', '=O other than above', '-NH2', '>NH non-ring', '>NH ring', '>N-nonring', '-N= nonring', '-N= ring', '=NH', '-CN', '-NO2', '-SH', '-S- nonring', '-S- ring']
+        groups = get_group_list()
+        super(JobackForm, self).__init__(*args, **kwargs)
+        
+        counter = 1
+        for g in groups:
+            self.fields['group' + str(counter)] = forms.IntegerField(
+                label=g, 
+                required=False,
+                min_value=0,
+                widget=forms.NumberInput(attrs={'class': 'form-control'})
+            )
+            counter += 1
+
+        self.fields['temperature'] = forms.FloatField(
+            label='Temperature', 
+            required=False,
+            widget=forms.NumberInput(attrs={'class': 'form-control'}),
+        )
+
+
+
+
+
+
+    
+

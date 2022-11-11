@@ -20,4 +20,5 @@ urlpatterns = [
     path('d12-gas/', views.d12_gas, name='d12_gas'),
     path('d12-rg/', views.d12_rg, name='d12_rg'),
     path('klinkenberg/', views.klinkenberg, name='klinkenberg'),
+    path('joback/', views.joback, name='joback'),
 ]

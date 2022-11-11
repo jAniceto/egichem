@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm, D12RiceGrayForm, D12MLSCCO2Form, D12MLPolarNonpolarForm
+from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm, D12RiceGrayForm, D12MLSCCO2Form, D12MLPolarNonpolarForm, JobackForm
 
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
@@ -9,6 +9,8 @@ from properties import adsorption
 from properties import data
 from properties import D12_RG
 from properties import ml_scco2, ml_nonpolar, ml_polar
+from properties import joback as joback_calc
+
 import numpy as np
 import json
 
@@ -637,3 +639,54 @@ def klinkenberg(request):
         'resultsJSON': json.dumps(resultsJSON),
     }
     return render(request, 'calculators/klinkenberg.html', context)
+
+
+def joback(request):
+    """Joback method"""
+    results = {
+        'temp': {'value': None, 'units': 'K', 'description': 'Specified temperature.'},
+        'Mw': {'value': None, 'units': 'g/mol', 'description': 'Molecular weight.'},
+        'Tb': {'value': None, 'units': 'K', 'description': 'Normal boiling point temperature.'},
+        'Tc': {'value': None, 'units': 'K', 'description': 'Critical temperature.'},
+        'Pc': {'value': None, 'units': 'bar', 'description': 'Critical pressure.'},
+        'Vc': {'value': None, 'units': 'cm3/mol', 'description': 'Critical volume.'},
+        'Zc': {'value': None, 'units': '-', 'description': 'Critical compressibility.'},
+        'w': {'value': None, 'units': '-', 'description': 'Acentric factor.'},
+        'Tm': {'value': None, 'units': 'K', 'description': 'Freezing point temperature.'},
+        'Hform': {'value': None, 'units': 'KJ/mol', 'description': 'Heat of formation.'},
+        'Gform': {'value': None, 'units': 'KJ/mol', 'description': 'Gibbs energy of formation.'},
+        'dHvapnorm': {'value': None, 'units': 'KJ/mol', 'description': 'Heat of vaporization at normal boiling point.'},
+        'Hfus': {'value': None, 'units': 'KJ/mol', 'description': 'Heat of fusion.'},
+        'Cp': {'value': None, 'units': 'J/(mol K)', 'description': 'Heat capacity.'},
+        'dHvap': {'value': None, 'units': 'KJ/mol', 'description': 'Heat of vaporization at the specified temperature.'},
+        'visc': {'value': None, 'units': 'Pa s', 'description': 'Viscosity at the specified temperature.'},
+        'dens': {'value': None, 'units': 'g/cm3', 'description': 'Density at the specified temperature.'},
+        'Pvap': {'value': None, 'units': 'bar', 'description': 'Vapor pressure at the specified temperature.'},
+    }
+
+    if request.method == 'POST':
+        form = JobackForm(request.POST)
+
+        if form.is_valid():
+            temperature = form.cleaned_data['temperature']
+
+            group_names = joback_calc.get_group_list()
+            groups = {}
+            for i, group_id in enumerate(group_names):
+                cleaned = form.cleaned_data['group' + str(i+1)]
+                if cleaned:
+                    groups[group_id] = form.cleaned_data['group' + str(i+1)]
+                else:
+                    groups[group_id] = 0
+
+        results = joback_calc.joback(groups, temp=temperature)
+        print(results['visc']['value'])
+    else:
+        form = JobackForm()
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+        'form': form,
+        'results': results,
+    }
+    return render(request, 'calculators/joback.html', context)
