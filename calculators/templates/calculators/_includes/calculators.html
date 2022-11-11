@@ -51,7 +51,7 @@
         <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
         <h3 class="card-title mb-3">Diffusion coefficients - polar/nonpolar solvents</h3>
         <p class="card-text">Machine Learning models for the prediction of diffusivities in polar (except water) and nonpolar (except supercritical carbon dioxide) solvents.</p>
-        <a href="{% url 'd12_polar_nonpolar' %}" class="btn btn-egichem stretched-link">Solvent Diffusivities</a>
+        <a href="{% url 'd12_polar_nonpolar' %}" class="btn btn-egichem stretched-link">ML polar/nonpolar</a>
       </div>
     </div>
   </div>
@@ -62,7 +62,7 @@
         <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
         <h3 class="card-title mb-3">Diffusion coefficients - Supercritical CO<sub>2</sub></h3>
         <p class="card-text">Machine Learning models for the prediction of diffusivities in supercritical carbon dioxide.</p>
-        <a href="{% url 'd12_sc_co2' %}" class="btn btn-egichem stretched-link">SC-CO<sub>2</sub> Diffusivities</a>
+        <a href="{% url 'd12_sc_co2' %}" class="btn btn-egichem stretched-link">ML SC-CO<sub>2</sub></a>
       </div>
     </div>
   </div>
@@ -73,7 +73,18 @@
         <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
         <h3 class="card-title mb-3">Diffusion coefficients - Rice and Gray model</h3>
         <p class="card-text">Diffusion coefficients of a solute in a solvent calculated using the Rice and Gray model.</p>
-        <a href="{% url 'd12_rg' %}" class="btn btn-egichem stretched-link">Solvent Diffusivities</a>
+        <a href="{% url 'd12_rg' %}" class="btn btn-egichem stretched-link">Rice and Gray model</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="col mb-4">
+    <div class="card shadow-sm h-100">
+      <div class="card-body">
+        <p class="card-text mb-1"><small class="text-muted">Online Calculator</small></p>
+        <h3 class="card-title mb-3">Diffusion coefficients - Wilke-Chang</h3>
+        <p class="card-text">Diffusion coefficients of a solute in a solvent calculated using the Wilke-Chang equation.</p>
+        <a href="{% url 'wilke_chang' %}" class="btn btn-egichem stretched-link">Wilke-Chang</a>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm, D12RiceGrayForm, D12MLSCCO2Form, D12MLPolarNonpolarForm, JobackForm
+from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTForm, KlinkenbergForm, D12RiceGrayForm, D12MLSCCO2Form, D12MLPolarNonpolarForm, JobackForm, WilkeChangForm
 
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
@@ -8,6 +8,7 @@ from properties import pcsaft_eos
 from properties import adsorption
 from properties import data
 from properties import D12_RG
+from properties import D12_classic
 from properties import ml_scco2, ml_nonpolar, ml_polar
 from properties import joback as joback_calc
 
@@ -690,3 +691,40 @@ def joback(request):
         'results': results,
     }
     return render(request, 'calculators/joback.html', context)
+
+
+def wilke_chang(request):
+    """Wilke-Chang"""
+    d12 = ''
+
+    if request.method == 'POST':
+        form = WilkeChangForm(request.POST)
+
+        if form.is_valid():
+            solvent = form.cleaned_data['solvent']
+            temperature = form.cleaned_data['temperature']
+            viscosity = form.cleaned_data['viscosity']
+            critical_volume = form.cleaned_data['critical_volume']
+            molar_mass = form.cleaned_data['molar_mass']
+            
+            phi = {
+                'Water': 2.26,
+                'Ethanol': 1.5,
+                'Methanol': 1.9,
+                'Other': 1.0
+            }
+            try:
+                d12 = D12_classic.wilke_chang(temperature, viscosity, critical_volume, molar_mass, phi=phi[solvent])
+                d12 = f"{d12:1.3e}"
+            except ValueError as e:
+                messages.error(request, f"Calculation error: {e}")
+
+    else:
+        form = WilkeChangForm()
+    context = {
+        'page_title': PAGE_TITLE,
+        'page_subtitle': PAGE_SUBTITLE,
+        'form': form,
+        'd12_result': d12
+    }
+    return render(request, 'calculators/d12-wilke-chang.html', context)

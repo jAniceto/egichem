@@ -1,0 +1,133 @@
+{% extends "website/base.html" %} 
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container mt-4">
+
+  <div class="row mb-3">
+    <div class="col">
+      <h1>Wilke-Chang equation</h1>
+      <p class="lead">Calculates the tracer diffusion coefficients of a given solute in a solvent using the Wilke-Chang equation.</p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+
+      <form method="POST">
+        {% csrf_token %}
+        
+        <div class="form-group form-row my-1">
+          <label for="id_solvent" class="col-sm-5 col-form-label">{{ form.solvent.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.solvent }}
+            </div>
+          </div>
+          {{ form.solvent.errors }}
+        </div>
+
+        <div class="form-group form-row my-1">
+          <label for="id_temperature" class="col-sm-5 col-form-label">{{ form.temperature.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.temperature }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_temperature">K</span>
+              </div>
+            </div>
+          </div>
+          {{ form.temperature.errors }}
+        </div>
+
+        <div class="form-group form-row my-1">
+          <label for="id_viscosity" class="col-sm-5 col-form-label">{{ form.viscosity.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.viscosity }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_viscosity">cP</span>
+              </div>
+            </div>
+          </div>
+          {{ form.viscosity.errors }}
+        </div>
+
+        <div class="form-group form-row my-1">
+          <label for="id_critical_volume" class="col-sm-5 col-form-label">{{ form.critical_volume.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.critical_volume }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_critical_volume">cm<sup>3</sup> mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+          {{ form.critical_volume.errors }}
+        </div>
+
+        <div class="form-group form-row my-1">
+          <label for="id_molar_mass" class="col-sm-5 col-form-label">{{ form.molar_mass.label }}</label>
+          <div class="col-sm-7">
+            <div class="input-group mb-3">
+              {{ form.molar_mass }}
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-id_molar_mass">g mol<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+          {{ form.molar_mass.errors }}
+        </div>
+        
+        <button type="submit" class="btn btn-egichem">Calculate</button>
+        <!-- <a href="{% url 'pcsaft' %}" type="button" class="btn btn-outline-egichem">Reset</a> -->
+      </form>
+
+    </div>
+
+    <div class="col-md-5 offset-md-1 mt-3 mt-md-0">
+      <form>
+        
+        <div class="form-group row">
+
+          <label for="d12-result" class="col-sm-6 col-form-label">Diffusion coefficient</label>
+          <div class="col-sm-6">
+            <div class="input-group mb-3">
+              <input value="{{ d12_result }}" id="d12-result" class="form-control" aria-label="Diffusion coefficient" aria-describedby="addon-d12-result" readonly>
+              <div class="input-group-append">
+                <span class="input-group-text" id="addon-d12-result">cm<sup>2</sup> s<sup>-1</sup></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+  <div class="row mt-4">
+    <div class="col">
+
+      <h4>Notes</h4>
+      <p>This calculator uses the Wilke-Chang equation to calculate the diffusion coefficients of a solute in a solvent.</p>
+
+      <p>
+        \[D_\mathrm{12} = 7.4 \times 10^{-8} \frac{(\phi M_1)^{0.5} T}{\mu_1 (V_\mathrm{Tc,bp,2})^{0.6}}\]
+      </p>
+      <p>
+        \[V_\mathrm{Tc,bp,2} = 0.285 \times V_\mathrm{c,2}^{1.048}\]
+      </p>
+      
+      <p>where \(D_\mathrm{12}\) is the binary diffusion coefficient in cm<sup>2</sup>/s, \(\phi\) is the association factor of the solvent (nondimensional), \(T\) is the temperature in K, \(M_\mathrm{1}\) is the molecular weight of the solvent in g/mol, \(\mu_1\) is the solvent viscosity in cP, \(V_\mathrm{Tc,bp,2}\) is the solute molar volume at normal boiling temperature in cm<sup>3</sup>/mol, and \(V_\mathrm{c,2}\) is the solute critical volume in cm<sup>3</sup>/mol.</p>
+
+
+      <h4>References</h4>
+      <p>C.R. Wilke, P. Chang, Correlation of diffusion coefficients in dilute solutions, AICHE J., 1955, 1(2) 264-270.</p>
+
+    </div>
+  </div>
+
+</div>
+{% endblock content %} 

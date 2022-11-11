@@ -21,4 +21,5 @@ urlpatterns = [
     path('d12-rg/', views.d12_rg, name='d12_rg'),
     path('klinkenberg/', views.klinkenberg, name='klinkenberg'),
     path('joback/', views.joback, name='joback'),
+    path('wilke-chang/', views.wilke_chang, name='wilke_chang'),
 ]

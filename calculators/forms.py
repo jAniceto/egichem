@@ -419,9 +419,41 @@ class JobackForm(forms.Form):
         )
 
 
+class WilkeChangForm(forms.Form):
+    solvent = forms.ChoiceField(
+        label='Solvent', 
+        required=True,
+        choices=[
+            ('Water', 'Water (ɸ = 2.26)'),  # 2.26
+            ('Ethanol', 'Ethanol (ɸ = 1.5)'),  # 1.5
+            ('Methanol', 'Methanol (ɸ = 1.9)'),  # 1.9
+            ('Other', 'Other (ɸ = 1.0)'),  # 1.0
+        ]
+    )
 
+    temperature = forms.FloatField(
+        label='Temperature', 
+        required=True
+    )
 
+    viscosity = forms.FloatField(
+        label='Solvent viscosity', 
+        required=True
+    )
 
+    critical_volume = forms.FloatField(
+        label='Solute critical volume', 
+        required=True
+    )
 
-    
+    molar_mass = forms.FloatField(
+        label='Solvent molar mass', 
+        required=True,
+    )
 
+    # Customize form widgets
+    solvent.widget.attrs.update({'class': 'form-control'})
+    temperature.widget.attrs.update({'class': 'form-control'})
+    viscosity.widget.attrs.update({'class': 'form-control'})
+    critical_volume.widget.attrs.update({'class': 'form-control'})
+    molar_mass.widget.attrs.update({'class': 'form-control'})
