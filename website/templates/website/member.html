@@ -89,6 +89,12 @@
             <span><i class="ai ai-orcid-square"></i></span>
           </a>
           {% endif %}
+          {% if member.user.profile.ciencia_id %}
+          <a href="https://www.cienciavitae.pt//pt/{{ member.user.profile.ciencia_id }}" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Ciência ID
+            <span><i class="ai ai-ciencia-vitae-square"></i></span>
+          </a>
+          {% endif %}
           {% if member.user.profile.personal_url %}
           <a href="{{ member.user.profile.personal_url }}" target="_blank" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             Personal Page

@@ -106,6 +106,9 @@
               {% if professor.user.profile.orcid_url %}
               <li class="list-inline-item"><a class="text-reset" href="{{ professor.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
               {% endif %}
+              {% if professor.user.profile.ciencia_id %}
+              <li class="list-inline-item"><a class="text-reset" href="https://www.cienciavitae.pt//pt/{{ professor.user.profile.ciencia_id }}" target="_blank"><i class="ai ai-ciencia-vitae-square ai-2x"></i></a></li>
+              {% endif %}
               {% if professor.user.profile.personal_url %}
               <li class="list-inline-item"><a class="text-reset" href="{{ professor.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
               {% endif %}
@@ -160,6 +163,9 @@
                   {% endif %}
                   {% if researcher.user.profile.orcid_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ researcher.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
+                  {% endif %}
+                  {% if researcher.user.profile.ciencia_id %}
+                  <li class="list-inline-item"><a class="text-reset" href="https://www.cienciavitae.pt//pt/{{ researcher.user.profile.ciencia_id }}" target="_blank"><i class="ai ai-ciencia-vitae-square ai-2x"></i></a></li>
                   {% endif %}
                   {% if researcher.user.profile.personal_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ researcher.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
@@ -219,6 +225,9 @@
                   {% if postdoc.user.profile.orcid_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ postdoc.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
                   {% endif %}
+                  {% if postdoc.user.profile.ciencia_id %}
+                  <li class="list-inline-item"><a class="text-reset" href="https://www.cienciavitae.pt//pt/{{ postdoc.user.profile.ciencia_id }}" target="_blank"><i class="ai ai-ciencia-vitae-square ai-2x"></i></a></li>
+                  {% endif %}
                   {% if postdoc.user.profile.personal_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ postdoc.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
                   {% endif %}
@@ -277,6 +286,9 @@
                   {% if phd.user.profile.orcid_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ phd.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
                   {% endif %}
+                  {% if phd.user.profile.ciencia_id %}
+                  <li class="list-inline-item"><a class="text-reset" href="https://www.cienciavitae.pt//pt/{{ phd.user.profile.ciencia_id }}" target="_blank"><i class="ai ai-ciencia-vitae-square ai-2x"></i></a></li>
+                  {% endif %}
                   {% if phd.user.profile.personal_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ phd.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
                   {% endif %}
@@ -334,6 +346,9 @@
                     {% endif %}
                     {% if fellow.user.profile.orcid_url %}
                     <li class="list-inline-item"><a class="text-reset" href="{{ fellow.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
+                    {% endif %}
+                    {% if fellow.user.profile.ciencia_id %}
+                    <li class="list-inline-item"><a class="text-reset" href="https://www.cienciavitae.pt//pt/{{ fellow.user.profile.ciencia_id }}" target="_blank"><i class="ai ai-ciencia-vitae-square ai-2x"></i></a></li>
                     {% endif %}
                     {% if fellow.user.profile.personal_url %}
                     <li class="list-inline-item"><a class="text-reset" href="{{ fellow.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
@@ -395,6 +410,9 @@
                     {% if master.user.profile.orcid_url %}
                     <li class="list-inline-item"><a class="text-reset" href="{{ master.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
                     {% endif %}
+                    {% if master.user.profile.ciencia_id %}
+                    <li class="list-inline-item"><a class="text-reset" href="https://www.cienciavitae.pt//pt/{{ master.user.profile.ciencia_id }}" target="_blank"><i class="ai ai-ciencia-vitae-square ai-2x"></i></a></li>
+                    {% endif %}
                     {% if master.user.profile.personal_url %}
                     <li class="list-inline-item"><a class="text-reset" href="{{ master.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
                     {% endif %}
@@ -452,6 +470,9 @@
                   {% endif %}
                   {% if undergraduate.user.profile.orcid_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ undergraduate.user.profile.orcid_url }}" target="_blank"><i class="ai ai-orcid-square ai-2x"></i></a></li>
+                  {% endif %}
+                  {% if undergraduate.user.profile.ciencia_id %}
+                  <li class="list-inline-item"><a class="text-reset" href="https://www.cienciavitae.pt//pt/{{ undergraduate.user.profile.ciencia_id }}" target="_blank"><i class="ai ai-ciencia-vitae-square ai-2x"></i></a></li>
                   {% endif %}
                   {% if undergraduate.user.profile.personal_url %}
                   <li class="list-inline-item"><a class="text-reset" href="{{ undergraduate.user.profile.personal_url }}" target="_blank"><i class="fas fa-external-link-square-alt fa-2x"></i></a></li>
