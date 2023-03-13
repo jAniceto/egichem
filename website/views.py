@@ -30,7 +30,8 @@ def format_scientific_name(name):
             else:
                 name_fmt_4 += n[0] + '. '
             name_fmt_3 += n[0] + '. '
-    return [name_fmt_1, name_fmt_2, name_fmt_3, name_fmt_4]
+    # return [name_fmt_1, name_fmt_2, name_fmt_3, name_fmt_4]
+    return [name_fmt_1, 'F. Lastname', name_fmt_3, name_fmt_4]
 
 
 def home(request):
