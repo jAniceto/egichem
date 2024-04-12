@@ -500,6 +500,17 @@
     
     <div class="row mb-3">
       <div class="col-md-12">
+        {% if alumni_researchers %}
+          <h5>Researchers</h5>
+          <p>
+            {% for alumnus in alumni_researchers  %}
+              {% if alumnus.position == 'Researcher' %}
+                <a class="text-reset" href="{% url 'member_page' alumnus.slug %}">{{ alumnus.name }}</a>
+                {% if not forloop.last %} &bull; {% endif %}
+              {% endif %}
+            {% endfor %}
+          </p>
+        {% endif %}
         {% if alumni_postdocs %}
           <h5>PostDoc Researchers</h5>
           <p>

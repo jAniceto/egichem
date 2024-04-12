@@ -105,6 +105,7 @@ def people(request):
     fellows = members.filter(position='Research Fellow').exclude(highlighted=True).exclude(alumni=True)
     masters = members.filter(position='MSc Student').exclude(highlighted=True).exclude(alumni=True)
     undergraduates = members.filter(position='Undergraduate Student').exclude(highlighted=True).exclude(alumni=True)
+    alumni_researchers = members.filter(alumni=True, position='Researcher')
     alumni_postdocs = members.filter(alumni=True, position='PostDoc Researcher')
     alumni_phds = members.filter(alumni=True, position='PhD Student')
     alumni_fellows = members.filter(alumni=True, position='Research Fellow')
@@ -121,6 +122,7 @@ def people(request):
         'fellows': fellows,
         'masters': masters,
         'undergraduates': undergraduates,
+        'alumni_researchers': alumni_researchers,
         'alumni_postdocs': alumni_postdocs,
         'alumni_phds': alumni_phds,
         'alumni_fellows': alumni_fellows,
