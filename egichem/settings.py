@@ -191,7 +191,7 @@ AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
 # Static media settings
 STATIC_URL = 'https://' + AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com/'
-# MEDIA_URL = STATIC_URL + 'media/'
+MEDIA_URL = STATIC_URL + 'media/'
 STATICFILES_DIRS = ( os.path.join(BASE_DIR, "static"), )
 STATIC_ROOT = 'staticfiles'
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
