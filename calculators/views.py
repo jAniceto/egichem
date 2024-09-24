@@ -4,7 +4,7 @@ from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTFor
 
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
-from properties import pcsaft_eos
+# from properties import pcsaft_eos
 from properties import adsorption
 from properties import data
 from properties import D12_RG

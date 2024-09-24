@@ -4,6 +4,7 @@ pg_db_dump.sql
 settings_local.py
 .idea/
 _extras/
+PC-SAFT-master/
 
 
 # Created by https://www.gitignore.io/api/python,django,visualstudiocode

@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'website.apps.WebsiteConfig',
     'crispy_forms',
+    'crispy_bootstrap4',
     'storages',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -152,7 +153,9 @@ USE_TZ = True
 
 
 # Crispy Forms
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
+# CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
 
 LOGOUT_REDIRECT_URL = 'home'
 LOGIN_REDIRECT_URL = 'home'
