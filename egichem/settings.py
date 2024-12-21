@@ -184,19 +184,32 @@ STATICFILES_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
 AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID", "")
 AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY", "")
 AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "")
-
-AWS_QUERYSTRING_AUTH = False # This will make sure that the file URL does not have unnecessary parameters like your access key.
 AWS_S3_CUSTOM_DOMAIN = AWS_STORAGE_BUCKET_NAME + '.s3.amazonaws.com'
-AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
-# AWS_LOCATION = 'static'
 
+STATICFILES_LOCATION = "static"
+STATIC_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/"
+
+MEDIAFILES_LOCATION = "media"
+MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/"
+
+STORAGES = {
+    "default": {"BACKEND": "egichem.custom_storage.MediaStorage"},
+    "staticfiles": {"BACKEND": "egichem.custom_storage.StaticStorage"},
+}
+AWS_S3_OBJECT_PARAMETERS = {
+    "CacheControl": "max-age=2592000",
+}
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_QUERYSTRING_AUTH = False # This will make sure that the file URL does not have unnecessary parameters like your access key.
+AWS_DEFAULT_ACL = None
 
 
 # Static media settings
-STATICFILES_DIRS = ( os.path.join(BASE_DIR, "static"), )
-STATIC_URL = 'https://' + AWS_S3_CUSTOM_DOMAIN + '/'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATIC_ROOT = 'staticfiles'
+# STATICFILES_DIRS = ( os.path.join(BASE_DIR, "static"), )
+# STATIC_URL = 'https://' + AWS_S3_CUSTOM_DOMAIN + '/'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATIC_ROOT = 'staticfiles'
 
 # MEDIA_URL = STATIC_URL + 'media/'
 
@@ -206,7 +219,6 @@ STATIC_ROOT = 'staticfiles'
 #     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 # )
 
-AWS_DEFAULT_ACL = None
 
 # Google Analytics
 # This allow checking in template if it is running in debug with {% if not debug %}{% endif %}
