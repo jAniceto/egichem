@@ -171,7 +171,7 @@ EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASS", "")
 
 # Activate Django-Heroku
 import django_on_heroku
-django_on_heroku.settings(locals())
+django_on_heroku.settings(locals(), staticfiles=False)
 
 # Force HTTPS
 SECURE_SSL_REDIRECT = True
