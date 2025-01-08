@@ -38,7 +38,7 @@ urlpatterns = [
     path('', include('website.urls')),
     path('news/', include('blog.urls')),
     path('contact/', include('sendemail.urls')),
-    path('egichem/', include('lab.urls')),
+    path('my-egichem/', include('lab.urls')),
     path('tools/calculators/', include('calculators.urls')),
 ]
 
