@@ -10,7 +10,6 @@ CSS SECTIONS:
 - CARD DECK
 - HORIZONTAL DIVIDER
 - TABS TO ACCORDION ON MOBILE
-- CALENDAR 
 - HOME PAGE
 - PARTNERS & COLLABORATORS PAGE
 - MEMBER PAGE
@@ -260,25 +259,6 @@ h4.card-title {
 /* .card-header {
   padding: 5px;
 } */
-
-
-/* === CALENDAR === */
-
-#calendar {
-    max-width: 900px;
-    margin: 40px auto;
-}
-
-button.fc-prev-button,
-button.fc-today-button,
-button.fc-next-button {
-    background-color: #62AA23;
-    border-color: #62AA23;
-}
-
-span.fc-event-dot {
-    background-color: #57961f;
-}
 
 
 /* === HOME PAGE === */
