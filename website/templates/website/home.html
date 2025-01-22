@@ -449,34 +449,42 @@
               PostDocs completed
               <span class="badge badge-egichem badge-pill">{{ postdocs_completed }}</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              PostDocs on course
-              <span class="badge badge-egichem badge-pill">{{ postdocs_oncourse }}</span>
-            </li>
+            {% if postdocs_oncourse > 0 %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                PostDocs on course
+                <span class="badge badge-egichem badge-pill">{{ postdocs_oncourse }}</span>
+              </li>
+            {% endif %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
               PhDs completed
               <span class="badge badge-egichem badge-pill">{{ PhD_completed }}</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              PhDs on course
-              <span class="badge badge-egichem badge-pill">{{ PhD_oncourse }}</span>
-            </li>
+            {% if PhD_oncourse > 0 %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                PhDs on course
+                <span class="badge badge-egichem badge-pill">{{ PhD_oncourse }}</span>
+              </li>
+            {% endif %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
               Research Fellowships completed
               <span class="badge badge-egichem badge-pill">{{ fellows_completed }}</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              Research Fellowships on course
-              <span class="badge badge-egichem badge-pill">{{ fellows_oncourse }}</span>
-            </li>
+            {% if fellows_oncourse > 0 %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Research Fellowships on course
+                <span class="badge badge-egichem badge-pill">{{ fellows_oncourse }}</span>
+              </li>
+            {% endif %}
             <li class="list-group-item d-flex justify-content-between align-items-center">
               MSc Theses completed
               <span class="badge badge-egichem badge-pill">{{ MSc_completed }}</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              MSc Theses on course
-              <span class="badge badge-egichem badge-pill">{{ MSc_oncourse }}</span>
-            </li>
+            {% if MSc_oncourse > 0 %}
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                MSc Theses on course
+                <span class="badge badge-egichem badge-pill">{{ MSc_oncourse }}</span>
+              </li>
+            {% endif %}
           </div>
         </div>
       </div>
@@ -489,10 +497,10 @@
         <div class="card shadow-sm">
           <ul class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action" target="_blank" href="http://www.ua.pt/">Universidade de Aveiro (UA)</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="http://www.ciceco.ua.pt">CICECO - Aveiro Institute of Materials</a>
             <a class="list-group-item list-group-item-action" target="_blank" href="http://www.ua.pt/dqua/">Department of Chemistry UA</a>
-            <a class="list-group-item list-group-item-action" target="_blank" href="http://www.ciceco.ua.pt/index.php?language=pt">CICECO - Aveiro Institute of Materials</a>
-            <a class="list-group-item list-group-item-action" target="_blank" href="http://www.ua.pt/dqua/PageCourse.aspx?id=31&b=1">Mestrado Integrado Engenharia Química</a>
-            <a class="list-group-item list-group-item-action" target="_blank" href="http://www.aipqr.pt/">APQuímica</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://www.ua.pt/pt/curso/479">Licenciatura em Engenharia Química na UA</a>
+            <a class="list-group-item list-group-item-action" target="_blank" href="https://www.ua.pt/pt/curso/489">Mestrado em Engenharia Química na UA</a>
           </ul>
         </div>
       </div>
