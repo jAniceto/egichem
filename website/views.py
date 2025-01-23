@@ -69,7 +69,7 @@ def home(request):
 def research(request):
     context = {
         'page_title': 'Research',
-        'page_subtitle': 'Core areas of EgiChem group',
+        'page_subtitle': 'Main research areas of EgiChem',
         'research_fields': ResearchField.objects.all().order_by('order', '-date_added')
     }
     return render(request, 'website/research.html', context)
