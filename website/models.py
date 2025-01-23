@@ -78,6 +78,7 @@ class Member(models.Model):
     thesis = models.TextField(blank=True)
     photo = models.ImageField(default='images/profile_photos/default.jpg', upload_to='images/people', blank=True)
     alumni = models.BooleanField(default=False)
+    visiting = models.BooleanField(default=False)
     highlighted = models.BooleanField(default=False)
     date_added = models.DateTimeField(default=timezone.now)
     slug = models.SlugField(blank=True, editable=False)

@@ -62,6 +62,7 @@ def home(request):
         'PhD_oncourse': members.filter(position='PhD Student').exclude(alumni=True).count(),
         'postdocs_completed': members.filter(position='PostDoc Researcher').exclude(alumni=False).count() + members.filter(position='Researcher').count(),
         'postdocs_oncourse': members.filter(position='PostDoc Researcher').exclude(alumni=True).count(),
+        'visiting': members.filter(visiting=True).count(),
     }
     return render(request, 'website/home.html', context)
 

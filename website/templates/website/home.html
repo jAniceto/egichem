@@ -441,10 +441,14 @@
               Communications
               <span class="badge badge-egichem badge-pill">{{ communications }}</span>
             </a>
-            <a href="{% url 'awards' %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            {% comment %} <a href="{% url 'awards' %}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
               Awards
               <span class="badge badge-egichem badge-pill">{{ awards }}</span>
-            </a>
+            </a> {% endcomment %}
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              Visiting researchers and students
+              <span class="badge badge-egichem badge-pill">{{ visiting }}</span>
+            </li>
             <li class="list-group-item d-flex justify-content-between align-items-center">
               PostDocs completed
               <span class="badge badge-egichem badge-pill">{{ postdocs_completed }}</span>
