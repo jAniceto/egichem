@@ -29,6 +29,9 @@ class LabUnit(models.Model):
     description = models.TextField()
     equipment = models.TextField()
     image = models.ImageField(default='images/placeholder.png', upload_to='images/lab')
+    image2 = models.ImageField(blank=True, upload_to='images/lab')
+    image3 = models.ImageField(blank=True, upload_to='images/lab')
+    image4 = models.ImageField(blank=True, upload_to='images/lab')
     date_added = models.DateTimeField(default=timezone.now)
     order = models.IntegerField(default=99)
 
