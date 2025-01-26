@@ -5,6 +5,7 @@ from .forms import CarbonDioxideForm, IsothermForm, PCSAFTForm, GeneralPCSAFTFor
 from properties import CO2, CO2_EtOH, EtOH
 from properties import isotherms as isoT
 # from properties import pcsaft_eos
+from properties import feos_pcsaft
 from properties import adsorption
 from properties import data
 from properties import D12_RG
@@ -357,11 +358,8 @@ def pcsaft_co2(request):
     properties = {
         'molar_density': '',
         'mass_density': '',
-        'enthalpy_vaporization': '',
         'residual_enthalpy': '',
         'residual_entropy': '',
-        'residual_gibbs': '',
-        'fugacity': '',
         'compressibility': '',
         'helmholtz': '',
     }
@@ -377,39 +375,31 @@ def pcsaft_co2(request):
 
             try:
                 if cosolvent == 'NONE':
-                    system = pcsaft_eos.CarbonDioxide(temperature, pressure)
+                    system = feos_pcsaft.carbon_dioxide(temperature + 273.15, pressure)
+                
                 elif cosolvent in ['ETHANOL', 'WATER', 'METHANOL']:
-                    system = pcsaft_eos.CarbonDioxide(
-                            temperature, 
-                            pressure, 
-                            cossolvent=cosolvent.lower(), 
-                            cossolvent_fraction=cosolvent_fraction
-                        )
-            
-                properties['molar_density'] = f'{system.molar_density():.2f}'
-                properties['mass_density'] = f'{system.mass_density():.2f}'
-                properties['residual_enthalpy'] = f'{system.residual_enthalpy():.2f}'
-                properties['residual_entropy'] = f'{system.residual_entropy():.4f}'
-                properties['residual_gibbs'] = f'{system.residual_gibbs():.2f}'
-                system_fugacity = system.fugacity()
-                properties['fugacity'] = f'{system_fugacity[0]:.4f}'
-                if len(system_fugacity) > 1:
-                    properties['fugacity_cossolvent'] = f'{system_fugacity[1]:.4f}'
-                properties['compressibility'] = f'{system.compressibility():.4f}'
-                properties['helmholtz'] = f'{system.helmholtz():.4f}'
-            
+                    system = feos_pcsaft.carbon_dioxide(
+                        temperature + 273.15, 
+                        pressure, 
+                        cossolvent=cosolvent.lower(), 
+                        cossolvent_mol_frac=cosolvent_fraction
+                    )
+
+                properties['molar_density'] = f"{system['molar_density']:.2f}"
+                properties['mass_density'] = f"{system['mass_density']:.2f}"
+                properties['residual_enthalpy'] = f"{system['residual_enthalpy']:.2f}"
+                properties['residual_entropy'] = f"{system['residual_entropy']:.4f}"
+                properties['compressibility'] = f"{system['compressibility']:.4f}"
+                properties['helmholtz'] = f"{system['helmholtz_energy']:.4f}"
+
             except ValueError as e:
                 print(e)
                 messages.error(request, f'Invalid input was provided: {e}')
             
-            except Exception:
+            except Exception as e:
+                print(e)
                 messages.error(request, 'PC-SAFT EoS could not be solved.')
 
-            # try:
-            #     properties['enthalpy_vaporization'] = f'{system.enthalpy()[0]:.2f}'
-            # except Exception as e:
-            #     print(e)
-            #     messages.warning(request, 'Warning: Enthalpy of vaporization could not be calculated.')
     else:
         form = PCSAFTForm()
 
