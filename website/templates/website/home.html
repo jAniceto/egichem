@@ -21,7 +21,7 @@
               EgiChem is a chemical engineering group part of associate laboratory CICECO – Aveiro Institute of Materials in the University of Aveiro (Portugal).
             </p>
             <p class="lead text-light">
-              EgiChem is led by Professor Carlos Silva and focuses on research and development of separation processes.
+              EgiChem is led by Professors Carlos Manuel Silva and Inês Portugal and focuses on the research and development of separation and reaction processes, and transport phenomena.
             </p>
           </div>
         </div>
@@ -346,24 +346,6 @@
 
         <div class="card shadow-sm mt-3">
           <ul class="list-group list-group-flush">
-            <!-- {% for publication in latest_publications %}
-              <li class="list-group-item p-0 mb-4">
-                <p class="text-muted small mb-0">{{ publication.pub_type|upper }}</p>
-                {% if publication.pub_type == 'article' %}
-                <p><a class="text-dark publication-link" href="{{ publication.link }}" target="_blank">{{ publication.authors }}. {{ publication.title|safe }}, <em>{{ publication.journal }}</em> {{ publication.volume }} ({{ publication.year }}) {{ publication.pages }}.</a></p>
-                {% elif publication.pub_type == 'book-chapter' %}
-                <p>{{ publication.authors }}. {{ publication.title|safe }}, <em>{{ publication.journal }}</em> {{ publication.volume }} ({{ publication.year }}) {{ publication.pages }}.</p>
-                {% elif publication.pub_type == 'patent' %}
-                <p>{{ publication.authors }}. {{ publication.title }}, {{ publication.publication_number }}, {{ publication.year }}.</p>
-                {% elif publication.pub_type == 'poster' %}
-                <p>{{ publication.authors }}. {{ publication.title }}, {{ publication.conference }}, {{ publication.conference_city }}, {% if presentation.conference_date %}{{ publication.conference_date }}, {% endif %}{{ publication.year }}.</p>
-                {% elif publication.pub_type == 'presentation' %}
-                <p>{{ publication.authors }}. {{ publication.title }}, {{ publication.conference }}, {{ publication.conference_city }}, {% if publication.conference_date %}{{ publication.conference_date }}, {% endif %}{{ publication.year }}.</p>
-                {% elif publication.pub_type == 'thesis' %}
-                <p>{{ publication.authors }}. {{ publication.title }}, {{ publication.get_thesis_type_display }}, {{ publication.thesis_coordinators }}, {{ publication.thesis_institution }}, {{ publication.year }}.</p>
-                {% endif %}
-              </li>
-            {% endfor %} -->
             {% for publication in latest_publications %}
             <a href="{% if publication.link %}{{ publication.link }}{% endif %}" target="_blank" class="list-group-item list-group-item-action">
               <p class="text-muted small mb-1">{{ publication.pub_type|upper }}</p>
@@ -397,11 +379,7 @@
               </li>
             {% endfor %}
             <a href="{% url 'blog:news' %}" class="list-group-item list-group-item-action text-muted text-right">Read all news...</a>
-            <!-- <li class="list-group-item p-2 pl-3 pr-3"><a class="float-right text-muted link" href="{% url 'blog:news' %}">Read all news...</a></li> -->
           </ul>
-          <!-- <div class="card-footer bg-white">
-            <a class="float-right text-muted" href="{% url 'blog:news' %}">Read all news...</a>
-          </div> -->
         </div>
       </div>
 
@@ -412,11 +390,7 @@
     <div class="col-md-4">
 
       <!-- Banners Section -->
-      <!-- <div class="mb-5">
-        <a href="https://www.mdpi.com/journal/materials/special_issues/Nano_Featured_Materials" target="_blank">
-          <img src="{% static 'website/images/banner-materials.png' %}" class="img-fluid" alt="Banner Materials Special Issue">
-        </a>
-      </div> -->
+      <!-- ADD HERE -->
 
 
       <!-- Facts and Numbers Section -->
