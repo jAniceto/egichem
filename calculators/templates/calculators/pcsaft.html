@@ -177,7 +177,7 @@
         <h6>Mixture properties:</h6>
         <div class="form-group row">
 
-          <label for="molar-mass" class="col-sm-6 col-form-label">Molar mass</label>
+          {% comment %} <label for="molar-mass" class="col-sm-6 col-form-label">Molar mass</label>
           <div class="col-sm-6">
             <div class="input-group mb-3">
               <input value="{{ properties.molar_mass }}" id="molar-mass" class="form-control" aria-label="Molar mass" aria-describedby="addon-molar-mass" readonly>
@@ -185,7 +185,7 @@
                 <span class="input-group-text" id="addon-molar-mass">g mol<sup>-1</sup></span>
               </div>
             </div>
-          </div>
+          </div> {% endcomment %}
 
           <label for="molar-density" class="col-sm-6 col-form-label">Molar density</label>
           <div class="col-sm-6">
@@ -207,7 +207,7 @@
             </div>
           </div>
 
-          <label for="enthalpyVaporization" class="col-sm-6 col-form-label">Enthalpy of vaporization</label>
+          {% comment %} <label for="enthalpyVaporization" class="col-sm-6 col-form-label">Enthalpy of vaporization</label>
           <div class="col-sm-6">
             <div class="input-group mb-3">
               <input value="{{ properties.enthalpy_vaporization }}" id="enthalpyVaporization" class="form-control" aria-label="Enthalpy of vaporization" aria-describedby="addon-enthalpyVaporization" readonly>
@@ -215,9 +215,9 @@
                 <span class="input-group-text" id="addon-enthalpyVaporization">J mol<sup>-1</sup></span>
               </div>
             </div>
-          </div>
+          </div> {% endcomment %}
 
-          <label for="vaporPressure" class="col-sm-6 col-form-label">Vapor pressure</label>
+          {% comment %} <label for="vaporPressure" class="col-sm-6 col-form-label">Vapor pressure</label>
           <div class="col-sm-6">
             <div class="input-group mb-3">
               <input value="{{ properties.vapor_pressure }}" id="vaporPressure" class="form-control" aria-label="Vapor pressure" aria-describedby="addon-vaporPressure" readonly>
@@ -225,7 +225,7 @@
                 <span class="input-group-text" id="addon-vaporPressure">Pa</span>
               </div>
             </div>
-          </div>
+          </div> {% endcomment %}
 
           <label for="residualEnthalpy" class="col-sm-6 col-form-label">Residual enthalpy</label>
           <div class="col-sm-6">
@@ -247,7 +247,7 @@
             </div>
           </div>
 
-          <label for="residualGibbs" class="col-sm-6 col-form-label">Residual Gibbs energy</label>
+          {% comment %} <label for="residualGibbs" class="col-sm-6 col-form-label">Residual Gibbs energy</label>
           <div class="col-sm-6">
             <div class="input-group mb-3">
               <input value="{{ properties.residual_gibbs }}" id="residualGibbs" class="form-control" aria-label="Residual Gibbs energy" aria-describedby="addon-residualGibbs" readonly>
@@ -255,9 +255,9 @@
                 <span class="input-group-text" id="addon-residualGibbs">J mol<sup>-1</sup></span>
               </div>
             </div>
-          </div>
+          </div> {% endcomment %}
           
-          <label for="fugacity" class="col-sm-6 col-form-label">Fugacity coefficient</label>
+          {% comment %} <label for="fugacity" class="col-sm-6 col-form-label">Fugacity coefficient</label>
           <div class="col-sm-6">
             <div class="input-group mb-3">
               <input value="{{ properties.fugacity }}" id="fugacity" class="form-control" aria-label="Fugacity coefficient" aria-describedby="addon-fugacity" readonly>
@@ -266,7 +266,7 @@
                 <span class="input-group-text" id="addon-fugacity">-</span>
               </div>
             </div>
-          </div>
+          </div> {% endcomment %}
 
           <label for="compressibility" class="col-sm-6 col-form-label">Compressibility factor</label>
           <div class="col-sm-6">

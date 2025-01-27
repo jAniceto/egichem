@@ -143,9 +143,11 @@ class GeneralPCSAFTForm(forms.Form):
     )
     vol_assoc_1 = forms.FloatField(
         label='Component 1 association volume',
+        required=False,
     )
     e_assoc_1 = forms.FloatField(
         label='Component 1 association energy',
+        required=False,
     )
     # Component 2
     molar_mass_2 = forms.FloatField(

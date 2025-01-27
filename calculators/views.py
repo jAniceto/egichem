@@ -415,15 +415,10 @@ def pcsaft_co2(request):
 def pcsaft(request):
     """General calculator for the PC-SAFT equation of state"""
     properties = {
-        'molar_mass': '',
         'molar_density': '',
         'mass_density': '',
-        'enthalpy_vaporization': '',
-        'vapor_pressure': '',
         'residual_enthalpy': '',
         'residual_entropy': '',
-        'residual_gibbs': '',
-        'fugacity': '',
         'compressibility': '',
         'helmholtz': '',
     }
@@ -451,28 +446,28 @@ def pcsaft(request):
 
             try:
                 if molar_fraction_1 == 1:
-                    system = pcsaft_eos.calculate_properties(
-                        temp=temperature, 
-                        press=pressure, 
-                        x=[molar_fraction_1], 
-                        molar_mass=[molar_mass_1], 
-                        m=[m_1], 
-                        s=[s_1], 
-                        e=[e_1], 
-                        vol_a=[vol_assoc_1], 
-                        e_assoc=[e_assoc_1],
+                    system = feos_pcsaft.pure_or_binary(
+                        temperature + 273.15, 
+                        pressure, 
+                        molar_mass_1, 
+                        m=m_1, 
+                        sigma=s_1, 
+                        epsilon_k=e_1, 
+                        kappa_ab=vol_assoc_1, 
+                        epsilon_k_ab=e_assoc_1
                     )
+
                 else:
-                    system = pcsaft_eos.calculate_properties(
-                        temp=temperature, 
-                        press=pressure, 
-                        x=[molar_fraction_1, 1-molar_fraction_1], 
-                        molar_mass=[molar_mass_1, molar_mass_2], 
+                    system = feos_pcsaft.pure_or_binary(
+                        temperature + 273.15, 
+                        pressure, 
+                        [molar_mass_1, molar_mass_2], 
+                        mol_fracs=[molar_fraction_1, 1-molar_fraction_1],
                         m=[m_1, m_2], 
-                        s=[s_1, s_2], 
-                        e=[e_1, e_2], 
-                        vol_a=[vol_assoc_1, vol_assoc_2], 
-                        e_assoc=[e_assoc_1, e_assoc_2], 
+                        sigma=[s_1, s_2], 
+                        epsilon_k=[e_1, e_2], 
+                        kappa_ab=[vol_assoc_1, vol_assoc_2], 
+                        epsilon_k_ab=[e_assoc_1, e_assoc_2], 
                         k_ij=k_12
                     )
             except Exception as e:
@@ -481,25 +476,20 @@ def pcsaft(request):
                 return redirect('pcsaft')
             
             print(system)
-            properties['molar_mass'] = f"{system['molar_mass_mix']:.2f}"
-            properties['molar_density'] = f"{system['molar_dens']:.2f}"
-            properties['mass_density'] = f"{system['mass_dens']:.2f}"
+            # properties['molar_mass'] = f"{system['molar_mass_mix']:.2f}"
+            properties['molar_density'] = f"{system['molar_density']:.2f}"
+            properties['mass_density'] = f"{system['mass_density']:.2f}"
             properties['residual_enthalpy'] = f"{system['residual_enthalpy']:.2f}"
             properties['residual_entropy'] = f"{system['residual_entropy']:.4f}"
-            properties['residual_gibbs'] = f"{system['residual_gibbs']:.2f}"
-            system_fugacity = system['fugacity']
-            properties['fugacity'] = f"{system_fugacity[0]:.4f}"
-            if len(system_fugacity) > 1:
-                properties['fugacity_cossolvent'] = f"{system_fugacity[1]:.4f}"
             properties['compressibility'] = f"{system['compressibility']:.4f}"
-            properties['helmholtz'] = f"{system['helmholtz']:.4f}"
+            properties['helmholtz'] = f"{system['helmholtz_energy']:.4f}"
 
-            try:
-                properties['enthalpy_vaporization'] = f"{system['enthalpy_vap']:.2f}"
-                properties['vapor_pressure'] = f"{system['vap_press']:.2f}"
-            except Exception as e:
-                print(e)
-                messages.warning(request, 'Warning: Enthalpy of vaporization could not be calculated.')
+            # try:
+            #     properties['enthalpy_vaporization'] = f"{system['enthalpy_vap']:.2f}"
+            #     properties['vapor_pressure'] = f"{system['vap_press']:.2f}"
+            # except Exception as e:
+            #     print(e)
+            #     messages.warning(request, 'Warning: Enthalpy of vaporization could not be calculated.')
     else:
         form = GeneralPCSAFTForm()
 
